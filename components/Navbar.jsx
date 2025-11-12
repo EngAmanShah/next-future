@@ -33,9 +33,7 @@ export default function Navbar({ lang }) {
       isDropdown: true,
     },
     { href: "/about-us", label: lang === "ar" ? "من نحن" : "About Us" },
-    // { href: "/", label: lang === "ar" ? "المنتجات" : "Our Products" },
     { href: "/contact-us", label: lang === "ar" ? "اتصل بنا" : "Contact Us" },
-    // { href: "/", label: lang === "ar" ? "المدونة" : "Blog" },
   ];
 
   if (!pathname || pathname?.startsWith(`/${lang}/admin`)) return null;
@@ -60,119 +58,56 @@ export default function Navbar({ lang }) {
     appDevelopment: {
       title: {
         en: "App Development",
-        ar: "تطوير التطبيقات"
+        ar: "تطوير التطبيقات",
       },
       services: [
-        {
-          en: "Mobile App Development",
-          ar: "تطوير تطبيقات الجوال"
-        },
-        {
-          en: "Android App Development",
-          ar: "تطوير تطبيقات أندرويد"
-        },
-        {
-          en: "iOS App Development",
-          ar: "تطوير تطبيقات iOS"
-        },
-        {
-          en: "Web App Development",
-          ar: "تطوير تطبيقات الويب"
-        },
-        {
-          en: "UX/UI Design",
-          ar: "تصميم واجهة المستخدم وتجربة المستخدم"
-        }
-      ]
+        { en: "Mobile App Development", ar: "تطوير تطبيقات الجوال" },
+        { en: "Android App Development", ar: "تطوير تطبيقات أندرويد" },
+        { en: "iOS App Development", ar: "تطوير تطبيقات iOS" },
+        { en: "Web App Development", ar: "تطوير تطبيقات الويب" },
+        { en: "UX/UI Design", ar: "تصميم واجهة المستخدم وتجربة المستخدم" },
+      ],
     },
     softwareDevelopment: {
       title: {
         en: "Software & Development",
-        ar: "البرمجيات والتطوير"
+        ar: "البرمجيات والتطوير",
       },
       services: [
-        {
-          en: "Backend Development",
-          ar: "تطوير الواجهة الخلفية"
-        },
-        {
-          en: "Frontend Development",
-          ar: "تطوير الواجهة الأمامية"
-        },
-        {
-          en: "Custom Software Development",
-          ar: "تطوير البرمجيات المخصصة"
-        },
-        {
-          en: "Software Testing",
-          ar: "اختبار البرمجيات"
-        },
-        {
-          en: "SAAS Development",
-          ar: "تطوير البرمجيات كخدمة"
-        },
-        {
-          en: "MVP Development",
-          ar: "تطوير المنتج الأدنى القابل للتطبيق"
-        },
-        {
-          en: "Software Consulting",
-          ar: "استشارات البرمجيات"
-        },
-        {
-          en: "Enterprise Software / ERP",
-          ar: "برمجيات المؤسسات / تخطيط موارد المؤسسات"
-        }
-      ]
+        { en: "Backend Development", ar: "تطوير الواجهة الخلفية" },
+        { en: "Frontend Development", ar: "تطوير الواجهة الأمامية" },
+        { en: "Custom Software Development", ar: "تطوير البرمجيات المخصصة" },
+        { en: "Software Testing", ar: "اختبار البرمجيات" },
+        { en: "SAAS Development", ar: "تطوير البرمجيات كخدمة" },
+        { en: "MVP Development", ar: "تطوير المنتج الأدنى القابل للتطبيق" },
+        { en: "Software Consulting", ar: "استشارات البرمجيات" },
+        { en: "Enterprise Software / ERP", ar: "برمجيات المؤسسات / تخطيط موارد المؤسسات" },
+      ],
     },
     creativeDigital: {
       title: {
         en: "Creative & Digital",
-        ar: "الإبداع والرقمي"
+        ar: "الإبداع والرقمي",
       },
       services: [
-        {
-          en: "Digital Marketing",
-          ar: "التسويق الرقمي"
-        },
-        {
-          en: "Graphic Design",
-          ar: "التصميم الجرافيكي"
-        },
-        {
-          en: "Profile & Logo Design",
-          ar: "تصميم الملف الشخصي والشعارات"
-        },
-        {
-          en: "Video Editing",
-          ar: "مونتاج الفيديو"
-        },
-        {
-          en: "Animation & Video Shooting",
-          ar: "الرسوم المتحركة وتصوير الفيديو"
-        }
-      ]
+        { en: "Digital Marketing", ar: "التسويق الرقمي" },
+        { en: "Graphic Design", ar: "التصميم الجرافيكي" },
+        { en: "Profile & Logo Design", ar: "تصميم الملف الشخصي والشعارات" },
+        { en: "Video Editing", ar: "مونتاج الفيديو" },
+        { en: "Animation & Video Shooting", ar: "الرسوم المتحركة وتصوير الفيديو" },
+      ],
     },
     itSocialMedia: {
       title: {
         en: "IT & Social Media",
-        ar: "تكنولوجيا المعلومات ووسائل التواصل"
+        ar: "تكنولوجيا المعلومات ووسائل التواصل",
       },
       services: [
-        {
-          en: "Information Technology",
-          ar: "تكنولوجيا المعلومات"
-        },
-        {
-          en: "Social Media Marketing",
-          ar: "التسويق عبر وسائل التواصل الاجتماعي"
-        },
-        {
-          en: "Management Solutions",
-          ar: "حلول الإدارة"
-        }
-      ]
-    }
+        { en: "Information Technology", ar: "تكنولوجيا المعلومات" },
+        { en: "Social Media Marketing", ar: "التسويق عبر وسائل التواصل الاجتماعي" },
+        { en: "Management Solutions", ar: "حلول الإدارة" },
+      ],
+    },
   };
 
   return (
@@ -202,22 +137,16 @@ export default function Navbar({ lang }) {
             <li
               key={index}
               className={`nav-item ${
-                item.label === (lang === "ar" ? "الخدمات" : "Services")
-                  ? "dropdown mega-menu"
-                  : ""
+                item.isDropdown ? "dropdown mega-menu" : ""
               } mx-2`}
               onMouseEnter={
-                item.label === (lang === "ar" ? "الخدمات" : "Services")
-                  ? handleMouseEnter
-                  : null
+                item.isDropdown ? handleMouseEnter : undefined
               }
               onMouseLeave={
-                item.label === (lang === "ar" ? "الخدمات" : "Services")
-                  ? handleMouseLeave
-                  : null
+                item.isDropdown ? handleMouseLeave : undefined
               }
             >
-              {item.label === (lang === "ar" ? "الخدمات" : "Services") ? (
+              {item.isDropdown ? (
                 <>
                   <Link
                     href={`/${lang}${item.href}`}
@@ -234,85 +163,25 @@ export default function Navbar({ lang }) {
                     style={lang === "ar" ? { textAlign: "right" } : {}}
                   >
                     <div className="row">
-                      {/* Column 1 - App Development */}
-                      <div className="col-md-3">
-                        <h6 className="fw-bold mb-3 border-bottom pb-2">
-                          {servicesData.appDevelopment.title[lang]}
-                        </h6>
-                        <ul className="list-unstyled">
-                          {servicesData.appDevelopment.services.map((service, idx) => (
-                            <li key={idx}>
-                              <Link 
-                                href={`/${lang}/service`} 
-                                className="dropdown-item"
-                                style={lang === "ar" ? { textAlign: "right" } : {}}
-                              >
-                                {service[lang]}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Column 2 - Software Development */}
-                      <div className="col-md-3">
-                        <h6 className="fw-bold mb-3 border-bottom pb-2">
-                          {servicesData.softwareDevelopment.title[lang]}
-                        </h6>
-                        <ul className="list-unstyled">
-                          {servicesData.softwareDevelopment.services.map((service, idx) => (
-                            <li key={idx}>
-                              <Link 
-                                href={`/${lang}/service`} 
-                                className="dropdown-item"
-                                style={lang === "ar" ? { textAlign: "right" } : {}}
-                              >
-                                {service[lang]}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Column 3 - Creative & Digital */}
-                      <div className="col-md-3">
-                        <h6 className="fw-bold mb-3 border-bottom pb-2">
-                          {servicesData.creativeDigital.title[lang]}
-                        </h6>
-                        <ul className="list-unstyled">
-                          {servicesData.creativeDigital.services.map((service, idx) => (
-                            <li key={idx}>
-                              <Link 
-                                href={`/${lang}/service`} 
-                                className="dropdown-item"
-                                style={lang === "ar" ? { textAlign: "right" } : {}}
-                              >
-                                {service[lang]}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Column 4 - IT & Social Media */}
-                      <div className="col-md-3">
-                        <h6 className="fw-bold mb-3 border-bottom pb-2">
-                          {servicesData.itSocialMedia.title[lang]}
-                        </h6>
-                        <ul className="list-unstyled">
-                          {servicesData.itSocialMedia.services.map((service, idx) => (
-                            <li key={idx}>
-                              <Link 
-                                href={`/${lang}/service`} 
-                                className="dropdown-item"
-                                style={lang === "ar" ? { textAlign: "right" } : {}}
-                              >
-                                {service[lang]}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      {Object.values(servicesData).map((section, idx) => (
+                        <div className="col-md-3" key={idx}>
+                          <h6 className="fw-bold mb-3 border-bottom pb-2">
+                            {section.title[lang]}
+                          </h6>
+                          <ul className="list-unstyled">
+                            {section.services.map((service, sidx) => (
+                              <li key={sidx}>
+                                <Link
+                                  href={`/${lang}/service`}
+                                  className="dropdown-item"
+                                >
+                                  {service[lang]}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </>
@@ -339,7 +208,10 @@ export default function Navbar({ lang }) {
           >
             <FaWhatsapp /> {lang === "ar" ? "واتساب" : "WhatsApp"}
           </a>
-          <a href={`tel:${callNumber}`} className="btn btn-primary d-flex align-items-center gap-2">
+          <a
+            href={`tel:${callNumber}`}
+            className="btn btn-primary d-flex align-items-center gap-2"
+          >
             <FaPhone /> {lang === "ar" ? "اتصل" : "Call"}
           </a>
         </div>
@@ -357,7 +229,59 @@ export default function Navbar({ lang }) {
         </button>
       </div>
 
-      {/* Styles */}
+      {/* ✅ Mobile Offcanvas Menu */}
+      <div
+        className="offcanvas offcanvas-end"
+        tabIndex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
+            {lang === "ar" ? "القائمة" : "Menu"}
+          </h5>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="offcanvas-body">
+          <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+            {menuItems.map((item, index) => (
+              <li key={index} className="nav-item">
+                <Link
+                  href={`/${lang}${item.href === "/" ? "" : item.href}`}
+                  className={`nav-link ${isActive(item.href) ? "active" : ""}`}
+                  data-bs-dismiss="offcanvas"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-4 d-flex flex-column gap-2">
+            <LanguageSwitcher lang={lang} />
+            <a
+              href={`https://wa.me/${whatsappNumber}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-success d-flex align-items-center gap-2"
+            >
+              <FaWhatsapp /> {lang === "ar" ? "واتساب" : "WhatsApp"}
+            </a>
+            <a
+              href={`tel:${callNumber}`}
+              className="btn btn-primary d-flex align-items-center gap-2"
+            >
+              <FaPhone /> {lang === "ar" ? "اتصل" : "Call"}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* 🔹 Styles */}
       <style jsx global>{`
         .navbar-nav .nav-link {
           font-weight: 500;
@@ -402,7 +326,9 @@ export default function Navbar({ lang }) {
 
         .mega-menu-content .dropdown-item:hover {
           color: #399dd9;
-          transform: ${lang === "ar" ? "translateX(-4px)" : "translateX(4px)"};
+          transform: ${lang === "ar"
+            ? "translateX(-4px)"
+            : "translateX(4px)"};
           background: transparent;
         }
 
@@ -411,7 +337,6 @@ export default function Navbar({ lang }) {
           font-weight: 600;
         }
 
-        /* RTL Support */
         [dir="rtl"] .mega-menu-content {
           right: 0;
           left: auto;
@@ -435,18 +360,9 @@ export default function Navbar({ lang }) {
           margin-right: 1rem !important;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
           .mega-menu-content {
-            position: static !important;
-            transform: none !important;
-            opacity: 1 !important;
-            visibility: visible !important;
             display: none;
-          }
-          
-          .mega-menu-content.show {
-            display: block;
           }
         }
       `}</style>
