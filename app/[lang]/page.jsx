@@ -9,7 +9,7 @@ import Team from "@/components/Team/Team";
 import Skills from "@/components/Skills/Skills";
 import StartProject from "@/components/StartProject/StartProject";
 import ValueSlider from "@/components/ValueSlider";
-import TeamSection from '@/components/workteam/Team';
+import TeamSection from '@/components/workteam/team';
 
 export default async function Home({ params }) {
   const resolvedParams = await params;
