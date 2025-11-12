@@ -8,14 +8,14 @@ export async function generateMetadata({ params }) {
   
   const translations = {
     en: {
-      title: "App Development Services | BrandRaize",
+      title: "App Development Services | Next Future Information Technology",
       description: "Exceptional mobile and web app development solutions. iOS, Android, React Native, and enterprise apps tailored to grow your business.",
-      keywords: "app development, mobile apps, iOS development, Android apps, React Native, Flutter, enterprise apps, API integration, BrandRaize",
+      keywords: "app development, mobile apps, iOS development, Android apps, React Native, Flutter, enterprise apps, API integration, Next Future Information Technology",
     },
     ar: {
-      title: "خدمات تطوير التطبيقات | براند رايز",
+      title: "خدمات تطوير التطبيقات | نكست فيوتشر لتقنية المعلومات",
       description: "حلول تطوير تطبيقات ويب وجوال استثنائية. تطبيقات iOS و Android و React Native و Flutter لتطوير أعمالك.",
-      keywords: "تطوير تطبيقات, تطبيقات الجوال, تطوير iOS, تطوير Android, React Native, Flutter, تطبيقات المؤسسات, تكامل API, براند رايز",
+      keywords: "تطوير تطبيقات, تطبيقات الجوال, تطوير iOS, تطوير Android, React Native, Flutter, تطبيقات المؤسسات, تكامل API, نكست فيوتشر لتقنية المعلومات",
     },
   };
 
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }) {
       title: t.title,
       description: t.description,
       url: `https://brandraize.com/app-development/${lang}`,
-      siteName: "BrandRaize",
+      siteName: "Next Future Information Technology",
       images: [
         {
           url: "https://brandraize.com/images/app-development-banner.jpg",

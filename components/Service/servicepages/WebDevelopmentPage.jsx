@@ -14,7 +14,7 @@ export default function WebDevelopmentPage({ params }) {
   const t = {
     en: {
       heroTitle: "We Create Exceptionally Creative Web Designs",
-      heroDescription: "BrandRaize knows your high standards and loves to meet them ingeniously.",
+      heroDescription: "Next Future  knows your high standards and loves to meet them ingeniously.",
       services: [
         { title: "E-commerce Website Development", description: "Custom solutions for online stores." },
         { title: "CMS/Custom Website Development", description: "Tailored content management systems and custom-built websites." },
@@ -31,7 +31,7 @@ export default function WebDevelopmentPage({ params }) {
     },
     ar: {
       heroTitle: "نقوم بإنشاء تصاميم ويب مبتكرة بشكل استثنائي",
-      heroDescription: "براند رايز تعرف معاييرك العالية وتحب تلبيتها ببراعة.",
+      heroDescription: "نكست فيوتشر لتقنية المعلومات تعرف معاييرك العالية وتحب تلبيتها ببراعة.",
       services: [
         { title: "تطوير مواقع التجارة الإلكترونية", description: "حلول مخصصة للمتاجر عبر الإنترنت." },
         { title: "تطوير أنظمة إدارة المحتوى/المواقع المخصصة", description: "أنظمة إدارة محتوى ومواقع مصممة خصيصًا." },

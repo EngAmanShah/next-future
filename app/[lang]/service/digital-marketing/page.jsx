@@ -8,18 +8,18 @@ export async function generateMetadata({ params }) {
 
   const translations = {
     en: {
-      title: "Digital Marketing Services | BrandRaize",
+      title: "Digital Marketing Services | Next Future Information Technology",
       description:
-        "Boost your online presence with BrandRaize’s digital marketing services: SEO, PPC, social media, influencer, and video marketing strategies that deliver measurable results.",
+        "Boost your online presence with Next Future Information Technology’s digital marketing services: SEO, PPC, social media, influencer, and video marketing strategies that deliver measurable results.",
       keywords:
-        "digital marketing, SEO, PPC, social media marketing, influencer marketing, email campaigns, video marketing, BrandRaize",
+        "digital marketing, SEO, PPC, social media marketing, influencer marketing, email campaigns, video marketing, Next Future Information Technology",
     },
     ar: {
-      title: "خدمات التسويق الرقمي | براند رايز",
+      title: "خدمات التسويق الرقمي | نكست فيوتشر لتقنية المعلومات",
       description:
-        "عزز وجودك على الإنترنت مع خدمات التسويق الرقمي من براند رايز: تحسين محركات البحث، PPC، التسويق عبر وسائل التواصل الاجتماعي، المؤثرين، والفيديو.",
+        "عزز وجودك على الإنترنت مع خدمات التسويق الرقمي من نكست فيوتشر لتقنية المعلومات: تحسين محركات البحث، PPC، التسويق عبر وسائل التواصل الاجتماعي، المؤثرين، والفيديو.",
       keywords:
-        "التسويق الرقمي, تحسين محركات البحث, إعلانات PPC, التسويق عبر وسائل التواصل الاجتماعي, التسويق عبر المؤثرين, التسويق عبر البريد الإلكتروني, التسويق بالفيديو, براند رايز",
+        "التسويق الرقمي, تحسين محركات البحث, إعلانات PPC, التسويق عبر وسائل التواصل الاجتماعي, التسويق عبر المؤثرين, التسويق عبر البريد الإلكتروني, التسويق بالفيديو, نكست فيوتشر لتقنية المعلومات",
     },
   };
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }) {
       title: t.title,
       description: t.description,
       url: `https://brandraize.com/digital-marketing/${lang}`,
-      siteName: "BrandRaize",
+      siteName: "Next Future Information Technology",
       images: [
         {
           url: "https://brandraize.com/images/digital-marketing-banner.jpg",

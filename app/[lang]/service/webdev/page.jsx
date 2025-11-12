@@ -6,18 +6,18 @@ export async function generateMetadata({ params }) {
 
   const translations = {
     en: {
-      title: "Web Development Services | BrandRaize",
+      title: "Web Development Services | Next Future Information Technology",
       description:
-        "BrandRaize delivers creative and scalable web development services: e-commerce, CMS, custom websites, e-learning, social platforms, and CRM solutions.",
+        "Next Future Information Technology delivers creative and scalable web development services: e-commerce, CMS, custom websites, e-learning, social platforms, and CRM solutions.",
       keywords:
-        "web development, e-commerce websites, CMS development, custom websites, e-learning platforms, social networking sites, CRM platforms, BrandRaize",
+        "web development, e-commerce websites, CMS development, custom websites, e-learning platforms, social networking sites, CRM platforms, Next Future Information Technology",
     },
     ar: {
-      title: "خدمات تطوير المواقع | براند رايز",
+      title: "خدمات تطوير المواقع | نكست فيوتشر لتقنية المعلومات",
       description:
-        "براند رايز تقدم خدمات تطوير مواقع مبتكرة وقابلة للتوسع: التجارة الإلكترونية، أنظمة إدارة المحتوى، المواقع المخصصة، التعلم الإلكتروني، الشبكات الاجتماعية، ومنصات إدارة العملاء.",
+        "نكست فيوتشر لتقنية المعلومات تقدم خدمات تطوير مواقع مبتكرة وقابلة للتوسع: التجارة الإلكترونية، أنظمة إدارة المحتوى، المواقع المخصصة، التعلم الإلكتروني، الشبكات الاجتماعية، ومنصات إدارة العملاء.",
       keywords:
-        "تطوير مواقع, مواقع التجارة الإلكترونية, تطوير أنظمة إدارة المحتوى, مواقع مخصصة, منصات التعلم الإلكتروني, الشبكات الاجتماعية, منصات CRM, براند رايز",
+        "تطوير مواقع, مواقع التجارة الإلكترونية, تطوير أنظمة إدارة المحتوى, مواقع مخصصة, منصات التعلم الإلكتروني, الشبكات الاجتماعية, منصات CRM, نكست فيوتشر لتقنية المعلومات",
     },
   };
 
@@ -30,11 +30,11 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: t.title,
       description: t.description,
-      url: `https://brandraize.com/web-development/${lang}`,
-      siteName: "BrandRaize",
+      url: `https://Next Future Information Technology.com/web-development/${lang}`,
+      siteName: "Next Future Information Technology",
       images: [
         {
-          url: "https://brandraize.com/images/web-development-banner.jpg",
+          url: "https://Next Future Information Technology.com/images/web-development-banner.jpg",
           width: 1200,
           height: 630,
           alt: t.title,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t.title,
       description: t.description,
-      images: ["https://brandraize.com/images/web-development-banner.jpg"],
+      images: ["https://Next Future Information Technology.com/images/web-development-banner.jpg"],
     },
   };
 }

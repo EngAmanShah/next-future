@@ -6,18 +6,18 @@ export async function generateMetadata({ params }) {
 
   const translations = {
     en: {
-      title: "Mobile App Development Services | BrandRaize",
+      title: "Mobile App Development Services | Next Future Information Technology",
       description:
-        "Transform your ideas into stunning mobile applications with BrandRaize. We build iOS, Android, and cross-platform apps with secure backends, seamless integration, and long-term support.",
+        "Transform your ideas into stunning mobile applications with Next Future Information Technology. We build iOS, Android, and cross-platform apps with secure backends, seamless integration, and long-term support.",
       keywords:
-        "mobile app development, iOS apps, Android apps, cross-platform apps, React Native, Flutter, backend integration, app security, app maintenance, BrandRaize",
+        "mobile app development, iOS apps, Android apps, cross-platform apps, React Native, Flutter, backend integration, app security, app maintenance, Next Future Information Technology",
     },
     ar: {
-      title: "خدمات تطوير تطبيقات الموبايل | براند رايز",
+      title: "خدمات تطوير تطبيقات الموبايل | نكست فيوتشر لتقنية المعلومات",
       description:
-        "حوّل أفكارك إلى تطبيقات موبايل مذهلة مع براند رايز. نحن نبني تطبيقات iOS وأندرويد ومتعددة المنصات مع تكامل آمن ودعم طويل الأمد.",
+        "حوّل أفكارك إلى تطبيقات موبايل مذهلة مع نكست فيوتشر لتقنية المعلومات. نحن نبني تطبيقات iOS وأندرويد ومتعددة المنصات مع تكامل آمن ودعم طويل الأمد.",
       keywords:
-        "تطوير تطبيقات الموبايل, تطبيقات iOS, تطبيقات أندرويد, تطبيقات متعددة المنصات, React Native, Flutter, تكامل الخوادم, أمان التطبيقات, صيانة التطبيقات, براند رايز",
+        "تطوير تطبيقات الموبايل, تطبيقات iOS, تطبيقات أندرويد, تطبيقات متعددة المنصات, React Native, Flutter, تكامل الخوادم, أمان التطبيقات, صيانة التطبيقات, نكست فيوتشر لتقنية المعلومات",
     },
   };
 
@@ -30,11 +30,11 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: t.title,
       description: t.description,
-      url: `https://brandraize.com/mobile-app/${lang}`,
-      siteName: "BrandRaize",
+      url: `https://Next Future Information Technology.com/mobile-app/${lang}`,
+      siteName: "Next Future Information Technology",
       images: [
         {
-          url: "https://brandraize.com/images/mobile-app-banner.jpg",
+          url: "https://Next Future Information Technology.com/images/mobile-app-banner.jpg",
           width: 1200,
           height: 630,
           alt: t.title,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t.title,
       description: t.description,
-      images: ["https://brandraize.com/images/mobile-app-banner.jpg"],
+      images: ["https://Next Future Information Technology.com/images/mobile-app-banner.jpg"],
     },
   };
 }

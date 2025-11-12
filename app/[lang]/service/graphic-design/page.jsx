@@ -8,18 +8,18 @@ export async function generateMetadata({ params }) {
 
   const translations = {
     en: {
-      title: "Graphic Design Services | BrandRaize",
+      title: "Graphic Design Services | Next Future Information Technology",
       description:
-        "Bring your brand to life with stunning graphic design services by BrandRaize. From logos and branding to UI/UX, print, and creative concepts.",
+        "Bring your brand to life with stunning graphic design services by Next Future Information Technology. From logos and branding to UI/UX, print, and creative concepts.",
       keywords:
-        "graphic design, logo design, brand identity, UI/UX design, print design, illustrations, creative concept development, BrandRaize",
+        "graphic design, logo design, brand identity, UI/UX design, print design, illustrations, creative concept development, Next Future Information Technology",
     },
     ar: {
-      title: "خدمات التصميم الجرافيكي | براند رايز",
+      title: "خدمات التصميم الجرافيكي | نكست فيوتشر لتقنية المعلومات",
       description:
-        "أطلق العنان لعلامتك التجارية مع خدمات التصميم الجرافيكي من براند رايز: تصميم الشعارات، الهوية البصرية، واجهات المستخدم، المطبوعات، والأفكار الإبداعية.",
+        "أطلق العنان لعلامتك التجارية مع خدمات التصميم الجرافيكي من نكست فيوتشر لتقنية المعلومات: تصميم الشعارات، الهوية البصرية، واجهات المستخدم، المطبوعات، والأفكار الإبداعية.",
       keywords:
-        "تصميم جرافيك, تصميم الشعارات, الهوية البصرية, تصميم واجهات المستخدم, تصميم المطبوعات, الرسومات, براند رايز",
+        "تصميم جرافيك, تصميم الشعارات, الهوية البصرية, تصميم واجهات المستخدم, تصميم المطبوعات, الرسومات, نكست فيوتشر لتقنية المعلومات",
     },
   };
 
@@ -32,11 +32,11 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: t.title,
       description: t.description,
-      url: `https://brandraize.com/graphic-design/${lang}`,
-      siteName: "BrandRaize",
+      url: `https://Next Future Information Technology.com/graphic-design/${lang}`,
+      siteName: "Next Future Information Technology",
       images: [
         {
-          url: "https://brandraize.com/images/graphic-design-banner.jpg",
+          url: "https://Next Future Information Technology.com/images/graphic-design-banner.jpg",
           width: 1200,
           height: 630,
           alt: t.title,
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t.title,
       description: t.description,
-      images: ["https://brandraize.com/images/graphic-design-banner.jpg"],
+      images: ["https://Next Future Information Technology.com/images/graphic-design-banner.jpg"],
     },
   };
 }

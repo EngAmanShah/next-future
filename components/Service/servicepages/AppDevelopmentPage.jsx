@@ -14,7 +14,7 @@ export default function AppDevelopmentPage({ params }) {
   const t = {
     en: {
       heroTitle: "Exceptional App Development Solutions",
-      heroDescription: "BrandRaize delivers innovative mobile and web applications to transform your business.",
+      heroDescription: "Next Future  delivers innovative mobile and web applications to transform your business.",
       services: [
         { title: "Native Mobile App Development", description: "iOS & Android native apps tailored to your needs." },
         { title: "Cross-Platform App Development", description: "React Native & Flutter apps for multiple platforms." },
@@ -31,7 +31,7 @@ export default function AppDevelopmentPage({ params }) {
     },
     ar: {
       heroTitle: "حلول تطوير التطبيقات الاستثنائية",
-      heroDescription: "براند رايز تقدم تطبيقات مبتكرة للويب والجوال لتحويل أعمالك.",
+      heroDescription: "نكست فيوتشر لتقنية المعلومات تقدم تطبيقات مبتكرة للويب والجوال لتحويل أعمالك.",
       services: [
         { title: "تطوير تطبيقات الجوال الأصلية", description: "تطبيقات iOS وAndroid مصممة خصيصًا لاحتياجاتك." },
         { title: "تطوير التطبيقات عبر الأنظمة", description: "تطبيقات React Native وFlutter لمختلف الأنظمة." },

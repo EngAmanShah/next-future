@@ -6,18 +6,18 @@ export async function generateMetadata({ params }) {
 
   const translations = {
     en: {
-      title: "IT Solutions Services | BrandRaize",
+      title: "IT Solutions Services | Next Future Information Technology",
       description:
-        "Innovative IT solutions by BrandRaize: Cloud, Cybersecurity, Infrastructure, Networking, Software Support, and Database Management to grow your business.",
+        "Innovative IT solutions by Next Future Information Technology: Cloud, Cybersecurity, Infrastructure, Networking, Software Support, and Database Management to grow your business.",
       keywords:
-        "IT solutions, cloud services, cybersecurity, IT infrastructure, network management, software support, database management, BrandRaize",
+        "IT solutions, cloud services, cybersecurity, IT infrastructure, network management, software support, database management, Next Future Information Technology",
     },
     ar: {
-      title: "خدمات حلول تكنولوجيا المعلومات | براند رايز",
+      title: "خدمات حلول تكنولوجيا المعلومات | نكست فيوتشر لتقنية المعلومات",
       description:
-        "خدمات تكنولوجيا المعلومات من براند رايز: حلول السحابة، الأمن السيبراني، البنية التحتية، الشبكات، دعم البرمجيات، وإدارة قواعد البيانات لتطوير أعمالك.",
+        "خدمات تكنولوجيا المعلومات من نكست فيوتشر لتقنية المعلومات: حلول السحابة، الأمن السيبراني، البنية التحتية، الشبكات، دعم البرمجيات، وإدارة قواعد البيانات لتطوير أعمالك.",
       keywords:
-        "حلول تكنولوجيا المعلومات, الخدمات السحابية, الأمن السيبراني, البنية التحتية لتكنولوجيا المعلومات, إدارة الشبكات, دعم البرمجيات, إدارة قواعد البيانات, براند رايز",
+        "حلول تكنولوجيا المعلومات, الخدمات السحابية, الأمن السيبراني, البنية التحتية لتكنولوجيا المعلومات, إدارة الشبكات, دعم البرمجيات, إدارة قواعد البيانات, نكست فيوتشر لتقنية المعلومات",
     },
   };
 
@@ -30,11 +30,11 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: t.title,
       description: t.description,
-      url: `https://brandraize.com/it-solutions/${lang}`,
-      siteName: "BrandRaize",
+      url: `https://Next Future Information Technology.com/it-solutions/${lang}`,
+      siteName: "Next Future Information Technology",
       images: [
         {
-          url: "https://brandraize.com/images/it-solutions-banner.jpg",
+          url: "https://Next Future Information Technology.com/images/it-solutions-banner.jpg",
           width: 1200,
           height: 630,
           alt: t.title,
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }) {
       card: "summary_large_image",
       title: t.title,
       description: t.description,
-      images: ["https://brandraize.com/images/it-solutions-banner.jpg"],
+      images: ["https://Next Future Information Technology.com/images/it-solutions-banner.jpg"],
     },
   };
 }

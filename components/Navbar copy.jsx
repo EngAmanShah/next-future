@@ -40,8 +40,8 @@ export default function Navbar({ lang }) {
 
   if (!pathname || pathname?.startsWith(`/${lang}/admin`)) return null;
 
-  const whatsappNumber = "+966539983393";
-  const callNumber = "+966539983393";
+  const whatsappNumber = "+966551981751";
+  const callNumber = "+966551981751";
 
   const handleMouseEnter = () => {
     clearTimeout(hoverTimeout.current);
@@ -243,7 +243,7 @@ export default function Navbar({ lang }) {
                           {servicesData.appDevelopment.services.map((service, idx) => (
                             <li key={idx}>
                               <Link 
-                                href={`/${lang}/service`} 
+                                href={`/${lang}/service/${service.en.toLowerCase().replace(/\s+/g, '-')}`} 
                                 className="dropdown-item"
                                 style={lang === "ar" ? { textAlign: "right" } : {}}
                               >
@@ -263,7 +263,7 @@ export default function Navbar({ lang }) {
                           {servicesData.softwareDevelopment.services.map((service, idx) => (
                             <li key={idx}>
                               <Link 
-                                href={`/${lang}/service`} 
+                                href={`/${lang}/service/${service.en.toLowerCase().replace(/\s+/g, '-')}`} 
                                 className="dropdown-item"
                                 style={lang === "ar" ? { textAlign: "right" } : {}}
                               >
@@ -283,7 +283,7 @@ export default function Navbar({ lang }) {
                           {servicesData.creativeDigital.services.map((service, idx) => (
                             <li key={idx}>
                               <Link 
-                                href={`/${lang}/service`} 
+                                href={`/${lang}/service/${service.en.toLowerCase().replace(/\s+/g, '-')}`} 
                                 className="dropdown-item"
                                 style={lang === "ar" ? { textAlign: "right" } : {}}
                               >
@@ -303,7 +303,7 @@ export default function Navbar({ lang }) {
                           {servicesData.itSocialMedia.services.map((service, idx) => (
                             <li key={idx}>
                               <Link 
-                                href={`/${lang}/service`} 
+                                href={`/${lang}/service/${service.en.toLowerCase().replace(/\s+/g, '-')}`} 
                                 className="dropdown-item"
                                 style={lang === "ar" ? { textAlign: "right" } : {}}
                               >
