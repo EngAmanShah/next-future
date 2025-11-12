@@ -9,217 +9,217 @@ import Image from "next/image";
 
 export default function ValueSlider({ lang = "en" }) {
   const isRTL = lang === "ar";
-  
+
   const slides = [
     {
       title: {
         en: "Custom Software Development",
-        ar: "تطوير البرمجيات المخصصة"
+        ar: "تطوير البرمجيات المخصصة",
       },
       subtitle: {
         en: "Tailored Solutions for Your Business",
-        ar: "حلول مخصصة لأعمالك"
+        ar: "حلول مخصصة لأعمالك",
       },
       description: {
         en: "We create high-quality software tailored to your business needs, ensuring scalability, security, and efficiency across all platforms.",
-        ar: "نقوم بإنشاء برمجيات عالية الجودة مصممة خصيصًا لاحتياجات عملك، مما يضمن قابلية التوسع والأمان والكفاءة على جميع المنصات."
+        ar: "نقوم بإنشاء برمجيات عالية الجودة مصممة خصيصًا لاحتياجات عملك، مما يضمن قابلية التوسع والأمان والكفاءة على جميع المنصات.",
       },
       features: [
         {
           en: "Web & mobile applications",
-          ar: "تطبيقات الويب والجوال"
+          ar: "تطبيقات الويب والجوال",
         },
         {
           en: "Scalable architecture",
-          ar: "هندسة قابلة للتوسع"
+          ar: "هندسة قابلة للتوسع",
         },
         {
           en: "Secure coding practices",
-          ar: "ممارسات برمجة آمنة"
+          ar: "ممارسات برمجة آمنة",
         },
         {
           en: "Cross-platform compatibility",
-          ar: "التوافق عبر المنصات"
-        }
+          ar: "التوافق عبر المنصات",
+        },
       ],
       image: "/cms.jpg",
     },
     {
       title: {
         en: "AI & Machine Learning Solutions",
-        ar: "حلول الذكاء الاصطناعي والتعلم الآلي"
+        ar: "حلول الذكاء الاصطناعي والتعلم الآلي",
       },
       subtitle: {
         en: "Smart Automation & Predictive Insights",
-        ar: "الأتمتة الذكية والرؤى التنبؤية"
+        ar: "الأتمتة الذكية والرؤى التنبؤية",
       },
       description: {
         en: "Leverage AI to automate tasks, analyze data, and make smarter business decisions with our advanced machine learning models.",
-        ar: "استفد من الذكاء الاصطناعي لأتمتة المهام وتحليل البيانات واتخاذ قرارات أعمال أكثر ذكاءً باستخدام نماذج التعلم الآلي المتقدمة."
+        ar: "استفد من الذكاء الاصطناعي لأتمتة المهام وتحليل البيانات واتخاذ قرارات أعمال أكثر ذكاءً باستخدام نماذج التعلم الآلي المتقدمة.",
       },
       features: [
         {
           en: "AI-powered automation",
-          ar: "الأتمتة المدعومة بالذكاء الاصطناعي"
+          ar: "الأتمتة المدعومة بالذكاء الاصطناعي",
         },
         {
           en: "Predictive analytics",
-          ar: "التحليلات التنبؤية"
+          ar: "التحليلات التنبؤية",
         },
         {
           en: "Data-driven decision making",
-          ar: "اتخاذ القرارات القائمة على البيانات"
+          ar: "اتخاذ القرارات القائمة على البيانات",
         },
         {
           en: "Custom ML models",
-          ar: "نماذج تعلم آلي مخصصة"
-        }
+          ar: "نماذج تعلم آلي مخصصة",
+        },
       ],
       image: "/smart.png",
     },
     {
       title: {
         en: "Cloud Solutions",
-        ar: "حلول الحوسبة السحابية"
+        ar: "حلول الحوسبة السحابية",
       },
       subtitle: {
         en: "Reliable & Scalable Cloud Services",
-        ar: "خدمات سحابية موثوقة وقابلة للتوسع"
+        ar: "خدمات سحابية موثوقة وقابلة للتوسع",
       },
       description: {
         en: "We provide cloud architecture, migration, and management services to help your business scale efficiently while ensuring security and performance.",
-        ar: "نوفر خدمات هندسة السحابة والهجرة والإدارة لمساعدة عملك على التوسع بكفاءة مع ضمان الأمان والأداء."
+        ar: "نوفر خدمات هندسة السحابة والهجرة والإدارة لمساعدة عملك على التوسع بكفاءة مع ضمان الأمان والأداء.",
       },
       features: [
         {
           en: "Cloud infrastructure design",
-          ar: "تصميم البنية التحتية السحابية"
+          ar: "تصميم البنية التحتية السحابية",
         },
         {
           en: "Migration & deployment",
-          ar: "الهجرة والنشر"
+          ar: "الهجرة والنشر",
         },
         {
           en: "High availability & security",
-          ar: "التوافر العالي والأمان"
+          ar: "التوافر العالي والأمان",
         },
         {
           en: "Cost optimization",
-          ar: "تحسين التكاليف"
-        }
+          ar: "تحسين التكاليف",
+        },
       ],
       image: "/cloud.png",
     },
     {
       title: {
         en: "Cybersecurity Services",
-        ar: "خدمات الأمن السيبراني"
+        ar: "خدمات الأمن السيبراني",
       },
       subtitle: {
         en: "Protect Your Digital Assets",
-        ar: "حماية أصولك الرقمية"
+        ar: "حماية أصولك الرقمية",
       },
       description: {
         en: "Comprehensive cybersecurity solutions to safeguard your business from threats, ensuring data integrity, privacy, and compliance.",
-        ar: "حلول شاملة للأمن السيبراني لحماية عملك من التهديدات، وضمان سلامة البيانات والخصوصية والامتثال."
+        ar: "حلول شاملة للأمن السيبراني لحماية عملك من التهديدات، وضمان سلامة البيانات والخصوصية والامتثال.",
       },
       features: [
         {
           en: "Threat detection & prevention",
-          ar: "كشف التهديدات والوقاية منها"
+          ar: "كشف التهديدات والوقاية منها",
         },
         {
           en: "Network & endpoint security",
-          ar: "أمان الشبكة ونقاط النهاية"
+          ar: "أمان الشبكة ونقاط النهاية",
         },
         {
           en: "Data encryption & backup",
-          ar: "تشفير البيانات والنسخ الاحتياطي"
+          ar: "تشفير البيانات والنسخ الاحتياطي",
         },
         {
           en: "Compliance management",
-          ar: "إدارة الامتثال"
-        }
+          ar: "إدارة الامتثال",
+        },
       ],
       image: "/cyber-security.png",
     },
     {
       title: {
         en: "Mobile App Development",
-        ar: "تطوير تطبيقات الجوال"
+        ar: "تطوير تطبيقات الجوال",
       },
       subtitle: {
         en: "Engaging & User-Friendly Apps",
-        ar: "تطبيقات جذابة وسهلة الاستخدام"
+        ar: "تطبيقات جذابة وسهلة الاستخدام",
       },
       description: {
         en: "We design and develop high-performance mobile apps for Android and iOS, focusing on user experience and functionality.",
-        ar: "نصمم ونطور تطبيقات جوال عالية الأداء لنظامي Android و iOS، مع التركيز على تجربة المستخدم والوظائف."
+        ar: "نصمم ونطور تطبيقات جوال عالية الأداء لنظامي Android و iOS، مع التركيز على تجربة المستخدم والوظائف.",
       },
       features: [
         {
           en: "iOS & Android apps",
-          ar: "تطبيقات iOS و Android"
+          ar: "تطبيقات iOS و Android",
         },
         {
           en: "Intuitive UI/UX design",
-          ar: "تصميم واجهة مستخدم وتجربة مستخدم بديهية"
+          ar: "تصميم واجهة مستخدم وتجربة مستخدم بديهية",
         },
         {
           en: "Performance optimization",
-          ar: "تحسين الأداء"
+          ar: "تحسين الأداء",
         },
         {
           en: "App maintenance & updates",
-          ar: "صيانة التطبيقات والتحديثات"
-        }
+          ar: "صيانة التطبيقات والتحديثات",
+        },
       ],
       image: "/mobile-app.png",
     },
     {
       title: {
         en: "IT Consulting & Support",
-        ar: "استشارات تكنولوجيا المعلومات والدعم"
+        ar: "استشارات تكنولوجيا المعلومات والدعم",
       },
       subtitle: {
         en: "Expert Guidance for Your Tech Needs",
-        ar: "توجيه خبير لاحتياجاتك التقنية"
+        ar: "توجيه خبير لاحتياجاتك التقنية",
       },
       description: {
         en: "Our IT consulting services help businesses implement technology strategies that drive growth, efficiency, and innovation.",
-        ar: "تساعد خدمات استشارات تكنولوجيا المعلومات الخاصة بنا الشركات على تنفيذ استراتيجيات التكنولوجيا التي تعزز النمو والكفاءة والابتكار."
+        ar: "تساعد خدمات استشارات تكنولوجيا المعلومات الخاصة بنا الشركات على تنفيذ استراتيجيات التكنولوجيا التي تعزز النمو والكفاءة والابتكار.",
       },
       features: [
         {
           en: "Technology strategy planning",
-          ar: "تخطيط استراتيجية التكنولوجيا"
+          ar: "تخطيط استراتيجية التكنولوجيا",
         },
         {
           en: "System integration",
-          ar: "تكامل الأنظمة"
+          ar: "تكامل الأنظمة",
         },
         {
           en: "IT support & maintenance",
-          ar: "دعم تكنولوجيا المعلومات والصيانة"
+          ar: "دعم تكنولوجيا المعلومات والصيانة",
         },
         {
           en: "Business process optimization",
-          ar: "تحسين عمليات الأعمال"
-        }
+          ar: "تحسين عمليات الأعمال",
+        },
       ],
       image: "/it.png",
-    }
+    },
   ];
 
   const content = {
     heading: {
       en: "We Provide These Services",
-      ar: "نحن نقدم هذه الخدمات"
+      ar: "نحن نقدم هذه الخدمات",
     },
     subheading: {
       en: "Comprehensive door solutions and structural steel fabrication services for commercial, industrial, and residential applications",
-      ar: "حلول شاملة للأبواب وخدمات تصنيع الصلب الهيكلي للتطبيقات التجارية والصناعية والسكنية"
-    }
+      ar: "حلول شاملة للأبواب وخدمات تصنيع الصلب الهيكلي للتطبيقات التجارية والصناعية والسكنية",
+    },
   };
 
   return (
@@ -239,12 +239,12 @@ export default function ValueSlider({ lang = "en" }) {
           <Swiper
             modules={[Navigation, Pagination, Autoplay]}
             navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
             }}
             pagination={{
               clickable: true,
-              el: '.swiper-pagination',
+              el: ".swiper-pagination",
             }}
             autoplay={{ delay: 5000 }}
             loop={true}
@@ -252,16 +252,21 @@ export default function ValueSlider({ lang = "en" }) {
             dir={isRTL ? "rtl" : "ltr"}
           >
             {slides.map((slide, index) => (
-              <SwiperSlide key={index} className="StackedSlider_slide StackedSlider_baseSlide">
+              <SwiperSlide
+                key={index}
+                className="StackedSlider_slide StackedSlider_baseSlide"
+              >
                 <div className="ValueProposition_slideContent">
                   {/* Left Content */}
-                  <div className={`ValueProposition_left ${isRTL ? 'ValueProposition_rightOrder' : ''}`}>
+                  <div
+                    className={`ValueProposition_left ${
+                      isRTL ? "ValueProposition_rightOrder" : ""
+                    }`}
+                  >
                     <div className="ValueProposition_badge">
                       {slide.title[lang]}
                     </div>
-                    <h2 className="sectionTitle">
-                      {slide.subtitle[lang]}
-                    </h2>
+                    <h2 className="sectionTitle">{slide.subtitle[lang]}</h2>
                     <p className="sectionDescription">
                       {slide.description[lang]}
                     </p>
@@ -278,7 +283,11 @@ export default function ValueSlider({ lang = "en" }) {
                   </div>
 
                   {/* Right Image */}
-                  <div className={`ValueProposition_right ${isRTL ? 'ValueProposition_leftOrder' : ''}`}>
+                  <div
+                    className={`ValueProposition_right ${
+                      isRTL ? "ValueProposition_leftOrder" : ""
+                    }`}
+                  >
                     <Image
                       src={slide.image}
                       alt={slide.title[lang]}
@@ -292,22 +301,78 @@ export default function ValueSlider({ lang = "en" }) {
             ))}
 
             {/* Navigation Arrows */}
-            <div className={`StackedSlider_arrows ${isRTL ? 'StackedSlider_arrowsRTL' : ''}`}>
-              <button 
-                className="swiper-button-prev StackedSlider_arrowButton StackedSlider_arrowLeft" 
+            <div
+              className={`StackedSlider_arrows ${
+                isRTL ? "StackedSlider_arrowsRTL" : ""
+              }`}
+            >
+              <button
+                className="swiper-button-prev StackedSlider_arrowButton StackedSlider_arrowLeft"
                 type="button"
               >
-                <svg fill="none" height="28" viewBox="0 0 42 42" width="28" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M21 6C29.284 6 36 12.716 36 21C36 29.284 29.284 36 21 36C12.716 36 6 29.284 6 21C6 12.716 12.716 6 21 6ZM12 21V21.004C12 21.1345 12.0258 21.2637 12.0759 21.3841C12.126 21.5046 12.1995 21.614 12.292 21.706L18.292 27.706C18.4806 27.8882 18.7332 27.989 18.9954 27.9867C19.2576 27.9844 19.5084 27.8792 19.6938 27.6938C19.8792 27.5084 19.9844 27.2576 19.9867 26.9954C19.989 26.7332 19.8882 26.4806 19.706 26.292L15.414 22H31C31.2652 22 31.5196 21.8946 31.7071 21.7071C31.8946 21.5196 32 21.2652 32 21C32 20.7348 31.8946 20.4804 31.7071 20.2929C31.5196 20.1054 31.2652 20 31 20H15.414L19.708 15.708C19.8902 15.5194 19.991 15.2668 19.9887 15.0046C19.9864 14.7424 19.8812 14.4916 19.6958 14.3062C19.5104 14.1208 19.2596 14.0156 18.9974 14.0133C18.7352 14.011 18.4826 14.1118 18.294 14.294L12.294 20.294C12.2013 20.3866 12.1278 20.4968 12.078 20.618C12.0265 20.7388 12 20.8687 12 21Z" fill="currentColor"></path>
-                </svg>
+                {isRTL ? (
+                  // Right arrow for RTL (next slide)
+                  <svg
+                    fill="none"
+                    height="28"
+                    viewBox="0 0 42 42"
+                    width="28"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 6C12.716 6 6 12.716 6 21C6 29.284 12.716 36 21 36C29.284 36 36 29.284 36 21C36 12.716 29.284 6 21 6ZM30 21V21.004C30 21.1345 29.9742 21.2637 29.9241 21.3841C29.874 21.5046 29.8005 21.614 29.708 21.706L23.708 27.706C23.5194 27.8882 23.2668 27.989 23.0046 27.9867C22.7424 27.9844 22.4916 27.8792 22.3062 27.6938C22.1208 27.5084 22.0156 27.2576 22.0133 26.9954C22.011 26.7332 22.1118 26.4806 22.294 26.292L26.586 22H11C10.7348 22 10.4804 21.8946 10.2929 21.7071C10.1054 21.5196 10 21.2652 10 21C10 20.7348 10.1054 20.4804 10.2929 20.2929C10.4804 20.1054 10.7348 20 11 20H26.586L22.292 15.708C22.1098 15.5194 22.009 15.2668 22.0113 15.0046C22.0136 14.7424 22.1188 14.4916 22.3042 14.3062C22.4896 14.1208 22.7404 14.0156 23.0026 14.0133C23.2648 14.011 23.5174 14.1118 23.706 14.294L29.706 20.294C29.7987 20.3866 29.8722 20.4968 29.922 20.618C29.9735 20.7388 30 20.8687 30 21Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                ) : (
+                  // Left arrow for LTR (previous slide)
+                  <svg
+                    fill="none"
+                    height="28"
+                    viewBox="0 0 42 42"
+                    width="28"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 6C29.284 6 36 12.716 36 21C36 29.284 29.284 36 21 36C12.716 36 6 29.284 6 21C6 12.716 12.716 6 21 6ZM12 21V21.004C12 21.1345 12.0258 21.2637 12.0759 21.3841C12.126 21.5046 12.1995 21.614 12.292 21.706L18.292 27.706C18.4806 27.8882 18.7332 27.989 18.9954 27.9867C19.2576 27.9844 19.5084 27.8792 19.6938 27.6938C19.8792 27.5084 19.9844 27.2576 19.9867 26.9954C19.989 26.7332 19.8882 26.4806 19.706 26.292L15.414 22H31C31.2652 22 31.5196 21.8946 31.7071 21.7071C31.8946 21.5196 32 21.2652 32 21C32 20.7348 31.8946 20.4804 31.7071 20.2929C31.5196 20.1054 31.2652 20 31 20H15.414L19.708 15.708C19.8902 15.5194 19.991 15.2668 19.9887 15.0046C19.9864 14.7424 19.8812 14.4916 19.6958 14.3062C19.5104 14.1208 19.2596 14.0156 18.9974 14.0133C18.7352 14.011 18.4826 14.1118 18.294 14.294L12.294 20.294C12.2013 20.3866 12.1278 20.4968 12.078 20.618C12.0265 20.7388 12 20.8687 12 21Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                )}
               </button>
-              <button 
-                className="swiper-button-next StackedSlider_arrowButton StackedSlider_arrowRight" 
+              <button
+                className="swiper-button-next StackedSlider_arrowButton StackedSlider_arrowRight"
                 type="button"
               >
-                <svg fill="none" height="28" viewBox="0 0 42 42" width="28" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M21 6C12.716 6 6 12.716 6 21C6 29.284 12.716 36 21 36C29.284 36 36 29.284 36 21C36 12.716 29.284 6 21 6ZM30 21V21.004C30 21.1345 29.9742 21.2637 29.9241 21.3841C29.874 21.5046 29.8005 21.614 29.708 21.706L23.708 27.706C23.5194 27.8882 23.2668 27.989 23.0046 27.9867C22.7424 27.9844 22.4916 27.8792 22.3062 27.6938C22.1208 27.5084 22.0156 27.2576 22.0133 26.9954C22.011 26.7332 22.1118 26.4806 22.294 26.292L26.586 22H11C10.7348 22 10.4804 21.8946 10.2929 21.7071C10.1054 21.5196 10 21.2652 10 21C10 20.7348 10.1054 20.4804 10.2929 20.2929C10.4804 20.1054 10.7348 20 11 20H26.586L22.292 15.708C22.1098 15.5194 22.009 15.2668 22.0113 15.0046C22.0136 14.7424 22.1188 14.4916 22.3042 14.3062C22.4896 14.1208 22.7404 14.0156 23.0026 14.0133C23.2648 14.011 23.5174 14.1118 23.706 14.294L29.706 20.294C29.7987 20.3866 29.8722 20.4968 29.922 20.618C29.9735 20.7388 30 20.8687 30 21Z" fill="currentColor"></path>
-                </svg>
+                {isRTL ? (
+                  // Left arrow for RTL (previous slide)
+                  <svg
+                    fill="none"
+                    height="28"
+                    viewBox="0 0 42 42"
+                    width="28"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 6C29.284 6 36 12.716 36 21C36 29.284 29.284 36 21 36C12.716 36 6 29.284 6 21C6 12.716 12.716 6 21 6ZM12 21V21.004C12 21.1345 12.0258 21.2637 12.0759 21.3841C12.126 21.5046 12.1995 21.614 12.292 21.706L18.292 27.706C18.4806 27.8882 18.7332 27.989 18.9954 27.9867C19.2576 27.9844 19.5084 27.8792 19.6938 27.6938C19.8792 27.5084 19.9844 27.2576 19.9867 26.9954C19.989 26.7332 19.8882 26.4806 19.706 26.292L15.414 22H31C31.2652 22 31.5196 21.8946 31.7071 21.7071C31.8946 21.5196 32 21.2652 32 21C32 20.7348 31.8946 20.4804 31.7071 20.2929C31.5196 20.1054 31.2652 20 31 20H15.414L19.708 15.708C19.8902 15.5194 19.991 15.2668 19.9887 15.0046C19.9864 14.7424 19.8812 14.4916 19.6958 14.3062C19.5104 14.1208 19.2596 14.0156 18.9974 14.0133C18.7352 14.011 18.4826 14.1118 18.294 14.294L12.294 20.294C12.2013 20.3866 12.1278 20.4968 12.078 20.618C12.0265 20.7388 12 20.8687 12 21Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                ) : (
+                  // Right arrow for LTR (next slide)
+                  <svg
+                    fill="none"
+                    height="28"
+                    viewBox="0 0 42 42"
+                    width="28"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 6C12.716 6 6 12.716 6 21C6 29.284 12.716 36 21 36C29.284 36 36 29.284 36 21C36 12.716 29.284 6 21 6ZM30 21V21.004C30 21.1345 29.9742 21.2637 29.9241 21.3841C29.874 21.5046 29.8005 21.614 29.708 21.706L23.708 27.706C23.5194 27.8882 23.2668 27.989 23.0046 27.9867C22.7424 27.9844 22.4916 27.8792 22.3062 27.6938C22.1208 27.5084 22.0156 27.2576 22.0133 26.9954C22.011 26.7332 22.1118 26.4806 22.294 26.292L26.586 22H11C10.7348 22 10.4804 21.8946 10.2929 21.7071C10.1054 21.5196 10 21.2652 10 21C10 20.7348 10.1054 20.4804 10.2929 20.2929C10.4804 20.1054 10.7348 20 11 20H26.586L22.292 15.708C22.1098 15.5194 22.009 15.2668 22.0113 15.0046C22.0136 14.7424 22.1188 14.4916 22.3042 14.3062C22.4896 14.1208 22.7404 14.0156 23.0026 14.0133C23.2648 14.011 23.5174 14.1118 23.706 14.294L29.706 20.294C29.7987 20.3866 29.8722 20.4968 29.922 20.618C29.9735 20.7388 30 20.8687 30 21Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                )}
               </button>
             </div>
 
@@ -425,7 +490,8 @@ export default function ValueSlider({ lang = "en" }) {
           height: 500px;
           border-radius: 1rem;
           overflow: hidden;
-          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         .ValueProposition_image {
@@ -460,7 +526,8 @@ export default function ValueSlider({ lang = "en" }) {
           transition: all 0.2s;
           color: #000000ff;
           pointer-events: all;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+            0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
         .StackedSlider_arrowButton:hover {
@@ -538,29 +605,29 @@ export default function ValueSlider({ lang = "en" }) {
           .StackedSlider_arrows {
             padding: 0 1rem;
           }
-          
+
           .StackedSlider_arrowButton {
             width: 2.5rem;
             height: 2.5rem;
           }
-          
+
           .ValueProposition_slideContent {
             grid-template-columns: 1fr;
             gap: 2rem;
           }
-          
+
           .sectionTitle {
             font-size: 2rem;
           }
-          
+
           .sectionDescription {
             font-size: 1rem;
           }
-          
+
           .ValueProposition_featuresRow {
             grid-template-columns: 1fr;
           }
-          
+
           .ValueProposition_right {
             height: 300px;
           }
@@ -582,11 +649,11 @@ export default function ValueSlider({ lang = "en" }) {
           .sectionTitle {
             font-size: 1.75rem;
           }
-          
+
           .sectionDescription {
             font-size: 0.95rem;
           }
-          
+
           .ValueProposition_badge {
             font-size: 0.8rem;
             padding: 0.4rem 0.8rem;
