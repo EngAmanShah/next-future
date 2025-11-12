@@ -24,7 +24,7 @@ export default function TeamSection({ lang = "en" }) {
   const t = translations[lang] ?? translations.en;
 
   const teamMembers = [
-    { id: 1, name: { en: "Omar", ar: "محمد عمر" }, position: { en: "CEO", ar: "الرئيس التنفيذي" }, image: "/ceo.png" },
+    { id: 1, name: { en: "Omar Jameel", ar: " عمر جميـل" }, position: { en: "CEO", ar: "الرئيس التنفيذي" }, image: "/ceo.png" },
     { id: 3, name: { en: "Engr Yousef Mohammed", ar: "المهندس يوسف محمد" }, position: { en: "Development Manager", ar: "مدير التطوير" }, image: "/yy.png" },
     { id: 4, name: { en: "Mahmoud Tarek", ar: "محمود طارق" }, position: { en: "Business Consultant", ar: "مستشار الأعمال" }, image: "/mehmod.png" },
     { id: 5, name: { en: "Engr Aman Shah", ar: "المهندس أمان شاه" }, position: { en: "Software Manager", ar: "مدير البرمجيات" }, image: "/aman.jpg" },
