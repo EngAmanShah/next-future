@@ -11,10 +11,14 @@ export default function Navbar({ lang }) {
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [isMegaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [isERPMenuOpen, setERPMenuOpen] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [isMobileERPOpen, setMobileERPOpen] = useState(false);
   const hoverTimeout = useRef(null);
+  const erpHoverTimeout = useRef(null);
   const megaMenuRef = useRef(null);
+  const erpMenuRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
   useEffect(() => {
@@ -27,9 +31,13 @@ export default function Navbar({ lang }) {
       if (megaMenuRef.current && !megaMenuRef.current.contains(event.target)) {
         setMegaMenuOpen(false);
       }
+      if (erpMenuRef.current && !erpMenuRef.current.contains(event.target)) {
+        setERPMenuOpen(false);
+      }
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && !event.target.closest('.navbar-toggler')) {
         setMobileMenuOpen(false);
         setMobileServicesOpen(false);
+        setMobileERPOpen(false);
       }
     };
     
@@ -47,6 +55,7 @@ export default function Navbar({ lang }) {
   useEffect(() => {
     setMobileMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileERPOpen(false);
   }, [pathname]);
 
   const isActive = (href) => {
@@ -61,10 +70,16 @@ export default function Navbar({ lang }) {
       label: lang === "ar" ? "الخدمات" : "Services",
       isDropdown: true,
     },
+    {
+      href: "/service",
+      label: lang === "ar" ? "ERP" : "ERP",
+      isERPDropdown: true,
+    },
     { href: "/about-us", label: lang === "ar" ? "من نحن" : "About Us" },
     { href: "/contact-us", label: lang === "ar" ? "اتصل بنا" : "Contact Us" },
   ];
 
+  // Don't render navbar on admin pages
   if (!pathname || pathname?.startsWith(`/${lang}/admin`)) return null;
 
   const whatsappNumber = "+966539983393";
@@ -86,6 +101,22 @@ export default function Navbar({ lang }) {
     }
   };
 
+  const handleERPMouseEnter = () => {
+    if (window.innerWidth > 768) {
+      clearTimeout(erpHoverTimeout.current);
+      setERPMenuOpen(true);
+    }
+  };
+
+  const handleERPMouseLeave = () => {
+    if (window.innerWidth > 768) {
+      clearTimeout(erpHoverTimeout.current);
+      erpHoverTimeout.current = setTimeout(() => {
+        setERPMenuOpen(false);
+      }, 300);
+    }
+  };
+
   const handleServicesClick = (e) => {
     if (window.innerWidth <= 768) {
       e.preventDefault();
@@ -93,17 +124,27 @@ export default function Navbar({ lang }) {
     }
   };
 
+  const handleERPClick = (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      setMobileERPOpen(!isMobileERPOpen);
+    }
+  };
+
   const handleMobileMenuToggle = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
     if (!isMobileMenuOpen) {
       setMobileServicesOpen(false);
+      setMobileERPOpen(false);
     }
   };
 
   const handleLinkClick = () => {
     setMegaMenuOpen(false);
+    setERPMenuOpen(false);
     setMobileMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileERPOpen(false);
   };
 
   // Services data
@@ -133,8 +174,7 @@ export default function Navbar({ lang }) {
         { en: "Software Testing", ar: "اختبار البرمجيات" },
         { en: "SAAS Development", ar: "تطوير البرمجيات كخدمة" },
         { en: "MVP Development", ar: "تطوير المنتج الأدنى القابل للتطبيق" },
-        { en: "Software Consulting", ar: "استشارات البرمجيات" },
-        { en: "Enterprise Software / ERP", ar: "برمجيات المؤسسات / تخطيط موارد المؤسسات" }
+        { en: "Software Consulting", ar: "استشارات البرمجيات" }
       ]
     },
     creativeDigital: {
@@ -162,6 +202,64 @@ export default function Navbar({ lang }) {
       ]
     }
   };
+
+  // ERP Solutions data
+  const erpSolutions = [
+    { 
+      href: "service", 
+      en: "Odoo ERP", 
+      ar: "أودو ERP",
+      description: {
+        en: "Open-source business management software",
+        ar: "برنامج إدارة الأعمال مفتوح المصدر"
+      }
+    },
+    { 
+      href: "service", 
+      en: "SAP Business One", 
+      ar: "SAP Business One",
+      description: {
+        en: "ERP solution for small to medium businesses",
+        ar: "حل ERP للشركات الصغيرة والمتوسطة"
+      }
+    },
+    { 
+      href: "service", 
+      en: "Oracle NetSuite", 
+      ar: "أوراكل نت سويت",
+      description: {
+        en: "Cloud-based business management suite",
+        ar: "مجموعة إدارة الأعمال القائمة على السحابة"
+      }
+    },
+    { 
+      href: "service", 
+      en: "Microsoft Dynamics 365", 
+      ar: "مايكروسوفت دايناميكس 365",
+      description: {
+        en: "Intelligent business applications",
+        ar: "تطبيقات الأعمال الذكية"
+      }
+    },
+    { 
+      href: "service", 
+      en: "Custom ERP Development", 
+      ar: "تطوير ERP مخصص",
+      description: {
+        en: "Tailored ERP solutions for your business",
+        ar: "حلول ERP مخصصة لعملك"
+      }
+    },
+    { 
+      href: "service", 
+      en: "ERP Implementation", 
+      ar: "تنفيذ ERP",
+      description: {
+        en: "Professional ERP implementation services",
+        ar: "خدمات تنفيذ ERP المهنية"
+      }
+    }
+  ];
 
   return (
     <>
@@ -193,11 +291,15 @@ export default function Navbar({ lang }) {
                 <li
                   key={index}
                   className={`nav-item ${
-                    item.isDropdown ? "dropdown mega-menu" : ""
+                    item.isDropdown ? "dropdown mega-menu" : 
+                    item.isERPDropdown ? "dropdown erp-menu" : ""
                   } mx-2`}
-                  onMouseEnter={item.isDropdown ? handleMouseEnter : undefined}
-                  onMouseLeave={item.isDropdown ? handleMouseLeave : undefined}
-                  ref={item.isDropdown ? megaMenuRef : null}
+                  onMouseEnter={item.isDropdown ? handleMouseEnter : 
+                              item.isERPDropdown ? handleERPMouseEnter : undefined}
+                  onMouseLeave={item.isDropdown ? handleMouseLeave : 
+                              item.isERPDropdown ? handleERPMouseLeave : undefined}
+                  ref={item.isDropdown ? megaMenuRef : 
+                      item.isERPDropdown ? erpMenuRef : null}
                 >
                   {item.isDropdown ? (
                     <>
@@ -206,6 +308,7 @@ export default function Navbar({ lang }) {
                         className={`nav-link ${isActive(item.href) ? "active" : ""} d-flex align-items-center gap-1`}
                       >
                         {item.label}
+                        {lang === "ar" ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
                       </Link>
 
                       {/* Mega Menu - Desktop */}
@@ -238,6 +341,44 @@ export default function Navbar({ lang }) {
                         </div>
                       </div>
                     </>
+                  ) : item.isERPDropdown ? (
+                    <>
+                      <Link
+                        href={`/${lang}${item.href}`}
+                        className={`nav-link ${isActive(item.href) ? "active" : ""} d-flex align-items-center gap-1`}
+                      >
+                        {item.label}
+                        {lang === "ar" ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+                      </Link>
+
+                      {/* ERP Dropdown Menu - Desktop */}
+                      <div
+                        className={`erp-dropdown-menu ${isERPMenuOpen ? "show" : ""}`}
+                      >
+                        <div className="erp-menu-content p-3">
+                          <div className="row">
+                            {erpSolutions.map((solution, index) => (
+                              <div key={index} className="col-lg-6 mb-2">
+                                <Link 
+                                  href={`/${lang}${solution.href}`}
+                                  className="erp-dropdown-item"
+                                  onClick={handleLinkClick}
+                                >
+                                  <div className="erp-item-content">
+                                    <h6 className="erp-item-title mb-1">
+                                      {solution[lang]}
+                                    </h6>
+                                    <p className="erp-item-description mb-0">
+                                      {solution.description[lang]}
+                                    </p>
+                                  </div>
+                                </Link>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </>
                   ) : (
                     <Link
                       href={`/${lang}${item.href === "/" ? "" : item.href}`}
@@ -253,7 +394,10 @@ export default function Navbar({ lang }) {
 
             {/* Desktop Language & Buttons */}
             <div className="d-flex align-items-center ms-4 gap-3">
-              <LanguageSwitcher lang={lang} />
+              <LanguageSwitcher 
+                lang={lang} 
+                displayText={lang === "ar" ? "EN" : "AR"}
+              />
               <a
                 href={`https://wa.me/${whatsappNumber}`}
                 target="_blank"
@@ -339,6 +483,39 @@ export default function Navbar({ lang }) {
                     ))}
                   </div>
                 </>
+              ) : item.isERPDropdown ? (
+                <>
+                  <div 
+                    className="mobile-menu-link dropdown-toggle"
+                    onClick={handleERPClick}
+                  >
+                    <span>{item.label}</span>
+                    {isMobileERPOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+                  </div>
+                  
+                  <div className={`mobile-submenu ${isMobileERPOpen ? "show" : ""}`}>
+                    <div className="mobile-submenu-section">
+                      <ul>
+                        {erpSolutions.map((solution, solutionIndex) => (
+                          <li key={solutionIndex}>
+                            <Link 
+                              href={`/${lang}${solution.href}`}
+                              onClick={handleLinkClick}
+                              className="erp-mobile-link"
+                            >
+                              <div>
+                                <strong>{solution[lang]}</strong>
+                                <small className="d-block text-muted">
+                                  {solution.description[lang]}
+                                </small>
+                              </div>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </>
               ) : (
                 <Link
                   href={`/${lang}${item.href === "/" ? "" : item.href}`}
@@ -354,7 +531,10 @@ export default function Navbar({ lang }) {
           {/* Mobile Buttons */}
           <div className="mobile-buttons">
             <div className="mb-3">
-              <LanguageSwitcher lang={lang} />
+              <LanguageSwitcher 
+                lang={lang} 
+                displayText={lang === "ar" ? "EN" : "AR"}
+              />
             </div>
             <a
               href={`https://wa.me/${whatsappNumber}`}
@@ -403,26 +583,69 @@ export default function Navbar({ lang }) {
         .mega-menu-dropdown {
           position: absolute;
           top: 100%;
-          left: 0;
-          right: 0;
+          left: 50%;
+          transform: translateX(-50%) translateY(10px);
+          width: 90%;
+          max-width: 1200px;
           background: white;
           box-shadow: 0 4px 20px rgba(0,0,0,0.1);
           opacity: 0;
           visibility: hidden;
-          transform: translateY(10px);
           transition: all 0.3s ease;
           z-index: 1000;
+          border-radius: 8px;
         }
 
         .mega-menu-dropdown.show {
           opacity: 1;
           visibility: visible;
-          transform: translateY(0);
+          transform: translateX(-50%) translateY(0);
+        }
+
+        /* ERP Dropdown Menu Styles */
+        .erp-menu {
+          position: relative;
+        }
+
+        .erp-dropdown-menu {
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%) translateY(10px);
+          width: 500px;
+          background: white;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 1000;
+          border-radius: 8px;
+        }
+
+        .erp-dropdown-menu.show {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%) translateY(0);
+        }
+
+        [dir="rtl"] .mega-menu-dropdown,
+        [dir="rtl"] .erp-dropdown-menu {
+          left: 50%;
+          right: auto;
+          transform: translateX(-50%) translateY(10px);
+        }
+
+        [dir="rtl"] .mega-menu-dropdown.show,
+        [dir="rtl"] .erp-dropdown-menu.show {
+          transform: translateX(-50%) translateY(0);
         }
 
         .mega-menu-content {
-          max-width: 1200px;
-          margin: 0 auto;
+          width: 100%;
+        }
+
+        .erp-menu-content {
+          width: 100%;
         }
 
         .mega-menu-content .category-title {
@@ -446,6 +669,36 @@ export default function Navbar({ lang }) {
           color: #399dd9;
           background: none;
           padding-left: 0.5rem;
+        }
+
+        .erp-dropdown-item {
+          display: block;
+          padding: 0.75rem 1rem;
+          color: #333;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          border-radius: 6px;
+          border: 1px solid transparent;
+        }
+
+        .erp-dropdown-item:hover {
+          background: #f8f9fa;
+          border-color: #399dd9;
+          text-decoration: none;
+          color: #333;
+        }
+
+        .erp-item-title {
+          color: #399dd9;
+          font-weight: 600;
+          font-size: 0.9rem;
+          margin-bottom: 0.25rem;
+        }
+
+        .erp-item-description {
+          color: #666;
+          font-size: 0.8rem;
+          line-height: 1.3;
         }
 
         [dir="rtl"] .mega-menu-content .dropdown-item:hover {
@@ -493,7 +746,7 @@ export default function Navbar({ lang }) {
 
         .mobile-sidebar-header {
           display: flex;
-          justify-content: between;
+          justify-content: space-between;
           align-items: center;
           padding: 1rem;
           border-bottom: 1px solid #eee;
@@ -505,6 +758,7 @@ export default function Navbar({ lang }) {
           font-size: 1.2rem;
           color: #333;
           padding: 0.5rem;
+          cursor: pointer;
         }
 
         .mobile-sidebar-content {
@@ -517,7 +771,7 @@ export default function Navbar({ lang }) {
 
         .mobile-menu-link {
           display: flex;
-          justify-content: between;
+          justify-content: space-between;
           align-items: center;
           padding: 1rem 0;
           color: #333;
@@ -528,14 +782,11 @@ export default function Navbar({ lang }) {
           background: none;
           border: none;
           text-align: left;
+          cursor: pointer;
         }
 
         [dir="rtl"] .mobile-menu-link {
           text-align: right;
-        }
-
-        .mobile-menu-link.dropdown-toggle {
-          cursor: pointer;
         }
 
         .mobile-menu-link:hover {
@@ -586,6 +837,15 @@ export default function Navbar({ lang }) {
           padding: 0.3rem 0;
         }
 
+        .erp-mobile-link {
+          padding: 0.75rem 0 !important;
+          border-bottom: 1px solid #f0f0f0;
+        }
+
+        .erp-mobile-link:last-child {
+          border-bottom: none;
+        }
+
         .mobile-submenu-section a:hover {
           color: #399dd9;
         }
@@ -596,12 +856,29 @@ export default function Navbar({ lang }) {
           margin-top: 1rem;
         }
 
-        /* RTL Support */
-        [dir="rtl"] .mega-menu-dropdown {
-          left: auto;
-          right: 0;
+        /* Language Switcher Button Styles */
+        .language-switcher-btn {
+          background: none;
+          border: 2px solid #399dd9;
+          color: #399dd9;
+          padding: 0.5rem 1rem;
+          border-radius: 6px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          min-width: 60px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
         }
 
+        .language-switcher-btn:hover {
+          background: #399dd9;
+          color: white;
+          text-decoration: none;
+        }
+
+        /* RTL Support */
         [dir="rtl"] .ms-4 {
           margin-left: 0 !important;
           margin-right: 1.5rem !important;
@@ -609,7 +886,8 @@ export default function Navbar({ lang }) {
 
         /* Responsive */
         @media (max-width: 991px) {
-          .mega-menu-dropdown {
+          .mega-menu-dropdown,
+          .erp-dropdown-menu {
             display: none;
           }
         }
@@ -617,6 +895,14 @@ export default function Navbar({ lang }) {
         @media (max-width: 575px) {
           .mobile-sidebar {
             width: 280px;
+          }
+          
+          .mega-menu-dropdown {
+            width: 95%;
+          }
+
+          .erp-dropdown-menu {
+            width: 90%;
           }
         }
       `}</style>

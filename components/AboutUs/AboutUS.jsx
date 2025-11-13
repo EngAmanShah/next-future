@@ -79,13 +79,13 @@ import {
   // Translations
 const content = {
   en: {
-    heroTitle: "About Next Future",
+    heroTitle: "About Next Future Technology",
     heroSubtitle:
       "Empowering businesses through innovation, technology, and strategy.",
     heroExtra:
       "We believe the future of business lies at the intersection of technology and creativity. From startups to enterprises, Next Future helps brands redefine how they connect, grow, and succeed in a digital-first world.",
     history:
-      "Next Future Information Technology was founded to help businesses thrive and shine in the digital era. Led by Engr. Aman Shah — a multi-skilled professional in web and mobile development, graphic design, digital marketing, and IT solutions — Next Future turns innovative ideas into tangible results. We believe every business has the potential to excel, combining creativity, strategy, and technology to build modern websites, mobile apps, brand identities, and marketing campaigns that deliver real impact. Our mission is simple — to elevate your brand to its full potential. Whether you’re starting out or already established, Next Future is your trusted partner for clarity, creativity, and growth at every stage of your journey.",
+      "Next Future Information Technology was founded to help businesses thrive and shine in the digital era. Our company is led by a team of multi-skilled professionals in web and mobile development, graphic design, digital marketing, and IT solutions — turning innovative ideas into tangible results. We believe every business has the potential to excel, combining creativity, strategy, and technology to build modern websites, mobile apps, brand identities, and marketing campaigns that deliver real impact. Our mission is simple — to elevate your brand to its full potential. Whether you're starting out or already established, Next Future is your trusted partner for clarity, creativity, and growth at every stage of your journey.",
     servicesTitle: "Our Services",
     storyHeading: "Our Story",
     buttons: {
@@ -98,13 +98,13 @@ const content = {
     },
   },
   ar: {
-    heroTitle: "عن نكست فيوتشر",
+    heroTitle: "عن نيكست فيوتشر للتقنية",
     heroSubtitle:
       "تمكين الشركات من خلال الابتكار والتكنولوجيا والاستراتيجية.",
     heroExtra:
-      "نؤمن أن مستقبل الأعمال يكمن في تقاطع التقنية مع الإبداع. من الشركات الناشئة إلى المؤسسات الكبيرة، تساعد نكست فيوتشر العلامات التجارية على إعادة تعريف كيفية التواصل والنمو والنجاح في عالم رقمي أولًا.",
+      "نؤمن أن مستقبل الأعمال يكمن في تقاطع التقنية مع الإبداع. من الشركات الناشئة إلى المؤسسات الكبيرة، تساعد نيكست فيوتشر العلامات التجارية على إعادة تعريف كيفية التواصل والنمو والنجاح في عالم رقمي أولًا.",
     history:
-      "تأسست شركة نكست فيوتشر لتقنية المعلومات لمساعدة الشركات على الازدهار والتألق في العصر الرقمي. تحت قيادة المهندس أمان شاه — الخبير متعدد المهارات في تطوير المواقع والتطبيقات، التصميم الجرافيكي، التسويق الرقمي، وحلول تكنولوجيا المعلومات — تحول نكست فيوتشر الأفكار المبتكرة إلى نتائج ملموسة. نحن نؤمن بأن لكل شركة القدرة على التفوق، ولهذا نمزج بين الإبداع والاستراتيجية والتقنية لبناء مواقع حديثة، وتطبيقات متطورة، وهويات بصرية قوية، وحملات تسويقية تحقق أثرًا حقيقيًا. مهمتنا بسيطة — رفع علامتك التجارية إلى أقصى إمكاناتها. سواء كنت في بداية مسيرتك أو تمتلك مؤسسة راسخة، فإن نكست فيوتشر هي شريكك الموثوق للوضوح والإبداع والنمو في كل مرحلة من رحلتك.",
+      "تأسست شركة نيكست فيوتشر لتقنية المعلومات لمساعدة الشركات على الازدهار والتألق في العصر الرقمي. تحت قيادة فريق من الخبراء متعددي المهارات في تطوير المواقع والتطبيقات، التصميم الجرافيكي، التسويق الرقمي، وحلول تكنولوجيا المعلومات — تحول نيكست فيوتشر الأفكار المبتكرة إلى نتائج ملموسة. نحن نؤمن بأن لكل شركة القدرة على التفوق، ولهذا نمزج بين الإبداع والاستراتيجية والتقنية لبناء مواقع حديثة، وتطبيقات متطورة، وهويات بصرية قوية، وحملات تسويقية تحقق أثرًا حقيقيًا. مهمتنا بسيطة — رفع علامتك التجارية إلى أقصى إمكاناتها. سواء كنت في بداية مسيرتك أو تمتلك مؤسسة راسخة، فإن نيكست فيوتشر هي شريكك الموثوق للوضوح والإبداع والنمو في كل مرحلة من رحلتك.",
     servicesTitle: "خدماتنا",
     storyHeading: "قصتنا",
     buttons: {
@@ -117,7 +117,6 @@ const content = {
     },
   },
 };
-
   const t = content[currentLang];
 
   const services = [
@@ -128,7 +127,7 @@ const content = {
         en: "Custom apps for iOS and Android.",
         ar: "تطبيقات مخصصة لنظامي iOS و Android.",
       },
-      link: "/service/mobileapp",
+      link: "/service/mobile-app",
       btnKey: "mobile",
     },
     {
@@ -148,7 +147,7 @@ const content = {
         en: "Grow your brand online effectively.",
         ar: "نمِّ علامتك التجارية رقمياً بفعالية.",
       },
-      link: "/service/digitalmarketing",
+      link: "/service/digital-marketing",
       btnKey: "marketing",
     },
     {
@@ -158,7 +157,7 @@ const content = {
         en: "Build powerful and scalable mobile apps.",
         ar: "بناء تطبيقات جوال قوية وقابلة للتوسع.",
       },
-      link: "/service/appdevelopment",
+      link: "/service/appdev",
       btnKey: "appDev",
     },
 
@@ -169,7 +168,7 @@ const content = {
         en: "Creative visuals for your brand.",
         ar: "تصاميم إبداعية لعلامتك التجارية.",
       },
-      link: "/service/graphicdesign",
+      link: "/service/graphic-design",
       btnKey: "design",
     },
     {

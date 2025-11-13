@@ -256,13 +256,9 @@ export default function ValueSlider({ lang = "en" }) {
                 key={index}
                 className="StackedSlider_slide StackedSlider_baseSlide"
               >
-                <div className="ValueProposition_slideContent">
-                  {/* Left Content */}
-                  <div
-                    className={`ValueProposition_left ${
-                      isRTL ? "ValueProposition_rightOrder" : ""
-                    }`}
-                  >
+                <div className={`ValueProposition_slideContent ${isRTL ? 'ValueProposition_slideContentRTL' : ''}`}>
+                  {/* Content - Order changes based on RTL */}
+                  <div className="ValueProposition_left">
                     <div className="ValueProposition_badge">
                       {slide.title[lang]}
                     </div>
@@ -270,9 +266,9 @@ export default function ValueSlider({ lang = "en" }) {
                     <p className="sectionDescription">
                       {slide.description[lang]}
                     </p>
-                    <div className="ValueProposition_featuresRow">
+                    <div className={`ValueProposition_featuresRow ${isRTL ? 'ValueProposition_featuresRowRTL' : ''}`}>
                       {slide.features.map((feature, i) => (
-                        <div key={i} className="ValueProposition_featureItem">
+                        <div key={i} className={`ValueProposition_featureItem ${isRTL ? 'ValueProposition_featureItemRTL' : ''}`}>
                           <div className="featureIcon">✓</div>
                           <div className="ValueProposition_featureSubtitle">
                             {feature[lang]}
@@ -282,12 +278,8 @@ export default function ValueSlider({ lang = "en" }) {
                     </div>
                   </div>
 
-                  {/* Right Image */}
-                  <div
-                    className={`ValueProposition_right ${
-                      isRTL ? "ValueProposition_leftOrder" : ""
-                    }`}
-                  >
+                  {/* Image - Order changes based on RTL */}
+                  <div className="ValueProposition_right">
                     <Image
                       src={slide.image}
                       alt={slide.title[lang]}
@@ -301,11 +293,7 @@ export default function ValueSlider({ lang = "en" }) {
             ))}
 
             {/* Navigation Arrows */}
-            <div
-              className={`StackedSlider_arrows ${
-                isRTL ? "StackedSlider_arrowsRTL" : ""
-              }`}
-            >
+            <div className={`StackedSlider_arrows ${isRTL ? 'StackedSlider_arrowsRTL' : ''}`}>
               <button
                 className="swiper-button-prev StackedSlider_arrowButton StackedSlider_arrowLeft"
                 type="button"
@@ -416,6 +404,12 @@ export default function ValueSlider({ lang = "en" }) {
           padding: 2rem;
         }
 
+        /* RTL layout - reverse the grid columns */
+        .ValueProposition_slideContentRTL {
+          grid-template-columns: 1fr 1fr;
+          direction: rtl;
+        }
+
         .ValueProposition_left {
           display: flex;
           flex-direction: column;
@@ -461,6 +455,16 @@ export default function ValueSlider({ lang = "en" }) {
           display: flex;
           align-items: flex-start;
           gap: 0.75rem;
+        }
+
+        /* RTL styles for features */
+        .ValueProposition_featuresRowRTL {
+          direction: rtl;
+        }
+
+        .ValueProposition_featureItemRTL {
+          flex-direction: row-reverse;
+          text-align: right;
         }
 
         .featureIcon {
@@ -561,14 +565,6 @@ export default function ValueSlider({ lang = "en" }) {
         }
 
         /* RTL Support */
-        .ValueProposition_rightOrder {
-          order: 2;
-        }
-
-        .ValueProposition_leftOrder {
-          order: 1;
-        }
-
         .StackedSlider_arrowsRTL {
           flex-direction: row-reverse;
         }
@@ -582,11 +578,12 @@ export default function ValueSlider({ lang = "en" }) {
         }
 
         [dir="rtl"] .ValueProposition_featuresRow {
-          text-align: right;
+          direction: rtl;
         }
 
         [dir="rtl"] .ValueProposition_featureItem {
           flex-direction: row-reverse;
+          text-align: right;
         }
 
         /* Swiper overrides */
@@ -616,6 +613,11 @@ export default function ValueSlider({ lang = "en" }) {
             gap: 2rem;
           }
 
+          .ValueProposition_slideContentRTL {
+            grid-template-columns: 1fr;
+            direction: rtl;
+          }
+
           .sectionTitle {
             font-size: 2rem;
           }
@@ -630,18 +632,18 @@ export default function ValueSlider({ lang = "en" }) {
 
           .ValueProposition_right {
             height: 300px;
+            order: -1;
           }
 
-          /* Reset order for mobile */
-          .ValueProposition_rightOrder,
-          .ValueProposition_leftOrder {
-            order: unset;
-          }
-
-          [dir="rtl"] .ValueProposition_featuresRow,
+          /* Reset feature item direction for mobile RTL */
           [dir="rtl"] .ValueProposition_featureItem {
-            text-align: left;
             flex-direction: row;
+            text-align: left;
+          }
+
+          .ValueProposition_featureItemRTL {
+            flex-direction: row;
+            text-align: left;
           }
         }
 
