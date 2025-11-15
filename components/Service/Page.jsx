@@ -161,31 +161,31 @@ export default function Page({ params }) {
         {
           title: "أودو ERP",
           description: "تنفيذ وتخصيص نظام أودو ERP مفتوح المصدر لاحتياجات عملك.",
-          link: "/service/odoo-erp",
+          link: "/service/webdev",
           icon: <SiOdoo size={40} color="#fff" />
         },
         {
           title: "ERP مخصص",
           description: "حلول ERP مصممة خصيصًا لتتناسب مع عمليات عملك الفريدة.",
-          link: "/service/custom-erp",
+          link: "/service/webdev",
           icon: <FaCogs size={40} color="#fff" />
         },
         {
           title: "حلول التجارة الإلكترونية",
           description: "بناء متاجر إلكترونية قوية مع بوابات دفع آمنة وأنظمة إدارة المخزون.",
-          link: "/service/ecommerce",
+          link: "/service/webdev",
           icon: <FaShoppingCart size={40} color="#fff" />
         },
         {
           title: "الذكاء التجاري",
           description: "حول بياناتك إلى رؤى قابلة للتنفيذ مع التحليلات المتقدمة والتقارير.",
-          link: "/service/business-intelligence",
+          link: "/service/webdev",
           icon: <FaChartLine size={40} color="#fff" />
         },
         {
           title: "خدمات السحابة",
           description: "بنية تحتية سحابية قابلة للتوسع وخدمات نقل للشركات الحديثة.",
-          link: "/service/cloud-services",
+          link: "/service/webdev",
           icon: <MdCloudQueue size={40} color="#fff" />
         },
       ],
