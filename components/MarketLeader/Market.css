@@ -62,3 +62,10 @@
   border-radius: 0 0 0.5rem 0.5rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+
+/* Background image responsive styles */
+@media (max-width: 768px) {
+  .market-section {
+    background-attachment: scroll !important;
+  }
+}

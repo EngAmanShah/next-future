@@ -1,6 +1,5 @@
 .container {
   font-family: 'Somar', sans-serif;
-  background: #001233;
   color: white;
   overflow-x: hidden;
 }
@@ -13,17 +12,21 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #001233;
-  padding-top:100px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 100px;
 }
 
-.heroCanvas,
-.storyCanvas {
+.heroOverlay {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  background: rgba(0, 18, 51, 0.85);
+  z-index: 1;
 }
 
 .heroContent {
@@ -38,12 +41,14 @@
   font-weight: 800;
   margin-bottom: 1rem;
   color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .heroSubtitle {
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
   opacity: 0.9;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .heroExtra {
@@ -52,14 +57,27 @@
   margin: 0 auto;
   color: #cfd9ff;
   line-height: 1.8;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 /* 📜 Story Section */
 .storySection {
   position: relative;
   padding: 4rem 2rem;
-  background: #000c2e;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
+.storyOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 12, 46, 0.9);
+  z-index: 1;
 }
 
 .storyWrapper {
@@ -70,7 +88,7 @@
   align-items: center;
   flex-wrap: wrap;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .storyText,
@@ -82,27 +100,46 @@
 .storyImage img {
   width: 100%;
   border-radius: 15px;
-  box-shadow: 0 0 25px rgba(0, 70, 200, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 70, 200, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.storyImage:hover img {
+  transform: scale(1.02);
 }
 
 .storyHeading {
   font-size: 2.8rem;
   margin-bottom: 1.5rem;
   color: #ffffff;
-  
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .storyParagraph {
   font-size: 1.3rem;
   line-height: 2;
   color: #d3ddff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 /* 🧩 Services Section */
 .servicesSection {
   position: relative;
   padding: 5rem 2rem;
-  background: #001233;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.servicesOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 18, 51, 0.9);
+  z-index: 1;
 }
 
 .servicesTitle {
@@ -110,6 +147,9 @@
   font-size: 2.4rem;
   margin-bottom: 3rem;
   color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 2;
 }
 
 /* 🎯 Enforce 3 services per row on large screens */
@@ -117,6 +157,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* 💳 Service Card */
@@ -126,14 +168,24 @@
   text-align: center;
   background: rgba(0, 12, 46, 0.95);
   color: #9ecfff;
-  box-shadow: 0 0 25px rgba(0, 70, 200, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 70, 200, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.serviceCard:hover {
+  box-shadow: 0 20px 40px rgba(0, 70, 200, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .serviceIcon {
   margin-bottom: 1rem;
+  transition: all 0.3s ease;
 }
 
 .serviceTitle {
@@ -147,23 +199,61 @@
   font-size: 1.1rem;
   line-height: 1.6;
   color: #cfd9ff;
+  margin-bottom: 1rem;
 }
 
 .serviceButton {
-  margin-top: 2rem;
+  margin-top: auto;
   padding: 0.8rem 1.5rem;
-  background: #007bff;
+  background: linear-gradient(135deg, #007bff, #0056d2);
   border: none;
   border-radius: 8px;
   color: #fff;
   cursor: pointer;
   font-size: 1rem;
-  transition: 0.3s;
+  font-weight: 600;
+  transition: all 0.3s ease;
   width: 100%;
 }
 
 .serviceButton:hover {
-  background: #0056d2;
+  background: linear-gradient(135deg, #0056d2, #0041a8);
+  transform: translateY(-2px);
+}
+
+/* Glow effect for cards */
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #007bff, #0056d2, #007bff);
+  border-radius: 16px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.serviceCard:hover::before {
+  opacity: 1;
+  animation: glow 2s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: blur(5px);
+    opacity: 0.7;
+  }
+  50% {
+    filter: blur(10px);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(5px);
+    opacity: 0.7;
+  }
 }
 
 /* 📱 Responsive Adjustments */
@@ -203,6 +293,12 @@
   /* 🟠 1 Card Per Row */
   .servicesGrid {
     grid-template-columns: 1fr;
+  }
+
+  .heroSection,
+  .storySection,
+  .servicesSection {
+    background-attachment: scroll;
   }
 }
 

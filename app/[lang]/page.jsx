@@ -86,6 +86,31 @@ const content = {
         description:
           "Cross-platform iOS and Android apps with smooth UX and high performance.",
       },
+      {
+        title: "ERP Solutions",
+        image: "/services/app-development.gif",
+        description:
+          "Comprehensive Enterprise Resource Planning systems to streamline your business operations.",
+      },
+      {
+        title: "CMS Development",
+        image: "/services/graphic-design.gif",
+        description:
+          "Custom Content Management Systems for easy content updates and management.",
+      },
+      {
+        title: "Odoo ERP",
+                image: "/services/digital.gif",
+
+        description:
+          "Open-source Odoo ERP implementation and customization for your business needs.",
+      },
+      // {
+      //   title: "Custom ERP",
+      //   image: "/services/digital.gif",
+      //   description:
+      //     "Tailored ERP solutions built from scratch to match your unique business processes.",
+      // },
     ],
   },
 
@@ -159,10 +184,33 @@ const content = {
         description:
           "تطبيقات iOS و Android متكاملة بواجهة سلسة وأداء قوي.",
       },
+      {
+        title: "حلول ERP",
+        image: "/services/digital.gif",
+        description:
+          "أنظمة تخطيط موارد المؤسسة الشاملة لتبسيط عمليات عملك.",
+      },
+      // {
+      //   title: "تطوير CMS",
+      //   image: "/services/cms.gif",
+      //   description:
+      //     "أنظمة إدارة محتوى مخصصة لتحديثات المحتوى السهلة والإدارة.",
+      // },
+      {
+        title: "أودو ERP",
+        image: "/services/graphic-design.gif",
+        description:
+          "تنفيذ وتخصيص نظام أودو ERP مفتوح المصدر لاحتياجات عملك.",
+      },
+      {
+        title: "ERP مخصص",
+        image: "/services/it.gif",
+        description:
+          "حلول ERP مصممة خصيصًا لتتناسب مع عمليات عملك الفريدة.",
+      },
     ],
   },
 };
-
 
   const {
     heroTitle,
@@ -175,46 +223,70 @@ const content = {
     discoverDescription,
     services,
     heroButton,
-
     products,
-
-
   } = content[lang] || content.en;
 
   return (
     <>
       {/* Hero Section */}
       <Hero lang={lang} text={heroButton} heroTitle={heroTitle} heroDescription={heroDescription} />
+      
       {/* Feature Section */}
       <Features
         title={whyChooseTitle}
         description={whyChooseDescription}
         features={features}
-          lang={lang}
-      />
-      {/* Services */}
-      <Services
         lang={lang}
-        servicesData={services}
-        sectionTitle={discoverTitle}
-        sectionDescription={discoverDescription}
       />
-      {/* Badge  */}
- <Badge    lang={lang} />
+      
+      {/* Services with Background Image */}
+      <section 
+        style={{ 
+          backgroundImage: "url('/bg5.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed"
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: "rgba(255, 255, 255, 0.9)",
+            padding: "4rem 0"
+          }}
+        >
+          <Services
+            lang={lang}
+            servicesData={services}
+            sectionTitle={discoverTitle}
+            sectionDescription={discoverDescription}
+          />
+        </div>
+      </section>
+      
+      {/* Badge */}
+      <Badge lang={lang} />
 
-        {/* Market  */}
-<Market   lang={lang}  />
-         <ValueSlider lang={lang} />
+      {/* Market */}
+      <Market lang={lang} />
+      
+      {/* ValueSlider */}
+      <ValueSlider lang={lang} />
 
-   {/* Team  */}
-   <Team lang={lang}/>
-       {/* Products  */}
+      {/* Team */}
+      <Team lang={lang}/>
+      
+      {/* Products */}
       <Products lang={lang} />
-         {/* Skills  */}
-         <Skills lang={lang}/>
-              {/* Start Project  */}
-         <StartProject lang={lang}  />
-    <TeamSection lang={lang}  />
+      
+      {/* Skills */}
+      <Skills lang={lang}/>
+      
+      {/* Start Project */}
+      <StartProject lang={lang} />
+      
+      {/* TeamSection */}
+      <TeamSection lang={lang} />
     </>
   );
 }

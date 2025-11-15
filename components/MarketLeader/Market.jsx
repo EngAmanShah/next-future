@@ -5,139 +5,57 @@ import { motion, AnimatePresence } from "framer-motion";
 import { LucideCode, LucideSmartphone, LucideListChecks } from "lucide-react";
 import './Market.css';
 
-// 🌌 Particle Background Canvas
-// function ParticleCanvas() {
-//   const canvasRef = useRef(null);
-
-//   useEffect(() => {
-//     const canvas = canvasRef.current;
-//     if (!canvas) return;
-//     const ctx = canvas.getContext("2d");
-
-//     let width = (canvas.width = canvas.offsetWidth);
-//     let height = (canvas.height = canvas.offsetHeight);
-
-//     const resize = () => {
-//       width = canvas.width = canvas.offsetWidth;
-//       height = canvas.height = canvas.offsetHeight;
-//     };
-//     window.addEventListener("resize", resize);
-
-//     const particles = Array.from({ length: 80 }, () => ({
-//       x: Math.random() * width,
-//       y: Math.random() * height,
-//       radius: Math.random() * 2 + 1,
-//       dx: (Math.random() - 0.5) * 0.5,
-//       dy: (Math.random() - 0.5) * 0.5,
-//     }));
-
-//     function draw() {
-//       ctx.clearRect(0, 0, width, height);
-//       ctx.fillStyle = "#66c2ff"; // particle color
-//       ctx.strokeStyle = "rgba(255,255,255,0.1)";
-//       ctx.lineWidth = 1;
-
-//       particles.forEach((p, i) => {
-//         // Move particles
-//         p.x += p.dx;
-//         p.y += p.dy;
-
-//         // Bounce edges
-//         if (p.x < 0 || p.x > width) p.dx *= -1;
-//         if (p.y < 0 || p.y > height) p.dy *= -1;
-
-//         // Draw particle
-//         ctx.beginPath();
-//         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-//         ctx.fill();
-
-//         // Connect close particles
-//         for (let j = i + 1; j < particles.length; j++) {
-//           const q = particles[j];
-//           const dist = Math.hypot(p.x - q.x, p.y - q.y);
-//           if (dist < 120) {
-//             ctx.beginPath();
-//             ctx.moveTo(p.x, p.y);
-//             ctx.lineTo(q.x, q.y);
-//             ctx.stroke();
-//           }
-//         }
-//       });
-
-//       requestAnimationFrame(draw);
-//     }
-
-//     draw();
-
-//     return () => window.removeEventListener("resize", resize);
-//   }, []);
-
-//   return (
-//     <canvas
-//       ref={canvasRef}
-//       style={{
-//         position: "absolute",
-//         top: 0,
-//         left: 0,
-//         width: "100%",
-//         height: "100%",
-//         zIndex: 0,
-//       }}
-//     />
-//   );
-// }
-
 export default function Market({ lang }) {
   const [activeTab, setActiveTab] = useState(1);
 
- const translations = {
-  en: {
-    headerTitle: "Why Choose Next Future Technology?",
-    headerDesc:
-      "Next Future Technology Company provides integrated digital solutions including software development, ERP systems, websites, applications, and digital marketing, helping your business succeed in the modern digital landscape.",
-    tabs: [
-      {
-        title: "Expert Developer Team",
-        description:
-          "Our team of engineers, developers, and IT specialists deliver high-quality, scalable solutions tailored to your business needs.",
-      },
-      {
-        title: "Comprehensive Digital Solutions",
-        description:
-          "We offer a complete digital experience including websites, online stores, SEO services, marketing, and ERP solutions.",
-      },
-      {
-        title: "Client Success & Support",
-        description:
-          "We ensure sustainable growth and long-term client relationships with high-quality services and after-sales support.",
-      },
-    ],
-    cta: "Learn more about Next Future Technology",
-  },
-  ar: {
-    headerTitle: "لماذا تختار نكست فيوتشر تكنولوجي؟",
-    headerDesc:
-      "تقدم شركة نكست فيوتشر تكنولوجي حلولًا رقمية متكاملة تشمل تطوير البرمجيات، أنظمة ERP، المواقع والتطبيقات، والتسويق الرقمي لمساعدة أعمالك على النجاح في العصر الرقمي.",
-    tabs: [
-      {
-        title: "فريق مطورين وخبراء",
-        description:
-          "يقدم فريقنا من المهندسين والمطورين والمتخصصين في تكنولوجيا المعلومات حلولًا عالية الجودة وقابلة للتوسع مصممة خصيصًا لتلبية احتياجات أعمالك.",
-      },
-      {
-        title: "حلول رقمية شاملة",
-        description:
-          "نوفر تجربة رقمية متكاملة تشمل المواقع والمتاجر الإلكترونية، خدمات SEO، التسويق، وأنظمة ERP.",
-      },
-      {
-        title: "نجاح العملاء والدعم",
-        description:
-          "نضمن نموًا مستدامًا وعلاقات طويلة الأمد مع العملاء من خلال خدمات عالية الجودة ودعم ما بعد البيع.",
-      },
-    ],
-    cta: "اكتشف المزيد عن نكست فيوتشر تكنولوجي",
-  },
-};
+  const translations = {
+    en: {
+      headerTitle: "Why Choose Next Future Technology?",
+      headerDesc:
+        "Next Future Technology Company provides integrated digital solutions including software development, ERP systems, websites, applications, and digital marketing, helping your business succeed in the modern digital landscape.",
+      tabs: [
+        {
+          title: "Expert Developer Team",
+          description:
+            "Our team of engineers, developers, and IT specialists deliver high-quality, scalable solutions tailored to your business needs.",
+        },
+        {
+          title: "Comprehensive Digital Solutions",
+          description:
+            "We offer a complete digital experience including websites, online stores, SEO services, marketing, and ERP solutions.",
+        },
+        {
+          title: "Client Success & Support",
+          description:
+            "We ensure sustainable growth and long-term client relationships with high-quality services and after-sales support.",
+        },
+      ],
+      cta: "Learn more about Next Future Technology",
+    },
+    ar: {
+      headerTitle: "لماذا تختار نكست فيوتشر تكنولوجي؟",
+      headerDesc:
+        "تقدم شركة نكست فيوتشر تكنولوجي حلولًا رقمية متكاملة تشمل تطوير البرمجيات، أنظمة ERP، المواقع والتطبيقات، والتسويق الرقمي لمساعدة أعمالك على النجاح في العصر الرقمي.",
+      tabs: [
+        {
+          title: "فريق مطورين وخبراء",
+          description:
+            "يقدم فريقنا من المهندسين والمطورين والمتخصصين في تكنولوجيا المعلومات حلولًا عالية الجودة وقابلة للتوسع مصممة خصيصًا لتلبية احتياجات أعمالك.",
+        },
+        {
+          title: "حلول رقمية شاملة",
+          description:
+            "نوفر تجربة رقمية متكاملة تشمل المواقع والمتاجر الإلكترونية، خدمات SEO، التسويق، وأنظمة ERP.",
+        },
+        {
+          title: "نجاح العملاء والدعم",
+          description:
+            "نضمن نموًا مستدامًا وعلاقات طويلة الأمد مع العملاء من خلال خدمات عالية الجودة ودعم ما بعد البيع.",
+        },
+      ],
+      cta: "اكتشف المزيد عن نكست فيوتشر تكنولوجي",
+    },
+  };
 
   const t = translations[lang] || translations.en; // default to English
 
@@ -150,10 +68,27 @@ export default function Market({ lang }) {
   return (
     <section
       className="py-5 position-relative"
-      style={{ backgroundColor: "", direction: lang === "ar" ? "rtl" : "ltr", overflow: "hidden" }}
+      style={{ 
+        backgroundImage: "url('/ser-bg.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        direction: lang === "ar" ? "rtl" : "ltr", 
+        overflow: "hidden" 
+      }}
     >
-      {/* Particle Canvas */}
-      {/* <ParticleCanvas /> */}
+      {/* Overlay for better readability */}
+      <div 
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: "rgba(255, 255, 255, 0.85)",
+          zIndex: 0
+        }}
+      ></div>
 
       <div className="container position-relative" style={{ zIndex: 1 }}>
         {/* Header */}

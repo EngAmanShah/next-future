@@ -203,10 +203,10 @@ export default function Navbar({ lang }) {
     }
   };
 
-  // ERP Solutions data
+  // ERP Solutions data - all links go to service page
   const erpSolutions = [
     { 
-      href: "service", 
+      href: "/service", 
       en: "Odoo ERP", 
       ar: "أودو ERP",
       description: {
@@ -215,7 +215,7 @@ export default function Navbar({ lang }) {
       }
     },
     { 
-      href: "service", 
+      href: "/service", 
       en: "SAP Business One", 
       ar: "SAP Business One",
       description: {
@@ -224,7 +224,7 @@ export default function Navbar({ lang }) {
       }
     },
     { 
-      href: "service", 
+      href: "/service", 
       en: "Oracle NetSuite", 
       ar: "أوراكل نت سويت",
       description: {
@@ -233,7 +233,7 @@ export default function Navbar({ lang }) {
       }
     },
     { 
-      href: "service", 
+      href: "/service", 
       en: "Microsoft Dynamics 365", 
       ar: "مايكروسوفت دايناميكس 365",
       description: {
@@ -242,7 +242,7 @@ export default function Navbar({ lang }) {
       }
     },
     { 
-      href: "service", 
+      href: "/service", 
       en: "Custom ERP Development", 
       ar: "تطوير ERP مخصص",
       description: {
@@ -251,7 +251,7 @@ export default function Navbar({ lang }) {
       }
     },
     { 
-      href: "service", 
+      href: "/service", 
       en: "ERP Implementation", 
       ar: "تنفيذ ERP",
       description: {
@@ -283,6 +283,17 @@ export default function Navbar({ lang }) {
           <Link href={`/${lang}`} className="navbar-brand" onClick={handleLinkClick}>
             <img src="/logo.png" alt="Logo" style={{ width: "160px" }} />
           </Link>
+
+          {/* Mobile Top Buttons - Only Call Button */}
+          <div className="d-lg-none d-flex align-items-center gap-2">
+            <LanguageSwitcher 
+              lang={lang} 
+              displayText={lang === "ar" ? "EN" : "AR"}
+            />
+            <a href={`tel:${callNumber}`} className="btn btn-primary btn-sm d-flex align-items-center gap-1">
+              <FaPhone size={12} />
+            </a>
+          </div>
 
           {/* Desktop Navbar Links */}
           <div className="d-none d-lg-flex align-items-center">
@@ -344,7 +355,7 @@ export default function Navbar({ lang }) {
                   ) : item.isERPDropdown ? (
                     <>
                       <Link
-                        href={`/${lang}${item.href}`}
+                        href={`/${lang}/service`}
                         className={`nav-link ${isActive(item.href) ? "active" : ""} d-flex align-items-center gap-1`}
                       >
                         {item.label}
@@ -530,12 +541,6 @@ export default function Navbar({ lang }) {
           
           {/* Mobile Buttons */}
           <div className="mobile-buttons">
-            <div className="mb-3">
-              <LanguageSwitcher 
-                lang={lang} 
-                displayText={lang === "ar" ? "EN" : "AR"}
-              />
-            </div>
             <a
               href={`https://wa.me/${whatsappNumber}`}
               target="_blank"
@@ -876,6 +881,19 @@ export default function Navbar({ lang }) {
           background: #399dd9;
           color: white;
           text-decoration: none;
+        }
+
+        /* Mobile Top Buttons */
+        @media (max-width: 991px) {
+          .navbar > .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+          
+          .navbar-brand {
+            margin-right: 0;
+          }
         }
 
         /* RTL Support */
