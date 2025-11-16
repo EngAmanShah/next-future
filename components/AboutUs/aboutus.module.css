@@ -1,3 +1,4 @@
+/* aboutus.module.css */
 .container {
   font-family: 'Somar', sans-serif;
   color: white;
@@ -15,7 +16,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   padding-top: 100px;
 }
 
@@ -41,14 +41,12 @@
   font-weight: 800;
   margin-bottom: 1rem;
   color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .heroSubtitle {
   font-size: 1.6rem;
   margin-bottom: 1.5rem;
   opacity: 0.9;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .heroExtra {
@@ -57,7 +55,6 @@
   margin: 0 auto;
   color: #cfd9ff;
   line-height: 1.8;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 /* 📜 Story Section */
@@ -67,7 +64,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .storyOverlay {
@@ -101,25 +97,18 @@
   width: 100%;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 70, 200, 0.4);
-  transition: transform 0.3s ease;
-}
-
-.storyImage:hover img {
-  transform: scale(1.02);
 }
 
 .storyHeading {
   font-size: 2.8rem;
   margin-bottom: 1.5rem;
   color: #ffffff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .storyParagraph {
   font-size: 1.3rem;
   line-height: 2;
   color: #d3ddff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 /* 🧩 Services Section */
@@ -129,7 +118,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .servicesOverlay {
@@ -147,21 +135,18 @@
   font-size: 2.4rem;
   margin-bottom: 3rem;
   color: #ffffff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
   position: relative;
   z-index: 2;
 }
 
-/* 🎯 Enforce 3 services per row on large screens */
 .servicesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   position: relative;
   z-index: 2;
 }
 
-/* 💳 Service Card */
 .serviceCard {
   padding: 2rem;
   border-radius: 15px;
@@ -173,19 +158,18 @@
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .serviceCard:hover {
   box-shadow: 0 20px 40px rgba(0, 70, 200, 0.5);
   border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
 }
 
 .serviceIcon {
+  font-size: 3rem;
   margin-bottom: 1rem;
-  transition: all 0.3s ease;
 }
 
 .serviceTitle {
@@ -221,101 +205,95 @@
   transform: translateY(-2px);
 }
 
-/* Glow effect for cards */
-.serviceCard::before {
-  content: '';
+/* 🎯 Values Section */
+.valuesSection {
+  position: relative;
+  padding: 80px 20px;
+  overflow: hidden;
+}
+
+.valuesOverlay {
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #007bff, #0056d2, #007bff);
-  border-radius: 16px;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
 }
 
-.serviceCard:hover::before {
-  opacity: 1;
-  animation: glow 2s linear infinite;
+.valuesTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: white;
+  font-weight: 700;
 }
 
-@keyframes glow {
-  0% {
-    filter: blur(5px);
-    opacity: 0.7;
-  }
-  50% {
-    filter: blur(10px);
-    opacity: 1;
-  }
-  100% {
-    filter: blur(5px);
-    opacity: 0.7;
-  }
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* 📱 Responsive Adjustments */
-@media (max-width: 1024px) {
-  .heroTitle {
-    font-size: 3rem;
-  }
-  .heroSubtitle {
-    font-size: 1.4rem;
-  }
-  .heroExtra {
-    font-size: 1.1rem;
-  }
-  .storyHeading {
-    font-size: 2.2rem;
-  }
-  .servicesTitle {
-    font-size: 2rem;
-  }
-
-  /* 🟡 2 Cards Per Row */
-  .servicesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.valueCard {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2.5rem 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+.valueCard:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.valueIcon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.valueTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.valueDescription {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .heroTitle {
     font-size: 2.4rem;
   }
-
+  
   .storyWrapper {
     flex-direction: column;
-    gap: 1.5rem;
   }
-
-  /* 🟠 1 Card Per Row */
+  
   .servicesGrid {
     grid-template-columns: 1fr;
   }
-
-  .heroSection,
-  .storySection,
-  .servicesSection {
-    background-attachment: scroll;
+  
+  .valuesGrid {
+    grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 480px) {
-  .heroTitle {
-    font-size: 2rem;
-  }
-
-  .storyHeading {
-    font-size: 1.5rem;
-  }
-
-  .serviceTitle {
-    font-size: 1.4rem;
-  }
-
-  .serviceText {
-    font-size: 1rem;
+  
+  .valueCard {
+    padding: 2rem 1rem;
+    min-height: 250px;
   }
 }
