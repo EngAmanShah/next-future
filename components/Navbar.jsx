@@ -204,9 +204,9 @@ export default function Navbar({ lang }) {
   };
 
   // ERP Solutions data - all links go to service page
-  const erpSolutions = [
+ const erpSolutions = [
     { 
-      href: "/service", 
+      href: "/ERP/odoo", 
       en: "Odoo ERP", 
       ar: "أودو ERP",
       description: {
@@ -215,51 +215,25 @@ export default function Navbar({ lang }) {
       }
     },
     { 
-      href: "/service", 
-      en: "SAP Business One", 
-      ar: "SAP Business One",
+      href: "/ERP/property-management", 
+      en: "Property Management System", 
+      ar: "نظام إدارة الأملاك والعقارات",
       description: {
-        en: "ERP solution for small to medium businesses",
-        ar: "حل ERP للشركات الصغيرة والمتوسطة"
+        en: "Comprehensive real estate and property management",
+        ar: "نظام متكامل لإدارة العقارات والأملاك"
       }
     },
     { 
-      href: "/service", 
-      en: "Oracle NetSuite", 
-      ar: "أوراكل نت سويت",
+      href: "/ERP/Construction-Management", 
+      en: "Construction Management", 
+      ar: "إدارة شركات المقاولات",
       description: {
-        en: "Cloud-based business management suite",
-        ar: "مجموعة إدارة الأعمال القائمة على السحابة"
+        en: "Construction company management solutions",
+        ar: "حلول إدارة شركات المقاولات"
       }
     },
-    { 
-      href: "/service", 
-      en: "Microsoft Dynamics 365", 
-      ar: "مايكروسوفت دايناميكس 365",
-      description: {
-        en: "Intelligent business applications",
-        ar: "تطبيقات الأعمال الذكية"
-      }
-    },
-    { 
-      href: "/service", 
-      en: "Custom ERP Development", 
-      ar: "تطوير ERP مخصص",
-      description: {
-        en: "Tailored ERP solutions for your business",
-        ar: "حلول ERP مخصصة لعملك"
-      }
-    },
-    { 
-      href: "/service", 
-      en: "ERP Implementation", 
-      ar: "تنفيذ ERP",
-      description: {
-        en: "Professional ERP implementation services",
-        ar: "خدمات تنفيذ ERP المهنية"
-      }
-    }
-  ];
+   
+];
 
   return (
     <>
