@@ -1,287 +1,484 @@
 /* aboutus.module.css */
 .container {
   font-family: 'Somar', sans-serif;
-  color: white;
+  color: #2D3748;
   overflow-x: hidden;
 }
 
-/* 🎯 Hero Section */
+/* Common Section Styles */
+.sectionContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1A365D;
+  margin-bottom: 1rem;
+}
+
+.titleUnderline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: #718096;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 .heroSection {
   position: relative;
-  height: 90vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding-top: 100px;
-}
-
-.heroOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 18, 51, 0.85);
-  z-index: 1;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
-  padding: 2rem;
-}
-
-.heroTitle {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.heroSubtitle {
-  font-size: 1.6rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
-}
-
-.heroExtra {
-  font-size: 1.2rem;
-  max-width: 750px;
-  margin: 0 auto;
-  color: #cfd9ff;
-  line-height: 1.8;
-}
-
-/* 📜 Story Section */
-.storySection {
-  position: relative;
-  padding: 4rem 2rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.storyOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 12, 46, 0.9);
-  z-index: 1;
-}
-
-.storyWrapper {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 2;
-}
-
-.storyText,
-.storyImage {
-  flex: 1;
-  min-width: 280px;
-}
-
-.storyImage img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 70, 200, 0.4);
-}
-
-.storyHeading {
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  color: #ffffff;
-}
-
-.storyParagraph {
-  font-size: 1.3rem;
-  line-height: 2;
-  color: #d3ddff;
-}
-
-/* 🧩 Services Section */
-.servicesSection {
-  position: relative;
-  padding: 5rem 2rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.servicesOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 18, 51, 0.9);
-  z-index: 1;
-}
-
-.servicesTitle {
-  text-align: center;
-  font-size: 2.4rem;
-  margin-bottom: 3rem;
-  color: #ffffff;
-  position: relative;
-  z-index: 2;
-}
-
-.servicesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  position: relative;
-  z-index: 2;
-}
-
-.serviceCard {
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  background: rgba(0, 12, 46, 0.95);
-  color: #9ecfff;
-  box-shadow: 0 10px 25px rgba(0, 70, 200, 0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.serviceCard:hover {
-  box-shadow: 0 20px 40px rgba(0, 70, 200, 0.5);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-5px);
-}
-
-.serviceIcon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.serviceTitle {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-
-.serviceText {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #cfd9ff;
-  margin-bottom: 1rem;
-}
-
-.serviceButton {
-  margin-top: auto;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #007bff, #0056d2);
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  width: 100%;
-}
-
-.serviceButton:hover {
-  background: linear-gradient(135deg, #0056d2, #0041a8);
-  transform: translateY(-2px);
-}
-
-/* 🎯 Values Section */
-.valuesSection {
-  position: relative;
-  padding: 80px 20px;
+  align-items: flex-start; /* Change from center to flex-start */
+  padding-top: 120px; /* Add padding to push content down */
+  background: linear-gradient(135deg, #1A365D 0%, #2D3748 100%);
   overflow: hidden;
 }
 
-.valuesOverlay {
+
+.heroBackground {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: url('/bg6.png') center/cover;
+  opacity: 0.1;
 }
-
-.valuesTitle {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: white;
-  font-weight: 700;
-}
-
-.valuesGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+.heroContent {
+  position: relative;
+  z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-top: 50px; /* Add margin to push content down */
 }
 
-.valueCard {
+.heroText {
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #E2E8F0;
+  font-weight: 500;
+}
+
+.heroExtra {
+  font-size: 1.1rem;
+  color: #CBD5E0;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.ctaButton {
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+.heroVisual {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.floatingCard {
   background: rgba(255, 255, 255, 0.1);
-  padding: 2.5rem 1.5rem;
+  backdrop-filter: blur(10px);
+  padding: 2rem 1.5rem;
   border-radius: 20px;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  min-width: 140px;
+  flex: 1;
 }
 
-.valueCard:hover {
+.floatingCard:hover {
+  transform: translateY(-10px) scale(1.05);
   background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.floatingCard h4 {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* 📜 Story Section */
+.storySection {
+  padding: 6rem 0;
+  background: #F7FAFC;
+}
+
+.storyContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.storyText {
+  padding-right: 2rem;
+}
+
+.storyParagraph {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4A5568;
+  margin-bottom: 2rem;
+  text-align: justify;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.statItem {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.statItem:hover {
   transform: translateY(-5px);
 }
 
-.valueIcon {
+.statItem h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.statItem p {
+  color: #718096;
+  font-weight: 500;
+}
+
+.storyImage {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.storyImage:hover {
+  transform: translateY(-5px);
+}
+
+.storyImage img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.storyImage:hover img {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 86, 210, 0.1));
+}
+
+/* 🎯 Values Section */
+.valuesSection {
+  padding: 6rem 0;
+  background: white;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.valueCard {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.valueCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+}
+
+.valueCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.valueImageContainer {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.valueImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #E2E8F0;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.valueCard:hover .valueImage {
+  border-color: #007bff;
+  transform: scale(1.1);
+}
+
+.valueFallbackIcon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 3rem;
-  margin-bottom: 1.5rem;
+  color: white;
+  border: 4px solid #E2E8F0;
 }
 
 .valueTitle {
   font-size: 1.5rem;
   font-weight: 700;
+  color: #1A365D;
   margin-bottom: 1rem;
-  color: white;
 }
 
 .valueDescription {
-  color: rgba(255, 255, 255, 0.9);
+  color: #718096;
   line-height: 1.6;
   font-size: 1rem;
 }
 
+/* 🧩 Services Section */
+.servicesSection {
+  padding: 6rem 0;
+  background: #F7FAFC;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.serviceCard {
+  background: white;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E2E8F0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.serviceCard:hover::before {
+  transform: scaleX(1);
+}
+
+.serviceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceIconContainer {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #007bff, #0056d2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.serviceCard:hover .serviceIconContainer {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.serviceIcon {
+  font-size: 2rem;
+  color: white;
+}
+
+.serviceTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1A365D;
+  margin-bottom: 1rem;
+}
+
+.serviceText {
+  color: #718096;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.serviceButton {
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: 2px solid #007bff;
+  border-radius: 25px;
+  color: #007bff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+.serviceButton:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.buttonArrow {
+  transition: transform 0.3s ease;
+}
+
+.serviceButton:hover .buttonArrow {
+  transform: translateX(5px);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .heroTitle {
-    font-size: 2.4rem;
+  .sectionContainer {
+    padding: 0 1rem;
   }
   
-  .storyWrapper {
-    flex-direction: column;
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .storyContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .storyText {
+    padding-right: 0;
+  }
+  
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
   .servicesGrid {
@@ -292,8 +489,42 @@
     grid-template-columns: 1fr;
   }
   
+  .heroVisual {
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .floatingCard {
+    min-width: 200px;
+    padding: 1.5rem 1rem;
+  }
+  
+  .valueImageContainer {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  
+  .serviceCard,
   .valueCard {
     padding: 2rem 1rem;
-    min-height: 250px;
+  }
+  
+  .valueImageContainer {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .valueFallbackIcon {
+    font-size: 2rem;
   }
 }

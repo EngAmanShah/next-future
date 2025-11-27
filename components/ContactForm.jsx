@@ -11,6 +11,7 @@ export default function ContactForm({ lang }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
@@ -22,6 +23,8 @@ export default function ContactForm({ lang }) {
         namePlaceholder: "Enter your full name",
         email: "Your Email",
         emailPlaceholder: "Enter your email address",
+        phone: "Phone Number",
+        phonePlaceholder: "Enter your phone number",
         subject: "Subject",
         subjectPlaceholder: "Enter the subject",
         message: "Your Message",
@@ -39,6 +42,8 @@ export default function ContactForm({ lang }) {
         namePlaceholder: "أدخل اسمك الكامل",
         email: "بريدك الإلكتروني",
         emailPlaceholder: "أدخل بريدك الإلكتروني",
+        phone: "رقم الهاتف",
+        phonePlaceholder: "أدخل رقم هاتفك",
         subject: "الموضوع",
         subjectPlaceholder: "أدخل الموضوع",
         message: "رسالتك",
@@ -71,7 +76,7 @@ export default function ContactForm({ lang }) {
         read: false,
       });
       toast.success(messages.success);
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     } catch (error) {
       console.log("Failed to send message", error);
       toast.error(messages.error);
@@ -122,7 +127,9 @@ export default function ContactForm({ lang }) {
                   </div>
 
                   <div className="col-md-6">
-                    <label className="form-label text-white">{form.email}</label>
+                    <label className="form-label text-white">
+                      {form.email}
+                    </label>
                     <input
                       type="email"
                       name="email"
@@ -131,26 +138,53 @@ export default function ContactForm({ lang }) {
                       placeholder={form.emailPlaceholder}
                       required
                       className="form-control form-control-lg bg-white bg-opacity-10 text-white border border-white border-opacity-30 rounded-3"
+                      style={{
+                        backdropFilter: "blur(8px)",
+                        transition: "0.3s",
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="row g-4 mt-0">
+                  <div className="col-md-6">
+                    <label className="form-label text-white">
+                      {form.phone}
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={dataChange}
+                      placeholder={form.phonePlaceholder}
+                      className="form-control form-control-lg bg-white bg-opacity-10 text-white border border-white border-opacity-30 rounded-3"
+                      style={{
+                        backdropFilter: "blur(8px)",
+                        transition: "0.3s",
+                      }}
+                    />
+                  </div>
+
+                  <div className="col-md-6">
+                    <label className="form-label text-white">
+                      {form.subject}
+                    </label>
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={dataChange}
+                      placeholder={form.subjectPlaceholder}
+                      className="form-control form-control-lg bg-white bg-opacity-10 text-white border border-white border-opacity-30 rounded-3"
                       style={{ backdropFilter: "blur(8px)", transition: "0.3s" }}
                     />
                   </div>
                 </div>
 
                 <div className="mt-4">
-                  <label className="form-label text-white">{form.subject}</label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={dataChange}
-                    placeholder={form.subjectPlaceholder}
-                    className="form-control form-control-lg bg-white bg-opacity-10 text-white border border-white border-opacity-30 rounded-3"
-                    style={{ backdropFilter: "blur(8px)", transition: "0.3s" }}
-                  />
-                </div>
-
-                <div className="mt-4">
-                  <label className="form-label text-white">{form.message}</label>
+                  <label className="form-label text-white">
+                    {form.message}
+                  </label>
                   <textarea
                     name="message"
                     value={formData.message}

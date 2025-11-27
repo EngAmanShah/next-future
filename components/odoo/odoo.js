@@ -12,15 +12,19 @@ export default function OdooMainPage({ resolvedParams }) {
   const [activeFaq, setActiveFaq] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const handleDownload = () => {
-    window.open(
-      "https://drive.google.com/uc?export=download&id=1L4LBpcWwPekj2T3k1cGgjOqU4iQrD_1m",
-      "_blank"
-    );
-  };
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
     
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       const progress = (window.scrollY / totalScroll) * 100;
@@ -28,10 +32,44 @@ export default function OdooMainPage({ resolvedParams }) {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', checkMobile);
+    };
   }, []);
 
-   const content = {
+  const handleDownload = () => {
+    window.open(
+      "https://drive.google.com/uc?export=download&id=1L4LBpcWwPekj2T3k1cGgjOqU4iQrD_1m",
+      "_blank"
+    );
+  };
+
+  const handleBookAppointment = () => {
+    // You can integrate with your booking system here
+    window.open(
+      lang === 'ar' 
+        ? "https://wa.me/966539983393?text=مرحبا، أريد حجز موعد للاستشارة حول Odoo"
+        : "https://wa.me/966539983393?text=Hello, I would like to book an appointment for Odoo consultation",
+      "_blank"
+    );
+  };
+
+  const handleContactUs = () => {
+    window.open(
+      lang === 'ar'
+        ? "https://wa.me/966539983393?text=مرحبا، أريد الاستفسار عن خدمات Odoo"
+        : "https://wa.me/966539983393?text=Hello, I would like to inquire about Odoo services",
+      "_blank"
+    );
+  };
+
+  const handleStartNow = () => {
+    // Scroll to contact form or open modal
+    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const content = {
     ar: {
       hero: {
         title: "Odoo الحل المتكامل لإدارة أعمالك بفعالية وجودة عالية",
@@ -83,9 +121,19 @@ export default function OdooMainPage({ resolvedParams }) {
             description: "بفضل بنيته المفتوحة المصدر، يمكن تعديل الوحدات أو إنشاء وحدات جديدة بسهولة لتتناسب مع احتياجات الأعمال الفريدة."
           },
           {
-            icon: "🌍",
-            title: "مجتمع عالمي ضخم ومطورون مستقلون",
-            description: "يساهم آلاف المطورين حول العالم في تحسين النظام وتوفير إضافات ووحدات متخصصة، مما يضمن تطوره المستمر ودعمه الفني."
+            icon: "📱",
+            title: "دعم كامل للجوال",
+            description: "واجهة متجاوبة تعمل بشكل مثالي على جميع الأجهزة من الحواسيب إلى الهواتف الذكية."
+          },
+          {
+            icon: "🚀",
+            title: "تنفيذ سريع وفعال",
+            description: "نظام سهل التنفيذ يمكنك البدء في استخدامه خلال فترة زمنية قصيرة."
+          },
+          {
+            icon: "💰",
+            title: "توفير في التكاليف",
+            description: "بديل اقتصادي وفعال لأنظمة الـ ERP التقليدية باهظة الثمن."
           }
         ]
       },
@@ -95,10 +143,6 @@ export default function OdooMainPage({ resolvedParams }) {
           {
             title: "تحسين الإنتاجية",
             description: "بتوحيد العمليات ضمن نظام واحد، يتم تسريع تنفيذ المهام وتقليل الأخطاء البشرية."
-          },
-          {
-            title: "خفض التكاليف التشغيلية",
-            description: "لأنه يمكنك تفعيل ما تحتاجه فقط، وتجنب اشتراكات متعددة، فضلاً عن انخفاض تكاليف التدريب والصيانة."
           },
           {
             title: "رفع جودة المنتجات",
@@ -167,6 +211,14 @@ export default function OdooMainPage({ resolvedParams }) {
           {
             question: "ما هي لغة برمجة Odoo؟",
             answer: "Odoo مبرمج بلغة Python مع واجهة مستخدم باستخدام JavaScript وQWeb."
+          },
+          {
+            question: "هل يدعم Odoo اللغة العربية؟",
+            answer: "نعم، Odoo يدعم اللغة العربية بشكل كامل مع واجهة مستخدم مترجمة بالكامل."
+          },
+          {
+            question: "كم تستغرق عملية التنفيذ؟",
+            answer: "تعتمد مدة التنفيذ على حجم وتعقيد عملك، ولكن معظم المشاريع تنفذ خلال 2-8 أسابيع."
           }
         ]
       },
@@ -180,7 +232,7 @@ export default function OdooMainPage({ resolvedParams }) {
     en: {
       hero: {
         title: "Odoo - Complete Business Management Solution",
-        subtitle: "Discover how Odoo provides comprehensive open-source ERP system for sales, accounting, inventory, marketing, and HR management.",
+        subtitle: "Discover how Odoo provides comprehensive open-source ERP system for sales, accounting, inventory, marketing, and HR management. Learn about its features, benefits, and how to use it to develop your business easily.",
         cta: "Download Profile",
         book: "Book Appointment"
       },
@@ -224,9 +276,19 @@ export default function OdooMainPage({ resolvedParams }) {
             description: "Thanks to its open-source structure, modules can be easily modified or new modules created to suit unique business needs."
           },
           {
-            icon: "🌍",
-            title: "Large global community and independent developers",
-            description: "Thousands of developers worldwide contribute to improving the system and providing specialized add-ons and modules."
+            icon: "📱",
+            title: "Full Mobile Support",
+            description: "Responsive interface that works perfectly on all devices from computers to smartphones."
+          },
+          {
+            icon: "🚀",
+            title: "Fast and Effective Implementation",
+            description: "Easy-to-implement system that you can start using in a short time."
+          },
+          {
+            icon: "💰",
+            title: "Cost Saving",
+            description: "Economic and effective alternative to expensive traditional ERP systems."
           }
         ]
       },
@@ -236,10 +298,6 @@ export default function OdooMainPage({ resolvedParams }) {
           {
             title: "Improve Productivity",
             description: "By unifying operations within one system, task execution is accelerated and human errors are reduced."
-          },
-          {
-            title: "Reduce Operational Costs",
-            description: "Because you can activate only what you need, avoid multiple subscriptions, and reduce training and maintenance costs."
           },
           {
             title: "Improve Product Quality",
@@ -308,6 +366,14 @@ export default function OdooMainPage({ resolvedParams }) {
           {
             question: "What programming language does Odoo use?",
             answer: "Odoo is programmed in Python with user interface using JavaScript and QWeb."
+          },
+          {
+            question: "Does Odoo support Arabic language?",
+            answer: "Yes, Odoo fully supports Arabic language with completely translated user interface."
+          },
+          {
+            question: "How long does implementation take?",
+            answer: "Implementation duration depends on the size and complexity of your business, but most projects are implemented within 2-8 weeks."
           }
         ]
       },
@@ -319,6 +385,7 @@ export default function OdooMainPage({ resolvedParams }) {
       }
     }
   };
+
   const t = content[lang] || content.ar;
 
   const toggleFaq = (index) => {
@@ -382,21 +449,27 @@ export default function OdooMainPage({ resolvedParams }) {
                 <span className={styles.buttonIcon}>📥</span>
                 {t.hero.cta}
               </button>
-              <button className={styles.secondaryButton}>
+              <button 
+                className={styles.secondaryButton}
+                onClick={handleBookAppointment}
+              >
                 <span className={styles.buttonIcon}>📅</span>
                 {t.hero.book}
               </button>
             </div>
           </div>
           <div className={styles.heroVisual}>
-            <Image 
-              src="/odoo.webp" 
-              alt="Odoo Dashboard"
-              width={600}
-              height={400}
-              className={styles.odooImage}
-              priority
-            />
+            <div className={styles.imageContainer}>
+              <Image 
+                src="/odoo.webp" 
+                alt="Odoo Dashboard"
+                width={600}
+                height={400}
+                className={styles.odooImage}
+                priority
+              />
+              <div className={styles.imageOverlay}></div>
+            </div>
           </div>
         </div>
         
@@ -419,26 +492,32 @@ export default function OdooMainPage({ resolvedParams }) {
             <ul className={styles.contentList}>
               {t.whatIsOdoo.features.map((feature, index) => (
                 <li key={index} className={styles.fadeIn} style={{ animationDelay: `${index * 0.1}s` }}>
+                  <span className={styles.listIcon}>✓</span>
                   {feature}
                 </li>
               ))}
             </ul>
           </div>
           <div className={styles.contentVisual}>
-            <Image 
-              src="/erp.jpg" 
-              alt="Odoo Features"
-              width={500}
-              height={350}
-              className={styles.featureImage}
-            />
+            <div className={styles.visualCard}>
+              <Image 
+                src="/erp.jpg" 
+                alt="Odoo Features"
+                width={500}
+                height={350}
+                className={styles.featureImage}
+              />
+              <div className={styles.visualBadge}>
+                {lang === 'ar' ? 'نظام متكامل' : 'Integrated System'}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
       <section className={`${styles.section} ${styles.sectionLight}`}>
-        <div className={styles.contentGrid}>
+        <div className={styles.contentGridReverse}>
           <div className={styles.contentVisual}>
             <div className={styles.dashboardPreview}>
               <div className={styles.dashboardHeader}>
@@ -475,7 +554,8 @@ export default function OdooMainPage({ resolvedParams }) {
             <div className={styles.benefitsGrid}>
               {t.howItWorks.benefits.map((benefit, index) => (
                 <div key={index} className={`${styles.benefitItem} ${styles.slideInUp}`} style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className={styles.benefitTitle}>{benefit}</div>
+                  <div className={styles.benefitIcon}>🚀</div>
+                  <div className={styles.benefitText}>{benefit}</div>
                 </div>
               ))}
             </div>
@@ -499,6 +579,7 @@ export default function OdooMainPage({ resolvedParams }) {
               <div className={styles.featureIcon}>{feature.icon}</div>
               <h3 className={styles.featureTitle}>{feature.title}</h3>
               <p className={styles.featureDescription}>{feature.description}</p>
+              <div className={styles.featureHover}></div>
             </div>
           ))}
         </div>
@@ -514,9 +595,10 @@ export default function OdooMainPage({ resolvedParams }) {
             {lang === 'ar' ? 'تعرف على الفوائد التي ستحققها لشركتك' : 'Discover the benefits your company will achieve'}
           </p>
         </div>
-        <div className={styles.benefitsGrid}>
+        <div className={styles.benefitsGridLarge}>
           {t.benefits.items.map((benefit, index) => (
-            <div key={index} className={`${styles.benefitItem} ${styles.slideInUp}`} style={{ animationDelay: `${index * 0.1}s` }}>
+            <div key={index} className={`${styles.benefitCard} ${styles.slideInUp}`} style={{ animationDelay: `${index * 0.1}s` }}>
+              <div className={styles.benefitNumber}>0{index + 1}</div>
               <h3 className={styles.benefitTitle}>{benefit.title}</h3>
               <p className={styles.benefitDescription}>{benefit.description}</p>
             </div>
@@ -525,7 +607,7 @@ export default function OdooMainPage({ resolvedParams }) {
       </section>
 
       {/* Companies Section */}
-      <section className={`${styles.section} ${styles.companiesSection}`}>
+      {/* <section className={`${styles.section} ${styles.companiesSection}`}>
         <div className={styles.sectionHeader}>
           <h2 className={`${styles.sectionTitle} ${styles.fadeIn}`}>
             {t.companies.title}
@@ -537,17 +619,13 @@ export default function OdooMainPage({ resolvedParams }) {
         <div className={styles.companiesGrid}>
           {t.companies.logos.map((company, index) => (
             <div key={index} className={`${styles.companyLogo} ${styles.slideInUp}`} style={{ animationDelay: `${index * 0.1}s` }}>
-              <Image 
-                src="/logo.png"
-                alt={company}
-                width={80}
-                height={40}
-                style={{ objectFit: 'contain' }}
-              />
+              <div className={styles.logoPlaceholder}>
+                <span>{company}</span>
+              </div>
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Training Section */}
       <section className={`${styles.section} ${styles.sectionLight}`}>
@@ -562,19 +640,25 @@ export default function OdooMainPage({ resolvedParams }) {
             <ul className={styles.contentList}>
               {t.training.benefits.map((benefit, index) => (
                 <li key={index} className={styles.fadeIn} style={{ animationDelay: `${index * 0.1}s` }}>
+                  <span className={styles.listIcon}>🎯</span>
                   {benefit}
                 </li>
               ))}
             </ul>
           </div>
           <div className={styles.contentVisual}>
-            <Image 
-              src="/odoo-training.webp" 
-              alt="Odoo Training"
-              width={500}
-              height={350}
-              className={styles.featureImage}
-            />
+            <div className={styles.visualCard}>
+              <Image 
+                src="/odoo-training.webp" 
+                alt="Odoo Training"
+                width={500}
+                height={350}
+                className={styles.featureImage}
+              />
+              <div className={styles.visualBadge}>
+                {lang === 'ar' ? 'تدريب متخصص' : 'Specialized Training'}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -616,7 +700,7 @@ export default function OdooMainPage({ resolvedParams }) {
       </section>
 
       {/* Final CTA */}
-      <section className={styles.finalCTA}>
+      <section className={styles.finalCTA} id="contact-section">
         <div className={styles.ctaBackground}>
           <div className={styles.ctaAnimation}></div>
         </div>
@@ -647,11 +731,17 @@ export default function OdooMainPage({ resolvedParams }) {
           </div>
 
           <div className={styles.ctaActions}>
-            <button className={`${styles.ctaPrimary} ${styles.pulseAnimation}`}>
+            <button 
+              className={`${styles.ctaPrimary} ${styles.pulseAnimation}`}
+              onClick={handleStartNow}
+            >
               <span className={styles.buttonIcon}>🚀</span>
               {t.finalCta.cta}
             </button>
-            <button className={styles.ctaSecondary}>
+            <button 
+              className={styles.ctaSecondary}
+              onClick={handleContactUs}
+            >
               <span className={styles.buttonIcon}>💬</span>
               {t.finalCta.whatsapp}
             </button>

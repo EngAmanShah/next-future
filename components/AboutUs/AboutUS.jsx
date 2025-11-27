@@ -3,7 +3,6 @@
 import React, { use } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./aboutus.module.css";
-import TeamSection from '@/components/workteam/team';
 
 export default function AboutUs({ params }) {
   const resolvedParams = use(params);
@@ -18,7 +17,6 @@ export default function AboutUs({ params }) {
       heroExtra: "We believe the future of business lies at the intersection of technology and creativity. From startups to enterprises, Next Future helps brands redefine how they connect, grow, and succeed in a digital-first world.",
       history: "Next Future Information Technology was founded to help businesses thrive and shine in the digital era. Our company is led by a team of multi-skilled professionals in web and mobile development, graphic design, digital marketing, and IT solutions — turning innovative ideas into tangible results. We believe every business has the potential to excel, combining creativity, strategy, and technology to build modern websites, mobile apps, brand identities, and marketing campaigns that deliver real impact. Our mission is simple — to elevate your brand to its full potential. Whether you're starting out or already established, Next Future is your trusted partner for clarity, creativity, and growth at every stage of your journey.",
       
-      // New content
       aboutUs: "Next Future Information Technology is a leading company in information technology, software development, and business solutions in marketing, accounting, and management. The company boasts a team of experts, engineers, and developers with high expertise and efficiency in software development and information technology. We are committed to building long-term relationships with our clients through delivering high-quality services and exceptional after-sales support.",
       
       vision: {
@@ -31,11 +29,6 @@ export default function AboutUs({ params }) {
         description: "Activating innovation in the digital solutions industry, enhancing profitability, increasing effectiveness, and elevating the overall quality of our partners' operations to achieve their goals and exceed their ambitions."
       },
       
-      team: {
-        title: "Our Team",
-        description: "Researchers, developers, consultants, and engineers working with professional efficiency and ethical commitment to meet our clients' needs. We take pride in their innovations and services."
-      },
-      
       goal: {
         title: "Our Goal",
         description: "Our goal aligns with Saudi Vision 2030, aspiring for our nation to become a globally successful model in the field of technology."
@@ -43,6 +36,7 @@ export default function AboutUs({ params }) {
 
       servicesTitle: "Our Services",
       storyHeading: "Our Story",
+      valuesTitle: "Our Values & Principles",
       buttons: {
         mobile: "Mobile Apps",
         web: "See Web Solutions",
@@ -53,7 +47,8 @@ export default function AboutUs({ params }) {
         erp: "ERP Solutions",
         odoo: "Odoo ERP",
         ecommerce: "E-Commerce",
-        cloud: "Cloud Services"
+        cloud: "Cloud Services",
+        learnMore: "Learn More"
       },
     },
     ar: {
@@ -62,7 +57,6 @@ export default function AboutUs({ params }) {
       heroExtra: "نؤمن أن مستقبل الأعمال يكمن في تقاطع التقنية مع الإبداع. من الشركات الناشئة إلى المؤسسات الكبيرة، تساعد نيكست فيوتشر العلامات التجارية على إعادة تعريف كيفية التواصل والنمو والنجاح في عالم رقمي أولًا.",
       history: "تأسست شركة نيكست فيوتشر لتقنية المعلومات لمساعدة الشركات على الازدهار والتألق في العصر الرقمي. تحت قيادة فريق من الخبراء متعددي المهارات في تطوير المواقع والتطبيقات، التصميم الجرافيكي، التسويق الرقمي، وحلول تكنولوجيا المعلومات — تحول نيكست فيوتشر الأفكار المبتكرة إلى نتائج ملموسة. نحن نؤمن بأن لكل شركة القدرة على التفوق، ولهذا نمزج بين الإبداع والاستراتيجية والتقنية لبناء مواقع حديثة، وتطبيقات متطورة، وهويات بصرية قوية، وحملات تسويقية تحقق أثرًا حقيقيًا. مهمتنا بسيطة — رفع علامتك التجارية إلى أقصى إمكاناتها. سواء كنت في بداية مسيرتك أو تمتلك مؤسسة راسخة، فإن نيكست فيوتشر هي شريكك الموثوق للوضوح والإبداع والنمو في كل مرحلة من رحلتك.",
       
-      // New content in Arabic
       aboutUs: "نيكست فيوتشر لتقنية المعلومات هي شركة رائدة في مجال تقنية المعلومات وتطوير البرمجيات وحلول الأعمال التسويقية والمحاسبية والإدارية. وتتميز الشركة بفريق عمل مكون من مجموعة من الخبراء والمهندسين والمطورين ذوي خبرة وكفاءة عالية في مجال تطوير البرمجيات وتكنولوجيا المعلومات. نحن نحرص على بناء علاقات طويلة المدى مع عملائنا من خلال تقديم خدمات عالية الجودة وخدمات ما بعد البيع المتميزة.",
       
       vision: {
@@ -75,11 +69,6 @@ export default function AboutUs({ params }) {
         description: "تفعيل الابتكار في صناعة الحلول الرقمية، وتعزيز الربحية وزيادة الفاعلية والارتقاء بالجودة الشاملة في أعمال شركائنا لتحقيق أهدافهم وتجاوز طموحاتهم."
       },
       
-      team: {
-        title: "فريقنا", 
-        description: "باحثون ومطورون واستشاريون ومهندسون يعملون بكفاءة مهنية والتزام أخلاقي لتلبية احتياجات عملائنا، ونفتخر بابتكاراتهم وخدماتهم."
-      },
-      
       goal: {
         title: "هدفنا",
         description: "هدفنا التزام برؤية المملكة 2030 بأن تكون بلادنا نموذجاً عالمياً ناجحاً في مجال التكنولوجيا."
@@ -87,6 +76,7 @@ export default function AboutUs({ params }) {
 
       servicesTitle: "خدماتنا",
       storyHeading: "قصتنا",
+      valuesTitle: "قيمنا ومبادئنا",
       buttons: {
         mobile: "تطبيقات الهواتف",
         web: "حلول الويب",
@@ -97,7 +87,8 @@ export default function AboutUs({ params }) {
         erp: "حلول ERP",
         odoo: "أودو ERP",
         ecommerce: "التجارة الإلكترونية",
-        cloud: "خدمات السحابة"
+        cloud: "خدمات السحابة",
+        learnMore: "اعرف المزيد"
       },
     },
   };
@@ -109,190 +100,190 @@ export default function AboutUs({ params }) {
       icon: "📱",
       title: { en: "Mobile App Development", ar: "تطوير تطبيقات الجوال" },
       text: {
-        en: "Custom apps for iOS and Android.",
-        ar: "تطبيقات مخصصة لنظامي iOS و Android.",
+        en: "Custom apps for iOS and Android with modern frameworks and technologies.",
+        ar: "تطبيقات مخصصة لنظامي iOS و Android بإطار عمل وتقنيات حديثة.",
       },
-      link: `/${currentLang}/service/mobile-app`,
+      link: ``,
       btnKey: "mobile",
     },
     {
       icon: "💻",
       title: { en: "Web Development", ar: "تطوير الويب" },
       text: {
-        en: "Responsive websites for business success.",
-        ar: "مواقع ويب متجاوبة لنجاح أعمالك.",
+        en: "Responsive websites and web applications for business success.",
+        ar: "مواقع ويب وتطبيقات ويب متجاوبة لنجاح أعمالك.",
       },
-      link: `/${currentLang}/service/webdev`,
+      link: ``,
       btnKey: "web",
     },
     {
       icon: "📢",
       title: { en: "Digital Marketing", ar: "التسويق الرقمي" },
       text: {
-        en: "Grow your brand online effectively.",
-        ar: "نمِّ علامتك التجارية رقمياً بفعالية.",
+        en: "Grow your brand online with data-driven marketing strategies.",
+        ar: "نمِّ علامتك التجارية رقمياً باستراتيجيات تسويق مدفوعة بالبيانات.",
       },
-      link: `/${currentLang}/service/digital-marketing`,
+      link: ``,
       btnKey: "marketing",
     },
     {
-      icon: "⚡",
-      title: { en: "App Development", ar: "تطوير التطبيقات" },
-      text: {
-        en: "Build powerful and scalable mobile apps.",
-        ar: "بناء تطبيقات جوال قوية وقابلة للتوسع.",
-      },
-      link: `/${currentLang}/service/appdev`,
-      btnKey: "appDev",
-    },
-    {
       icon: "🎨",
-      title: { en: "Graphic Design", ar: "تصميم جرافيك" },
+      title: { en: "Graphic Design", ar: "التصميم الجرافيكي" },
       text: {
-        en: "Creative visuals for your brand.",
-        ar: "تصاميم إبداعية لعلامتك التجارية.",
+        en: "Creative visuals and brand identity that make your business stand out.",
+        ar: "تصاميم إبداعية وهويات بصرية تجعل عملك متميزاً.",
       },
-      link: `/${currentLang}/service/graphic-design`,
+      link: ``,
       btnKey: "design",
     },
     {
       icon: "🔧",
       title: { en: "IT Solutions", ar: "حلول تقنية المعلومات" },
       text: {
-        en: "Reliable IT services for enterprises.",
-        ar: "خدمات تقنية موثوقة للمؤسسات.",
+        en: "Comprehensive IT services and infrastructure solutions for enterprises.",
+        ar: "خدمات تقنية معلومات شاملة وحلول بنية تحتية للمؤسسات.",
       },
-      link: `/${currentLang}/service/itsolutions`,
+      link: ``,
       btnKey: "it",
     },
     {
       icon: "📊",
       title: { en: "ERP Solutions", ar: "حلول ERP" },
       text: {
-        en: "Comprehensive business management systems.",
-        ar: "أنظمة شاملة لإدارة الأعمال.",
+        en: "Integrated business management systems to streamline your operations.",
+        ar: "أنظمة إدارة أعمال متكاملة لتبسيط عملياتك.",
       },
-      link: `/${currentLang}/service/erp`,
+      link: ``,
       btnKey: "erp",
-    },
-    {
-      icon: "🔄",
-      title: { en: "Odoo ERP", ar: "أودو ERP" },
-      text: {
-        en: "Open-source ERP implementation and customization.",
-        ar: "تنفيذ وتخصيص نظام أودو ERP مفتوح المصدر.",
-      },
-      link: `/${currentLang}/service/odoo-erp`,
-      btnKey: "odoo",
-    },
-    {
-      icon: "🛒",
-      title: { en: "E-Commerce Solutions", ar: "حلول التجارة الإلكترونية" },
-      text: {
-        en: "Build powerful online stores and marketplaces.",
-        ar: "بناء متاجر إلكترونية ومنصات تسوق قوية.",
-      },
-      link: `/${currentLang}/service/ecommerce`,
-      btnKey: "ecommerce",
-    },
-    {
-      icon: "☁️",
-      title: { en: "Cloud Services", ar: "خدمات السحابة" },
-      text: {
-        en: "Scalable cloud infrastructure and solutions.",
-        ar: "بنية تحتية سحابية قابلة للتوسع وحلول متكاملة.",
-      },
-      link: `/${currentLang}/service/cloud-services`,
-      btnKey: "cloud",
     },
   ];
 
-  // Values/Principles Section Data
+  // Values/Principles Section Data with images
   const values = [
     {
-      icon: "👁️",
+      image: "/vision.png",
       title: t.vision.title,
       description: t.vision.description
     },
     {
-      icon: "🎯",
+      image: "/mission.png", 
       title: t.mission.title,
       description: t.mission.description
     },
     {
-      icon: "👥",
-      title: t.team.title,
-      description: t.team.description
-    },
-    {
-      icon: "🚩",
+      image: "/goal.png",
       title: t.goal.title,
       description: t.goal.description
     }
   ];
 
+  const handleServiceClick = (link) => {
+    if (link) {
+      router.push(link);
+    }
+  };
+
   return (
     <div className={styles.container}>
       {/* ⭐ Hero Section */}
-      <section 
-        className={styles.heroSection}
-        style={{ backgroundImage: "url('/bg6.png')" }}
-      >
-        <div className={styles.heroOverlay}></div>
+      <section className={styles.heroSection}>
+        <div className={styles.heroBackground}></div>
         <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle}>
-            {t.heroTitle}
-          </h1>
-          <p className={styles.heroSubtitle}>
-            {t.heroSubtitle}
-          </p>
-          <p className={styles.heroExtra}>
-            {t.heroExtra}
-          </p>
+          <div className={styles.heroText}>
+            <h1 className={styles.heroTitle}>
+              {t.heroTitle}
+            </h1>
+            <p className={styles.heroSubtitle}>
+              {t.heroSubtitle}
+            </p>
+            <p className={styles.heroExtra}>
+              {t.heroExtra}
+            </p>
+            <button 
+              className={styles.ctaButton}
+              onClick={() => router.push(`/${currentLang}/contact`)}
+            >
+              {currentLang === "en" ? "Get In Touch" : "تواصل معنا"}
+            </button>
+          </div>
+          <div className={styles.heroVisual}>
+            <div className={styles.floatingCard}>
+              <div className={styles.cardIcon}></div>
+              <h4>{currentLang === "en" ? "Innovation" : "الابتكار"}</h4>
+            </div>
+            <div className={styles.floatingCard}>
+              <div className={styles.cardIcon}></div>
+              <h4>{currentLang === "en" ? "Strategy" : "الإستراتيجية"}</h4>
+            </div>
+            <div className={styles.floatingCard}>
+              <div className={styles.cardIcon}></div>
+              <h4>{currentLang === "en" ? "Technology" : "التقنية"}</h4>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* 🧬 Story Section */}
-      <section 
-        className={styles.storySection}
-        style={{ backgroundImage: "url('/bg6.png')" }}
-      >
-        <div className={styles.storyOverlay}></div>
-        <div
-          className={styles.storyWrapper}
-          style={{
-            flexDirection: currentLang === "ar" ? "row-reverse" : "row",
-          }}
-        >
-          <div className={styles.storyText}>
-            <h2 className={styles.storyHeading}>{t.storyHeading}</h2>
-            <p className={styles.storyParagraph}>{t.history}</p>
-            <p className={styles.storyParagraph}>{t.aboutUs}</p>
+      <section className={styles.storySection}>
+        <div className={styles.sectionContainer}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>{t.storyHeading}</h2>
+            <div className={styles.titleUnderline}></div>
           </div>
-          <div className={styles.storyImage}>
-            <img src="/about.png" alt="Our Story" />
+          <div className={styles.storyContent}>
+            <div className={styles.storyText}>
+              <p className={styles.storyParagraph}>{t.history}</p>
+              <p className={styles.storyParagraph}>{t.aboutUs}</p>
+              {/* <div className={styles.statsGrid}>
+                <div className={styles.statItem}>
+                  <h3>100+</h3>
+                  <p>{currentLang === "en" ? "Projects Completed" : "مشروع مكتمل"}</p>
+                </div>
+                <div className={styles.statItem}>
+                  <h3>5+</h3>
+                  <p>{currentLang === "en" ? "Years Experience" : "سنوات من الخبرة"}</p>
+                </div>
+                <div className={styles.statItem}>
+                  <h3>99+</h3>
+                  <p>{currentLang === "en" ? "Happy Clients" : "عميل سعيد"}</p>
+                </div>
+              </div> */}
+            </div>
+            <div className={styles.storyImage}>
+              <img src="/about.png" alt="Our Story" />
+              <div className={styles.imageOverlay}></div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 🎯 Values & Principles Section */}
-      <section 
-        className={styles.valuesSection}
-        style={{ backgroundImage: "url('/bg6.png')" }}
-      >
-        <div className={styles.valuesOverlay}></div>
-        <div style={{ position: "relative", zIndex: 2 }}>
-          <h2 className={styles.valuesTitle}>
-            {currentLang === "en" ? "Our Values & Principles" : "قيمنا ومبادئنا"}
-          </h2>
+      <section className={styles.valuesSection}>
+        <div className={styles.sectionContainer}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>{t.valuesTitle}</h2>
+            <div className={styles.titleUnderline}></div>
+          </div>
           <div className={styles.valuesGrid}>
             {values.map((value, index) => (
               <div
                 key={index}
                 className={styles.valueCard}
               >
-                <div className={styles.valueIcon}>
-                  {value.icon}
+                <div className={styles.valueImageContainer}>
+                  <img 
+                    src={value.image} 
+                    alt={value.title}
+                    className={styles.valueImage}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'block';
+                    }}
+                  />
+                  <div className={styles.valueFallbackIcon} style={{display: 'none'}}>
+                    {value.title.includes('Vision') ? '👁️' : 
+                     value.title.includes('Mission') ? '🎯' : '🚩'}
+                  </div>
                 </div>
                 <h3 className={styles.valueTitle}>{value.title}</h3>
                 <p className={styles.valueDescription}>{value.description}</p>
@@ -303,38 +294,39 @@ export default function AboutUs({ params }) {
       </section>
 
       {/* 🧩 Services Section */}
-      <section 
-        className={styles.servicesSection}
-        style={{ backgroundImage: "url('/bg6.png')" }}
-      >
-        <div className={styles.servicesOverlay}></div>
-        <div style={{ position: "relative", zIndex: 2 }}>
-          <h2 className={styles.servicesTitle}>
-            {t.servicesTitle}
-          </h2>
+      <section className={styles.servicesSection}>
+        <div className={styles.sectionContainer}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>{t.servicesTitle}</h2>
+            <div className={styles.titleUnderline}></div>
+            <p className={styles.sectionSubtitle}>
+              {currentLang === "en" 
+                ? "Comprehensive digital solutions for your business growth" 
+                : "حلول رقمية شاملة لنمو أعمالك"}
+            </p>
+          </div>
           <div className={styles.servicesGrid}>
-            {services.map((s, i) => (
+            {services.map((service, index) => (
               <div
-                key={i}
+                key={index}
                 className={styles.serviceCard}
               >
-                <div className={styles.serviceIcon}>
-                  {s.icon}
+                <div className={styles.serviceIconContainer}>
+                  <span className={styles.serviceIcon}>{service.icon}</span>
                 </div>
-                <h3 className={styles.serviceTitle}>{s.title[currentLang]}</h3>
-                <p className={styles.serviceText}>{s.text[currentLang]}</p>
+                <h3 className={styles.serviceTitle}>{service.title[currentLang]}</h3>
+                <p className={styles.serviceText}>{service.text[currentLang]}</p>
                 <button
                   className={styles.serviceButton}
-                  onClick={() => router.push(s.link)}
+                  onClick={() => handleServiceClick(service.link)}
                 >
-                  {t.buttons[s.btnKey]}
+                  {t.buttons.learnMore}
+                  <span className={styles.buttonArrow}>
+                    {currentLang === "en" ? "→" : "←"}
+                  </span>
                 </button>
-                
               </div>
-              
             ))}
-
-            
           </div>
         </div>
       </section>

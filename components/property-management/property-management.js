@@ -12,6 +12,31 @@ export default function PropertyManagementPage({ resolvedParams }) {
   const [activeFaq, setActiveFaq] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+    
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalScroll) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   const handleDownload = () => {
     window.open(
@@ -20,33 +45,39 @@ export default function PropertyManagementPage({ resolvedParams }) {
     );
   };
 
-  useEffect(() => {
-    setIsVisible(true);
+  const handleBookAppointment = () => {
+    window.open(
+      lang === 'ar' 
+        ? "https://wa.me/966539983393?text=مرحبا، أريد حجز موعد للاستشارة حول نظام إدارة الأملاك"
+        : "https://wa.me/966539983393?text=Hello, I would like to book an appointment for Property Management System consultation",
+      "_blank"
+    );
+  };
 
-    const handleScroll = () => {
-      const totalScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalScroll) * 100;
-      setScrollProgress(progress);
-    };
+  const handleContactUs = () => {
+    window.open(
+      lang === 'ar'
+        ? "https://wa.me/966539983393?text=مرحبا، أريد الاستفسار عن نظام إدارة الأملاك والعقارات"
+        : "https://wa.me/966539983393?text=Hello, I would like to inquire about Property Management System",
+      "_blank"
+    );
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const handleStartNow = () => {
+    document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const content = {
     ar: {
       hero: {
-        title: "نظام إدارة الأملاك والعقارات",
-        subtitle:
-          "اكتشف كيف يقدّم Odoo نظام ERP مفتوح المصدر شامل لإدارة المبيعات، المحاسبة، المخزون، التسويق، والموارد البشرية. تعرف على مميزاته وفوائده وكيفية استخدامه لتطوير أعمالك بكل سهولة وتوافق مع رؤية المملكة 2030.",
+        title: "نظام إدارة الأملاك والعقارات المتكامل",
+        subtitle: "إدارة عقاراتك أصبحت أسهل مع نظامنا المتكامل. راقب عقود الإيجار، الفواتير، الصيانة، والتقارير المالية من منصة واحدة. حلول ذكية توفر وقتك وتزيد أرباحك.",
         cta: "تحميل الملف التعريفي",
         book: "احجز موعدًا",
       },
       whatIsSystem: {
         title: "ما هو نظام إدارة الأملاك ؟",
-        description:
-          "هو وحدة برمجية مصممة خصيصًا لأصحاب العقارات شركات الوساطة العقارية والمطورين العقاريين تمكّنهم من إدارة كافة جوانب الأملاك في مكان واحد. يعمل النظام على أتمتة العمليات الرئيسية ويمنحك رؤية شاملة حول وضع عقاراتك وأرباحك بشكل لحظي.",
+        description: "هو وحدة برمجية متكاملة مصممة خصيصًا لأصحاب العقارات، شركات الوساطة العقارية، والمطورين العقاريين. تمكّنك من إدارة كافة جوانب الأملاك في مكان واحد مع أتمتة العمليات الرئيسية ومنحك رؤية شاملة حول وضع عقاراتك وأرباحك بشكل لحظي.",
       },
       features: {
         title: "🌟 المزايا الرئيسية للنظام",
@@ -54,32 +85,32 @@ export default function PropertyManagementPage({ resolvedParams }) {
           {
             icon: "🏢",
             title: "إدارة العقارات والعقود",
-            description:
-              "تسجيل جميع الوحدات (شقق – فلل – مكاتب – محلات) مع تفاصيلها الكاملة. إدارة عقود الإيجار ومتابعة تواريخ البداية والانتهاء والتنبيهات التلقائية للتجديد. ربط العقود بالمستأجرين مع سجلات دفع واضحة.",
+            description: "تسجيل جميع الوحدات (شقق – فلل – مكاتب – محلات) مع تفاصيلها الكاملة. إدارة عقود الإيجار ومتابعة تواريخ البداية والانتهاء والتنبيهات التلقائية للتجديد.",
           },
           {
             icon: "💰",
             title: "إدارة الفوترة والمدفوعات",
-            description:
-              "إنشاء فواتير تلقائية شهرية أو سنوية بناءً على شروط العقد. متابعة حالات الدفع (مدفوع – متأخر – مستحق). ربط مباشر مع النظام المحاسبي في أودو لضمان دقة البيانات المالية.",
+            description: "إنشاء فواتير تلقائية شهرية أو سنوية بناءً على شروط العقد. متابعة حالات الدفع (مدفوع – متأخر – مستحق) مع ربط مباشر مع النظام المحاسبي.",
           },
           {
             icon: "🔧",
             title: "إدارة الصيانة والخدمات",
-            description:
-              "تسجيل طلبات الصيانة من المستأجرين بسهولة. جدولة أعمال الصيانة الدورية وربطها بالموردين أو الفرق الفنية. تتبع التكاليف وربطها بالعقار المحدد.",
+            description: "تسجيل طلبات الصيانة من المستأجرين بسهولة. جدولة أعمال الصيانة الدورية وربطها بالموردين أو الفرق الفنية مع تتبع التكاليف.",
           },
           {
             icon: "📊",
             title: "تقارير ولوحات تحكم تفاعلية",
-            description:
-              "تقارير مالية تفصيلية حول الإيرادات والإيجارات المستحقة. تحليل نسب الإشغال والشواغر لكل عقار. لوحات تحكم بصرية (Dashboards) لمتابعة الأداء في الوقت الحقيقي.",
+            description: "تقارير مالية تفصيلية حول الإيرادات والإيجارات المستحقة. تحليل نسب الإشغال والشواغر لكل عقار مع لوحات تحكم بصرية لمتابعة الأداء.",
           },
           {
             icon: "🔗",
             title: "تكامل مع باقي وحدات أودو",
-            description:
-              "ربط مع المحاسبة لمتابعة التدفقات المالية. ربط مع إدارة العملاء (CRM) لتعزيز العلاقة مع المستأجرين والمستثمرين. ربط مع إدارة المشاريع في حال وجود أعمال بناء أو تطوير عقاري.",
+            description: "ربط كامل مع المحاسبة، إدارة العملاء (CRM)، وإدارة المشاريع لتعزيز العلاقة مع المستأجرين والمستثمرين.",
+          },
+          {
+            icon: "📱",
+            title: "واجهة مستخدم متجاوبة",
+            description: "تصميم متجاوب يعمل بكفاءة على جميع الأجهزة من الحواسيب إلى الهواتف الذكية مع تجربة مستخدم سلسة.",
           },
         ],
       },
@@ -87,22 +118,25 @@ export default function PropertyManagementPage({ resolvedParams }) {
         title: "💡 الفوائد العملية",
         items: [
           {
-            title: "⚙️ تقليل الوقت والجهد",
-            description: "تقليل الوقت والجهد في متابعة العقارات يدويًا.",
+            icon: "⚙️",
+            title: "تقليل الوقت والجهد",
+            description: "توفير يصل إلى 70% من الوقت المستغرق في المتابعة اليدوية للعقارات والمستأجرين.",
           },
           {
-            title: "🤝 شفافية أكبر",
-            description: "ضمان شفافية أكبر بين المالك والمستأجر.",
+            icon: "🤝",
+            title: "شفافية أكبر",
+            description: "ضمان شفافية كاملة بين المالك والمستأجر مع تقارير دقيقة ومفصلة.",
           },
           {
-            title: "🚀 زيادة الكفاءة",
-            description: "زيادة الكفاءة التشغيلية وخفض الأخطاء البشرية.",
+            icon: "🚀",
+            title: "زيادة الكفاءة",
+            description: "رفع الكفاءة التشغيلية بنسبة 60% وتقليل الأخطاء البشرية إلى أدنى حد.",
           },
-          {
-            title: "📈 تحسين القرارات",
-            description:
-              "تحسين اتخاذ القرارات بفضل التقارير الفورية والتحليلات المتقدمة.",
-          },
+          // {
+          //   icon: "📈",
+          //   title: "تحسين القرارات",
+          //   description: "اتخاذ قرارات استراتيجية مدعومة ببيانات دقيقة وتقارير فورية وتحليلات متقدمة.",
+          // },
         ],
       },
       audience: {
@@ -111,69 +145,67 @@ export default function PropertyManagementPage({ resolvedParams }) {
           {
             icon: "🏗️",
             title: "شركات التطوير العقاري",
-            description:
-              "لإدارة المشاريع والوحدات السكنية ومتابعة الأداء المالي والتشغيلي بسهولة.",
+            description: "إدارة المشاريع والوحدات السكنية ومتابعة الأداء المالي والتشغيلي بسهولة وكفاءة.",
           },
           {
             icon: "🏢",
             title: "شركات الوساطة والتسويق العقاري",
-            description:
-              "لتحسين تجربة العملاء وإدارة العقود والعمولات ضمن نظام موحد ودقيق.",
+            description: "تحسين تجربة العملاء وإدارة العقود والعمولات ضمن نظام موحد ودقيق ومتكامل.",
           },
           {
             icon: "🏠",
             title: "ملاك العقارات الفردية",
-            description:
-              "لمن يملك أكثر من وحدة ويرغب في إدارة الإيجارات والمدفوعات بسهولة ووضوح.",
+            description: "لمن يملك أكثر من وحدة ويرغب في إدارة الإيجارات والمدفوعات بسهولة ووضوح واحترافية.",
           },
-          {
-            icon: "🏛️",
-            title: "الجهات الحكومية والمؤسسات",
-            description:
-              "لإدارة الأصول المتعددة وتتبع العقود والمصاريف بدقة وشفافية عالية.",
-          },
+          // {
+          //   icon: "🏛️",
+          //   title: "الجهات الحكومية والمؤسسات",
+          //   description: "إدارة الأصول المتعددة وتتبع العقود والمصاريف بدقة وشفافية عالية مع تقارير مفصلة.",
+          // },
         ],
       },
       faq: {
-        title: "الأسئلة الشائعة عن أنظمة ERP",
+        title: "الأسئلة الشائعة",
         questions: [
           {
-            question: "ما هو نظام ERP؟",
-            answer:
-              "هو نظام برمجي يساعد الشركات على إدارة جميع عملياتها مثل المحاسبة، الموارد البشرية، المخزون، والمبيعات من خلال منصة موحدة.",
+            question: "كم يستغرق تنفيذ النظام؟",
+            answer: "معظم المشاريع تنفذ خلال 2-6 أسابيع حسب حجم وتعقود العمليات والعقارات.",
           },
           {
-            question: "هل يمكن استخدام ERP في الشركات الصغيرة؟",
-            answer:
-              "نعم، يمكن للشركات الصغيرة استخدام أنظمة ERP المصممة خصيصًا لاحتياجاتها والتي تكون غالبًا أكثر مرونة وتكلفة أقل.",
+            question: "هل يمكن الربط مع أنظمة أخرى؟",
+            answer: "نعم، النظام يدعم التكامل مع معظم الأنظمة المحاسبية والبرمجيات الأخرى المستخدمة.",
           },
           {
-            question: "هل يعتبر Excel نظام ERP؟",
-            answer:
-              "لا، Excel هو أداة جداول بيانات وليس نظام ERP متكاملاً. أنظمة ERP توفر تكاملًا كاملاً بين جميع الأقسام وإدارة مركزية للبيانات.",
+            question: "ما هي تكلفة النظام؟",
+            answer: "التكلفة تعتمد على عدد الوحدات والمستخدمين والوظائف المطلوبة. نقدم عروضاً مخصصة تناسب احتياجاتك.",
+          },
+          {
+            question: "هل يدعم النظام اللغة العربية؟",
+            answer: "نعم، النظام يدعم اللغة العربية بشكل كامل مع واجهة مستخدم مترجمة بالكامل وتقارير عربية.",
+          },
+          {
+            question: "هل يوجد تدريب على النظام؟",
+            answer: "نعم، نقدم حزمة تدريب كاملة مع دعم فني مستمر لضمان الاستفادة القصوى من النظام.",
           },
         ],
       },
       finalCta: {
-        title: "جاهز لتحوّل أعمالك؟",
-        subtitle:
-          "استخدم قوة أنظمة ERP لإدارة جميع جوانب عملك من منصة واحدة. من المحاسبة إلى إدارة المخزون والمبيعات، تخلَّص من تعقيدات الأنظمة المتعددة وابدأ العمل بكفاءة وذكاء.",
+        title: "جاهز لتحويل إدارة عقاراتك؟",
+        subtitle: "استخدم قوة نظام إدارة الأملاك المتكامل لإدارة جميع جوانب عقاراتك من منصة واحدة. تخلَّص من التعقيدات وابدأ رحلة النمو والكفاءة.",
         cta: "ابدأ الآن",
         whatsapp: "تواصل معنا",
       },
     },
     en: {
       hero: {
-        title: "Property Management System",
-        subtitle:
-          "Discover how Odoo provides comprehensive open-source ERP system for property management, accounting, inventory, marketing, and HR management.",
+        title: "Integrated Property Management System",
+        subtitle: "Managing your properties has never been easier with our integrated system. Monitor leases, invoices, maintenance, and financial reports from one platform.",
         cta: "Download Profile",
         book: "Book Appointment",
       },
       whatIsSystem: {
         title: "What is Property Management System?",
-        description:
-          "It is a software module specifically designed for property owners, real estate brokerage companies, and real estate developers, enabling them to manage all aspects of properties in one place.",
+        description: "It is an integrated software module specifically designed for property owners, real estate brokerage companies, and developers. It enables you to manage all aspects of properties in one place with automation of key processes.",
       },
       features: {
         title: "🌟 Key System Features",
@@ -181,32 +213,32 @@ export default function PropertyManagementPage({ resolvedParams }) {
           {
             icon: "🏢",
             title: "Property & Contract Management",
-            description:
-              "Register all units (apartments - villas - offices - shops) with complete details. Manage rental contracts and track start/end dates with automatic renewal alerts.",
+            description: "Register all units (apartments - villas - offices - shops) with complete details. Manage rental contracts with automatic renewal alerts.",
           },
           {
             icon: "💰",
             title: "Billing & Payment Management",
-            description:
-              "Create automatic monthly or annual invoices based on contract terms. Track payment status (paid - late - due). Direct integration with Odoo accounting system.",
+            description: "Create automatic monthly or annual invoices based on contract terms. Track payment status with direct accounting integration.",
           },
           {
             icon: "🔧",
             title: "Maintenance & Services Management",
-            description:
-              "Easily record maintenance requests from tenants. Schedule periodic maintenance work and link it to suppliers or technical teams.",
+            description: "Easily record maintenance requests from tenants. Schedule periodic maintenance work and track costs.",
           },
           {
             icon: "📊",
             title: "Interactive Reports & Dashboards",
-            description:
-              "Detailed financial reports on revenues and due rents. Analyze occupancy and vacancy rates for each property. Visual dashboards for real-time performance monitoring.",
+            description: "Detailed financial reports on revenues and due rents. Analyze occupancy rates with visual dashboards.",
           },
           {
             icon: "🔗",
-            title: "Integration with Other Odoo Modules",
-            description:
-              "Link with accounting to track financial flows. Connect with CRM to enhance relationships with tenants and investors.",
+            title: "Integration with Other Modules",
+            description: "Full integration with accounting, CRM, and project management to enhance relationships.",
+          },
+          {
+            icon: "📱",
+            title: "Responsive User Interface",
+            description: "Responsive design that works efficiently on all devices from computers to smartphones.",
           },
         ],
       },
@@ -214,25 +246,25 @@ export default function PropertyManagementPage({ resolvedParams }) {
         title: "💡 Practical Benefits",
         items: [
           {
-            title: "⚙️ Time & Effort Reduction",
-            description:
-              "Reduce time and effort in manually tracking properties.",
+            icon: "⚙️",
+            title: "Time & Effort Reduction",
+            description: "Save up to 70% of time spent on manual property and tenant tracking.",
           },
           {
-            title: "🤝 Greater Transparency",
-            description:
-              "Ensure greater transparency between owner and tenant.",
+            icon: "🤝",
+            title: "Greater Transparency",
+            description: "Ensure complete transparency between owner and tenant with accurate reports.",
           },
           {
-            title: "🚀 Increased Efficiency",
-            description:
-              "Increase operational efficiency and reduce human errors.",
+            icon: "🚀",
+            title: "Increased Efficiency",
+            description: "Increase operational efficiency by 60% and minimize human errors.",
           },
-          {
-            title: "📈 Better Decision Making",
-            description:
-              "Improve decision making thanks to instant reports and advanced analytics.",
-          },
+          // {
+          //   icon: "📈",
+          //   title: "Better Decision Making",
+          //   description: "Make strategic decisions supported by accurate data and instant reports.",
+          // },
         ],
       },
       audience: {
@@ -241,53 +273,53 @@ export default function PropertyManagementPage({ resolvedParams }) {
           {
             icon: "🏗️",
             title: "Real Estate Development Companies",
-            description:
-              "To manage projects, residential units, and track financial and operational performance easily.",
+            description: "Manage projects and residential units with easy tracking of financial and operational performance.",
           },
           {
             icon: "🏢",
             title: "Real Estate Brokerage & Marketing Companies",
-            description:
-              "To improve customer experience and manage contracts and commissions within a unified and accurate system.",
+            description: "Improve customer experience and manage contracts and commissions within a unified system.",
           },
           {
             icon: "🏠",
             title: "Individual Property Owners",
-            description:
-              "For those who own multiple units and want to manage rentals and payments easily and clearly.",
+            description: "For those who own multiple units and want professional management of rentals and payments.",
           },
-          {
-            icon: "🏛️",
-            title: "Government Entities & Institutions",
-            description:
-              "To manage multiple assets and track contracts and expenses with high accuracy and transparency.",
-          },
+          // {
+          //   icon: "🏛️",
+          //   title: "Government Entities & Institutions",
+          //   description: "Manage multiple assets and track contracts and expenses with high accuracy and transparency.",
+          // },
         ],
       },
       faq: {
-        title: "Frequently Asked Questions about ERP Systems",
+        title: "Frequently Asked Questions",
         questions: [
           {
-            question: "What is an ERP system?",
-            answer:
-              "It is a software system that helps companies manage all their operations such as accounting, human resources, inventory, and sales through a unified platform.",
+            question: "How long does implementation take?",
+            answer: "Most projects are implemented within 2-6 weeks depending on the size and complexity.",
           },
           {
-            question: "Can ERP be used in small companies?",
-            answer:
-              "Yes, small companies can use ERP systems specifically designed for their needs, which are often more flexible and cost less.",
+            question: "Can it integrate with other systems?",
+            answer: "Yes, the system supports integration with most accounting systems and other software.",
           },
           {
-            question: "Is Excel considered an ERP system?",
-            answer:
-              "No, Excel is a spreadsheet tool, not an integrated ERP system. ERP systems provide complete integration between all departments and centralized data management.",
+            question: "What is the system cost?",
+            answer: "Cost depends on the number of units, users, and required functions. We offer customized proposals.",
+          },
+          {
+            question: "Does the system support Arabic?",
+            answer: "Yes, the system fully supports Arabic with completely translated interface and Arabic reports.",
+          },
+          {
+            question: "Is training provided?",
+            answer: "Yes, we provide complete training package with continuous technical support.",
           },
         ],
       },
       finalCta: {
-        title: "Ready to transform your business?",
-        subtitle:
-          "Use the power of ERP systems to manage all aspects of your business from one platform.",
+        title: "Ready to transform your property management?",
+        subtitle: "Use the power of our integrated property management system to manage all aspects of your properties from one platform.",
         cta: "Start Now",
         whatsapp: "Contact Us",
       },
@@ -327,45 +359,29 @@ export default function PropertyManagementPage({ resolvedParams }) {
         </div>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
-            <div className={styles.badge}>Next future Real State</div>
+            <div className={styles.badge}>
+              {lang === "ar" ? "Next Future Real Estate" : "Next Future Real Estate"}
+            </div>
             <h1 className={styles.heroTitle}>{t.hero.title}</h1>
             <p className={styles.heroSubtitle}>{t.hero.subtitle}</p>
 
             <div className={styles.heroStats}>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>1</span>
+                <span className={styles.statNumber}>70%</span>
                 <span className={styles.statLabel}>
-                  {lang === "ar" ? "نظام متكامل" : "Integrated System"}
+                  {lang === "ar" ? "توفير في الوقت" : "Time Savings"}
                 </span>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>2</span>
+                <span className={styles.statNumber}>60%</span>
                 <span className={styles.statLabel}>
-                  {lang === "ar" ? "إدارة مركزية" : "Central Management"}
+                  {lang === "ar" ? "زيادة الكفاءة" : "Efficiency Increase"}
                 </span>
               </div>
               <div className={styles.stat}>
-                <span className={styles.statNumber}>3</span>
+                <span className={styles.statNumber}>24/7</span>
                 <span className={styles.statLabel}>
-                  {lang === "ar" ? "تقارير فورية" : "Instant Reports"}
-                </span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>17</span>
-                <span className={styles.statLabel}>
-                  {lang === "ar" ? "وحدة متكاملة" : "Integrated Modules"}
-                </span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>5</span>
-                <span className={styles.statLabel}>
-                  {lang === "ar" ? "مزايا رئيسية" : "Key Features"}
-                </span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>6</span>
-                <span className={styles.statLabel}>
-                  {lang === "ar" ? "فوائد عملية" : "Practical Benefits"}
+                  {lang === "ar" ? "متابعة مستمرة" : "Continuous Monitoring"}
                 </span>
               </div>
             </div>
@@ -378,21 +394,27 @@ export default function PropertyManagementPage({ resolvedParams }) {
                 <span className={styles.buttonIcon}>📥</span>
                 {t.hero.cta}
               </button>
-              <button className={styles.secondaryButton}>
+              <button 
+                className={styles.secondaryButton}
+                onClick={handleBookAppointment}
+              >
                 <span className={styles.buttonIcon}>📅</span>
                 {t.hero.book}
               </button>
             </div>
           </div>
           <div className={styles.heroVisual}>
-            <Image
-              src="/technology.jpg"
-              alt="Property Management System"
-              width={600}
-              height={400}
-              className={styles.propertyImage}
-              priority
-            />
+            <div className={styles.imageContainer}>
+              <Image
+                src="/technology.jpg"
+                alt="Property Management System"
+                width={600}
+                height={400}
+                className={styles.propertyImage}
+                priority
+              />
+              <div className={styles.imageOverlay}></div>
+            </div>
           </div>
         </div>
 
@@ -412,7 +434,7 @@ export default function PropertyManagementPage({ resolvedParams }) {
             <p className={`${styles.contentDescription} ${styles.fadeIn}`}>
               {t.whatIsSystem.description}
             </p>
-            <div className={styles.heroActions}>
+            <div className={styles.contentActions}>
               <button
                 className={`${styles.primaryButton} ${styles.pulseAnimation}`}
                 onClick={handleDownload}
@@ -425,13 +447,18 @@ export default function PropertyManagementPage({ resolvedParams }) {
             </div>
           </div>
           <div className={styles.contentVisual}>
-            <Image
-              src="/managment.jpg"
-              alt="Property Management Dashboard"
-              width={500}
-              height={350}
-              className={styles.featureImage}
-            />
+            <div className={styles.visualCard}>
+              <Image
+                src="/managment.jpg"
+                alt="Property Management Dashboard"
+                width={500}
+                height={350}
+                className={styles.featureImage}
+              />
+              <div className={styles.visualBadge}>
+                {lang === "ar" ? "نظام متكامل" : "Integrated System"}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -458,6 +485,7 @@ export default function PropertyManagementPage({ resolvedParams }) {
               <div className={styles.featureIcon}>{feature.icon}</div>
               <h3 className={styles.featureTitle}>{feature.title}</h3>
               <p className={styles.featureDescription}>{feature.description}</p>
+              <div className={styles.featureHover}></div>
             </div>
           ))}
         </div>
@@ -479,9 +507,10 @@ export default function PropertyManagementPage({ resolvedParams }) {
           {t.benefits.items.map((benefit, index) => (
             <div
               key={index}
-              className={`${styles.benefitItem} ${styles.slideInUp}`}
+              className={`${styles.benefitCard} ${styles.slideInUp}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
+              <div className={styles.benefitIcon}>{benefit.icon}</div>
               <h3 className={styles.benefitTitle}>{benefit.title}</h3>
               <p className={styles.benefitDescription}>{benefit.description}</p>
             </div>
@@ -513,6 +542,7 @@ export default function PropertyManagementPage({ resolvedParams }) {
               <p className={styles.audienceDescription}>
                 {audience.description}
               </p>
+              <div className={styles.audienceHover}></div>
             </div>
           ))}
         </div>
@@ -565,7 +595,7 @@ export default function PropertyManagementPage({ resolvedParams }) {
       </section>
 
       {/* Final CTA */}
-      <section className={styles.finalCTA}>
+      <section className={styles.finalCTA} id="contact-section">
         <div className={styles.ctaBackground}>
           <div className={styles.ctaAnimation}></div>
         </div>
@@ -610,11 +640,17 @@ export default function PropertyManagementPage({ resolvedParams }) {
           </div>
 
           <div className={styles.ctaActions}>
-            <button className={`${styles.ctaPrimary} ${styles.pulseAnimation}`}>
+            <button 
+              className={`${styles.ctaPrimary} ${styles.pulseAnimation}`}
+              onClick={handleStartNow}
+            >
               <span className={styles.buttonIcon}>🚀</span>
               {t.finalCta.cta}
             </button>
-            <button className={styles.ctaSecondary}>
+            <button 
+              className={styles.ctaSecondary}
+              onClick={handleContactUs}
+            >
               <span className={styles.buttonIcon}>💬</span>
               {t.finalCta.whatsapp}
             </button>

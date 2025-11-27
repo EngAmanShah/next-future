@@ -49,7 +49,7 @@ Our team is dedicated to supporting you every step of the way.`,
         {
           icon: <FaPhoneAlt size={28} />,
           label: "الهاتف",
-          value: "+966539983393",
+          value: "966539983393",
           link: "tel:+966539983393",
         },
         {

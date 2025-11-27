@@ -7,6 +7,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaTiktok,
 } from "react-icons/fa";
 import { FaGithub, FaSnapchatGhost } from "react-icons/fa";
 import { SiFiverr } from "react-icons/si"; // Fiverr icon is in 'react-icons/si' (Simple Icons)
@@ -89,7 +90,7 @@ export default function Footer({ lang }) {
                 <FaTwitter size={20} />
               </a>
               <a
-                href="https://instagram.com/"
+                href="https://www.instagram.com/nextfuture_tech/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black"
@@ -110,13 +111,23 @@ export default function Footer({ lang }) {
 
               {/* Snapchat */}
               <a
-                href="https://www.snapchat.com/ "
+                href="https://www.snapchat.com/@nextftechsa?invite_id=cuUsAehS&locale=en_SA%40calendar%3Dgregorian&share_id=_klkbCBwS76MdcMAmZoDAQ&sid=3b9a141fe8d64621b7e08cc2acb90d5c"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black"
                 aria-label="Snapchat"
               >
                 <FaSnapchatGhost size={20} />
+              </a>
+
+                <a
+                href="https://www.tiktok.com/@nextfuture_tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black"
+                aria-label="FaTiktok"
+              >
+                <FaTiktok size={20} />
               </a>
             </div>
           </div>

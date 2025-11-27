@@ -100,7 +100,7 @@ const content = {
       },
       {
         title: "Odoo ERP",
-                image: "/services/digital.gif",
+                image: "/services/erp.png",
 
         description:
           "Open-source Odoo ERP implementation and customization for your business needs.",
@@ -186,7 +186,7 @@ const content = {
       },
       {
         title: "حلول ERP",
-        image: "/services/digital.gif",
+        image: "/services/erp.png",
         description:
           "أنظمة تخطيط موارد المؤسسة الشاملة لتبسيط عمليات عملك.",
       },
@@ -274,7 +274,7 @@ const content = {
       <ValueSlider lang={lang} />
 
       {/* Team */}
-      <Team lang={lang}/>
+      {/* <Team lang={lang}/> */}
       
       {/* Products */}
       <Products lang={lang} />

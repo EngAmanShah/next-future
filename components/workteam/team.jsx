@@ -25,9 +25,11 @@ export default function TeamSection({ lang = "en" }) {
 
   const teamMembers = [
     { id: 1, name: { en: "Omar Jameel", ar: " عمر جميـل" }, position: { en: "CEO", ar: "الرئيس التنفيذي" }, image: "/ceo.png" },
-    { id: 3, name: { en: "Engr Yousef Mohammed", ar: "المهندس يوسف محمد" }, position: { en: "Development Manager", ar: "مدير التطوير" }, image: "/yy.png" },
-    { id: 4, name: { en: "Mahmoud Tarek", ar: "محمود طارق" }, position: { en: "Business Consultant", ar: "مستشار الأعمال" }, image: "/mehmod.png" },
-    { id: 5, name: { en: "Engr Aman Shah", ar: "المهندس أمان شاه" }, position: { en: "Software Manager", ar: "مدير البرمجيات" }, image: "/aman.jpg" },
+    { id: 2, name: { en: "Engr Yousef Mohammed", ar: "المهندس يوسف محمد" }, position: { en: "Development Manager", ar: "مدير التطوير" }, image: "/yy.png" },
+    { id: 3, name: { en: "Mahmoud Tarek", ar: "محمود طارق" }, position: { en: "Business Consultant", ar: "مستشار الأعمال" }, image: "/mehmod.png" },
+    { id: 4, name: { en: "Engr Aman Shah", ar: "المهندس أمان شاه" }, position: { en: "Software Engineer", ar: " المهندس البرمجيات" }, image: "/aman.jpg" },
+    { id: 5, name: { en: "  Majid Al Zahrani", ar: "  ماجد الزهراني" }, position: { en: " HR Specialist", ar: " أخصائي موارد بشرية" }, image: "/majid.png" },
+
   ];
 
   return (
