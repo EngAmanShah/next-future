@@ -5,13 +5,13 @@ import { getStorage } from "firebase/storage";
 import { getFunctions } from "firebase/functions";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAXnZpKi9sYI-t7kMBxMiuMe1SvQkZCEAY",
-  authDomain: "brandraize-f2864.firebaseapp.com",
-  projectId: "brandraize-f2864",
-  storageBucket: "brandraize-f2864.firebasestorage.app",
-  messagingSenderId: "903000794585",
-  appId: "1:903000794585:web:e2930909d7086c57ef65c8",
-  measurementId: "G-20M5GNX86N"
+  apiKey: "AIzaSyDUYEeMFC_V-_RE9MSE8I0NmCBdu4m2d4Y",
+  authDomain: "nextfuture-b1d47.firebaseapp.com",
+  projectId: "nextfuture-b1d47",
+  storageBucket: "nextfuture-b1d47.firebasestorage.app",
+  messagingSenderId: "259928346911",
+  appId: "1:259928346911:web:7ea47f685ae97c51fda02a",
+  measurementId: "G-GSZ95EXMTJ"
 };
 
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();

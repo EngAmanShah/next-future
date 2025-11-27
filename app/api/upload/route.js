@@ -16,7 +16,7 @@ export async function POST(req) {
       access: "public",
       addRandomSuffix: false,
       allowOverwrite: true,
-      token:"vercel_blob_rw_6VzuQ5eznZovPmcP_ZgQI0i58joQEkryvb6N7yJfIt3RKUR"
+      token:"vercel_blob_rw_nv0hBDXrimcapTiN_s8HABMgFmV4oQYJ6upJkwYDV1QrGrQ"
     });
 
     return new Response(JSON.stringify({ url: blob.url }), { status: 200 });

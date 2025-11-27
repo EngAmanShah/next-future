@@ -10,7 +10,7 @@ export default function AdminsPage({ params }) {
   const { user } = useAuth();
   const router = useRouter();
   const { admins } = useContext(Context);
-  const PRIMARY_ADMIN_UID = "TNoDycS1DLhdXzSiOytzYSLc6s53";
+  const PRIMARY_ADMIN_UID = "Pelg7aqIDSgbMIBlyfPDwPcsid02";
 
   const primaryAdmin = admins.find((admin) => admin.id === PRIMARY_ADMIN_UID);
 
