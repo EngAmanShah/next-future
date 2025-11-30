@@ -73,11 +73,14 @@ export default function AddAdmin({ params }) {
       }
 
       if (res.ok) {
+        console.log("Admin created successfully:", data);
         toast.success(t.success);
         setAdminData({ name: "", email: "", password: "" });
       } else {
-        console.error(data.error);
-        toast.error(t.error);
+        const errorMsg = data.error || data.details || t.error;
+        console.error("Failed to create admin:", errorMsg);
+        console.error("Full error response:", data);
+        toast.error(errorMsg);
       }
     } catch (err) {
       console.error("Error adding admin:", err);

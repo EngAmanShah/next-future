@@ -12,4 +12,9 @@ if (!admin.apps.length) {
   }
 }
 
-export const authAdmin = admin.auth();
+const adminInitialized = !!admin.apps.length;
+
+export { admin };
+export const authAdmin = adminInitialized ? admin.auth() : null;
+export const adminDb = adminInitialized ? admin.firestore() : null;
+export const adminInitializedFlag = adminInitialized;

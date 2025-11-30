@@ -10,7 +10,7 @@ export default function AdminsPage({ params }) {
   const { user } = useAuth();
   const router = useRouter();
   const { admins } = useContext(Context);
-  const PRIMARY_ADMIN_UID = "Pelg7aqIDSgbMIBlyfPDwPcsid02";
+  const PRIMARY_ADMIN_UID = "pZPjz7ZmQNeWGmTYpY1YqnZRVTF3";
 
   const primaryAdmin = admins.find((admin) => admin.id === PRIMARY_ADMIN_UID);
 
@@ -101,7 +101,7 @@ export default function AdminsPage({ params }) {
         </div>
       </div>
 
-      {admins.length > 0 ? (
+      {admins.length > 0 && primaryAdmin ? (
         <div className="table-responsive">
           <table
             className="table table-striped table-bordered"
@@ -117,16 +117,18 @@ export default function AdminsPage({ params }) {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>*</td>
-                <td>{primaryAdmin.name}</td>
-                <td>{primaryAdmin.email}</td>
-                <td>
-                  {primaryAdmin.createdAt
-                    ? primaryAdmin.createdAt.toDate().toLocaleString()
-                    : "—"}
-                </td>
-              </tr>
+              {primaryAdmin && (
+                <tr>
+                  <td>*</td>
+                  <td>{primaryAdmin.name}</td>
+                  <td>{primaryAdmin.email}</td>
+                  <td>
+                    {primaryAdmin.createdAt
+                      ? primaryAdmin.createdAt.toDate().toLocaleString()
+                      : "—"}
+                  </td>
+                </tr>
+              )}
               {sortedAdmins.map((admin, index) => {
                 const isPrimary = admin.id === PRIMARY_ADMIN_UID;
                 return (

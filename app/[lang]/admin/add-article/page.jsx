@@ -120,10 +120,14 @@ export default function AddArticle({ params }) {
         body: formData,
       });
 
-      if (!res.ok) throw new Error("Image upload failed");
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(`Image upload failed: ${errData.error || errData.details || "Unknown error"}`);
+      }
 
       const data = await res.json();
       const imageURL = data.url;
+      console.log("Image uploaded successfully:", imageURL);
 
       const articlesRef = collection(db, "articles");
       await addDoc(articlesRef, {

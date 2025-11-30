@@ -16,13 +16,14 @@ export async function POST(req) {
       access: "public",
       addRandomSuffix: false,
       allowOverwrite: true,
-      token:"vercel_blob_rw_nv0hBDXrimcapTiN_s8HABMgFmV4oQYJ6upJkwYDV1QrGrQ"
+      token: process.env.VERCEL_BLOB_TOKEN || "vercel_blob_rw_nv0hBDXrimcapTiN_s8HABMgFmV4oQYJ6upJkwYDV1QrGrQ"
     });
 
+    console.log("Upload successful:", { path, url: blob.url });
     return new Response(JSON.stringify({ url: blob.url }), { status: 200 });
   } catch (err) {
     console.error("Upload failed:", err);
-    return new Response(JSON.stringify({ error: "Upload failed" }), {
+    return new Response(JSON.stringify({ error: err.message || "Upload failed", details: err.toString() }), {
       status: 500,
     });
   }

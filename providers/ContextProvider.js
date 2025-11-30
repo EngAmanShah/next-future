@@ -52,13 +52,19 @@ const ContextProvider = ({ children }) => {
   }, [userId]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "contacts"), (snapshot) => {
-      const fetchedItems = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setContacts(fetchedItems);
-    });
+    const unsubscribe = onSnapshot(
+      collection(db, "contacts"),
+      (snapshot) => {
+        const fetchedItems = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setContacts(fetchedItems);
+      },
+      (error) => {
+        console.error("Error fetching contacts snapshot:", error);
+      }
+    );
 
     return () => {
       unsubscribe();
@@ -66,16 +72,26 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, "admins"), (snapshot) => {
-      const fetchedAdmins = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setAdmins(fetchedAdmins);
-    });
+    const unsubscribe = onSnapshot(
+      collection(db, "admins"),
+      (snapshot) => {
+        const fetchedAdmins = snapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setAdmins(fetchedAdmins);
+      },
+      (error) => {
+        console.error("Error fetching admins snapshot:", error);
+      }
+    );
 
     return () => unsubscribe();
   }, []);
+
+  useEffect(() => {
+    console.log("Admins data from context:", admins);
+  }, [admins]);
 
   useEffect(() => {
     const docRef = doc(db, "general", "categories");

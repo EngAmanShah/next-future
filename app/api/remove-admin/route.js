@@ -14,9 +14,13 @@ export async function POST(req) {
     // Delete from Firebase Authentication
     await authAdmin.deleteUser(uid);
 
-    // Delete from Firestore
-    const db = admin.firestore();
-    await db.collection("admins").doc(uid).delete();
+    // Try to delete from Firestore (if exists)
+    try {
+      const db = admin.firestore();
+      await db.collection("admins").doc(uid).delete();
+    } catch (firestoreError) {
+      console.log("No Firestore record to delete, continuing...");
+    }
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
