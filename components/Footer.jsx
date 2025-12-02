@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   FaFacebookF,
-  FaTwitter,
+  FaXTwitter ,
   FaInstagram,
   FaLinkedinIn,
   FaTiktok,
@@ -80,15 +80,24 @@ export default function Footer({ lang }) {
 
             {/* Social Media Icons */}
             <div className="d-flex justify-content-center justify-content-md-start gap-3 mt-3">
-              <a
-                href="https://x.com/nextftechsa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-black"
-                aria-label="Twitter"
-              >
-                <FaTwitter size={20} />
-              </a>
+          <a
+  href="https://x.com/nextftechsa/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-black"
+  aria-label="X"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 1200 1227"
+    fill="currentColor"
+  >
+    <path d="M714.163 519.284L1185.89 0H1080.67L661.604 472.627L366.102 0H0L494.184 729.625L0 1226.37H105.225L545.021 724.5L851.299 1226.37H1185.89L714.157 519.284H714.163ZM598.89 658.186L552.951 588.626L168.31 79.3771H305.77L604.697 511.342L650.636 580.902L1050.5 1146.63H913.037L598.89 658.186Z"/>
+  </svg>
+</a>
+
               <a
                 href="https://www.instagram.com/nextfuture_tech/"
                 target="_blank"
