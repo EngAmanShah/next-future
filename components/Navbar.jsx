@@ -350,7 +350,7 @@ export default function Navbar({ lang }) {
             ? {
                 backgroundColor: scrolled
                   ? "#379DD7" // Dark blue when scrolled
-                  : "rgba(5, 5, 52, 0.96)", // Light transparent blue when at top
+                  : "rgba(38, 38, 38, 0.96)", // Light transparent blue when at top
                 backdropFilter: scrolled ? "blur(12px)" : "blur(4px)", // Less blur when transparent
               }
             : {}
