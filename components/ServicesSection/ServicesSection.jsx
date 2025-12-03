@@ -1,162 +1,355 @@
-import Services from "@/components/Services";
+"use client";
 
-export default function ServicesSection({ lang }) {
-  // Define the services content directly in the component
-  const content = {
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { 
+  FaLaptopCode, 
+  FaMobileAlt, 
+  FaServer, 
+  FaDatabase,
+  FaShoppingCart,
+  FaChartLine
+} from "react-icons/fa";
+import { 
+  HiOutlineSpeakerphone 
+} from "react-icons/hi";
+import { 
+  MdOutlineBrush,
+  MdCloudQueue
+} from "react-icons/md";
+import Skills from "@/components/Skills/Skills";
+
+export default function Page({ params }) {
+  // In Next.js 15, params is already destructured, no need for React.use()
+  const { lang } = params || {};
+
+  // Fallback to default language if params is undefined
+  const currentLang = lang || "en";
+
+  const translations = {
     en: {
-      discoverTitle: "Explore Our Services",
-      discoverDescription:
-        "Comprehensive digital and creative services designed to grow your brand.",
+      heroTitle: "Our Services",
+      explore: "Explore Services",
+      learnMore: "Learn More",
       services: [
         {
-          title: "Digital Marketing",
-          image: "/services/digital.gif",
-          description:
-            "Complete digital marketing solutions — SEO, social media, online ads, and more.",
-        },
-        {
-          title: "Application Development",
-          image: "/services/app-development.gif",
-          description:
-            "Custom web apps and enterprise portals built for performance and scalability.",
-        },
-        {
-          title: "Graphic Design",
-          image: "/services/graphic-design.gif",
-          description:
-            "Professional branding and visuals — from logos to full identity systems.",
-        },
-        {
-          title: "Video & Animation",
-          image: "/services/video-animation.gif",
-          description:
-            "Engaging motion graphics, animations, and video content that tell your story.",
-        },
-        {
-          title: "Information Technology",
-          image: "/services/it.gif",
-          description:
-            "End-to-end IT consulting and infrastructure solutions for modern businesses.",
+          title: "Web Design & Development",
+          description: "Build scalable and responsive websites tailored to your business needs.",
+          link: "/service/webdev",
+          icon: <FaLaptopCode size={40} color="#fff" />
         },
         {
           title: "Mobile App Development",
-          image: "/services/mobile-app.gif",
-          description:
-            "Cross-platform iOS and Android apps with smooth UX and high performance.",
+          description: "Create intuitive and engaging mobile applications for iOS and Android platforms.",
+          link: "/service/mobile-app",
+          icon: <FaMobileAlt size={40} color="#fff" />
+        },
+        {
+          title: "Digital Marketing",
+          description: "Boost your online presence with SEO, social media, PPC, and content strategies.",
+          link: "/service/digital-marketing",
+          icon: <HiOutlineSpeakerphone size={40} color="#fff" />
+        },
+        {
+          title: "Graphic Design",
+          description: "Design compelling visuals for web, print, and digital platforms to capture attention.",
+          link: "/service/graphic-design",
+          icon: <MdOutlineBrush size={40} color="#fff" />
+        },
+        {
+          title: "IT Solutions",
+          description: "Implement robust IT infrastructure and solutions for seamless business operations.",
+          link: "/service/itsolutions",
+          icon: <FaServer size={40} color="#fff" />
         },
         {
           title: "ERP Solutions",
-          image: "/services/app-development.gif",
-          description:
-            "Comprehensive Enterprise Resource Planning systems to streamline your business operations.",
+          description: "Comprehensive Enterprise Resource Planning systems to streamline your business operations.",
+          link: "/service/erp",
+          icon: <FaDatabase size={40} color="#fff" />
         },
         {
-          title: "CMS Development",
-          image: "/services/graphic-design.gif",
-          description:
-            "Custom Content Management Systems for easy content updates and management.",
+          title: "E-Commerce Solutions",
+          description: "Build powerful online stores with secure payment gateways and inventory management.",
+          link: "/service/ecommerce",
+          icon: <FaShoppingCart size={40} color="#fff" />
         },
+   
         {
-          title: "Odoo ERP",
-          image: "/services/erp.png",
-          description:
-            "Open-source Odoo ERP implementation and customization for your business needs.",
+          title: "Cloud Services",
+          description: "Scalable cloud infrastructure and migration services for modern businesses.",
+          link: "/service/cloud-services",
+          icon: <MdCloudQueue size={40} color="#fff" />
         },
       ],
     },
-
     ar: {
-      discoverTitle: "اكتشف خدماتنا",
-      discoverDescription:
-        "مجموعة شاملة من الخدمات الرقمية والإبداعية المصممة لتعزيز علامتك التجارية.",
+      heroTitle: "خدماتنا",
+      explore: "استكشف الخدمات",
+      learnMore: "المزيد من التفاصيل",
       services: [
         {
-          title: "التسويق الرقمي",
-          image: "/services/digital.gif",
-          description:
-            "حلول تسويق رقمي متكاملة — SEO، وسائل التواصل الاجتماعي، الإعلانات والمزيد.",
+          title: "تصميم وتطوير المواقع الإلكترونية",
+          description: "بناء مواقع إلكترونية قابلة للتوسع والتكيف مصممة خصيصًا لاحتياجات عملك.",
+          link: "/service/webdev",
+          icon: <FaLaptopCode size={40} color="#fff" />
         },
         {
-          title: "تطوير التطبيقات",
-          image: "/services/app-development.gif",
-          description:
-            "تطبيقات ويب وبوابات مؤسسية مخصصة للأداء العالي وسهولة التوسع.",
+          title: "تطوير التطبيقات الجوالة",
+          description: "إنشاء تطبيقات جوالة بديهية وجذابة لمنصات iOS و Android.",
+          link: "/service/mobile-app",
+          icon: <FaMobileAlt size={40} color="#fff" />
+        },
+        {
+          title: "التسويق الرقمي",
+          description: "عزز وجودك على الإنترنت باستخدام استراتيجيات تحسين محركات البحث ووسائل التواصل الاجتماعي والإعلان المدفوع والمحتوى.",
+          link: "/service/digital-marketing",
+          icon: <HiOutlineSpeakerphone size={40} color="#fff" />
         },
         {
           title: "التصميم الجرافيكي",
-          image: "/services/graphic-design.gif",
-          description:
-            "تصميمات احترافية — من الشعارات إلى أنظمة الهوية الكاملة.",
+          description: "تصميم مرئيات مؤثرة للويب والطباعة والمنصات الرقمية لجذب الانتباه.",
+          link: "/service/graphic-design",
+          icon: <MdOutlineBrush size={40} color="#fff" />
         },
         {
-          title: "الفيديو والأنيميشن",
-          image: "/services/video-animation.gif",
-          description:
-            "مقاطع فيديو ورسوم متحركة جذابة تعبر عن فكرتك بطريقة احترافية.",
+          title: "حلول تكنولوجيا المعلومات",
+          description: "تنفيذ بنية تحتية وحلول تكنولوجيا معلومات قوية لتشغيل أعمال سلس.",
+          link: "/service/itsolutions",
+          icon: <FaServer size={40} color="#fff" />
         },
         {
-          title: "تكنولوجيا المعلومات",
-          image: "/services/it.gif",
-          description:
-            "استشارات شاملة ودعم للبنية التحتية التقنية للشركات الحديثة.",
+          title: "حلول تخطيط موارد المؤسسات",
+          description: "أنظمة تخطيط موارد المؤسسات الشاملة لتبسيط عمليات عملك.",
+          link: "/service/erp",
+          icon: <FaDatabase size={40} color="#fff" />
         },
         {
-          title: "تطبيقات الهواتف",
-          image: "/services/mobile-app.gif",
-          description:
-            "تطبيقات iOS و Android متكاملة بواجهة سلسة وأداء قوي.",
+          title: "حلول التجارة الإلكترونية",
+          description: "بناء متاجر إلكترونية قوية مع بوابات دفع آمنة وأنظمة إدارة المخزون.",
+          link: "/service/ecommerce",
+          icon: <FaShoppingCart size={40} color="#fff" />
         },
+     
         {
-          title: "حلول ERP",
-          image: "/services/erp.png",
-          description:
-            "أنظمة تخطيط موارد المؤسسة الشاملة لتبسيط عمليات عملك.",
-        },
-        {
-          title: "أودو ERP",
-          image: "/services/graphic-design.gif",
-          description:
-            "تنفيذ وتخصيص نظام أودو ERP مفتوح المصدر لاحتياجات عملك.",
-        },
-        {
-          title: "ERP مخصص",
-          image: "/services/it.gif",
-          description:
-            "حلول ERP مصممة خصيصًا لتتناسب مع عمليات عملك الفريدة.",
+          title: "خدمات الحوسبة السحابية",
+          description: "بنية تحتية سحابية قابلة للتوسع وخدمات نقل للشركات الحديثة.",
+          link: "/service/cloud-services",
+          icon: <MdCloudQueue size={40} color="#fff" />
         },
       ],
     },
   };
 
-  const {
-    discoverTitle,
-    discoverDescription,
-    services,
-  } = content[lang] || content.en;
+  const t = translations[currentLang];
+
+  // Add null check for t to prevent undefined errors
+  if (!t) {
+    return <div>Loading...</div>;
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6 }
+    },
+    hover: {
+      y: -15,
+      scale: 1.05,
+      boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 20
+      }
+    }
+  };
+
+  const iconVariants = {
+    hover: {
+      scale: 1.2,
+      rotate: 5,
+      transition: {
+        type: "spring",
+        stiffness: 400,
+        damping: 10
+      }
+    }
+  };
 
   return (
-    <section 
-      style={{ 
-        backgroundImage: "url('/bg5.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed"
-      }}
-    >
-      <div
-        style={{
-          backgroundColor: "rgba(255, 255, 255, 0.9)",
-          padding: "4rem 0"
+    <section className={`position-relative overflow-hidden ${currentLang === "ar" ? "text-end" : "text-start"}`} dir={currentLang === "ar" ? "rtl" : "ltr"}>
+      {/* Services Section with Background Image - Starting directly */}
+      <div 
+        className="position-relative py-5"
+        style={{ 
+          backgroundImage: "url('/bg6.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          minHeight: "100vh"
         }}
       >
-        <Services
-          lang={lang}
-          servicesData={services}
-          sectionTitle={discoverTitle}
-          sectionDescription={discoverDescription}
-        />
+        {/* Overlay for better readability */}
+        <div 
+          className="position-absolute top-0 start-0 w-100 h-100"
+          style={{ 
+            backgroundColor: "rgba(13, 31, 76, 0.9)",
+            zIndex: 0 
+          }}
+        ></div>
+        
+        <div className="container position-relative py-5" style={{ zIndex: 1, paddingTop: "6rem" }}>
+          <motion.h2 
+            className="text-center mb-5 fw-bold text-white display-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {t.heroTitle}
+          </motion.h2>
+          
+          <div className="row g-4">
+            {t.services.map((service, index) => (
+              <div className="col-md-6 col-lg-4 col-xl-3 mb-4" key={index}>
+                <motion.div 
+                  variants={cardVariants}
+                  initial="hidden"
+                  whileInView="visible"
+                  whileHover="hover"
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="card h-100 p-4 text-center border-0 rounded-4 service-card position-relative overflow-hidden"
+                  style={{ 
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    color: "#fff",
+                    backdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255, 255, 255, 0.2)"
+                  }}
+                >
+                  {/* Hover Effect Background */}
+                  <div 
+                    className="position-absolute top-0 start-0 w-100 h-100 service-hover-bg"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(102, 16, 242, 0.3), #79DD7)",
+                      opacity: 0,
+                      transition: "opacity 0.3s ease",
+                      zIndex: 0
+                    }}
+                  ></div>
+                  
+                  <div className="position-relative" style={{ zIndex: 1 }}>
+                    <motion.div 
+                      className="mb-3 p-4 rounded-circle mx-auto d-flex justify-content-center align-items-center service-icon"
+                      style={{ 
+                        background: "linear-gradient(135deg, #1277cfff, #379DD7)",
+                        width: "100px",
+                        height: "100px"
+                      }}
+                      variants={iconVariants}
+                    >
+                      {service.icon}
+                    </motion.div>
+                    
+                    <h5 className="fw-bold mb-3" style={{ minHeight: "3rem" }}>
+                      {service.title}
+                    </h5>
+                    
+                    <p className="mb-4" style={{ minHeight: "4rem", lineHeight: "1.6" }}>
+                      {service.description}
+                    </p>
+                    
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link 
+                        href={service.link} 
+                        className="btn btn-light mt-auto text-dark fw-bold px-4"
+                        style={{ 
+                          background: "linear-gradient(135deg, #fff, #f8f9fa)",
+                          border: "none"
+                        }}
+                      >
+                        {t.learnMore}
+                      </Link>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
+      <Skills lang={currentLang} />
+
+      <style jsx global>{`
+        .service-card {
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
+        
+        .service-card:hover .service-hover-bg {
+          opacity: 1 !important;
+        }
+        
+        .service-icon {
+          transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 25px 50px rgba(0,0,0,0.4) !important;
+        }
+        
+        /* Glow effect on hover */
+        .service-card::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          right: -2px;
+          bottom: -2px;
+          background: linear-gradient(45deg, rgba(18, 145, 219, 1), #379DD7, rgba(16, 140, 242, 1));
+          border-radius: 0.5rem;
+          z-index: -1;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+          opacity: 1;
+          animation: glow 2s linear infinite;
+        }
+        
+        @keyframes glow {
+          0% {
+            filter: blur(5px);
+            opacity: 0.7;
+          }
+          50% {
+            filter: blur(10px);
+            opacity: 1;
+          }
+          100% {
+            filter: blur(5px);
+            opacity: 0.7;
+          }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .service-card {
+            margin-bottom: 1.5rem;
+          }
+        }
+      `}</style>
     </section>
   );
 }

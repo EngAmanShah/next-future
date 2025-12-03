@@ -123,7 +123,7 @@ export default function WhyChooseUs({ lang }) {
                   className="fs-2 mb-4 fw-semibold"
                   style={{ color: "#379DD7" }}
                 >
-                  {t.introSubtitle}
+                  {/* {t.introSubtitle} */}
                 </h3>
                 <div
                   style={{

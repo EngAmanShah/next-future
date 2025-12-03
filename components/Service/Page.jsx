@@ -29,30 +29,23 @@ import Skills from "@/components/Skills/Skills";
 export default function Page({ params }) {
   const { lang } = React.use(params);
 
-  const translations = {
+ const translations = {
     en: {
       heroTitle: "Our Services",
-      heroDesc: "At Next Future, we craft innovative digital solutions to help businesses thrive in the modern digital landscape.",
       explore: "Explore Services",
       learnMore: "Learn More",
       services: [
         {
-          title: "Web Development",
+          title: "Web Design & Development",
           description: "Build scalable and responsive websites tailored to your business needs.",
           link: "/service/webdev",
           icon: <FaLaptopCode size={40} color="#fff" />
         },
         {
-          title: "App Development",
+          title: "Mobile App Development",
           description: "Create intuitive and engaging mobile applications for iOS and Android platforms.",
-          link: "/service/appdev",
+          link: "/service/mobile-app",
           icon: <FaMobileAlt size={40} color="#fff" />
-        },
-        {
-          title: "IT Solutions",
-          description: "Implement robust IT infrastructure and solutions for seamless business operations.",
-          link: "/service/itsolutions",
-          icon: <FaServer size={40} color="#fff" />
         },
         {
           title: "Digital Marketing",
@@ -67,10 +60,10 @@ export default function Page({ params }) {
           icon: <MdOutlineBrush size={40} color="#fff" />
         },
         {
-          title: "Mobile App Development",
-          description: "Build responsive and scalable mobile apps for iOS and Android platforms.",
-          link: "/service/mobile-app",
-          icon: <MdOutlinePhoneIphone size={40} color="#fff" />
+          title: "IT Solutions",
+          description: "Implement robust IT infrastructure and solutions for seamless business operations.",
+          link: "/service/itsolutions",
+          icon: <FaServer size={40} color="#fff" />
         },
         {
           title: "ERP Solutions",
@@ -79,29 +72,12 @@ export default function Page({ params }) {
           icon: <FaDatabase size={40} color="#fff" />
         },
         {
-          title: "Odoo ERP",
-          description: "Open-source Odoo ERP implementation and customization for your business needs.",
-          link: "/service/odoo-erp",
-          icon: <SiOdoo size={40} color="#fff" />
-        },
-        {
-          title: "Custom ERP",
-          description: "Tailored ERP solutions built from scratch to match your unique business processes.",
-          link: "/service/custom-erp",
-          icon: <FaCogs size={40} color="#fff" />
-        },
-        {
           title: "E-Commerce Solutions",
           description: "Build powerful online stores with secure payment gateways and inventory management.",
           link: "/service/ecommerce",
           icon: <FaShoppingCart size={40} color="#fff" />
         },
-        {
-          title: "Business Intelligence",
-          description: "Transform your data into actionable insights with advanced analytics and reporting.",
-          link: "/service/business-intelligence",
-          icon: <FaChartLine size={40} color="#fff" />
-        },
+   
         {
           title: "Cloud Services",
           description: "Scalable cloud infrastructure and migration services for modern businesses.",
@@ -112,80 +88,56 @@ export default function Page({ params }) {
     },
     ar: {
       heroTitle: "خدماتنا",
-      heroDesc: "في نكست فيوتشر، نحن نبتكر حلولًا رقمية تساعد الشركات على الازدهار في العصر الرقمي الحديث.",
       explore: "استكشف الخدمات",
-      learnMore: "اعرف المزيد",
+      learnMore: "المزيد من التفاصيل",
       services: [
         {
-          title: "تطوير مواقع الويب",
-          description: "بناء مواقع ويب قابلة للتطوير والاستجابة مصممة وفق احتياجات عملك.",
+          title: "تصميم وتطوير المواقع الإلكترونية",
+          description: "بناء مواقع إلكترونية قابلة للتوسع والتكيف مصممة خصيصًا لاحتياجات عملك.",
           link: "/service/webdev",
           icon: <FaLaptopCode size={40} color="#fff" />
         },
         {
-          title: "تطوير التطبيقات",
-          description: "إنشاء تطبيقات جوال جذابة وسهلة الاستخدام لمنصات iOS وAndroid.",
-          link: "/service/appdev",
+          title: "تطوير التطبيقات الجوالة",
+          description: "إنشاء تطبيقات جوالة بديهية وجذابة لمنصات iOS و Android.",
+          link: "/service/mobile-app",
           icon: <FaMobileAlt size={40} color="#fff" />
         },
         {
-          title: "حلول تكنولوجيا المعلومات",
-          description: "تنفيذ بنية تحتية وحلول تكنولوجيا المعلومات لضمان تشغيل سلس وفعال.",
-          link: "/service/itsolutions",
-          icon: <FaServer size={40} color="#fff" />
-        },
-        {
           title: "التسويق الرقمي",
-          description: "عزّز حضورك على الإنترنت من خلال تحسين محركات البحث، ووسائل التواصل الاجتماعي، والإعلانات المدفوعة، واستراتيجيات المحتوى.",
+          description: "عزز وجودك على الإنترنت باستخدام استراتيجيات تحسين محركات البحث ووسائل التواصل الاجتماعي والإعلان المدفوع والمحتوى.",
           link: "/service/digital-marketing",
           icon: <HiOutlineSpeakerphone size={40} color="#fff" />
         },
         {
           title: "التصميم الجرافيكي",
-          description: "صمّم مرئيات جذابة للويب والطباعة والمنصات الرقمية لجذب الانتباه.",
+          description: "تصميم مرئيات مؤثرة للويب والطباعة والمنصات الرقمية لجذب الانتباه.",
           link: "/service/graphic-design",
           icon: <MdOutlineBrush size={40} color="#fff" />
         },
         {
-          title: "تطوير تطبيقات الهواتف",
-          description: "إنشاء تطبيقات جوال متجاوبة وقابلة للتوسع لأنظمة iOS وAndroid.",
-          link: "/service/mobile-app",
-          icon: <MdOutlinePhoneIphone size={40} color="#fff" />
+          title: "حلول تكنولوجيا المعلومات",
+          description: "تنفيذ بنية تحتية وحلول تكنولوجيا معلومات قوية لتشغيل أعمال سلس.",
+          link: "/service/itsolutions",
+          icon: <FaServer size={40} color="#fff" />
         },
         {
-          title: "حلول ERP",
-          description: "أنظمة تخطيط موارد المؤسسة الشاملة لتبسيط عمليات عملك.",
+          title: "حلول تخطيط موارد المؤسسات",
+          description: "أنظمة تخطيط موارد المؤسسات الشاملة لتبسيط عمليات عملك.",
           link: "/service/erp",
           icon: <FaDatabase size={40} color="#fff" />
         },
         {
-          title: "أودو ERP",
-          description: "تنفيذ وتخصيص نظام أودو ERP مفتوح المصدر لاحتياجات عملك.",
-          link: "/service/webdev",
-          icon: <SiOdoo size={40} color="#fff" />
-        },
-        {
-          title: "ERP مخصص",
-          description: "حلول ERP مصممة خصيصًا لتتناسب مع عمليات عملك الفريدة.",
-          link: "/service/webdev",
-          icon: <FaCogs size={40} color="#fff" />
-        },
-        {
           title: "حلول التجارة الإلكترونية",
           description: "بناء متاجر إلكترونية قوية مع بوابات دفع آمنة وأنظمة إدارة المخزون.",
-          link: "/service/webdev",
+          link: "/service/ecommerce",
           icon: <FaShoppingCart size={40} color="#fff" />
         },
+     
         {
-          title: "الذكاء التجاري",
-          description: "حول بياناتك إلى رؤى قابلة للتنفيذ مع التحليلات المتقدمة والتقارير.",
-          link: "/service/webdev",
-          icon: <FaChartLine size={40} color="#fff" />
-        },
-        {
-          title: "خدمات السحابة",
+          title: "خدمات الحوسبة السحابية",
           description: "بنية تحتية سحابية قابلة للتوسع وخدمات نقل للشركات الحديثة.",
-          link: "/service/webdev",
+          link: "/service/cloud-services",
           icon: <MdCloudQueue size={40} color="#fff" />
         },
       ],
@@ -254,9 +206,9 @@ export default function Page({ params }) {
             {t.heroDesc}
           </motion.p>
           <motion.div custom={3} initial="hidden" animate="visible" variants={heroVariants}>
-            <Link href="/service/webdev" className="btn btn-primary btn-lg mt-4">
+            {/* <Link href="/service/webdev" className="btn btn-primary btn-lg mt-4">
               {t.explore}
-            </Link>
+            </Link> */}
           </motion.div>
         </div>
       </div>

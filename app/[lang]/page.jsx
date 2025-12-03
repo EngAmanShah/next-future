@@ -17,9 +17,9 @@ export default async function Home({ params }) {
 
   const content = {
     en: {
-      heroTitle: "Next Future Information Technology",
+      heroTitle: "Next Future Tech",
       heroDescription:
-        "Transforming your digital presence with innovative solutions — from web and app development to IT consulting — tailored to elevate your business and achieve measurable success.",
+        "Empowering Businesses Through Innovation, Technology, & Strategy",
       shopNow: "Get Your Free Consultation",
       whyChooseTitle: "Why Partner with Next Future Information",
       whyChooseDescription:
@@ -49,7 +49,7 @@ export default async function Home({ params }) {
     },
 
     ar: {
-      heroTitle: "نكست فيوتشر لتقنية المعلومات",
+      heroTitle: "نكست فيوتشر لتقنية ",
       heroDescription:
         "نحو حضور رقمي متكامل بحلول مبتكرة — من تطوير المواقع والتطبيقات إلى الاستشارات التقنية — لمساعدة عملك على النمو وتحقيق نتائج ملموسة.",
       shopNow: "احصل على استشارتك المجانية",

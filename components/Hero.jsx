@@ -15,12 +15,12 @@ export default function HeroSection({
   // Button text translations
   const buttonText = {
     en: "Get in Touch",
-    ar: "تواصل معنا"
+    ar: "تواصل معنا",
   };
 
   return (
     <section
-      className="position-relative w-100 d-flex align-items-center justify-content-center"
+      className="position-relative w-100 d-flex align-items-center justify-content-center hero-section"
       style={{
         minHeight: "100vh",
         width: "100%",
@@ -35,7 +35,7 @@ export default function HeroSection({
         loop
         muted
         playsInline
-        className="position-absolute top-0 start-0 w-100 h-100"
+        className="position-absolute top-0 start-0 w-100 h-100 hero-video"
         style={{ objectFit: "cover", zIndex: 1 }}
       >
         Your browser does not support the video tag.
@@ -43,16 +43,17 @@ export default function HeroSection({
 
       {/* Dark overlay */}
       <div
-        className="position-absolute top-0 start-0 w-100 h-100 bg-dark"
+        className="position-absolute top-0 start-0 w-100 h-100 bg-dark hero-overlay"
         style={{ opacity: 0.7, zIndex: 2 }}
       />
 
       {/* Centered content */}
       <div
-        className="position-relative text-center"
+        className="position-relative text-center hero-content"
         style={{ zIndex: 3, maxWidth: "800px", margin: "0 auto" }}
       >
         <motion.h1
+          className="hero-title"
           style={{
             color: "white",
             fontSize: "clamp(2rem, 5vw, 3rem)",
@@ -68,6 +69,7 @@ export default function HeroSection({
         </motion.h1>
 
         <motion.h4
+          className="hero-description"
           style={{
             color: "white",
             fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
@@ -88,7 +90,7 @@ export default function HeroSection({
           <button
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
-            className="btn fw-semibold shadow rounded-pill d-inline-flex align-items-center gap-2"
+            className="btn fw-semibold shadow rounded-pill d-inline-flex align-items-center gap-2 hero-button"
             style={{
               fontSize: "clamp(16px, 2.5vw, 22px)",
               transition: "transform 0.15s ease, padding 0.15s ease",
@@ -125,7 +127,7 @@ export default function HeroSection({
             >
               {isRTL ? "←" : "→"}
             </span>
-            
+
             {/* Hover effect */}
             <div
               style={{
@@ -134,7 +136,8 @@ export default function HeroSection({
                 left: 0,
                 right: 0,
                 bottom: 0,
-                background: "linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)",
+                background:
+                  "linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)",
                 transform: hover ? "translateX(100%)" : "translateX(-100%)",
                 transition: "transform 0.6s ease",
                 borderRadius: "50px",
@@ -145,6 +148,38 @@ export default function HeroSection({
       </div>
 
       <style jsx>{`
+        .hero-section {
+          min-height: 100vh;
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .hero-video,
+        .hero-overlay {
+          top: 0 !important;
+          height: 100vh !important;
+        }
+
+        .hero-content {
+          z-index: 3;
+          max-width: 800px;
+          margin: 80px auto 0 auto;
+          padding: 0 20px;
+        }
+
+        /* Adjust for different screen sizes */
+        @media (max-width: 768px) {
+          .hero-content {
+            margin-top: 70px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-content {
+            margin-top: 65px;
+          }
+        }
+
         /* Always show arrow on small screens / touch devices */
         @media (max-width: 1024px) {
           .arrow {
@@ -153,8 +188,18 @@ export default function HeroSection({
           }
         }
 
+        @media (max-width: 768px) {
+          .hero-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+          }
+
+          .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+          }
+        }
+
         /* Button hover effects */
-        button:hover {
+        .hero-button:hover {
           background-color: #2563eb !important;
           box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3) !important;
         }

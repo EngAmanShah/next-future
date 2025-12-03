@@ -4,13 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
-import {
-  FaWhatsapp,
-  FaPhone,
-  FaChevronDown,
-  FaChevronUp,
-  FaTimes,
-} from "react-icons/fa";
+import { FaPhone, FaChevronDown, FaChevronUp, FaTimes } from "react-icons/fa";
 
 export default function Navbar({ lang }) {
   const pathname = usePathname();
@@ -92,7 +86,6 @@ export default function Navbar({ lang }) {
   // Don't render navbar on admin pages
   if (!pathname || pathname?.startsWith(`/${lang}/admin`)) return null;
 
-  const whatsappNumber = "+966539983393";
   const callNumber = "+966539983393";
 
   const handleMouseEnter = () => {
@@ -157,69 +150,167 @@ export default function Navbar({ lang }) {
     setMobileERPOpen(false);
   };
 
-  // Services data
+  // Updated Services data based on your requirements
   const servicesData = {
-    appDevelopment: {
+    mobileApps: {
       title: {
-        en: "App Development",
-        ar: "تطوير التطبيقات",
+        en: "Mobile Apps",
+        ar: "تطبيقات الجوال",
       },
       services: [
-        { en: "Mobile App Development", ar: "تطوير تطبيقات الجوال" },
-        { en: "Android App Development", ar: "تطوير تطبيقات أندرويد" },
-        { en: "iOS App Development", ar: "تطوير تطبيقات iOS" },
-        { en: "Web App Development", ar: "تطوير تطبيقات الويب" },
-        { en: "UX/UI Design", ar: "تصميم واجهة المستخدم وتجربة المستخدم" },
-      ],
-    },
-    softwareDevelopment: {
-      title: {
-        en: "Software & Development",
-        ar: "البرمجيات والتطوير",
-      },
-      services: [
-        { en: "Backend Development", ar: "تطوير الواجهة الخلفية" },
-        { en: "Frontend Development", ar: "تطوير الواجهة الأمامية" },
-        { en: "Custom Software Development", ar: "تطوير البرمجيات المخصصة" },
-        { en: "Software Testing", ar: "اختبار البرمجيات" },
-        { en: "SAAS Development", ar: "تطوير البرمجيات كخدمة" },
-        { en: "MVP Development", ar: "تطوير المنتج الأدنى القابل للتطبيق" },
-        { en: "Software Consulting", ar: "استشارات البرمجيات" },
-      ],
-    },
-    creativeDigital: {
-      title: {
-        en: "Creative & Digital",
-        ar: "الإبداع والرقمي",
-      },
-      services: [
-        { en: "Digital Marketing", ar: "التسويق الرقمي" },
-        { en: "Graphic Design", ar: "التصميم الجرافيكي" },
-        { en: "Profile & Logo Design", ar: "تصميم الملف الشخصي والشعارات" },
-        { en: "Video Editing", ar: "مونتاج الفيديو" },
         {
-          en: "Animation & Video Shooting",
-          ar: "الرسوم المتحركة وتصوير الفيديو",
+          en: "iOS App Development",
+          ar: "تطوير تطبيقات iOS",
+          link: "/service/mobile-app",
+        },
+        {
+          en: "Android App Development",
+          ar: "تطوير تطبيقات أندرويد",
+          link: "/service/mobile-app",
         },
       ],
     },
-    itSocialMedia: {
+    webApps: {
       title: {
-        en: "IT & Social Media",
-        ar: "تكنولوجيا المعلومات ووسائل التواصل",
+        en: "Web Applications",
+        ar: "تطبيقات الويب",
       },
       services: [
-        { en: "Information Technology", ar: "تكنولوجيا المعلومات" },
+        {
+          en: "Frontend Development",
+          ar: "تطوير الواجهة الأمامية",
+          link: "/service/webdev",
+        },
+        {
+          en: "Backend Development",
+          ar: "تطوير الواجهة الخلفية",
+          link: "/service/webdev",
+        },
+        {
+          en: "CMS Development",
+          ar: "تطوير أنظمة إدارة المحتوى",
+          link: "/service/webdev",
+        },
+      ],
+    },
+    graphicDesign: {
+      title: {
+        en: "Graphic Design",
+        ar: "التصميم الجرافيكي",
+      },
+      services: [
+        {
+          en: "Graphic Design",
+          ar: "التصميم الجرافيكي",
+          link: "/service/graphic-design",
+        },
+        {
+          en: "Social Media Design",
+          ar: "تصميم وسائل التواصل الاجتماعي",
+          link: "/service/graphic-design",
+        },
+      ],
+    },
+    digitalMarketing: {
+      title: {
+        en: "Digital Marketing",
+        ar: "التسويق الرقمي",
+      },
+      services: [
         {
           en: "Social Media Marketing",
-          ar: "التسويق عبر وسائل التواصل الاجتماعي",
+          ar: "التسويق عبر وسائل التواصل",
+          link: "/service/digital-marketing",
         },
-        { en: "Management Solutions", ar: "حلول الإدارة" },
+        {
+          en: "Email Marketing",
+          ar: "التسويق عبر البريد الإلكتروني",
+          link: "/service/digital-marketing",
+        },
+        {
+          en: "Google Marketing",
+          ar: "التسويق عبر جوجل",
+          link: "/service/digital-marketing",
+        },
+      ],
+    },
+    itSolutions: {
+      title: {
+        en: "IT Solutions",
+        ar: "حلول تكنولوجيا المعلومات",
+      },
+      services: [
+        {
+          en: "Network Solutions",
+          ar: "حلول الشبكات",
+          link: "/service/itsolutions",
+        },
+        {
+          en: "Hardware Solutions",
+          ar: "حلول الأجهزة",
+          link: "/service/itsolutions",
+        },
+        {
+          en: "IT Infrastructure",
+          ar: "البنية التحتية لتكنولوجيا المعلومات",
+          link: "/service/itsolutions",
+        },
+      ],
+    },
+    ecommerce: {
+      title: {
+        en: "E-commerce Solutions",
+        ar: "حلول التجارة الإلكترونية",
+      },
+      services: [
+        {
+          en: "Shopify Development",
+          ar: "تطوير متاجر شوبيفاي",
+          link: "/service/ecommerce",
+        },
+        {
+          en: "WooCommerce Development",
+          ar: "تطوير متاجر ووكوميرس",
+          link: "/service/ecommerce",
+        },
+        {
+          en: "Salla Development",
+          ar: "تطوير متاجر سلة",
+          link: "/service/ecommerce",
+        },
+        {
+          en: "Z Development",
+          ar: "تطوير متاجر زد",
+          link: "/service/ecommerce",
+        },
+      ],
+    },
+    cloudServices: {
+      title: {
+        en: "Cloud Services",
+        ar: "خدمات الحوسبة السحابية",
+      },
+      services: [
+        {
+          en: "Cloud Infrastructure",
+          ar: "البنية التحتية السحابية",
+          link: "/service/cloud-services",
+        },
+        {
+          en: "Cloud Migration",
+          ar: "نقل البيانات السحابي",
+          link: "/service/cloud-services",
+        },
+        {
+          en: "Cloud Management",
+          ar: "إدارة السحابة",
+          link: "/service/cloud-services",
+        },
       ],
     },
   };
 
-  // ERP Solutions data - all links go to service page
+  // ERP Solutions data
   const erpSolutions = [
     {
       href: "/ERP/odoo",
@@ -231,21 +322,21 @@ export default function Navbar({ lang }) {
       },
     },
     {
-      href: "/ERP/property-management",
-      en: "Property Management System",
-      ar: "نظام إدارة الأملاك والعقارات",
+      href: "/ERP/Construction-Management",
+      en: "Construction Company ERP",
+      ar: "نظام إدارة شركات المقاولات",
       description: {
-        en: "Comprehensive real estate and property management",
-        ar: "نظام متكامل لإدارة العقارات والأملاك",
+        en: "Specialized ERP for construction companies",
+        ar: "نظام متخصص لإدارة شركات المقاولات",
       },
     },
     {
-      href: "/ERP/Construction-Management",
-      en: "Construction Management",
-      ar: "إدارة شركات المقاولات",
+      href: "/ERP/custom",
+      en: "Custom ERP Solutions",
+      ar: "حلول ERP مخصصة",
       description: {
-        en: "Construction company management solutions",
-        ar: "حلول إدارة شركات المقاولات",
+        en: "Tailored ERP systems for your business",
+        ar: "أنظمة ERP مصممة خصيصًا لعملك",
       },
     },
   ];
@@ -253,15 +344,14 @@ export default function Navbar({ lang }) {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg fixed-top shadow-sm"
+        className="navbar navbar-expand-lg fixed-top"
         style={
           mounted
             ? {
                 backgroundColor: scrolled
-                  ? "rgba(255, 255, 255, 0.97)"
-                  : "white",
-                transition: "background-color 0.3s ease",
-                backdropFilter: scrolled ? "blur(10px)" : "none",
+                  ? "#379DD7" // Dark blue when scrolled
+                  : "rgba(5, 5, 52, 0.96)", // Light transparent blue when at top
+                backdropFilter: scrolled ? "blur(12px)" : "blur(4px)", // Less blur when transparent
               }
             : {}
         }
@@ -274,21 +364,26 @@ export default function Navbar({ lang }) {
             className="navbar-brand"
             onClick={handleLinkClick}
           >
-            <img src="/logo.png" alt="Logo" style={{ width: "160px" }} />
+            <img
+              src="/logo-white.png"
+              alt="Logo"
+              style={{
+                width: "160px",
+                filter: scrolled ? "brightness(0) invert(1)" : "none",
+                transition: "filter 0.3s ease",
+              }}
+            />
           </Link>
 
-          {/* Mobile Top Buttons - Only Call Button */}
+          {/* Mobile Top Buttons */}
           <div className="d-lg-none d-flex align-items-center gap-2">
-            <LanguageSwitcher
-              lang={lang}
-              displayText={lang === "ar" ? "EN" : "AR"}
-            />
+            <LanguageSwitcher lang={lang} showFlag={true} showText={false} />
             <a
               href={`tel:${callNumber}`}
               className="btn btn-sm d-flex align-items-center gap-1"
               style={{
-                backgroundColor: "#379DD7",
-                borderColor: "#379DD7",
+                backgroundColor: scrolled ? "#000000ff" : "#379DD7",
+                borderColor: scrolled ? "#000000ff" : "#379DD7",
                 color: "#fff",
               }}
             >
@@ -338,6 +433,10 @@ export default function Navbar({ lang }) {
                         className={`nav-link ${
                           isActive(item.href) ? "active" : ""
                         } d-flex align-items-center gap-1`}
+                        style={{
+                          color: scrolled ? "#fff" : "#ffffffff",
+                          fontWeight: 500,
+                        }}
                       >
                         {item.label}
                         {lang === "ar" ? (
@@ -369,7 +468,7 @@ export default function Navbar({ lang }) {
                                       (service, serviceIndex) => (
                                         <li key={serviceIndex}>
                                           <Link
-                                            href={`/${lang}/service`}
+                                            href={`/${lang}${service.link}`}
                                             className="dropdown-item"
                                             onClick={handleLinkClick}
                                           >
@@ -393,6 +492,10 @@ export default function Navbar({ lang }) {
                         className={`nav-link ${
                           isActive(item.href) ? "active" : ""
                         } d-flex align-items-center gap-1`}
+                        style={{
+                          color: scrolled ? "#fff" : "#ffffffff",
+                          fontWeight: 500,
+                        }}
                       >
                         {item.label}
                         {lang === "ar" ? (
@@ -411,7 +514,7 @@ export default function Navbar({ lang }) {
                         <div className="erp-menu-content p-3">
                           <div className="row">
                             {erpSolutions.map((solution, index) => (
-                              <div key={index} className="col-lg-6 mb-2">
+                              <div key={index} className="col-lg-12 mb-2">
                                 <Link
                                   href={`/${lang}${solution.href}`}
                                   className="erp-dropdown-item"
@@ -438,6 +541,10 @@ export default function Navbar({ lang }) {
                       className={`nav-link ${
                         isActive(item.href) ? "active" : ""
                       }`}
+                      style={{
+                        color: scrolled ? "#fff" : "#ffffffff",
+                        fontWeight: 500,
+                      }}
                       onClick={handleLinkClick}
                     >
                       {item.label}
@@ -447,27 +554,19 @@ export default function Navbar({ lang }) {
               ))}
             </ul>
 
-            {/* Desktop Language & Buttons */}
+            {/* Desktop Language & Call Button */}
             <div className="d-flex align-items-center ms-4 gap-3">
-              <LanguageSwitcher
-                lang={lang}
-                displayText={lang === "ar" ? "EN" : "AR"}
-              />
-              <a
-                href={`https://wa.me/${whatsappNumber}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-success d-flex align-items-center gap-2"
-              >
-                <FaWhatsapp /> {lang === "ar" ? "واتساب" : "WhatsApp"}
-              </a>
+              <LanguageSwitcher lang={lang} showFlag={true} showText={false} />
               <a
                 href={`tel:${callNumber}`}
-                className="btn btn-primary d-flex align-items-center gap-2"
-                  style={{ backgroundColor: "#379DD7", borderColor: "#379DD7", color: "#fff" }}
->
-
-            
+                className="btn d-flex align-items-center gap-2"
+                style={{
+                  backgroundColor: scrolled ? "#000000ff" : "#379DD7",
+                  borderColor: scrolled ? "#000000ff" : "#379DD7",
+                  color: "#fff",
+                  fontWeight: 500,
+                }}
+              >
                 <FaPhone /> {lang === "ar" ? "اتصل" : "Call"}
               </a>
             </div>
@@ -475,10 +574,13 @@ export default function Navbar({ lang }) {
 
           {/* Mobile Toggler */}
           <button
-            className="navbar-toggler d-lg-none"
+            className="navbar-toggler d-lg-none border-0"
             type="button"
             onClick={handleMobileMenuToggle}
             aria-label="Toggle navigation"
+            style={{
+              color: scrolled ? "#fff" : "#f0f0f0ff",
+            }}
           >
             {isMobileMenuOpen ? (
               <FaTimes />
@@ -548,7 +650,7 @@ export default function Navbar({ lang }) {
                           {category.services.map((service, serviceIndex) => (
                             <li key={serviceIndex}>
                               <Link
-                                href={`/${lang}/service`}
+                                href={`/${lang}${service.link}`}
                                 onClick={handleLinkClick}
                               >
                                 {service[lang]}
@@ -613,21 +715,12 @@ export default function Navbar({ lang }) {
             </div>
           ))}
 
-          {/* Mobile Buttons */}
+          {/* Mobile Call Button */}
           <div className="mobile-buttons">
             <a
-              href={`https://wa.me/${whatsappNumber}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-success d-flex align-items-center gap-2 w-100 justify-content-center mb-2"
-              onClick={handleLinkClick}
-            >
-              <FaWhatsapp /> {lang === "ar" ? "واتساب" : "WhatsApp"}
-            </a>
-            <a
               href={`tel:${callNumber}`}
-              className="btn btn-primary d-flex align-items-center gap-2 w-100 justify-content-center"
-                 style={{
+              className="btn d-flex align-items-center gap-2 w-100 justify-content-center"
+              style={{
                 backgroundColor: "#379DD7",
                 borderColor: "#379DD7",
                 color: "#fff",
@@ -648,15 +741,13 @@ export default function Navbar({ lang }) {
         }
 
         .navbar-nav .nav-link {
-          font-weight: 500;
-          color: #333;
           transition: color 0.3s ease;
           padding: 0.5rem 1rem;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-          color: #379dd7;
+          color: ${scrolled ? "#FF9800" : "#379dd7"} !important;
         }
 
         /* Mega Menu Styles */
@@ -671,13 +762,14 @@ export default function Navbar({ lang }) {
           transform: translateX(-50%) translateY(10px);
           width: 90%;
           max-width: 1200px;
-          background: white;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(135deg, #0d47a1, #1565c0);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
           z-index: 1000;
-          border-radius: 8px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .mega-menu-dropdown.show {
@@ -696,14 +788,15 @@ export default function Navbar({ lang }) {
           top: 100%;
           left: 50%;
           transform: translateX(-50%) translateY(10px);
-          width: 500px;
-          background: white;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          width: 350px;
+          background: linear-gradient(135deg, #0d47a1, #1565c0);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
           z-index: 1000;
-          border-radius: 8px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .erp-dropdown-menu.show {
@@ -733,15 +826,15 @@ export default function Navbar({ lang }) {
         }
 
         .mega-menu-content .category-title {
-          color: #379dd7;
+          color: #ff9800;
           font-size: 0.9rem;
-          border-bottom: 2px solid #379dd7;
+          border-bottom: 2px solid #ff9800;
           padding-bottom: 0.5rem;
         }
 
         .mega-menu-content .dropdown-item {
           padding: 0.5rem 0;
-          color: #666;
+          color: #e0e0e0;
           text-decoration: none;
           transition: all 0.3s ease;
           font-size: 0.85rem;
@@ -750,7 +843,7 @@ export default function Navbar({ lang }) {
         }
 
         .mega-menu-content .dropdown-item:hover {
-          color: #379dd7;
+          color: #ff9800;
           background: none;
           padding-left: 0.5rem;
         }
@@ -758,29 +851,30 @@ export default function Navbar({ lang }) {
         .erp-dropdown-item {
           display: block;
           padding: 0.75rem 1rem;
-          color: #333;
+          color: #e0e0e0;
           text-decoration: none;
           transition: all 0.3s ease;
-          border-radius: 6px;
+          border-radius: 8px;
           border: 1px solid transparent;
+          background: rgba(255, 255, 255, 0.05);
         }
 
         .erp-dropdown-item:hover {
-          background: #f8f9fa;
-          border-color: #379dd7;
+          background: rgba(255, 152, 0, 0.1);
+          border-color: #ff9800;
           text-decoration: none;
-          color: #333;
+          color: #fff;
         }
 
         .erp-item-title {
-          color: #379dd7;
+          color: #ff9800;
           font-weight: 600;
           font-size: 0.9rem;
           margin-bottom: 0.25rem;
         }
 
         .erp-item-description {
-          color: #666;
+          color: #bdbdbd;
           font-size: 0.8rem;
           line-height: 1.3;
         }
@@ -807,11 +901,12 @@ export default function Navbar({ lang }) {
           right: -100%;
           width: 320px;
           height: 100vh;
-          background: white;
-          box-shadow: -2px 0 20px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(135deg, #0d47a1, #1565c0);
+          box-shadow: -2px 0 20px rgba(0, 0, 0, 0.3);
           transition: right 0.3s ease;
           z-index: 1050;
           overflow-y: auto;
+          color: #fff;
         }
 
         [dir="rtl"] .mobile-sidebar {
@@ -833,14 +928,14 @@ export default function Navbar({ lang }) {
           justify-content: space-between;
           align-items: center;
           padding: 1rem;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .close-btn {
           background: none;
           border: none;
           font-size: 1.2rem;
-          color: #333;
+          color: #fff;
           padding: 0.5rem;
           cursor: pointer;
         }
@@ -850,7 +945,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-menu-item {
-          border-bottom: 1px solid #f5f5f5;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .mobile-menu-link {
@@ -858,7 +953,7 @@ export default function Navbar({ lang }) {
           justify-content: space-between;
           align-items: center;
           padding: 1rem 0;
-          color: #333;
+          color: #fff;
           text-decoration: none;
           font-weight: 500;
           transition: color 0.3s ease;
@@ -874,7 +969,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-menu-link:hover {
-          color: #379dd7;
+          color: #ff9800;
         }
 
         .mobile-submenu {
@@ -896,7 +991,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-submenu-section h6 {
-          color: #379dd7;
+          color: #ff9800;
           font-weight: 600;
           margin-bottom: 0.5rem;
           font-size: 0.9rem;
@@ -913,7 +1008,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-submenu-section a {
-          color: #666;
+          color: #e0e0e0;
           text-decoration: none;
           font-size: 0.85rem;
           transition: color 0.3s ease;
@@ -923,7 +1018,7 @@ export default function Navbar({ lang }) {
 
         .erp-mobile-link {
           padding: 0.75rem 0 !important;
-          border-bottom: 1px solid #f0f0f0;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .erp-mobile-link:last-child {
@@ -931,54 +1026,40 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-submenu-section a:hover {
-          color: #379dd7;
+          color: #ff9800;
         }
 
         .mobile-buttons {
           padding: 1rem 0;
-          border-top: 1px solid #eee;
+          border-top: 1px solid rgba(255, 255, 255, 0.15);
           margin-top: 1rem;
         }
 
-        /* Language Switcher Button Styles */
-        .language-switcher-btn {
-          background: none;
-          border: 2px solid #379dd7;
-          color: #379dd7;
-          padding: 0.5rem 1rem;
-          border-radius: 6px;
-          font-weight: 600;
-          cursor: pointer;
+        /* Flag-only Language Switcher */
+        .flag-only-switcher {
+          display: flex;
+          align-items: center;
+          background: rgba(255, 255, 255, 0.15);
+          padding: 8px;
+          border-radius: 50%;
+          text-decoration: none;
           transition: all 0.3s ease;
-          min-width: 60px;
-          text-align: center;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          width: 40px;
+          height: 40px;
+          justify-content: center;
+        }
+
+        .flag-only-switcher:hover {
+          background: rgba(255, 255, 255, 0.25);
           text-decoration: none;
-          display: inline-block;
         }
 
-        .language-switcher-btn:hover {
-          background: #399dd9;
-          color: white;
-          text-decoration: none;
-        }
-
-        /* Mobile Top Buttons */
-        @media (max-width: 991px) {
-          .navbar > .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
-
-          .navbar-brand {
-            margin-right: 0;
-          }
-        }
-
-        /* RTL Support */
-        [dir="rtl"] .ms-4 {
-          margin-left: 0 !important;
-          margin-right: 1.5rem !important;
+        .flag-icon-only {
+          width: 24px;
+          height: 18px;
+          border-radius: 3px;
+          object-fit: cover;
         }
 
         /* Responsive */
@@ -987,19 +1068,43 @@ export default function Navbar({ lang }) {
           .erp-dropdown-menu {
             display: none;
           }
+
+          .navbar {
+            padding: 0.3rem 0;
+          }
         }
 
-        @media (max-width: 575px) {
+        @media (max-width: 768px) {
           .mobile-sidebar {
             width: 280px;
           }
 
+          .navbar-brand img {
+            width: 140px !important;
+          }
+        }
+
+        @media (max-width: 575px) {
           .mega-menu-dropdown {
             width: 95%;
           }
 
           .erp-dropdown-menu {
             width: 90%;
+          }
+
+          .mobile-sidebar {
+            width: 260px;
+          }
+        }
+
+        @media (max-width: 400px) {
+          .navbar-brand img {
+            width: 120px !important;
+          }
+
+          .mobile-sidebar {
+            width: 240px;
           }
         }
       `}</style>
