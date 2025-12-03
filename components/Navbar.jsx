@@ -349,7 +349,7 @@ export default function Navbar({ lang }) {
           mounted
             ? {
                 backgroundColor: scrolled
-                  ? "#379DD7" // Dark blue when scrolled
+                  ? "rgba(38, 38, 38, 0.96)" // Dark blue when scrolled
                   : "rgba(38, 38, 38, 0.96)", // Light transparent blue when at top
                 backdropFilter: scrolled ? "blur(12px)" : "blur(4px)", // Less blur when transparent
               }
@@ -645,7 +645,9 @@ export default function Navbar({ lang }) {
                   >
                     {Object.values(servicesData).map((category, catIndex) => (
                       <div key={catIndex} className="mobile-submenu-section">
-                        <h6>{category.title[lang]}</h6>
+                        <h6 className="mobile-category-title">
+                          {category.title[lang]}
+                        </h6>
                         <ul>
                           {category.services.map((service, serviceIndex) => (
                             <li key={serviceIndex}>
@@ -750,7 +752,7 @@ export default function Navbar({ lang }) {
           color: ${scrolled ? "#FF9800" : "#379dd7"} !important;
         }
 
-        /* Mega Menu Styles */
+        /* Mega Menu Styles - UPDATED BACKGROUND */
         .mega-menu {
           position: static;
         }
@@ -762,14 +764,14 @@ export default function Navbar({ lang }) {
           transform: translateX(-50%) translateY(10px);
           width: 90%;
           max-width: 1200px;
-          background: linear-gradient(135deg, #0d47a1, #1565c0);
+          background: rgba(0, 0, 0, 0.95) !important; /* 95% opacity black */
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
           z-index: 1000;
           border-radius: 12px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          border: 2px solid #379DD7 !important; /* Light blue border */
         }
 
         .mega-menu-dropdown.show {
@@ -778,7 +780,7 @@ export default function Navbar({ lang }) {
           transform: translateX(-50%) translateY(0);
         }
 
-        /* ERP Dropdown Menu Styles */
+        /* ERP Dropdown Menu Styles - UPDATED BACKGROUND */
         .erp-menu {
           position: relative;
         }
@@ -789,14 +791,14 @@ export default function Navbar({ lang }) {
           left: 50%;
           transform: translateX(-50%) translateY(10px);
           width: 350px;
-          background: linear-gradient(135deg, #0d47a1, #1565c0);
+          background: rgba(0, 0, 0, 0.95) !important; /* 95% opacity black */
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
           z-index: 1000;
           border-radius: 12px;
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          border: 2px solid #379DD7 !important; /* Light blue border */
         }
 
         .erp-dropdown-menu.show {
@@ -825,11 +827,13 @@ export default function Navbar({ lang }) {
           width: 100%;
         }
 
+        /* UPDATED: Category titles in blue */
         .mega-menu-content .category-title {
-          color: #ff9800;
+          color: #379DD7 !important; /* Blue color */
           font-size: 0.9rem;
-          border-bottom: 2px solid #ff9800;
+          border-bottom: 2px solid #379DD7; /* Blue border */
           padding-bottom: 0.5rem;
+          font-weight: 700;
         }
 
         .mega-menu-content .dropdown-item {
@@ -843,9 +847,10 @@ export default function Navbar({ lang }) {
         }
 
         .mega-menu-content .dropdown-item:hover {
-          color: #ff9800;
-          background: none;
+          color: #379DD7; /* Blue color on hover */
+          background: rgba(55, 157, 215, 0.1); /* Light blue background on hover */
           padding-left: 0.5rem;
+          border-radius: 4px;
         }
 
         .erp-dropdown-item {
@@ -860,14 +865,14 @@ export default function Navbar({ lang }) {
         }
 
         .erp-dropdown-item:hover {
-          background: rgba(255, 152, 0, 0.1);
-          border-color: #ff9800;
+          background: rgba(55, 157, 215, 0.1); /* Light blue background */
+          border-color: #379DD7; /* Blue border */
           text-decoration: none;
-          color: #fff;
+          color: #379DD7; /* Blue text */
         }
 
         .erp-item-title {
-          color: #ff9800;
+          color: #379DD7 !important; /* Blue color */
           font-weight: 600;
           font-size: 0.9rem;
           margin-bottom: 0.25rem;
@@ -884,7 +889,7 @@ export default function Navbar({ lang }) {
           padding-right: 0.5rem;
         }
 
-        /* Mobile Menu Styles */
+        /* Mobile Menu Styles - UPDATED BACKGROUND */
         .mobile-menu-overlay {
           position: fixed;
           top: 0;
@@ -901,17 +906,20 @@ export default function Navbar({ lang }) {
           right: -100%;
           width: 320px;
           height: 100vh;
-          background: linear-gradient(135deg, #0d47a1, #1565c0);
+          background: rgba(0, 0, 0, 0.95) !important; /* 95% opacity black */
           box-shadow: -2px 0 20px rgba(0, 0, 0, 0.3);
           transition: right 0.3s ease;
           z-index: 1050;
           overflow-y: auto;
           color: #fff;
+          border-left: 2px solid #379DD7 !important; /* Light blue border */
         }
 
         [dir="rtl"] .mobile-sidebar {
           right: auto;
           left: -100%;
+          border-left: none !important;
+          border-right: 2px solid #379DD7 !important; /* Light blue border for RTL */
         }
 
         .mobile-sidebar.show {
@@ -969,7 +977,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-menu-link:hover {
-          color: #ff9800;
+          color: #379DD7 !important; /* Blue color on hover */
         }
 
         .mobile-submenu {
@@ -990,11 +998,14 @@ export default function Navbar({ lang }) {
           padding: 0.5rem 1rem 0.5rem 0;
         }
 
-        .mobile-submenu-section h6 {
-          color: #ff9800;
-          font-weight: 600;
+        /* UPDATED: Mobile category titles in blue */
+        .mobile-category-title {
+          color: #379DD7 !important; /* Blue color */
+          font-weight: 700;
           margin-bottom: 0.5rem;
           font-size: 0.9rem;
+          border-bottom: 1px solid #379DD7; /* Blue border */
+          padding-bottom: 0.3rem;
         }
 
         .mobile-submenu-section ul {
@@ -1026,7 +1037,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-submenu-section a:hover {
-          color: #ff9800;
+          color: #379DD7 !important; /* Blue color on hover */
         }
 
         .mobile-buttons {

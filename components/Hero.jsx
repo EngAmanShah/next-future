@@ -41,10 +41,13 @@ export default function HeroSection({
         Your browser does not support the video tag.
       </video>
 
-      {/* Dark overlay */}
+      {/* Dark overlay - FIXED */}
       <div
-        className="position-absolute top-0 start-0 w-100 h-100 bg-dark hero-overlay"
-        style={{ opacity: 0.7, zIndex: 2 }}
+        className="position-absolute top-0 start-0 w-100 h-100 hero-overlay-custom"
+        style={{ 
+          backgroundColor: "rgba(0, 0, 0, 0.95)", 
+          zIndex: 2 
+        }}
       />
 
       {/* Simple content container */}
@@ -143,6 +146,76 @@ export default function HeroSection({
           </Link>
         </motion.div>
       </div>
+
+      {/* Add CSS styles to override global CSS */}
+      <style jsx>{`
+        /* Override global .hero-overlay with stronger selector */
+        .hero-section .hero-overlay-custom {
+          background-color: rgba(0, 0, 0, 0.62) !important;
+          opacity: 1 !important;
+        }
+        
+        /* Also target any div with position-absolute inside hero-section */
+        .hero-section > div.position-absolute:not(.hero-video):not(.hero-content) {
+          background-color: rgba(0, 0, 0, 0.85) !important;
+          opacity: 1 !important;
+        }
+        
+        .hero-section {
+          position: relative;
+          min-height: 100vh;
+          width: 100%;
+          overflow: hidden;
+        }
+        
+        .hero-video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+        
+        .hero-overlay-custom {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+        
+        /* Adjust for different screen sizes */
+        @media (max-width: 768px) {
+          .hero-content {
+            margin-top: 100px;
+          }
+          
+          .hero-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+          }
+          
+          .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hero-content {
+            margin-top: 90px;
+          }
+          
+          .hero-button {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+        
+        /* Button hover effects */
+        .hero-button:hover {
+          background-color: #2563eb !important;
+          box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3) !important;
+        }
+      `}</style>
     </section>
   );
 }
