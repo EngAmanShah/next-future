@@ -1,7 +1,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-color: #0c7bc5;
+  --primary-color: #379DD7;
   --primary-hover-color: #1a2a5f;
   --secondary-bg: #ceac24;
   --secondary-color: #2a6675ff;
@@ -36,7 +36,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.my-hero-section{
+  font-size: 10px !important;
+  color: red !important;
+}
 * {
   box-sizing: border-box;
   padding: 0;

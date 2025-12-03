@@ -4,7 +4,13 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { FaWhatsapp, FaPhone, FaChevronDown, FaChevronUp, FaTimes } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaPhone,
+  FaChevronDown,
+  FaChevronUp,
+  FaTimes,
+} from "react-icons/fa";
 
 export default function Navbar({ lang }) {
   const pathname = usePathname();
@@ -25,7 +31,7 @@ export default function Navbar({ lang }) {
     setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    
+
     // Close menus when clicking outside
     const handleClickOutside = (event) => {
       if (megaMenuRef.current && !megaMenuRef.current.contains(event.target)) {
@@ -34,16 +40,20 @@ export default function Navbar({ lang }) {
       if (erpMenuRef.current && !erpMenuRef.current.contains(event.target)) {
         setERPMenuOpen(false);
       }
-      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && !event.target.closest('.navbar-toggler')) {
+      if (
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target) &&
+        !event.target.closest(".navbar-toggler")
+      ) {
         setMobileMenuOpen(false);
         setMobileServicesOpen(false);
         setMobileERPOpen(false);
       }
     };
-    
+
     document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("touchstart", handleClickOutside);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("mousedown", handleClickOutside);
@@ -152,20 +162,20 @@ export default function Navbar({ lang }) {
     appDevelopment: {
       title: {
         en: "App Development",
-        ar: "تطوير التطبيقات"
+        ar: "تطوير التطبيقات",
       },
       services: [
         { en: "Mobile App Development", ar: "تطوير تطبيقات الجوال" },
         { en: "Android App Development", ar: "تطوير تطبيقات أندرويد" },
         { en: "iOS App Development", ar: "تطوير تطبيقات iOS" },
         { en: "Web App Development", ar: "تطوير تطبيقات الويب" },
-        { en: "UX/UI Design", ar: "تصميم واجهة المستخدم وتجربة المستخدم" }
-      ]
+        { en: "UX/UI Design", ar: "تصميم واجهة المستخدم وتجربة المستخدم" },
+      ],
     },
     softwareDevelopment: {
       title: {
         en: "Software & Development",
-        ar: "البرمجيات والتطوير"
+        ar: "البرمجيات والتطوير",
       },
       services: [
         { en: "Backend Development", ar: "تطوير الواجهة الخلفية" },
@@ -174,66 +184,71 @@ export default function Navbar({ lang }) {
         { en: "Software Testing", ar: "اختبار البرمجيات" },
         { en: "SAAS Development", ar: "تطوير البرمجيات كخدمة" },
         { en: "MVP Development", ar: "تطوير المنتج الأدنى القابل للتطبيق" },
-        { en: "Software Consulting", ar: "استشارات البرمجيات" }
-      ]
+        { en: "Software Consulting", ar: "استشارات البرمجيات" },
+      ],
     },
     creativeDigital: {
       title: {
         en: "Creative & Digital",
-        ar: "الإبداع والرقمي"
+        ar: "الإبداع والرقمي",
       },
       services: [
         { en: "Digital Marketing", ar: "التسويق الرقمي" },
         { en: "Graphic Design", ar: "التصميم الجرافيكي" },
         { en: "Profile & Logo Design", ar: "تصميم الملف الشخصي والشعارات" },
         { en: "Video Editing", ar: "مونتاج الفيديو" },
-        { en: "Animation & Video Shooting", ar: "الرسوم المتحركة وتصوير الفيديو" }
-      ]
+        {
+          en: "Animation & Video Shooting",
+          ar: "الرسوم المتحركة وتصوير الفيديو",
+        },
+      ],
     },
     itSocialMedia: {
       title: {
         en: "IT & Social Media",
-        ar: "تكنولوجيا المعلومات ووسائل التواصل"
+        ar: "تكنولوجيا المعلومات ووسائل التواصل",
       },
       services: [
         { en: "Information Technology", ar: "تكنولوجيا المعلومات" },
-        { en: "Social Media Marketing", ar: "التسويق عبر وسائل التواصل الاجتماعي" },
-        { en: "Management Solutions", ar: "حلول الإدارة" }
-      ]
-    }
+        {
+          en: "Social Media Marketing",
+          ar: "التسويق عبر وسائل التواصل الاجتماعي",
+        },
+        { en: "Management Solutions", ar: "حلول الإدارة" },
+      ],
+    },
   };
 
   // ERP Solutions data - all links go to service page
- const erpSolutions = [
-    { 
-      href: "/ERP/odoo", 
-      en: "Odoo ERP", 
+  const erpSolutions = [
+    {
+      href: "/ERP/odoo",
+      en: "Odoo ERP",
       ar: "أودو ERP",
       description: {
         en: "Open-source business management software",
-        ar: "برنامج إدارة الأعمال مفتوح المصدر"
-      }
+        ar: "برنامج إدارة الأعمال مفتوح المصدر",
+      },
     },
-    { 
-      href: "/ERP/property-management", 
-      en: "Property Management System", 
+    {
+      href: "/ERP/property-management",
+      en: "Property Management System",
       ar: "نظام إدارة الأملاك والعقارات",
       description: {
         en: "Comprehensive real estate and property management",
-        ar: "نظام متكامل لإدارة العقارات والأملاك"
-      }
+        ar: "نظام متكامل لإدارة العقارات والأملاك",
+      },
     },
-    { 
-      href: "/ERP/Construction-Management", 
-      en: "Construction Management", 
+    {
+      href: "/ERP/Construction-Management",
+      en: "Construction Management",
       ar: "إدارة شركات المقاولات",
       description: {
         en: "Construction company management solutions",
-        ar: "حلول إدارة شركات المقاولات"
-      }
+        ar: "حلول إدارة شركات المقاولات",
+      },
     },
-   
-];
+  ];
 
   return (
     <>
@@ -254,17 +269,29 @@ export default function Navbar({ lang }) {
       >
         <div className="container">
           {/* Logo */}
-          <Link href={`/${lang}`} className="navbar-brand" onClick={handleLinkClick}>
+          <Link
+            href={`/${lang}`}
+            className="navbar-brand"
+            onClick={handleLinkClick}
+          >
             <img src="/logo.png" alt="Logo" style={{ width: "160px" }} />
           </Link>
 
           {/* Mobile Top Buttons - Only Call Button */}
           <div className="d-lg-none d-flex align-items-center gap-2">
-            <LanguageSwitcher 
-              lang={lang} 
+            <LanguageSwitcher
+              lang={lang}
               displayText={lang === "ar" ? "EN" : "AR"}
             />
-            <a href={`tel:${callNumber}`} className="btn btn-primary btn-sm d-flex align-items-center gap-1">
+            <a
+              href={`tel:${callNumber}`}
+              className="btn btn-sm d-flex align-items-center gap-1"
+              style={{
+                backgroundColor: "#379DD7",
+                borderColor: "#379DD7",
+                color: "#fff",
+              }}
+            >
               <FaPhone size={12} />
             </a>
           </div>
@@ -276,52 +303,85 @@ export default function Navbar({ lang }) {
                 <li
                   key={index}
                   className={`nav-item ${
-                    item.isDropdown ? "dropdown mega-menu" : 
-                    item.isERPDropdown ? "dropdown erp-menu" : ""
+                    item.isDropdown
+                      ? "dropdown mega-menu"
+                      : item.isERPDropdown
+                      ? "dropdown erp-menu"
+                      : ""
                   } mx-2`}
-                  onMouseEnter={item.isDropdown ? handleMouseEnter : 
-                              item.isERPDropdown ? handleERPMouseEnter : undefined}
-                  onMouseLeave={item.isDropdown ? handleMouseLeave : 
-                              item.isERPDropdown ? handleERPMouseLeave : undefined}
-                  ref={item.isDropdown ? megaMenuRef : 
-                      item.isERPDropdown ? erpMenuRef : null}
+                  onMouseEnter={
+                    item.isDropdown
+                      ? handleMouseEnter
+                      : item.isERPDropdown
+                      ? handleERPMouseEnter
+                      : undefined
+                  }
+                  onMouseLeave={
+                    item.isDropdown
+                      ? handleMouseLeave
+                      : item.isERPDropdown
+                      ? handleERPMouseLeave
+                      : undefined
+                  }
+                  ref={
+                    item.isDropdown
+                      ? megaMenuRef
+                      : item.isERPDropdown
+                      ? erpMenuRef
+                      : null
+                  }
                 >
                   {item.isDropdown ? (
                     <>
                       <Link
                         href={`/${lang}${item.href}`}
-                        className={`nav-link ${isActive(item.href) ? "active" : ""} d-flex align-items-center gap-1`}
+                        className={`nav-link ${
+                          isActive(item.href) ? "active" : ""
+                        } d-flex align-items-center gap-1`}
                       >
                         {item.label}
-                        {lang === "ar" ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+                        {lang === "ar" ? (
+                          <FaChevronUp size={12} />
+                        ) : (
+                          <FaChevronDown size={12} />
+                        )}
                       </Link>
 
                       {/* Mega Menu - Desktop */}
                       <div
-                        className={`mega-menu-dropdown ${isMegaMenuOpen ? "show" : ""}`}
+                        className={`mega-menu-dropdown ${
+                          isMegaMenuOpen ? "show" : ""
+                        }`}
                       >
                         <div className="mega-menu-content p-4">
                           <div className="row">
-                            {Object.values(servicesData).map((category, catIndex) => (
-                              <div key={catIndex} className="col-lg-3 col-md-6 mb-3">
-                                <h6 className="fw-bold mb-3 category-title">
-                                  {category.title[lang]}
-                                </h6>
-                                <ul className="list-unstyled">
-                                  {category.services.map((service, serviceIndex) => (
-                                    <li key={serviceIndex}>
-                                      <Link 
-                                        href={`/${lang}/service`} 
-                                        className="dropdown-item"
-                                        onClick={handleLinkClick}
-                                      >
-                                        {service[lang]}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
+                            {Object.values(servicesData).map(
+                              (category, catIndex) => (
+                                <div
+                                  key={catIndex}
+                                  className="col-lg-3 col-md-6 mb-3"
+                                >
+                                  <h6 className="fw-bold mb-3 category-title">
+                                    {category.title[lang]}
+                                  </h6>
+                                  <ul className="list-unstyled">
+                                    {category.services.map(
+                                      (service, serviceIndex) => (
+                                        <li key={serviceIndex}>
+                                          <Link
+                                            href={`/${lang}/service`}
+                                            className="dropdown-item"
+                                            onClick={handleLinkClick}
+                                          >
+                                            {service[lang]}
+                                          </Link>
+                                        </li>
+                                      )
+                                    )}
+                                  </ul>
+                                </div>
+                              )
+                            )}
                           </div>
                         </div>
                       </div>
@@ -330,21 +390,29 @@ export default function Navbar({ lang }) {
                     <>
                       <Link
                         href={`/${lang}/service`}
-                        className={`nav-link ${isActive(item.href) ? "active" : ""} d-flex align-items-center gap-1`}
+                        className={`nav-link ${
+                          isActive(item.href) ? "active" : ""
+                        } d-flex align-items-center gap-1`}
                       >
                         {item.label}
-                        {lang === "ar" ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+                        {lang === "ar" ? (
+                          <FaChevronUp size={12} />
+                        ) : (
+                          <FaChevronDown size={12} />
+                        )}
                       </Link>
 
                       {/* ERP Dropdown Menu - Desktop */}
                       <div
-                        className={`erp-dropdown-menu ${isERPMenuOpen ? "show" : ""}`}
+                        className={`erp-dropdown-menu ${
+                          isERPMenuOpen ? "show" : ""
+                        }`}
                       >
                         <div className="erp-menu-content p-3">
                           <div className="row">
                             {erpSolutions.map((solution, index) => (
                               <div key={index} className="col-lg-6 mb-2">
-                                <Link 
+                                <Link
                                   href={`/${lang}${solution.href}`}
                                   className="erp-dropdown-item"
                                   onClick={handleLinkClick}
@@ -367,7 +435,9 @@ export default function Navbar({ lang }) {
                   ) : (
                     <Link
                       href={`/${lang}${item.href === "/" ? "" : item.href}`}
-                      className={`nav-link ${isActive(item.href) ? "active" : ""}`}
+                      className={`nav-link ${
+                        isActive(item.href) ? "active" : ""
+                      }`}
                       onClick={handleLinkClick}
                     >
                       {item.label}
@@ -379,8 +449,8 @@ export default function Navbar({ lang }) {
 
             {/* Desktop Language & Buttons */}
             <div className="d-flex align-items-center ms-4 gap-3">
-              <LanguageSwitcher 
-                lang={lang} 
+              <LanguageSwitcher
+                lang={lang}
                 displayText={lang === "ar" ? "EN" : "AR"}
               />
               <a
@@ -391,7 +461,13 @@ export default function Navbar({ lang }) {
               >
                 <FaWhatsapp /> {lang === "ar" ? "واتساب" : "WhatsApp"}
               </a>
-              <a href={`tel:${callNumber}`} className="btn btn-primary d-flex align-items-center gap-2">
+              <a
+                href={`tel:${callNumber}`}
+                className="btn btn-primary d-flex align-items-center gap-2"
+                  style={{ backgroundColor: "#379DD7", borderColor: "#379DD7", color: "#fff" }}
+>
+
+            
                 <FaPhone /> {lang === "ar" ? "اتصل" : "Call"}
               </a>
             </div>
@@ -404,30 +480,38 @@ export default function Navbar({ lang }) {
             onClick={handleMobileMenuToggle}
             aria-label="Toggle navigation"
           >
-            {isMobileMenuOpen ? <FaTimes /> : <span className="navbar-toggler-icon"></span>}
+            {isMobileMenuOpen ? (
+              <FaTimes />
+            ) : (
+              <span className="navbar-toggler-icon"></span>
+            )}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="mobile-menu-overlay"
           onClick={() => setMobileMenuOpen(false)}
         />
       )}
 
       {/* Mobile Menu Sidebar */}
-      <div 
+      <div
         ref={mobileMenuRef}
         className={`mobile-sidebar ${isMobileMenuOpen ? "show" : ""}`}
         dir={lang === "ar" ? "rtl" : "ltr"}
       >
         <div className="mobile-sidebar-header">
-          <Link href={`/${lang}`} className="navbar-brand" onClick={handleLinkClick}>
+          <Link
+            href={`/${lang}`}
+            className="navbar-brand"
+            onClick={handleLinkClick}
+          >
             <img src="/logo.png" alt="Logo" style={{ width: "140px" }} />
           </Link>
-          <button 
+          <button
             className="close-btn"
             onClick={() => setMobileMenuOpen(false)}
           >
@@ -440,23 +524,31 @@ export default function Navbar({ lang }) {
             <div key={index} className="mobile-menu-item">
               {item.isDropdown ? (
                 <>
-                  <div 
+                  <div
                     className="mobile-menu-link dropdown-toggle"
                     onClick={handleServicesClick}
                   >
                     <span>{item.label}</span>
-                    {isMobileServicesOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+                    {isMobileServicesOpen ? (
+                      <FaChevronUp size={12} />
+                    ) : (
+                      <FaChevronDown size={12} />
+                    )}
                   </div>
-                  
-                  <div className={`mobile-submenu ${isMobileServicesOpen ? "show" : ""}`}>
+
+                  <div
+                    className={`mobile-submenu ${
+                      isMobileServicesOpen ? "show" : ""
+                    }`}
+                  >
                     {Object.values(servicesData).map((category, catIndex) => (
                       <div key={catIndex} className="mobile-submenu-section">
                         <h6>{category.title[lang]}</h6>
                         <ul>
                           {category.services.map((service, serviceIndex) => (
                             <li key={serviceIndex}>
-                              <Link 
-                                href={`/${lang}/service`} 
+                              <Link
+                                href={`/${lang}/service`}
                                 onClick={handleLinkClick}
                               >
                                 {service[lang]}
@@ -470,20 +562,28 @@ export default function Navbar({ lang }) {
                 </>
               ) : item.isERPDropdown ? (
                 <>
-                  <div 
+                  <div
                     className="mobile-menu-link dropdown-toggle"
                     onClick={handleERPClick}
                   >
                     <span>{item.label}</span>
-                    {isMobileERPOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+                    {isMobileERPOpen ? (
+                      <FaChevronUp size={12} />
+                    ) : (
+                      <FaChevronDown size={12} />
+                    )}
                   </div>
-                  
-                  <div className={`mobile-submenu ${isMobileERPOpen ? "show" : ""}`}>
+
+                  <div
+                    className={`mobile-submenu ${
+                      isMobileERPOpen ? "show" : ""
+                    }`}
+                  >
                     <div className="mobile-submenu-section">
                       <ul>
                         {erpSolutions.map((solution, solutionIndex) => (
                           <li key={solutionIndex}>
-                            <Link 
+                            <Link
                               href={`/${lang}${solution.href}`}
                               onClick={handleLinkClick}
                               className="erp-mobile-link"
@@ -512,7 +612,7 @@ export default function Navbar({ lang }) {
               )}
             </div>
           ))}
-          
+
           {/* Mobile Buttons */}
           <div className="mobile-buttons">
             <a
@@ -524,9 +624,14 @@ export default function Navbar({ lang }) {
             >
               <FaWhatsapp /> {lang === "ar" ? "واتساب" : "WhatsApp"}
             </a>
-            <a 
-              href={`tel:${callNumber}`} 
+            <a
+              href={`tel:${callNumber}`}
               className="btn btn-primary d-flex align-items-center gap-2 w-100 justify-content-center"
+                 style={{
+                backgroundColor: "#379DD7",
+                borderColor: "#379DD7",
+                color: "#fff",
+              }}
               onClick={handleLinkClick}
             >
               <FaPhone /> {lang === "ar" ? "اتصل" : "Call"}
@@ -551,7 +656,7 @@ export default function Navbar({ lang }) {
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-          color: #399dd9;
+          color: #379dd7;
         }
 
         /* Mega Menu Styles */
@@ -567,7 +672,7 @@ export default function Navbar({ lang }) {
           width: 90%;
           max-width: 1200px;
           background: white;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
@@ -593,7 +698,7 @@ export default function Navbar({ lang }) {
           transform: translateX(-50%) translateY(10px);
           width: 500px;
           background: white;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
@@ -628,9 +733,9 @@ export default function Navbar({ lang }) {
         }
 
         .mega-menu-content .category-title {
-          color: #399dd9;
+          color: #379dd7;
           font-size: 0.9rem;
-          border-bottom: 2px solid #399dd9;
+          border-bottom: 2px solid #379dd7;
           padding-bottom: 0.5rem;
         }
 
@@ -645,7 +750,7 @@ export default function Navbar({ lang }) {
         }
 
         .mega-menu-content .dropdown-item:hover {
-          color: #399dd9;
+          color: #379dd7;
           background: none;
           padding-left: 0.5rem;
         }
@@ -662,13 +767,13 @@ export default function Navbar({ lang }) {
 
         .erp-dropdown-item:hover {
           background: #f8f9fa;
-          border-color: #399dd9;
+          border-color: #379dd7;
           text-decoration: none;
           color: #333;
         }
 
         .erp-item-title {
-          color: #399dd9;
+          color: #379dd7;
           font-weight: 600;
           font-size: 0.9rem;
           margin-bottom: 0.25rem;
@@ -692,7 +797,7 @@ export default function Navbar({ lang }) {
           left: 0;
           right: 0;
           bottom: 0;
-          background: rgba(0,0,0,0.5);
+          background: rgba(0, 0, 0, 0.5);
           z-index: 1040;
         }
 
@@ -703,7 +808,7 @@ export default function Navbar({ lang }) {
           width: 320px;
           height: 100vh;
           background: white;
-          box-shadow: -2px 0 20px rgba(0,0,0,0.1);
+          box-shadow: -2px 0 20px rgba(0, 0, 0, 0.1);
           transition: right 0.3s ease;
           z-index: 1050;
           overflow-y: auto;
@@ -769,7 +874,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-menu-link:hover {
-          color: #399dd9;
+          color: #379dd7;
         }
 
         .mobile-submenu {
@@ -791,7 +896,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-submenu-section h6 {
-          color: #399dd9;
+          color: #379dd7;
           font-weight: 600;
           margin-bottom: 0.5rem;
           font-size: 0.9rem;
@@ -826,7 +931,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-submenu-section a:hover {
-          color: #399dd9;
+          color: #379dd7;
         }
 
         .mobile-buttons {
@@ -838,8 +943,8 @@ export default function Navbar({ lang }) {
         /* Language Switcher Button Styles */
         .language-switcher-btn {
           background: none;
-          border: 2px solid #399dd9;
-          color: #399dd9;
+          border: 2px solid #379dd7;
+          color: #379dd7;
           padding: 0.5rem 1rem;
           border-radius: 6px;
           font-weight: 600;
@@ -864,7 +969,7 @@ export default function Navbar({ lang }) {
             justify-content: space-between;
             align-items: center;
           }
-          
+
           .navbar-brand {
             margin-right: 0;
           }
@@ -888,7 +993,7 @@ export default function Navbar({ lang }) {
           .mobile-sidebar {
             width: 280px;
           }
-          
+
           .mega-menu-dropdown {
             width: 95%;
           }

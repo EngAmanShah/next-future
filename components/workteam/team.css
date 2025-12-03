@@ -203,7 +203,7 @@
 }
 
 .team-info p {
-  color: #667eea;
+  color: #379DD7;
   font-size: 1rem;
   font-weight: 600;
   margin: 0;
@@ -219,7 +219,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #667eea;
+  color: #379DD7;
   font-size: 0.9rem;
   font-weight: 600;
   opacity: 0;
@@ -302,7 +302,7 @@
 
 .social-links a:hover {
   background: white;
-  color: #667eea;
+  color: #379DD7;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
@@ -352,7 +352,7 @@
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   background: white;
-  color: #667eea !important;
+  color: #379DD7 !important;
   transform: scale(1.1);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }

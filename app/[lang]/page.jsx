@@ -94,9 +94,15 @@ export default async function Home({ params }) {
 
   return (
     <>
-      {/* Hero Section */}
-      <Hero lang={lang} text={heroButton} heroTitle={heroTitle} heroDescription={heroDescription} />
-      
+ <div className="my-hero-section">
+  <Hero 
+    lang={lang} 
+    text={heroButton}
+    heroTitle={heroTitle}
+    heroDescription={heroDescription}
+  />
+</div>
+
       {/* Feature Section */}
       <Features
         title={whyChooseTitle}
