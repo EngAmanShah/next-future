@@ -28,119 +28,123 @@ export default function Page({ params }) {
   const currentLang = lang || "en";
 
   const translations = {
-    en: {
-      heroTitle: "Our Services",
-      explore: "Explore Services",
-      learnMore: "Learn More",
-      services: [
-        {
-          title: "Web Design & Development",
-          description: "Build scalable and responsive websites tailored to your business needs.",
-          link: "/service/webdev",
-          icon: <FaLaptopCode size={40} color="#fff" />
-        },
-        {
-          title: "Mobile App Development",
-          description: "Create intuitive and engaging mobile applications for iOS and Android platforms.",
-          link: "/service/mobile-app",
-          icon: <FaMobileAlt size={40} color="#fff" />
-        },
-        {
-          title: "Digital Marketing",
-          description: "Boost your online presence with SEO, social media, PPC, and content strategies.",
-          link: "/service/digital-marketing",
-          icon: <HiOutlineSpeakerphone size={40} color="#fff" />
-        },
-        {
-          title: "Graphic Design",
-          description: "Design compelling visuals for web, print, and digital platforms to capture attention.",
-          link: "/service/graphic-design",
-          icon: <MdOutlineBrush size={40} color="#fff" />
-        },
-        {
-          title: "IT Solutions",
-          description: "Implement robust IT infrastructure and solutions for seamless business operations.",
-          link: "/service/itsolutions",
-          icon: <FaServer size={40} color="#fff" />
-        },
-        {
-          title: "ERP Solutions",
-          description: "Comprehensive Enterprise Resource Planning systems to streamline your business operations.",
-          link: "/service/erp",
-          icon: <FaDatabase size={40} color="#fff" />
-        },
-        {
-          title: "E-Commerce Solutions",
-          description: "Build powerful online stores with secure payment gateways and inventory management.",
-          link: "/service/ecommerce",
-          icon: <FaShoppingCart size={40} color="#fff" />
-        },
-   
-        {
-          title: "Cloud Services",
-          description: "Scalable cloud infrastructure and migration services for modern businesses.",
-          link: "/service/cloud-services",
-          icon: <MdCloudQueue size={40} color="#fff" />
-        },
-      ],
-    },
-    ar: {
-      heroTitle: "خدماتنا",
-      explore: "استكشف الخدمات",
-      learnMore: "المزيد من التفاصيل",
-      services: [
-        {
-          title: "تصميم وتطوير المواقع الإلكترونية",
-          description: "بناء مواقع إلكترونية قابلة للتوسع والتكيف مصممة خصيصًا لاحتياجات عملك.",
-          link: "/service/webdev",
-          icon: <FaLaptopCode size={40} color="#fff" />
-        },
-        {
-          title: "تطوير التطبيقات الجوالة",
-          description: "إنشاء تطبيقات جوالة بديهية وجذابة لمنصات iOS و Android.",
-          link: "/service/mobile-app",
-          icon: <FaMobileAlt size={40} color="#fff" />
-        },
-        {
-          title: "التسويق الرقمي",
-          description: "عزز وجودك على الإنترنت باستخدام استراتيجيات تحسين محركات البحث ووسائل التواصل الاجتماعي والإعلان المدفوع والمحتوى.",
-          link: "/service/digital-marketing",
-          icon: <HiOutlineSpeakerphone size={40} color="#fff" />
-        },
-        {
-          title: "التصميم الجرافيكي",
-          description: "تصميم مرئيات مؤثرة للويب والطباعة والمنصات الرقمية لجذب الانتباه.",
-          link: "/service/graphic-design",
-          icon: <MdOutlineBrush size={40} color="#fff" />
-        },
-        {
-          title: "حلول تكنولوجيا المعلومات",
-          description: "تنفيذ بنية تحتية وحلول تكنولوجيا معلومات قوية لتشغيل أعمال سلس.",
-          link: "/service/itsolutions",
-          icon: <FaServer size={40} color="#fff" />
-        },
-        {
-          title: "حلول تخطيط موارد المؤسسات",
-          description: "أنظمة تخطيط موارد المؤسسات الشاملة لتبسيط عمليات عملك.",
-          link: "/service/erp",
-          icon: <FaDatabase size={40} color="#fff" />
-        },
-        {
-          title: "حلول التجارة الإلكترونية",
-          description: "بناء متاجر إلكترونية قوية مع بوابات دفع آمنة وأنظمة إدارة المخزون.",
-          link: "/service/ecommerce",
-          icon: <FaShoppingCart size={40} color="#fff" />
-        },
+     en: {
+       heroTitle: "Our Services",
+       explore: "Explore Services",
+       learnMore: "Learn More",
+       services: [
+         {
+           title: "Web Design & Development",
+           description: "Build scalable and responsive websites tailored to your business needs.",
+           link: "/service/webdev",
+           icon: <FaLaptopCode size={40} color="#fff" />
+         },
+         {
+           title: "Mobile App Development",
+           description: "Create intuitive and engaging mobile applications for iOS and Android platforms.",
+           link: "/service/mobile-app",
+           icon: <FaMobileAlt size={40} color="#fff" />
+         },
      
-        {
-          title: "خدمات الحوسبة السحابية",
-          description: "بنية تحتية سحابية قابلة للتوسع وخدمات نقل للشركات الحديثة.",
-          link: "/service/cloud-services",
-          icon: <MdCloudQueue size={40} color="#fff" />
-        },
-      ],
-    },
-  };
+         {
+           title: "IT Solutions",
+           description: "Implement robust IT infrastructure and solutions for seamless business operations.",
+           link: "/service/itsolutions",
+           icon: <FaServer size={40} color="#fff" />
+         },
+         {
+           title: "ERP Solutions",
+           description: "Comprehensive Enterprise Resource Planning systems to streamline your business operations.",
+           link: "/service/erp",
+           icon: <FaDatabase size={40} color="#fff" />
+         },
+ 
+             {
+           title: "Digital Marketing",
+           description: "Boost your online presence with SEO, social media, PPC, and content strategies.",
+           link: "/service/digital-marketing",
+           icon: <HiOutlineSpeakerphone size={40} color="#fff" />
+         },
+         {
+           title: "Graphic Design",
+           description: "Design compelling visuals for web, print, and digital platforms to capture attention.",
+           link: "/service/graphic-design",
+           icon: <MdOutlineBrush size={40} color="#fff" />
+         },
+         {
+           title: "E-Commerce Solutions",
+           description: "Build powerful online stores with secure payment gateways and inventory management.",
+           link: "/service/ecommerce",
+           icon: <FaShoppingCart size={40} color="#fff" />
+         },
+    
+         {
+           title: "Cloud Services",
+           description: "Scalable cloud infrastructure and migration services for modern businesses.",
+           link: "/service/cloud-services",
+           icon: <MdCloudQueue size={40} color="#fff" />
+         },
+       ],
+     },
+     ar: {
+       heroTitle: "خدماتنا",
+       explore: "استكشف الخدمات",
+       learnMore: "المزيد من التفاصيل",
+       services: [
+         {
+           title: "تصميم وتطوير المواقع الإلكترونية",
+           description: "بناء مواقع إلكترونية قابلة للتوسع والتكيف مصممة خصيصًا لاحتياجات عملك.",
+           link: "/service/webdev",
+           icon: <FaLaptopCode size={40} color="#fff" />
+         },
+         {
+           title: "تطوير التطبيقات الجوالة",
+           description: "إنشاء تطبيقات جوالة بديهية وجذابة لمنصات iOS و Android.",
+           link: "/service/mobile-app",
+           icon: <FaMobileAlt size={40} color="#fff" />
+         },
+    
+         {
+           title: "حلول تكنولوجيا المعلومات",
+           description: "تنفيذ بنية تحتية وحلول تكنولوجيا معلومات قوية لتشغيل أعمال سلس.",
+           link: "/service/itsolutions",
+           icon: <FaServer size={40} color="#fff" />
+         },
+         {
+           title: "حلول تخطيط موارد المؤسسات",
+           description: "أنظمة تخطيط موارد المؤسسات الشاملة لتبسيط عمليات عملك.",
+           link: "/service/erp",
+           icon: <FaDatabase size={40} color="#fff" />
+         },
+ 
+              {
+           title: "التسويق الرقمي",
+           description: "عزز وجودك على الإنترنت باستخدام استراتيجيات تحسين محركات البحث ووسائل التواصل الاجتماعي والإعلان المدفوع والمحتوى.",
+           link: "/service/digital-marketing",
+           icon: <HiOutlineSpeakerphone size={40} color="#fff" />
+         },
+         {
+           title: "التصميم الجرافيكي",
+           description: "تصميم مرئيات مؤثرة للويب والطباعة والمنصات الرقمية لجذب الانتباه.",
+           link: "/service/graphic-design",
+           icon: <MdOutlineBrush size={40} color="#fff" />
+         },
+         {
+           title: "حلول التجارة الإلكترونية",
+           description: "بناء متاجر إلكترونية قوية مع بوابات دفع آمنة وأنظمة إدارة المخزون.",
+           link: "/service/ecommerce",
+           icon: <FaShoppingCart size={40} color="#fff" />
+         },
+      
+         {
+           title: "خدمات الحوسبة السحابية",
+           description: "بنية تحتية سحابية قابلة للتوسع وخدمات نقل للشركات الحديثة.",
+           link: "/service/cloud-services",
+           icon: <MdCloudQueue size={40} color="#fff" />
+         },
+       ],
+     },
+   };
 
   const t = translations[currentLang];
 

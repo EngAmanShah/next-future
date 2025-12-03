@@ -47,18 +47,7 @@ export default function Page({ params }) {
           link: "/service/mobile-app",
           icon: <FaMobileAlt size={40} color="#fff" />
         },
-        {
-          title: "Digital Marketing",
-          description: "Boost your online presence with SEO, social media, PPC, and content strategies.",
-          link: "/service/digital-marketing",
-          icon: <HiOutlineSpeakerphone size={40} color="#fff" />
-        },
-        {
-          title: "Graphic Design",
-          description: "Design compelling visuals for web, print, and digital platforms to capture attention.",
-          link: "/service/graphic-design",
-          icon: <MdOutlineBrush size={40} color="#fff" />
-        },
+    
         {
           title: "IT Solutions",
           description: "Implement robust IT infrastructure and solutions for seamless business operations.",
@@ -70,6 +59,19 @@ export default function Page({ params }) {
           description: "Comprehensive Enterprise Resource Planning systems to streamline your business operations.",
           link: "/service/erp",
           icon: <FaDatabase size={40} color="#fff" />
+        },
+
+            {
+          title: "Digital Marketing",
+          description: "Boost your online presence with SEO, social media, PPC, and content strategies.",
+          link: "/service/digital-marketing",
+          icon: <HiOutlineSpeakerphone size={40} color="#fff" />
+        },
+        {
+          title: "Graphic Design",
+          description: "Design compelling visuals for web, print, and digital platforms to capture attention.",
+          link: "/service/graphic-design",
+          icon: <MdOutlineBrush size={40} color="#fff" />
         },
         {
           title: "E-Commerce Solutions",
@@ -103,18 +105,7 @@ export default function Page({ params }) {
           link: "/service/mobile-app",
           icon: <FaMobileAlt size={40} color="#fff" />
         },
-        {
-          title: "التسويق الرقمي",
-          description: "عزز وجودك على الإنترنت باستخدام استراتيجيات تحسين محركات البحث ووسائل التواصل الاجتماعي والإعلان المدفوع والمحتوى.",
-          link: "/service/digital-marketing",
-          icon: <HiOutlineSpeakerphone size={40} color="#fff" />
-        },
-        {
-          title: "التصميم الجرافيكي",
-          description: "تصميم مرئيات مؤثرة للويب والطباعة والمنصات الرقمية لجذب الانتباه.",
-          link: "/service/graphic-design",
-          icon: <MdOutlineBrush size={40} color="#fff" />
-        },
+   
         {
           title: "حلول تكنولوجيا المعلومات",
           description: "تنفيذ بنية تحتية وحلول تكنولوجيا معلومات قوية لتشغيل أعمال سلس.",
@@ -126,6 +117,19 @@ export default function Page({ params }) {
           description: "أنظمة تخطيط موارد المؤسسات الشاملة لتبسيط عمليات عملك.",
           link: "/service/erp",
           icon: <FaDatabase size={40} color="#fff" />
+        },
+
+             {
+          title: "التسويق الرقمي",
+          description: "عزز وجودك على الإنترنت باستخدام استراتيجيات تحسين محركات البحث ووسائل التواصل الاجتماعي والإعلان المدفوع والمحتوى.",
+          link: "/service/digital-marketing",
+          icon: <HiOutlineSpeakerphone size={40} color="#fff" />
+        },
+        {
+          title: "التصميم الجرافيكي",
+          description: "تصميم مرئيات مؤثرة للويب والطباعة والمنصات الرقمية لجذب الانتباه.",
+          link: "/service/graphic-design",
+          icon: <MdOutlineBrush size={40} color="#fff" />
         },
         {
           title: "حلول التجارة الإلكترونية",

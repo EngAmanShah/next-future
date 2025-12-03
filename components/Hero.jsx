@@ -20,7 +20,7 @@ export default function HeroSection({
 
   return (
     <section
-      className="position-relative w-100 d-flex align-items-center justify-content-center hero-section"
+      className="position-relative w-100 d-flex align-items-center hero-section"
       style={{
         minHeight: "100vh",
         width: "100%",
@@ -47,173 +47,102 @@ export default function HeroSection({
         style={{ opacity: 0.7, zIndex: 2 }}
       />
 
-      {/* Centered content */}
+      {/* Simple content container */}
       <div
-        className="position-relative text-center hero-content"
-        style={{ zIndex: 3, maxWidth: "800px", margin: "0 auto" }}
+        className="position-relative hero-content"
+        style={{ 
+          zIndex: 3,
+          maxWidth: "800px",
+          margin: "120px auto 0",
+          padding: "0 5%",
+          textAlign: isRTL ? "right" : "left",
+          // Position based on language
+          marginLeft: isRTL ? "auto" : "5%",
+          marginRight: isRTL ? "5%" : "auto",
+        }}
       >
+        {/* Title */}
         <motion.h1
           className="hero-title"
           style={{
             color: "white",
-            fontSize: "clamp(2rem, 5vw, 3rem)",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
             fontWeight: "bold",
             lineHeight: 1.2,
-            marginBottom: "1rem",
+            marginBottom: "1.5rem",
           }}
-          initial={{ x: isRTL ? 100 : -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
           {heroTitle}
         </motion.h1>
 
-        <motion.h4
+        {/* Description */}
+        <motion.div
           className="hero-description"
           style={{
             color: "white",
-            fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
-            lineHeight: 1.5,
-            maxWidth: "100%",
-            margin: "0 auto",
-            paddingBottom: "30px",
+            fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
+            lineHeight: 1.7,
+            marginBottom: "2.5rem",
+            maxWidth: "90%",
           }}
-          initial={{ x: isRTL ? -100 : 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         >
           {heroDescription}
-        </motion.h4>
+        </motion.div>
 
         {/* Button */}
-        <Link href={`/${lang}/contact-us`}>
-          <button
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            className="btn fw-semibold shadow rounded-pill d-inline-flex align-items-center gap-2 hero-button"
-            style={{
-              fontSize: "clamp(16px, 2.5vw, 22px)",
-              transition: "transform 0.15s ease, padding 0.15s ease",
-              transform: hover ? "scale(1.08)" : "scale(1)",
-              padding: hover
-                ? "clamp(0.75rem, 2.5vw, 1rem) clamp(2rem, 4vw, 3rem)"
-                : "clamp(0.75rem, 2.5vw, 1rem) clamp(1.5rem, 3vw, 2rem)",
-              direction: isRTL ? "rtl" : "ltr",
-              cursor: "pointer",
-              backgroundColor: "#3B82F6",
-              color: "white",
-              border: "none",
-              position: "relative",
-              overflow: "hidden",
-            }}
-          >
-            <span>{buttonText[lang]}</span>
-            <span
-              className="arrow"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+        >
+          <Link href={`/${lang}/contact-us`}>
+            <button
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+              className="btn fw-semibold shadow rounded-pill d-inline-flex align-items-center gap-2 hero-button"
               style={{
-                display: "inline-block",
-                marginLeft: isRTL ? "0" : "6px",
-                marginRight: isRTL ? "6px" : "0",
-                opacity: hover ? 1 : 0,
-                transform: hover
-                  ? "translateX(0)"
-                  : isRTL
-                  ? "translateX(8px)"
-                  : "translateX(-8px)",
-                transition: "all 0.3s ease",
+                fontSize: "clamp(16px, 2.5vw, 22px)",
+                transition: "transform 0.15s ease, padding 0.15s ease",
+                transform: hover ? "scale(1.05)" : "scale(1)",
+                padding: "clamp(0.75rem, 2.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem)",
+                cursor: "pointer",
+                backgroundColor: "#3B82F6",
                 color: "white",
-                fontWeight: "bold",
+                border: "none",
+                position: "relative",
+                overflow: "hidden",
               }}
             >
-              {isRTL ? "←" : "→"}
-            </span>
-
-            {/* Hover effect */}
-            <div
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background:
-                  "linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%)",
-                transform: hover ? "translateX(100%)" : "translateX(-100%)",
-                transition: "transform 0.6s ease",
-                borderRadius: "50px",
-              }}
-            />
-          </button>
-        </Link>
+              <span>{buttonText[lang]}</span>
+              <span
+                className="arrow"
+                style={{
+                  display: "inline-block",
+                  marginLeft: isRTL ? "0" : "8px",
+                  marginRight: isRTL ? "8px" : "0",
+                  opacity: hover ? 1 : 0.7,
+                  transform: hover
+                    ? "translateX(0)"
+                    : isRTL
+                    ? "translateX(5px)"
+                    : "translateX(-5px)",
+                  transition: "all 0.3s ease",
+                  color: "white",
+                  fontWeight: "bold",
+                }}
+              >
+                {isRTL ? "←" : "→"}
+              </span>
+            </button>
+          </Link>
+        </motion.div>
       </div>
-
-      <style jsx>{`
-        .hero-section {
-          min-height: 100vh;
-          width: 100%;
-          overflow: hidden;
-        }
-
-        .hero-video,
-        .hero-overlay {
-          top: 0 !important;
-          height: 100vh !important;
-        }
-
-        .hero-content {
-          z-index: 3;
-          max-width: 800px;
-          margin: 80px auto 0 auto;
-          padding: 0 20px;
-        }
-
-        /* Adjust for different screen sizes */
-        @media (max-width: 768px) {
-          .hero-content {
-            margin-top: 70px;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .hero-content {
-            margin-top: 65px;
-          }
-        }
-
-        /* Always show arrow on small screens / touch devices */
-        @media (max-width: 1024px) {
-          .arrow {
-            opacity: 1 !important;
-            transform: translateX(0) !important;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .hero-title {
-            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
-          }
-
-          .hero-description {
-            font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
-          }
-        }
-
-        /* Button hover effects */
-        .hero-button:hover {
-          background-color: #2563eb !important;
-          box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3) !important;
-        }
-
-        /* RTL specific adjustments */
-        [dir="rtl"] .text-center {
-          text-align: center;
-        }
-
-        /* Ensure proper spacing for RTL */
-        [dir="rtl"] .gap-2 {
-          gap: 0.5rem;
-        }
-      `}</style>
     </section>
   );
 }

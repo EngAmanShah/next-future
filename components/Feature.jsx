@@ -14,7 +14,7 @@ export default function WhyChooseUs({ lang }) {
 
   const translations = {
     en: {
-      introTitle: "About Next Future Technology",
+      introTitle: "Our Philosophy",
       introSubtitle:
         "Empowering Businesses Through Innovation, Technology, and Strategy",
       introDescription:
