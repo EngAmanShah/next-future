@@ -114,7 +114,10 @@ export default function WhyChooseUs({ lang }) {
         <div className="container mb-5">
           <div className="row justify-content-center">
             <div className="col-12 col-lg-10 text-center">
-              <h5 className="display-4 mb-3 fw-bold" style={{ color: "#379DD7", fontSize: "0.5rem !important" }}>
+              <h5
+                className="mb-3"
+                style={{ color: "#000000ff", fontSize: "2.5rem" }}
+              >
                 {t.introTitle}
               </h5>
 
@@ -183,9 +186,7 @@ export default function WhyChooseUs({ lang }) {
                       display: "inline-block",
                     }}
                   >
-                    <div style={{ color: "#379DD7" }}>
-                      {f.icon}
-                    </div>
+                    <div style={{ color: "#379DD7" }}>{f.icon}</div>
                   </div>
 
                   {/* Title */}

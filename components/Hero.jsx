@@ -64,7 +64,7 @@ export default function HeroSection({
           marginRight: isRTL ? "5%" : "auto",
         }}
       >
-        {/* Title */}
+        {/* Title as H1 */}
         <motion.h1
           className="hero-title"
           style={{
@@ -81,8 +81,8 @@ export default function HeroSection({
           {heroTitle}
         </motion.h1>
 
-        {/* Description */}
-        <motion.div
+        {/* Description as P */}
+        <motion.p
           className="hero-description"
           style={{
             color: "white",
@@ -96,7 +96,7 @@ export default function HeroSection({
           transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         >
           {heroDescription}
-        </motion.div>
+        </motion.p>
 
         {/* Button */}
         <motion.div

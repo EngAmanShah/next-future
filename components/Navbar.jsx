@@ -1050,7 +1050,7 @@ export default function Navbar({ lang }) {
         .flag-only-switcher {
           display: flex;
           align-items: center;
-          background: rgba(255, 255, 255, 0.15);
+          background: rgba(255, 255, 255, 1);
           padding: 8px;
           border-radius: 50%;
           text-decoration: none;
@@ -1062,7 +1062,7 @@ export default function Navbar({ lang }) {
         }
 
         .flag-only-switcher:hover {
-          background: rgba(255, 255, 255, 0.25);
+          background: rgba(251, 251, 251, 0.99);
           text-decoration: none;
         }
 

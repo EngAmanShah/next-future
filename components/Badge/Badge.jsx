@@ -4,71 +4,6 @@ import { motion } from "framer-motion";
 import { LucideShield, LucideCircleCheckBig } from "lucide-react";
 import { useEffect, useRef } from "react";
 
-// 🌌 Particle Canvas Component
-// function ParticleCanvas({ style }) {
-//   const canvasRef = useRef(null);
-
-//   useEffect(() => {
-//     const canvas = canvasRef.current;
-//     if (!canvas) return;
-//     const ctx = canvas.getContext("2d");
-
-//     let width = (canvas.width = canvas.offsetWidth);
-//     let height = (canvas.height = canvas.offsetHeight);
-
-//     const resize = () => {
-//       width = canvas.width = canvas.offsetWidth;
-//       height = canvas.height = canvas.offsetHeight;
-//     };
-//     window.addEventListener("resize", resize);
-
-//     const particles = Array.from({ length: 200 }, () => ({
-//       x: Math.random() * width,
-//       y: Math.random() * height,
-//       r: Math.random() * 2 + 1,
-//       vx: (Math.random() - 0.5) * 0.5,
-//       vy: (Math.random() - 0.5) * 0.5,
-//       opacity: Math.random(),
-//       fade: Math.random() * 0.02 + 0.005,
-//     }));
-
-//     function draw() {
-//       ctx.fillStyle = "#001233"; // background behind particles
-//       ctx.fillRect(0, 0, width, height);
-
-//       ctx.fillStyle = "#fff";
-//       particles.forEach((p) => {
-//         p.x += p.vx;
-//         p.y += p.vy;
-
-//         if (p.x < 0 || p.x > width) p.vx *= -1;
-//         if (p.y < 0 || p.y > height) p.vy *= -1;
-
-//         p.opacity += p.fade;
-//         if (p.opacity > 1 || p.opacity < 0) p.fade *= -1;
-
-//         ctx.beginPath();
-//         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-//         ctx.fillStyle = "#e0f7ff";
-//         ctx.fill();
-//       });
-
-//       requestAnimationFrame(draw);
-//     }
-
-//     draw();
-
-//     return () => window.removeEventListener("resize", resize);
-//   }, []);
-
-//   return (
-//     <canvas
-//       ref={canvasRef}
-//       style={{ width: "100%", height: "100%", position: "absolute", top: 0, left: 0, zIndex: 0, ...style }}
-//     />
-//   );
-// }
-
 export default function Badge({ lang = "en" }) {
   const features = {
     en: ["The latest global technology", "A team of certified engineers"],
@@ -85,7 +20,7 @@ export default function Badge({ lang = "en" }) {
     ar: "قم بتحسين عملياتك، وزيادة الكفاءة، والبقاء في المقدمة باستخدام حلول إدارة الأعمال الشاملة الخاصة بنا — مصممة خصيصًا لنجاحك."
   };
 
-  const circleColors = ["#FACC15", "#F472B6", "#38BDF8", "#34D399", "#F87171", "#A78BFA"];
+  const circleColors = ["#FACC15", "#F472B6", "#38BDF8", "#34D399", "#F87171", "#38BDF8"];
 
   return (
     <section className="hero-section col-lg-12 mx-auto position-relative" dir={lang === "ar" ? "rtl" : "ltr"}>
@@ -136,7 +71,7 @@ export default function Badge({ lang = "en" }) {
               />
             ))}
             <div className="shield-center">
-              <LucideShield size={80} color="#1E3A8A" />
+              <LucideShield size={80} color="#38BDF8" />
             </div>
           </div>
         </div>

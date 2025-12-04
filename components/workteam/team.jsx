@@ -35,7 +35,7 @@ export default function TeamSection({ lang = "en" }) {
   return (
     <section className="team-section" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="container">
-        <h2>{t.heading}</h2>
+        <h1>{t.heading}</h1>
         <p>{t.description}</p>
 
         <Swiper
