@@ -83,7 +83,7 @@ export default function Articles({ params }) {
       }}
     >
       <div className="d-flex justify-content-between align-items-start mb-5">
-        <h4>{t.articles}</h4>
+        <h2>{t.articles}</h2>
         <div
           className="primaryButton"
           style={{ borderRadius: "12px" }}
@@ -93,7 +93,7 @@ export default function Articles({ params }) {
         </div>
       </div>
       {articles.length === 0 ? (
-        <h5 className="text-center my-5">{t.noArticles}</h5>
+        <h2 className="text-center my-5">{t.noArticles}</h2>
       ) : (
         <>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xxl-4 g-4 mb-5">

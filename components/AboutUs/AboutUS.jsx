@@ -190,9 +190,9 @@ export default function AboutUs({ params }) {
         <div className={styles.heroBackground}></div>
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
-            <h1 className={styles.heroTitle}>
+            <h2 className={styles.heroTitle}>
               {t.heroTitle}
-            </h1>
+            </h2>
             <p className={styles.heroSubtitle}>
               {t.heroSubtitle}
             </p>
@@ -209,15 +209,15 @@ export default function AboutUs({ params }) {
           <div className={styles.heroVisual}>
             <div className={styles.floatingCard}>
               <div className={styles.cardIcon}></div>
-              <h4>{currentLang === "en" ? "Innovation" : "الابتكار"}</h4>
+              <h2>{currentLang === "en" ? "Innovation" : "الابتكار"}</h2>
             </div>
             <div className={styles.floatingCard}>
               <div className={styles.cardIcon}></div>
-              <h4>{currentLang === "en" ? "Strategy" : "الإستراتيجية"}</h4>
+              <h2>{currentLang === "en" ? "Strategy" : "الإستراتيجية"}</h2>
             </div>
             <div className={styles.floatingCard}>
               <div className={styles.cardIcon}></div>
-              <h4>{currentLang === "en" ? "Technology" : "التقنية"}</h4>
+              <h2>{currentLang === "en" ? "Technology" : "التقنية"}</h2>
             </div>
           </div>
         </div>
@@ -236,15 +236,15 @@ export default function AboutUs({ params }) {
               <p className={styles.storyParagraph}>{t.aboutUs}</p>
               {/* <div className={styles.statsGrid}>
                 <div className={styles.statItem}>
-                  <h3>100+</h3>
+                  <h2>100+</h2>
                   <p>{currentLang === "en" ? "Projects Completed" : "مشروع مكتمل"}</p>
                 </div>
                 <div className={styles.statItem}>
-                  <h3>5+</h3>
+                  <h2>5+</h2>
                   <p>{currentLang === "en" ? "Years Experience" : "سنوات من الخبرة"}</p>
                 </div>
                 <div className={styles.statItem}>
-                  <h3>99+</h3>
+                  <h2>99+</h2>
                   <p>{currentLang === "en" ? "Happy Clients" : "عميل سعيد"}</p>
                 </div>
               </div> */}
@@ -285,7 +285,7 @@ export default function AboutUs({ params }) {
                      value.title.includes('Mission') ? '🎯' : '🚩'}
                   </div>
                 </div>
-                <h3 className={styles.valueTitle}>{value.title}</h3>
+                <h2 className={styles.valueTitle}>{value.title}</h2>
                 <p className={styles.valueDescription}>{value.description}</p>
               </div>
             ))}
@@ -314,7 +314,7 @@ export default function AboutUs({ params }) {
                 <div className={styles.serviceIconContainer}>
                   <span className={styles.serviceIcon}>{service.icon}</span>
                 </div>
-                <h3 className={styles.serviceTitle}>{service.title[currentLang]}</h3>
+                <h2 className={styles.serviceTitle}>{service.title[currentLang]}</h2>
                 <p className={styles.serviceText}>{service.text[currentLang]}</p>
                 <button
                   className={styles.serviceButton}

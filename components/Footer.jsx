@@ -143,70 +143,70 @@ export default function Footer({ lang }) {
 
           {/* Company Links */}
           <div className="col-sm-6 col-md-3 mb-4">
-            <h4 className="mb-4" style={{ fontWeight: "600" }}>
+            <h2 className="mb-4" style={{ fontWeight: "600" }}>
               {t.companyTitle}
-            </h4>
+            </h2>
             <div className="d-flex flex-column">
-              <h6 className="mb-3">
+              <h2 className="mb-3">
                 <Link href="/" className="text-decoration-none text-black">
                   {t.links.home}
                 </Link>
-              </h6>
-              <h6 className="mb-3">
+              </h2>
+              <h2 className="mb-3">
                 <Link
                   href="/about-us"
                   className="text-decoration-none text-black"
                 >
                   {t.links.about}
                 </Link>
-              </h6>
-              <h6 className="mb-3">
+              </h2>
+              <h2 className="mb-3">
                 <Link
                   href="/contact-us"
                   className="text-decoration-none text-black"
                 >
                   {t.links.contact}
                 </Link>
-              </h6>
-              <h6>
+              </h2>
+              <h2>
                 <Link href="/blog" className="text-decoration-none text-black">
                   {t.links.blog}
                 </Link>
-              </h6>
+              </h2>
             </div>
           </div>
 
           {/* Help Links */}
           <div className="col-sm-6 col-md-3 mb-4">
-            <h4 className="mb-4" style={{ fontWeight: "600" }}>
+            <h2 className="mb-4" style={{ fontWeight: "600" }}>
               {t.helpTitle}
-            </h4>
+            </h2>
             <div className="d-flex flex-column">
-              <h6 className="mb-3">
+              <h2 className="mb-3">
                 <Link href="/faq" className="text-decoration-none text-black">
                   {t.links.faq}
                 </Link>
-              </h6>
+              </h2>
 
               {/* Phone number (clickable) */}
-              <h6 className="mb-3">
+              <h2 className="mb-3">
                 <a
                   href="tel:+966551981751"
                   className="text-decoration-none text-black"
                 >
                   0539983393
                 </a>
-              </h6>
+              </h2>
 
               {/* Email (clickable) */}
-              <h6 className="mb-3">
+              <h2 className="mb-3">
                 <a
                   href="mailto:info@nextfuturetech.net"
                   className="text-decoration-none text-black"
                 >
                   info@nextfuturetech.net
                 </a>
-              </h6>
+              </h2>
             </div>
           </div>
         </div>

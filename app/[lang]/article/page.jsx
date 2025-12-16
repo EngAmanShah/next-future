@@ -37,9 +37,9 @@ export default function ArticlePageClient({ article, lang }) {
         {/* Article Header */}
         <div className={`mb-6 sm:mb-8 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <div className="text-center mb-4 sm:mb-6">
-            <h1 className={`text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+            <h2 className={`text-2xl sm:text-3xl font-bold text-gray-900 leading-tight mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
               {article.title}
-            </h1>
+            </h2>
             
             <div className="w-16 h-1 bg-gray-300 mx-auto"></div>
           </div>

@@ -168,7 +168,7 @@ export default function AddArticle({ params }) {
         marginTop:"50px",
       }}
     >
-      <h4 className="mb-4">{ui.addArticle}</h4>
+      <h2 className="mb-4">{ui.addArticle}</h2>
 
       <div className="mb-5" style={{ maxWidth: "200px" }}>
         <label htmlFor="langSelect" className="form-label">

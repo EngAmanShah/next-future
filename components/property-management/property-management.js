@@ -362,7 +362,7 @@ export default function PropertyManagementPage({ resolvedParams }) {
             <div className={styles.badge}>
               {lang === "ar" ? "Next Future Real Estate" : "Next Future Real Estate"}
             </div>
-            <h1 className={styles.heroTitle}>{t.hero.title}</h1>
+            <h2 className={styles.heroTitle}>{t.hero.title}</h2>
             <p className={styles.heroSubtitle}>{t.hero.subtitle}</p>
 
             <div className={styles.heroStats}>
@@ -483,7 +483,7 @@ export default function PropertyManagementPage({ resolvedParams }) {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={styles.featureIcon}>{feature.icon}</div>
-              <h3 className={styles.featureTitle}>{feature.title}</h3>
+              <h2 className={styles.featureTitle}>{feature.title}</h2>
               <p className={styles.featureDescription}>{feature.description}</p>
               <div className={styles.featureHover}></div>
             </div>
@@ -511,7 +511,7 @@ export default function PropertyManagementPage({ resolvedParams }) {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={styles.benefitIcon}>{benefit.icon}</div>
-              <h3 className={styles.benefitTitle}>{benefit.title}</h3>
+              <h2 className={styles.benefitTitle}>{benefit.title}</h2>
               <p className={styles.benefitDescription}>{benefit.description}</p>
             </div>
           ))}
@@ -538,7 +538,7 @@ export default function PropertyManagementPage({ resolvedParams }) {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={styles.audienceIcon}>{audience.icon}</div>
-              <h3 className={styles.audienceTitle}>{audience.title}</h3>
+              <h2 className={styles.audienceTitle}>{audience.title}</h2>
               <p className={styles.audienceDescription}>
                 {audience.description}
               </p>

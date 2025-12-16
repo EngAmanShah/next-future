@@ -159,7 +159,7 @@ export default function ContactsPage({ params }) {
         border: "1px solid rgba(227, 227, 227, 1)",
       }}
     >
-      <h4 className="mb-5">{t.title}</h4>
+      <h2 className="mb-5">{t.title}</h2>
       {contacts.length > 0 ? (
         <>
           <form
@@ -205,36 +205,36 @@ export default function ContactsPage({ params }) {
                     className="text-secondary cursor-pointer"
                     onClick={() => handleSort("name")}
                   >
-                    <h6>
+                    <h2>
                       {t.table.name} {getSortIcon("name")}
-                    </h6>
+                    </h2>
                   </th>
                   <th
                     className="text-secondary cursor-pointer"
                     onClick={() => handleSort("email")}
                   >
-                    <h6>
+                    <h2>
                       {t.table.email} {getSortIcon("email")}
-                    </h6>
+                    </h2>
                   </th>
                   <th
                     className="text-secondary cursor-pointer"
                     onClick={() => handleSort("message")}
                   >
-                    <h6>
+                    <h2>
                       {t.table.message} {getSortIcon("message")}
-                    </h6>
+                    </h2>
                   </th>
                   <th
                     className="text-secondary cursor-pointer"
                     onClick={() => handleSort("timestamp")}
                   >
-                    <h6>
+                    <h2>
                       {t.table.timestamp} {getSortIcon("timestamp")}
-                    </h6>
+                    </h2>
                   </th>
                   <th className="text-secondary">
-                    <h6>{t.table.action}</h6>
+                    <h2>{t.table.action}</h2>
                   </th>
                 </tr>
               </thead>
@@ -243,7 +243,7 @@ export default function ContactsPage({ params }) {
                   <tr key={index}>
                     <td>
                       <div className="d-flex align-items-center">
-                        <h6>{message.name}</h6>
+                        <h2>{message.name}</h2>
                       </div>
                     </td>
                     <td>{message.email}</td>
@@ -290,7 +290,7 @@ export default function ContactsPage({ params }) {
           )}
         </>
       ) : (
-        <h6 className="text-center my-5">{t.noMessages}</h6>
+        <h2 className="text-center my-5">{t.noMessages}</h2>
       )}
     </div>
   );

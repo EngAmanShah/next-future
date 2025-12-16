@@ -113,7 +113,7 @@ export default async function ProductsPage({ params }) {
             width: "100%",
           }}
         >
-          <h1
+          <h2
             style={{
               fontSize: "3rem",
               fontWeight: "700",
@@ -122,7 +122,7 @@ export default async function ProductsPage({ params }) {
             }}
           >
             {title}
-          </h1>
+          </h2>
           <p
             style={{
               fontSize: "1.25rem",

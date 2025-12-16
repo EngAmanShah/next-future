@@ -99,7 +99,7 @@ export default function AddAdmin({ params }) {
         border: "1px solid rgba(227, 227, 227, 1)",
       }}
     >
-      <h4 className="mb-5">{t.title}</h4>
+      <h2 className="mb-5">{t.title}</h2>
       <form onSubmit={handleAddAdmin} className="w-md-75">
         <div className="mb-4">
           <label htmlFor="adminName" className="form-label">

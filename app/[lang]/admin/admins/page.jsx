@@ -91,7 +91,7 @@ export default function AdminsPage({ params }) {
       }}
     >
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h4>{t.title}</h4>
+        <h2>{t.title}</h2>
         <div
           className="primaryButton"
           style={{ borderRadius: "12px", cursor: "pointer" }}
@@ -160,7 +160,7 @@ export default function AdminsPage({ params }) {
           </table>
         </div>
       ) : (
-        <h5 className="text-center my-5">{t.noAdmins}</h5>
+        <h2 className="text-center my-5">{t.noAdmins}</h2>
       )}
     </div>
   );

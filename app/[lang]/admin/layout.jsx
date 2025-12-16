@@ -155,9 +155,9 @@ export default function AdminAccount({ params, children }) {
                   href={`/${lang}/admin/products`}
                 >
                   <LocalMallOutlinedIcon />
-                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                     {t.products}
-                  </h5>
+                  </h2>
                 </Link>
               </div>
               <div data-bs-dismiss="offcanvas" data-bs-target="#offcanvasMenu">
@@ -170,9 +170,9 @@ export default function AdminAccount({ params, children }) {
                   href={`/${lang}/admin/categories`}
                 >
                   <CategoryOutlinedIcon />
-                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                     {t.categories}
-                  </h5>
+                  </h2>
                 </Link>
               </div>
               <div data-bs-dismiss="offcanvas" data-bs-target="#offcanvasMenu">
@@ -185,9 +185,9 @@ export default function AdminAccount({ params, children }) {
                   href={`/${lang}/admin/articles`}
                 >
                   <ArticleOutlinedIcon />
-                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                     {t.articles}
-                  </h5>
+                  </h2>
                 </Link>
               </div>
               <div
@@ -204,9 +204,9 @@ export default function AdminAccount({ params, children }) {
                   href={`/${lang}/admin/contacts`}
                 >
                   <ContactsOutlinedIcon />
-                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                     {t.contacts}
-                  </h5>
+                  </h2>
                   {unreadMessages.length > 0 && (
                     <div
                       className="badge rounded-pill bg-danger"
@@ -227,9 +227,9 @@ export default function AdminAccount({ params, children }) {
                   href={`/${lang}/admin/admins`}
                 >
                   <SupervisorAccountIcon />
-                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                     {t.admins}
-                  </h5>
+                  </h2>
                 </Link>
               </div>
               <div
@@ -237,13 +237,13 @@ export default function AdminAccount({ params, children }) {
                 onClick={toggleSettingDropdown}
               >
                 <SettingsOutlinedIcon />
-                <h5
+                <h2
                   className={`m-0 ${lang === "en" ? "ms-3" : "me-3"} ${
                     lang === "en" ? "me-5" : "ms-5"
                   }`}
                 >
                   {t.settings}
-                </h5>
+                </h2>
                 {showSettingDropdown === false ? (
                   <ArrowDropDownSharpIcon />
                 ) : (
@@ -317,9 +317,9 @@ export default function AdminAccount({ params, children }) {
                 data-bs-target="#offcanvasMenu"
               >
                 <LogoutOutlinedIcon />
-                <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                   {t.signOut}
-                </h5>
+                </h2>
               </div>
             </div>
           </div>

@@ -35,7 +35,7 @@ export default function TeamSection({ lang = "en" }) {
   return (
     <section className="team-section" dir={lang === "ar" ? "rtl" : "ltr"}>
       <div className="container">
-        <h1>{t.heading}</h1>
+        <h2>{t.heading}</h2>
         <p>{t.description}</p>
 
         <Swiper
@@ -61,7 +61,7 @@ export default function TeamSection({ lang = "en" }) {
                 <div className="image-wrapper">
                   <img src={member.image} alt={member.name[lang]} />
                 </div>
-                <h3>{member.name[lang]}</h3>
+                <h2>{member.name[lang]}</h2>
                 <p>{member.position[lang]}</p>
               </div>
             </SwiperSlide>

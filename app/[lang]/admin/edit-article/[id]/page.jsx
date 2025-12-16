@@ -191,7 +191,7 @@ export default function EditArticle({ params }) {
         border: "1px solid rgba(227, 227, 227, 1)",
       }}
     >
-      <h4 className="mb-4">{ui.editArticle}</h4>
+      <h2 className="mb-4">{ui.editArticle}</h2>
 
       <div className="mb-5" style={{ maxWidth: "200px" }}>
         <label htmlFor="langSelect" className="form-label">

@@ -72,7 +72,7 @@ export default function BlogClient({ articles, lang }) {
     <div className={styles.blogContainer}>
       <div className="container ">
         <div className="d-flex flex-column align-items-center text-center mb-5">
-          <h1 className="fs-1 fw-bold mb-3">{t.heading}</h1>
+          <h2 className="fs-1 fw-bold mb-3">{t.heading}</h2>
           <div className="w-md-75 text-white">{t.intro}</div>
         </div>
 
@@ -103,7 +103,7 @@ export default function BlogClient({ articles, lang }) {
                 style={{ backgroundImage: `url(${article.image})` }}
               >
                 <div className={styles.articleOverlay}>
-                  <h3 className={styles.articleTitle}>{article.title}</h3>
+                  <h2 className={styles.articleTitle}>{article.title}</h2>
                   <p className={styles.articleExcerpt}>
                     {article.excerpt || article.title.slice(0, 100) + "..."}
                   </p>
@@ -118,7 +118,7 @@ export default function BlogClient({ articles, lang }) {
             ))}
           </div>
         ) : (
-          <h5 className="text-center my-5">{t.noArticles}</h5>
+          <h2 className="text-center my-5">{t.noArticles}</h2>
         )}
 
         {/* 📑 Pagination */}

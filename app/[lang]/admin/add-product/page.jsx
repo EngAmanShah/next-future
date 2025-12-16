@@ -161,7 +161,7 @@ export default function AddProduct({ params }) {
         border: "1px solid rgba(227, 227, 227, 1)",
       }}
     >
-      <h4 className="mb-4">{ui.addProduct}</h4>
+      <h2 className="mb-4">{ui.addProduct}</h2>
 
       <div className="mb-5" style={{ maxWidth: "200px" }}>
         <label htmlFor="langSelect" className="form-label">

@@ -119,7 +119,7 @@ export default async function ProductDetailsPage({ params }) {
         </div>
 
         <div className="col-lg-8">
-          <h1 className="fs-1 fw-bold mb-3">{product.title[lang]}</h1>
+          <h2 className="fs-1 fw-bold mb-3">{product.title[lang]}</h2>
           <p className="text-muted fs-5 mb-3">{product.shortDesc[lang]}</p>
           <p className="text-secondary fs-4 mb-4" style={{ fontWeight: "600" }}>
             {product.category[lang]}

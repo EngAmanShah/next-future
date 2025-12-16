@@ -37,7 +37,7 @@ export default function AdminProfile({ params }) {
       }}
     >
       <div className="d-flex justify-content-between mb-5">
-        <h4>{t.profile}</h4>
+        <h2>{t.profile}</h2>
         <div
           className="primaryButton"
           style={{ borderRadius: "12px" }}

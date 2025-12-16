@@ -82,7 +82,7 @@ export default function Products({ params }) {
       }}
     >
       <div className="d-flex justify-content-between align-items-start mb-5">
-        <h4>{t.products}</h4>
+        <h2>{t.products}</h2>
         <div
           className="primaryButton"
           style={{ borderRadius: "12px" }}
@@ -92,7 +92,7 @@ export default function Products({ params }) {
         </div>
       </div>
       {products.length === 0 ? (
-        <h5 className="text-center my-5">{t.noProducts}</h5>
+        <h2 className="text-center my-5">{t.noProducts}</h2>
       ) : (
         <>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xxl-4 g-4 mb-5">
