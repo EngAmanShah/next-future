@@ -150,21 +150,6 @@ export default function AdminAccount({ params, children }) {
               <div data-bs-dismiss="offcanvas" data-bs-target="#offcanvasMenu">
                 <Link
                   className={`${styles["account-nav-item"]} mb-1 mb-xl-2 ${
-                    pathName === `/${lang}/admin/products`
-                      ? styles["active-route"]
-                      : ""
-                  }`}
-                  href={`/${lang}/admin/products`}
-                >
-                  <LocalMallOutlinedIcon />
-                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
-                    {t.products}
-                  </h2>
-                </Link>
-              </div>
-              <div data-bs-dismiss="offcanvas" data-bs-target="#offcanvasMenu">
-                <Link
-                  className={`${styles["account-nav-item"]} mb-1 mb-xl-2 ${
                     pathName === `/${lang}/admin/categories`
                       ? styles["active-route"]
                       : ""
