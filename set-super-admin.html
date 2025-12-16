@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Super Admin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #379DD7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #2a8bc4;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .message {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Set Super Admin Claims</h1>
+        
+        <div class="info">
+            <strong>Instructions:</strong><br>
+            1. Go to Firebase Console → Authentication<br>
+            2. Find your admin user and copy the UID<br>
+            3. Paste the UID below and click "Set Super Admin"<br>
+            4. After success, close this page and reload your admin dashboard
+        </div>
+
+        <form id="adminForm">
+            <div class="form-group">
+                <label for="uid">User UID (Required):</label>
+                <input type="text" id="uid" placeholder="ev1kYZvZq2RQ9AguTpFTsGhSGaD3" value="ev1kYZvZq2RQ9AguTpFTsGhSGaD3" required>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name (Optional):</label>
+                <input type="text" id="name" placeholder="Aman Shah">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email (Optional):</label>
+                <input type="email" id="email" placeholder="admin@nextfuturetech.net">
+            </div>
+
+            <button type="submit" id="submitBtn">Set Super Admin Claims</button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+
+    <script>
+        document.getElementById('adminForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const messageDiv = document.getElementById('message');
+            
+            const uid = document.getElementById('uid').value.trim();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (!uid) {
+                messageDiv.innerHTML = '<div class="message error">UID is required</div>';
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Setting Super Admin...';
+            messageDiv.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/set-super-admin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ uid, name, email }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    messageDiv.innerHTML = `
+                        <div class="message success">
+                            <strong>✓ Success!</strong><br>
+                            ${data.message}<br>
+                            UID: <code>${data.uid}</code><br><br>
+                            <strong style="color: red;">IMPORTANT - Must do these steps:</strong><br>
+                            1. <strong>Sign OUT completely</strong> from your account<br>
+                            2. <strong>Close your browser</strong> (not just the tab)<br>
+                            3. <strong>Wait 10 seconds</strong><br>
+                            4. <strong>Open browser again</strong> and go to login page<br>
+                            5. <strong>Sign in again</strong> with: <code>${email || 'your email'}</code><br>
+                            6. Firebase will refresh your authentication token with new admin claims<br><br>
+                            <strong>Why?</strong> Custom claims are only loaded when you sign in, not while already logged in.
+                        </div>
+                    `;
+                } else {
+                    messageDiv.innerHTML = `
+                        <div class="message error">
+                            <strong>Error:</strong> ${data.error}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                messageDiv.innerHTML = `
+                    <div class="message error">
+                        <strong>Error:</strong> ${error.message}
+                    </div>
+                `;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Set Super Admin Claims';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -31,7 +31,7 @@ export default function WhyChooseUs({ lang }) {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-lg-10 text-center">
-            <h2 className="mb-3" style={{ color: "#2fa4e8ff", fontSize: "2.5rem" }}>
+            <h2 className="mb-3" style={{ color: "#2fa4e8ff" }}>
               {t.introTitle}
             </h2>
 

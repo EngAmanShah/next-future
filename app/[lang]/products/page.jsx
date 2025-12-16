@@ -115,7 +115,6 @@ export default async function ProductsPage({ params }) {
         >
           <h2
             style={{
-              fontSize: "3rem",
               fontWeight: "700",
               marginBottom: "1rem",
               lineHeight: 1.2,

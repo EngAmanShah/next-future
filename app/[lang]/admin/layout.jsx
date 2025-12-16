@@ -96,6 +96,7 @@ export default function AdminAccount({ params, children }) {
           zIndex: 1000,
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
           backgroundColor: "#fff",
+          height: "70px",
         }}
       >
         <Link href={`/${lang}`} className="d-none d-lg-flex">
@@ -140,9 +141,10 @@ export default function AdminAccount({ params, children }) {
               className="navigation bg-white p-3"
               style={{
                 position: "fixed",
-                top: "88px",
+                top: "70px",
                 bottom: 0,
                 overflowY: "auto",
+                width: "270px",
               }}
             >
               <div data-bs-dismiss="offcanvas" data-bs-target="#offcanvasMenu">

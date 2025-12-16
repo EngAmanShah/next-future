@@ -197,23 +197,23 @@ export default function Page({ params }) {
       {/* Clean White Background Section */}
       <div className="position-relative py-5 bg-white min-vh-100">
         <div className="container py-5" style={{ paddingTop: "6rem" }}>
-          <h5
+          <h2
             className="mb-3 text-center"
-            style={{ color: "#0d1f4c", fontSize: "2.5rem" }}
+            style={{ color: "#0d1f4c" }}
           >
             {t.introTitle}
-          </h5>
+          </h2>
 
-          <motion.h5
+          <motion.h2
             className="text-center mb-3"
-            style={{ color: "#0d1f4c", fontSize: "2.5rem" }}
+            style={{ color: "#0d1f4c" }}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             {t.heroTitle}
-          </motion.h5>
+          </motion.h2>
 
           <div className="row g-4">
             {t.services.map((service, index) => (

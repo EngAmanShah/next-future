@@ -75,7 +75,7 @@ Our team is dedicated to supporting you every step of the way.`,
           padding: "6rem 1.5rem",
         }}
       >
-        <h2 style={{ fontSize: "3rem", marginBottom: "1rem" }}>{heroTitle}</h2>
+        <h2>{heroTitle}</h2>
         <p
           style={{
             fontSize: "1.25rem",

@@ -73,7 +73,6 @@ export default function TargetMarkets({ lang = "en" }) {
         <h2
           style={{
             textAlign: "center",
-            fontSize: "2.2rem",
             fontWeight: 700,
             marginBottom: "3rem",
           }}

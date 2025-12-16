@@ -10,7 +10,11 @@ export default function AdminsPage({ params }) {
   const { user } = useAuth();
   const router = useRouter();
   const { admins } = useContext(Context);
-  const PRIMARY_ADMIN_UID = "pZPjz7ZmQNeWGmTYpY1YqnZRVTF3";
+  const PRIMARY_ADMIN_UID = "ev1kYZvZq2RQ9AguTpFTsGhSGaD3";
+
+  console.log("Admins in page:", admins);
+  console.log("Primary Admin UID:", PRIMARY_ADMIN_UID);
+  console.log("Current user UID:", user?.uid);
 
   const primaryAdmin = admins.find((admin) => admin.id === PRIMARY_ADMIN_UID);
 
@@ -29,8 +33,8 @@ export default function AdminsPage({ params }) {
 
   const content = {
     en: {
-      title: "Admins",
-      add: "Add",
+      title: "Admins Management",
+      add: "Add Sub-Admin",
       removeConfirm: (name) =>
         `Are you sure you want to remove admin "${name}"?`,
       remove: "Remove",
@@ -38,20 +42,28 @@ export default function AdminsPage({ params }) {
       createdAt: "Created At",
       name: "Name",
       email: "Email",
+      role: "Role",
+      superAdmin: "Super Admin",
+      subAdmin: "Sub Admin",
       removedSuccess: "Admin removed successfully",
       removedError: "Failed to remove admin",
+      onlySuperCanRemove: "Only Super Admin can remove sub-admins",
     },
     ar: {
-      title: "المسؤولون",
-      add: "إضافة",
+      title: "إدارة المسؤولين",
+      add: "إضافة مسؤول فرعي",
       removeConfirm: (name) => `هل أنت متأكد أنك تريد إزالة المسؤول "${name}"؟`,
       remove: "إزالة",
       noAdmins: "لا يوجد مسؤولون",
       createdAt: "تاريخ الإنشاء",
       name: "الاسم",
       email: "البريد الإلكتروني",
+      role: "الدور",
+      superAdmin: "مسؤول رئيسي",
+      subAdmin: "مسؤول فرعي",
       removedSuccess: "تمت إزالة المسؤول بنجاح",
       removedError: "فشل في إزالة المسؤول",
+      onlySuperCanRemove: "فقط المسؤول الرئيسي يمكنه إزالة المسؤولين الفرعيين",
     },
   };
 
@@ -92,13 +104,6 @@ export default function AdminsPage({ params }) {
     >
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h2>{t.title}</h2>
-        <div
-          className="primaryButton"
-          style={{ borderRadius: "12px", cursor: "pointer" }}
-          onClick={() => router.push(`/${lang}/admin/add-admin`)}
-        >
-          {t.add}
-        </div>
       </div>
 
       {admins.length > 0 && primaryAdmin ? (
@@ -117,20 +122,8 @@ export default function AdminsPage({ params }) {
               </tr>
             </thead>
             <tbody>
-              {primaryAdmin && (
-                <tr>
-                  <td>*</td>
-                  <td>{primaryAdmin.name}</td>
-                  <td>{primaryAdmin.email}</td>
-                  <td>
-                    {primaryAdmin.createdAt
-                      ? primaryAdmin.createdAt.toDate().toLocaleString()
-                      : "—"}
-                  </td>
-                </tr>
-              )}
+              {/* Don't show super admin to anyone - hide from company */}
               {sortedAdmins.map((admin, index) => {
-                const isPrimary = admin.id === PRIMARY_ADMIN_UID;
                 return (
                   <tr key={admin.id}>
                     <td>{index + 1}</td>
@@ -142,16 +135,14 @@ export default function AdminsPage({ params }) {
                         : "—"}
                     </td>
                     <td>
-                      {user?.uid === PRIMARY_ADMIN_UID && (
-                        <button
-                          className="btn btn-danger btn-sm"
-                          onClick={() =>
-                            handleRemoveAdmin(admin.id, admin.name)
-                          }
-                        >
-                          {t.remove}
-                        </button>
-                      )}
+                      <button
+                        className="btn btn-danger btn-sm"
+                        onClick={() =>
+                          handleRemoveAdmin(admin.id, admin.name)
+                        }
+                      >
+                        {t.remove}
+                      </button>
                     </td>
                   </tr>
                 );
