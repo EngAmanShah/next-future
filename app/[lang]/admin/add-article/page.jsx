@@ -130,8 +130,10 @@ export default function AddArticle({ params }) {
       console.log("Image uploaded successfully:", imageURL);
 
       const articlesRef = collection(db, "articles");
+      const slug = article.title.en.toLowerCase().replace(/\s+/g, "-");
       await addDoc(articlesRef, {
         ...article,
+        slug,
         storageId,
         image: imageURL,
         timestamp: serverTimestamp(),

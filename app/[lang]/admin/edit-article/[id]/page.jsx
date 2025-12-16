@@ -145,8 +145,10 @@ export default function EditArticle({ params }) {
       }
 
       const articleRef = doc(db, "articles", id);
+      const slug = article.title.en.toLowerCase().replace(/\s+/g, "-");
       await updateDoc(articleRef, {
         ...article,
+        slug,
         image: imageUrl,
         timestamp: serverTimestamp(),
         storageId,

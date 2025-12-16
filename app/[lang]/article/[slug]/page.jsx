@@ -7,8 +7,7 @@ export default async function ArticlePage({ params }) {
   const { lang, slug } = params;
 
   const articlesRef = collection(db, "articles");
-  const formattedSlug = decodeURIComponent(slug).replace(/_/g, " ");
-  const q = query(articlesRef, where("title.en", "==", formattedSlug));
+  const q = query(articlesRef, where("slug", "==", slug));
   const snapshot = await getDocs(q);
 
   if (snapshot.empty) {

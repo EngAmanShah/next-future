@@ -108,7 +108,7 @@ export default function BlogClient({ articles, lang }) {
                     {article.excerpt || article.title.slice(0, 100) + "..."}
                   </p>
                   <Link
-                    href={`/${lang}/article/${article.slug.replace(/\s+/g, "_")}`}
+                    href={`/${lang}/article/${article.slug}`}
                     className={styles.readMore}
                   >
                     {t.readMore}
