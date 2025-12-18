@@ -25,8 +25,7 @@
 
 .account-child-container {
     flex-grow: 1;
-    min-height: calc(100vh - 70px);
-    margin-top: 70px;
+    min-height: calc(100vh - 88px);
     overflow-y: auto;
 }
 

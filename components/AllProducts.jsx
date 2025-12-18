@@ -291,7 +291,7 @@ export default function AllProducts({ lang, products }) {
           </div>
         </>
       ) : (
-        <h2 className="text-center my-5">{noProducts}</h2>
+        <h4 className="text-center my-5">{noProducts}</h4>
       )}
     </div>
   );

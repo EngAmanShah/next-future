@@ -7,29 +7,9 @@
   --secondary-color: #2a6675ff;
   --secondary-hover-color: rgb(26, 66, 77);
 }
-/* Add this instead */
-.my-hero-section {
-  position: relative;
-  z-index: 1;
-}
-
-/* Ensure hero section text styles */
-.hero-section h1,
-.hero-section .hero-title,
-.hero-main-title {
-  font-size: clamp(1.3rem, 2.5vw, 1.5rem) !important;
-  font-weight: 600 !important;
-  color: white !important;
-  font-family: 'Somar', sans-serif !important;
-}
-
-.hero-section p,
-.hero-section .hero-description,
-.hero-main-description {
-  font-size: clamp(0.85rem, 1.2vw, 0.95rem) !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-family: 'Somar', sans-serif !important;
-  font-weight: 400 !important;
+.hero-section .hero-overlay-custom {
+  background-color: rgba(0, 0, 0, 0.306) !important;
+  opacity: 1 !important;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -58,36 +38,36 @@ body {
   background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  line-height: 1.6;
 }
-
-/* Only Two Typography Sizes - h2 and p */
-h2, .h2, h1, h3, h4, h5, h6 {
-  font-family: 'Somar', sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 0.75rem;
+.my-hero-section{
+  font-size: 10px !important;
+  color: red !important;
 }
-
-p, .p, span, li, a {
-  font-family: 'Somar', sans-serif;
-  font-size: clamp(0.85rem, 1.2vw, 0.95rem);
-  font-weight: 400;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
-}
-
-.my-hero-section {
-  position: relative !important;
-  z-index: 1;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+/* Admin Dashboard Enhancements */
+.hover-shadow {
+  transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 a {
@@ -108,21 +88,11 @@ a {
 }
 
 .primary-bg {
-  background: #000000;
-  transition: all 0.3s ease;
+  background-color: var(--primary-color);
 }
 
 .primary-bg:hover {
-  background: linear-gradient(to right, #000000, #404040);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.primary-bg:active,
-.primary-bg:focus {
-  background: #00bfff;
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 191, 255, 0.4);
+  background-color: var(--primary-hover-color);
 }
 
 /* Utils */
@@ -218,7 +188,23 @@ input[type="search"]::-webkit-search-cancel-button {
 /* Buttons */
 
 .primaryButton {
-  background: #000000;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.primaryButton:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.primaryButton {
+  background-color: var(--primary-color);
   color: white;
   padding: 10px 20px;
   border-radius: 100px;
@@ -229,25 +215,11 @@ input[type="search"]::-webkit-search-cancel-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.primaryButton:hover {
-  background: linear-gradient(to right, #000000, #404040);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.primaryButton:active,
-.primaryButton:focus {
-  background: #00bfff;
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 191, 255, 0.4);
+  transition: background-color 0.3s ease;
 }
 
 .secondaryButton {
-  background: #000000;
+  background-color: var(--secondary-color);
   color: white;
   padding: 10px 20px;
   border-radius: 100px;
@@ -255,57 +227,9 @@ input[type="search"]::-webkit-search-cancel-button {
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  transition: background-color 0.3s ease;
 }
 
 .secondaryButton:hover {
-  background: linear-gradient(to right, #000000, #404040);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.secondaryButton:active,
-.secondaryButton:focus {
-  background: #00bfff;
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 191, 255, 0.4);
-}
-
-/* Apply button styles to all buttons globally */
-button:not(.navbar-toggler):not(.close-btn):not(.slick-arrow),
-.btn:not(.btn-link):not(.navbar-toggler),
-a.btn:not(.btn-link),
-input[type="submit"],
-input[type="button"] {
-  background: #000000 !important;
-  color: white !important;
-  border: 2px solid transparent !important;
-  transition: all 0.3s ease !important;
-  font-weight: bold;
-}
-
-button:not(.navbar-toggler):not(.close-btn):not(.slick-arrow):hover,
-.btn:not(.btn-link):not(.navbar-toggler):hover,
-a.btn:not(.btn-link):hover,
-input[type="submit"]:hover,
-input[type="button"]:hover {
-  background: linear-gradient(to right, #000000, #404040) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-}
-
-button:not(.navbar-toggler):not(.close-btn):not(.slick-arrow):active,
-button:not(.navbar-toggler):not(.close-btn):not(.slick-arrow):focus,
-.btn:not(.btn-link):not(.navbar-toggler):active,
-.btn:not(.btn-link):not(.navbar-toggler):focus,
-a.btn:not(.btn-link):active,
-a.btn:not(.btn-link):focus,
-input[type="submit"]:active,
-input[type="submit"]:focus,
-input[type="button"]:active,
-input[type="button"]:focus {
-  background: #00bfff !important;
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(0, 191, 255, 0.4) !important;
+  background-color: var(--secondary-hover-color);
 }

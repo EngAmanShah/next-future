@@ -132,7 +132,7 @@ export default function Market({ lang }) {
                     >
                       <div className="d-flex align-items-center mb-3 flex-wrap">
                         <div className="me-3 fs-2 text-primary">{tab.icon}</div>
-                        <h2 className="mb-0">{tab.title}</h2>
+                        <h4 className="mb-0">{tab.title}</h4>
                       </div>
                       <p className="mb-0">{tab.description}</p>
                     </motion.div>

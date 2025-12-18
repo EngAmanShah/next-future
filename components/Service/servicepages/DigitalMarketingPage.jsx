@@ -136,7 +136,7 @@ export default function DigitalMarketingPage({ params }) {
                 <div className="service-card p-4 rounded text-center flex-fill d-flex flex-column justify-content-between">
                   <div>
                     <div className="icon mb-3">{servicesWithIcons[idx]}</div>
-                    <h2 className="mb-3">{service.title}</h2>
+                    <h4 className="mb-3">{service.title}</h4>
                     <p>{service.description}</p>
                   </div>
                   <Link href="/contact-us" className="btn btn-light mt-3">{t.getStarted}</Link>
@@ -155,7 +155,7 @@ export default function DigitalMarketingPage({ params }) {
             {t.process.map((step, idx) => (
               <div key={idx} className="col-md-3 col-sm-6 d-flex">
                 <div className="process-card p-4 rounded text-center flex-fill">
-                  <h2>{step}</h2>
+                  <h5>{step}</h5>
                 </div>
               </div>
             ))}

@@ -171,7 +171,7 @@ export default function TechMarquee({ lang = "en" }) {
     >
       <div className="tech-marquee">
         <div className="container text-center py-4 px-3">
-          <h2 className="fw-bold text-white">{t.heading}</h2>
+          <h1 className="fw-bold text-white">{t.heading}</h1>
           <p className="text-white text-wrap">{t.description}</p>
         </div>
 

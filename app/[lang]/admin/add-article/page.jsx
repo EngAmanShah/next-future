@@ -130,10 +130,8 @@ export default function AddArticle({ params }) {
       console.log("Image uploaded successfully:", imageURL);
 
       const articlesRef = collection(db, "articles");
-      const slug = article.title.en.toLowerCase().replace(/\s+/g, "-");
       await addDoc(articlesRef, {
         ...article,
-        slug,
         storageId,
         image: imageURL,
         timestamp: serverTimestamp(),
@@ -170,7 +168,7 @@ export default function AddArticle({ params }) {
         marginTop:"50px",
       }}
     >
-      <h2 className="mb-4">{ui.addArticle}</h2>
+      <h4 className="mb-4">{ui.addArticle}</h4>
 
       <div className="mb-5" style={{ maxWidth: "200px" }}>
         <label htmlFor="langSelect" className="form-label">

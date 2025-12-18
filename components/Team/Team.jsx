@@ -174,7 +174,7 @@ export default function Team({ lang }) {
                 >
                   {stat.icon}
                 </div>
-                <h2 className="fw-bold text-black">{stat.value}</h2>
+                <h3 className="fw-bold text-black">{stat.value}</h3>
                 <p className="mb-0">{stat.label}</p>
                 <p className="mb-0">{stat.text}</p>
               </motion.div>

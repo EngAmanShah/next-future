@@ -4,17 +4,14 @@ import { Context } from "@/providers/ContextProvider";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import useAuth from "@/hooks/UseAuth";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 
 export default function AdminsPage({ params }) {
   const { lang } = use(params);
   const { user } = useAuth();
   const router = useRouter();
   const { admins } = useContext(Context);
-  const PRIMARY_ADMIN_UID = "ev1kYZvZq2RQ9AguTpFTsGhSGaD3";
-
-  console.log("Admins in page:", admins);
-  console.log("Primary Admin UID:", PRIMARY_ADMIN_UID);
-  console.log("Current user UID:", user?.uid);
+  const PRIMARY_ADMIN_UID = "pZPjz7ZmQNeWGmTYpY1YqnZRVTF3";
 
   const primaryAdmin = admins.find((admin) => admin.id === PRIMARY_ADMIN_UID);
 
@@ -33,8 +30,8 @@ export default function AdminsPage({ params }) {
 
   const content = {
     en: {
-      title: "Admins Management",
-      add: "Add Sub-Admin",
+      title: "Administrator Management",
+      subtitle: "Manage administrator accounts and permissions",
       removeConfirm: (name) =>
         `Are you sure you want to remove admin "${name}"?`,
       remove: "Remove",
@@ -42,28 +39,26 @@ export default function AdminsPage({ params }) {
       createdAt: "Created At",
       name: "Name",
       email: "Email",
-      role: "Role",
-      superAdmin: "Super Admin",
-      subAdmin: "Sub Admin",
       removedSuccess: "Admin removed successfully",
       removedError: "Failed to remove admin",
-      onlySuperCanRemove: "Only Super Admin can remove sub-admins",
+      actions: "Actions",
+      primaryAdmin: "Primary Admin",
+      totalAdmins: "Total Administrators",
     },
     ar: {
-      title: "إدارة المسؤولين",
-      add: "إضافة مسؤول فرعي",
+      title: "إدارة المشرفين",
+      subtitle: "إدارة حسابات المشرفين والصلاحيات",
       removeConfirm: (name) => `هل أنت متأكد أنك تريد إزالة المسؤول "${name}"؟`,
       remove: "إزالة",
       noAdmins: "لا يوجد مسؤولون",
       createdAt: "تاريخ الإنشاء",
       name: "الاسم",
       email: "البريد الإلكتروني",
-      role: "الدور",
-      superAdmin: "مسؤول رئيسي",
-      subAdmin: "مسؤول فرعي",
       removedSuccess: "تمت إزالة المسؤول بنجاح",
       removedError: "فشل في إزالة المسؤول",
-      onlySuperCanRemove: "فقط المسؤول الرئيسي يمكنه إزالة المسؤولين الفرعيين",
+      actions: "الإجراءات",
+      primaryAdmin: "المشرف الرئيسي",
+      totalAdmins: "إجمالي المشرفين",
     },
   };
 
@@ -94,19 +89,35 @@ export default function AdminsPage({ params }) {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        padding: "16px",
-        borderRadius: "18px",
-        border: "1px solid rgba(227, 227, 227, 1)",
-      }}
-    >
-      <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2>{t.title}</h2>
+    <div className="container-fluid">
+      <div className="mb-4">
+        <h2 className="fw-bold mb-2">{t.title}</h2>
+        <p className="text-muted">{t.subtitle}</p>
       </div>
 
-      {admins.length > 0 && primaryAdmin ? (
+      <div className="row mb-4">
+        <div className="col-md-4">
+          <div className="card border-0 shadow-sm">
+            <div className="card-body">
+              <div className="d-flex justify-content-between align-items-center">
+                <div>
+                  <p className="text-muted mb-1">{t.totalAdmins}</p>
+                  <h3 className="fw-bold mb-0">{admins.length}</h3>
+                </div>
+                <div
+                  className="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center"
+                  style={{ width: "50px", height: "50px" }}
+                >
+                  <SupervisorAccountIcon className="text-primary" style={{ fontSize: 28 }} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="card border-0 shadow-sm">
+        <div className="card-body p-4">{admins.length > 0 && primaryAdmin ? (
         <div className="table-responsive">
           <table
             className="table table-striped table-bordered"
@@ -122,8 +133,20 @@ export default function AdminsPage({ params }) {
               </tr>
             </thead>
             <tbody>
-              {/* Don't show super admin to anyone - hide from company */}
+              {primaryAdmin && (
+                <tr>
+                  <td>*</td>
+                  <td>{primaryAdmin.name}</td>
+                  <td>{primaryAdmin.email}</td>
+                  <td>
+                    {primaryAdmin.createdAt
+                      ? primaryAdmin.createdAt.toDate().toLocaleString()
+                      : "—"}
+                  </td>
+                </tr>
+              )}
               {sortedAdmins.map((admin, index) => {
+                const isPrimary = admin.id === PRIMARY_ADMIN_UID;
                 return (
                   <tr key={admin.id}>
                     <td>{index + 1}</td>
@@ -135,14 +158,16 @@ export default function AdminsPage({ params }) {
                         : "—"}
                     </td>
                     <td>
-                      <button
-                        className="btn btn-danger btn-sm"
-                        onClick={() =>
-                          handleRemoveAdmin(admin.id, admin.name)
-                        }
-                      >
-                        {t.remove}
-                      </button>
+                      {user?.uid === PRIMARY_ADMIN_UID && (
+                        <button
+                          className="btn btn-sm btn-danger"
+                          onClick={() =>
+                            handleRemoveAdmin(admin.id, admin.name)
+                          }
+                        >
+                          {t.remove}
+                        </button>
+                      )}
                     </td>
                   </tr>
                 );
@@ -151,8 +176,12 @@ export default function AdminsPage({ params }) {
           </table>
         </div>
       ) : (
-        <h2 className="text-center my-5">{t.noAdmins}</h2>
+        <div className="text-center py-5">
+          <h5 className="text-muted">{t.noAdmins}</h5>
+        </div>
       )}
+        </div>
+      </div>
     </div>
   );
 }

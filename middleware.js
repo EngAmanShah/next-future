@@ -32,7 +32,7 @@ export function middleware(request) {
       })();
 
     return NextResponse.redirect(
-      new URL(`/${langToUse}/admin/products`, request.url)
+      new URL(`/${langToUse}/admin/system-management`, request.url)
     );
   }
 

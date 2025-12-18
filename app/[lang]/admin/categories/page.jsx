@@ -123,7 +123,7 @@ export default function Categories({ params }) {
         border: "1px solid rgba(227, 227, 227, 1)",
       }}
     >
-      <h2 className="mb-5">{t.title}</h2>
+      <h4 className="mb-5">{t.title}</h4>
 
       <div className="d-flex mb-4">
         <button
@@ -196,7 +196,7 @@ export default function Categories({ params }) {
       </form>
 
       {updatedCategories[activeTab].length === 0 ? (
-        <h2 className="my-3">{t.noCategories}</h2>
+        <h5 className="my-3">{t.noCategories}</h5>
       ) : (
         <ul className="list-group mb-5 w-md-75">
           {updatedCategories[activeTab].map((cat, index) => (

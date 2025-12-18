@@ -195,7 +195,7 @@ export default function EditProducts({ params }) {
         border: "1px solid rgba(227, 227, 227, 1)",
       }}
     >
-      <h2 className="mb-4">{ui.editProduct}</h2>
+      <h4 className="mb-4">{ui.editProduct}</h4>
 
       <div className="mb-5" style={{ maxWidth: "200px" }}>
         <label htmlFor="langSelect" className="form-label">

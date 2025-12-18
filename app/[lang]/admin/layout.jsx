@@ -13,11 +13,11 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import ArrowDropDownSharpIcon from "@mui/icons-material/ArrowDropDownSharp";
 import ArrowDropUpSharpIcon from "@mui/icons-material/ArrowDropUpSharp";
 import MenuOpenRoundedIcon from "@mui/icons-material/MenuOpenRounded";
-import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
+import SettingsIcon from "@mui/icons-material/Settings";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 
 import Loading from "@/components/Loading";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
@@ -46,27 +46,25 @@ export default function AdminAccount({ params, children }) {
 
   const translations = {
     en: {
-      products: "Products",
-      categories: "Categories",
+      systemManagement: "System Management",
       articles: "Articles",
-      contacts: "Contacts",
-      admins: "Admins",
-      settings: "Settings",
-      profile: "Profile",
-      password: "Password",
-      email: "Email",
+      contacts: "Contact Messages",
+      admins: "Administrators",
+      settings: "Contact Settings",
+      profile: "My Profile",
+      password: "Change Password",
+      email: "Change Email",
       signOut: "Sign Out",
     },
     ar: {
-      products: "المنتجات",
-      categories: "الفئات",
-      articles: "مقالات",
-      contacts: "جهات الاتصال",
-      admins: "المسؤولون",
-      settings: "الإعدادات",
-      profile: "الملف الشخصي",
-      password: "كلمة المرور",
-      email: "البريد الإلكتروني",
+      systemManagement: "إدارة النظام",
+      articles: "المقالات",
+      contacts: "رسائل التواصل",
+      admins: "المشرفون",
+      settings: "إعدادات الاتصال",
+      profile: "ملفي الشخصي",
+      password: "تغيير كلمة المرور",
+      email: "تغيير البريد الإلكتروني",
       signOut: "تسجيل الخروج",
     },
   };
@@ -96,7 +94,6 @@ export default function AdminAccount({ params, children }) {
           zIndex: 1000,
           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
           backgroundColor: "#fff",
-          height: "70px",
         }}
       >
         <Link href={`/${lang}`} className="d-none d-lg-flex">
@@ -141,25 +138,24 @@ export default function AdminAccount({ params, children }) {
               className="navigation bg-white p-3"
               style={{
                 position: "fixed",
-                top: "70px",
+                top: "88px",
                 bottom: 0,
                 overflowY: "auto",
-                width: "270px",
               }}
             >
               <div data-bs-dismiss="offcanvas" data-bs-target="#offcanvasMenu">
                 <Link
                   className={`${styles["account-nav-item"]} mb-1 mb-xl-2 ${
-                    pathName === `/${lang}/admin/categories`
+                    pathName === `/${lang}/admin/system-management`
                       ? styles["active-route"]
                       : ""
                   }`}
-                  href={`/${lang}/admin/categories`}
+                  href={`/${lang}/admin/system-management`}
                 >
-                  <CategoryOutlinedIcon />
-                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
-                    {t.categories}
-                  </h2>
+                  <DashboardIcon />
+                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                    {t.systemManagement}
+                  </h5>
                 </Link>
               </div>
               <div data-bs-dismiss="offcanvas" data-bs-target="#offcanvasMenu">
@@ -172,9 +168,9 @@ export default function AdminAccount({ params, children }) {
                   href={`/${lang}/admin/articles`}
                 >
                   <ArticleOutlinedIcon />
-                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                     {t.articles}
-                  </h2>
+                  </h5>
                 </Link>
               </div>
               <div
@@ -191,9 +187,9 @@ export default function AdminAccount({ params, children }) {
                   href={`/${lang}/admin/contacts`}
                 >
                   <ContactsOutlinedIcon />
-                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                     {t.contacts}
-                  </h2>
+                  </h5>
                   {unreadMessages.length > 0 && (
                     <div
                       className="badge rounded-pill bg-danger"
@@ -214,9 +210,24 @@ export default function AdminAccount({ params, children }) {
                   href={`/${lang}/admin/admins`}
                 >
                   <SupervisorAccountIcon />
-                  <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                     {t.admins}
-                  </h2>
+                  </h5>
+                </Link>
+              </div>
+              <div data-bs-dismiss="offcanvas" data-bs-target="#offcanvasMenu">
+                <Link
+                  className={`${styles["account-nav-item"]} mb-1 mb-xl-2 ${
+                    pathName === `/${lang}/admin/settings`
+                      ? styles["active-route"]
+                      : ""
+                  }`}
+                  href={`/${lang}/admin/settings`}
+                >
+                  <SettingsIcon />
+                  <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                    {t.settings}
+                  </h5>
                 </Link>
               </div>
               <div
@@ -224,13 +235,13 @@ export default function AdminAccount({ params, children }) {
                 onClick={toggleSettingDropdown}
               >
                 <SettingsOutlinedIcon />
-                <h2
+                <h5
                   className={`m-0 ${lang === "en" ? "ms-3" : "me-3"} ${
                     lang === "en" ? "me-5" : "ms-5"
                   }`}
                 >
-                  {t.settings}
-                </h2>
+                  {t.profile}
+                </h5>
                 {showSettingDropdown === false ? (
                   <ArrowDropDownSharpIcon />
                 ) : (
@@ -304,9 +315,9 @@ export default function AdminAccount({ params, children }) {
                 data-bs-target="#offcanvasMenu"
               >
                 <LogoutOutlinedIcon />
-                <h2 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
+                <h5 className={`m-0 ${lang === "en" ? "ms-3" : "me-3"}`}>
                   {t.signOut}
-                </h2>
+                </h5>
               </div>
             </div>
           </div>

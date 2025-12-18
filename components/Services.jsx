@@ -82,7 +82,7 @@ export default function Services({ lang, servicesData, sectionTitle, sectionDesc
                 </motion.div>
 
                 {/* Text */}
-                <h2 className="mb-2" style={{ fontWeight: "600", color: "black" }}>{service.title}</h2>
+                <h5 className="mb-2" style={{ fontWeight: "600", color: "black" }}>{service.title}</h5>
                 <p style={{ color: "black" }}>{service.description}</p>
               </motion.div>
             </motion.div>

@@ -8,7 +8,6 @@ import Team from "@/components/Team/Team";
 import Skills from "@/components/Skills/Skills";
 import StartProject from "@/components/StartProject/StartProject";
 import ValueSlider from "@/components/ValueSlider";
-import TargetMarkets from "@/components/target";
 import TeamSection from '@/components/workteam/team';
 import ServicesSection from '@/components/ServicesSection/ServicesSection'; // New import
 
@@ -19,7 +18,8 @@ export default async function Home({ params }) {
   const content = {
     en: {
       heroTitle: "Next Future Tech",
-      heroDescription: "One Stop Shop for your IT Solutions",
+      heroDescription:
+        "Empowering Businesses Through Innovation, Technology, & Strategy",
       shopNow: "Get Your Free Consultation",
       whyChooseTitle: "Why Partner with Next Future Information",
       whyChooseDescription:
@@ -49,8 +49,9 @@ export default async function Home({ params }) {
     },
 
     ar: {
-      heroTitle: "  نـكـــست فـــيوتـشــــر تـــك",
-      heroDescription: "متجرك الشامل لحلول تقنية المعلومات",
+      heroTitle: "نكست فيوتشر لتقنية ",
+      heroDescription:
+      "تمكين الأعمال من خلال الابتكار والتكنولوجيا والاستراتيجية",
       shopNow: "احصل على استشارتك المجانية",
       whyChooseTitle: "لماذا تختار نكست فيوتشر",
       whyChooseDescription:
@@ -93,9 +94,10 @@ export default async function Home({ params }) {
 
   return (
     <>
-<div className="my-hero-section">
+ <div className="my-hero-section">
   <Hero 
     lang={lang} 
+    text={heroButton}
     heroTitle={heroTitle}
     heroDescription={heroDescription}
   />
@@ -108,8 +110,7 @@ export default async function Home({ params }) {
         features={features}
         lang={lang}
       />
-            <TargetMarkets lang={lang} />
-
+      
       {/* Services Section */}
       <ServicesSection lang={lang} />
       
@@ -129,13 +130,13 @@ export default async function Home({ params }) {
       <Products lang={lang} />
       
       {/* Skills */}
-      {/* <Skills lang={lang}/> */}
+      <Skills lang={lang}/>
       
       {/* Start Project */}
       <StartProject lang={lang} />
       
       {/* TeamSection */}
-
+      <TeamSection lang={lang} />
     </>
   );
 }

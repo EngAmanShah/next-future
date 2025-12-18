@@ -129,9 +129,9 @@ export default async function FAQs({ params }) {
     <>
       <div className="py-5" style={{ backgroundColor: "#52a9ff" }}>
         <div className="container d-flex flex-column align-items-center text-white">
-          <h2 className="text-center mb-3" style={{ fontWeight: "700" }}>
+          <h1 className="text-center mb-3" style={{ fontWeight: "700" }}>
             {lang === "ar" ? "الأسئلة المتكررة" : "Frequently Asked Questions"}
-          </h2>
+          </h1>
           <p
             className="text-center w-md-75"
             dir={lang === "ar" ? "rtl" : "ltr"}

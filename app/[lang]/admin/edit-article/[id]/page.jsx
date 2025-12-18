@@ -145,10 +145,8 @@ export default function EditArticle({ params }) {
       }
 
       const articleRef = doc(db, "articles", id);
-      const slug = article.title.en.toLowerCase().replace(/\s+/g, "-");
       await updateDoc(articleRef, {
         ...article,
-        slug,
         image: imageUrl,
         timestamp: serverTimestamp(),
         storageId,
@@ -193,7 +191,7 @@ export default function EditArticle({ params }) {
         border: "1px solid rgba(227, 227, 227, 1)",
       }}
     >
-      <h2 className="mb-4">{ui.editArticle}</h2>
+      <h4 className="mb-4">{ui.editArticle}</h4>
 
       <div className="mb-5" style={{ maxWidth: "200px" }}>
         <label htmlFor="langSelect" className="form-label">

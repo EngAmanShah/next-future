@@ -69,7 +69,7 @@ export default function LoginPage({ params }) {
         await user.getIdTokenResult().then(async (idTokenResult) => {
           const claims = idTokenResult.claims;
           if (claims.isAdmin) {
-            router.push(`/${lang}/admin/products`);
+            router.push(`/${lang}/admin/system-management`);
           } else {
             toast.error(t.notAdmin);
             await signOut(auth);
@@ -87,7 +87,7 @@ export default function LoginPage({ params }) {
 
   useEffect(() => {
     if (!authLoading && user && isAdmin) {
-      router.push(`/${lang}/admin/products`);
+      router.push(`/${lang}/admin/system-management`);
     }
   }, [authLoading, user, isAdmin]);
 

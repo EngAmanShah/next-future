@@ -419,9 +419,9 @@ export default function OdooMainPage({ resolvedParams }) {
             <div className={styles.badge}>
               {lang === 'ar' ? 'حلول متكاملة' : 'Integrated Solutions'}
             </div>
-            <h2 className={styles.heroTitle}>
+            <h1 className={styles.heroTitle}>
               {t.hero.title}
-            </h2>
+            </h1>
             <p className={styles.heroSubtitle}>
               {t.hero.subtitle}
             </p>
@@ -577,7 +577,7 @@ export default function OdooMainPage({ resolvedParams }) {
           {t.features.items.map((feature, index) => (
             <div key={index} className={`${styles.featureCard} ${styles.slideInUp}`} style={{ animationDelay: `${index * 0.1}s` }}>
               <div className={styles.featureIcon}>{feature.icon}</div>
-              <h2 className={styles.featureTitle}>{feature.title}</h2>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
               <p className={styles.featureDescription}>{feature.description}</p>
               <div className={styles.featureHover}></div>
             </div>
@@ -599,7 +599,7 @@ export default function OdooMainPage({ resolvedParams }) {
           {t.benefits.items.map((benefit, index) => (
             <div key={index} className={`${styles.benefitCard} ${styles.slideInUp}`} style={{ animationDelay: `${index * 0.1}s` }}>
               <div className={styles.benefitNumber}>0{index + 1}</div>
-              <h2 className={styles.benefitTitle}>{benefit.title}</h2>
+              <h3 className={styles.benefitTitle}>{benefit.title}</h3>
               <p className={styles.benefitDescription}>{benefit.description}</p>
             </div>
           ))}

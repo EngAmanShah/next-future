@@ -52,7 +52,7 @@ export default function ChangeEmail({ params }) {
       }}
     >
       <form onSubmit={handleChangeEmail} className="w-md-75">
-        <h2 className="mb-5">{t.title}</h2>
+        <h4 className="mb-5">{t.title}</h4>
         <p>{t.description}</p>
         <div className="row my-5">
           <div>

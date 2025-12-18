@@ -75,7 +75,7 @@ Our team is dedicated to supporting you every step of the way.`,
           padding: "6rem 1.5rem",
         }}
       >
-        <h2>{heroTitle}</h2>
+        <h1 style={{ fontSize: "3rem", marginBottom: "1rem" }}>{heroTitle}</h1>
         <p
           style={{
             fontSize: "1.25rem",
@@ -120,7 +120,7 @@ Our team is dedicated to supporting you every step of the way.`,
               onClick={() => info.iframe && setShowMap(!showMap)}
             >
               <div style={{ marginBottom: "1rem" }}>{info.icon}</div>
-              <h2 style={{ marginBottom: "0.5rem" }}>{info.label}</h2>
+              <h3 style={{ marginBottom: "0.5rem" }}>{info.label}</h3>
               <p style={{ margin: 0 }}>{info.value}</p>
             </div>
           ))}

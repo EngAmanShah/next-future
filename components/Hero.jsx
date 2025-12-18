@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export default function HeroSection({
+  text = "Get in Touch",
   lang = "en",
   heroTitle,
   heroDescription,
@@ -11,6 +12,7 @@ export default function HeroSection({
   const [hover, setHover] = useState(false);
   const isRTL = lang === "ar";
 
+  // Button text translations
   const buttonText = {
     en: "Get in Touch",
     ar: "تواصل معنا",
@@ -18,107 +20,80 @@ export default function HeroSection({
 
   return (
     <section
-      className="hero-section-wrapper"
+      className="position-relative w-100 d-flex align-items-center hero-section"
       style={{
-        position: "relative",
-        width: "100%",
         minHeight: "100vh",
+        width: "100%",
         overflow: "hidden",
       }}
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Background video */}
-      <div className="hero-background-wrapper">
-        <video
-          src="/video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 1,
-          }}
-        />
+      <video
+        src="/video.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="position-absolute top-0 start-0 w-100 h-100 hero-video"
+        style={{ objectFit: "cover", zIndex: 1 }}
+      >
+        Your browser does not support the video tag.
+      </video>
 
-        {/* Gradient overlay */}
-        <div
-          className="hero-gradient-overlay"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: `linear-gradient(
-      to right,
-      rgba(44, 44, 44, 0.41) 0%,
-      rgba(0, 0, 0, 0.95) 100%
-    )`,
-            zIndex: 2,
-          }}
-        />
-      </div>
-
-      {/* Content */}
+      {/* Dark overlay - FIXED */}
       <div
-        className="hero-content-wrapper"
-        style={{
-          textAlign: "center", // Center align all text
-          alignItems: "center", // Center horizontally
+        className="position-absolute top-0 start-0 w-100 h-100 hero-overlay-custom"
+        style={{ 
+          backgroundColor: "rgba(0, 0, 0, 0.95)", 
+          zIndex: 2 
+        }}
+      />
 
-          position: "relative",
+      {/* Simple content container */}
+      <div
+        className="position-relative hero-content"
+        style={{ 
           zIndex: 3,
-          width: "100%",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "200px 5% 60px",
+          maxWidth: "800px",
+          margin: "120px auto 0",
+          padding: "0 5%",
           textAlign: isRTL ? "right" : "left",
+          // Position based on language
+          marginLeft: isRTL ? "auto" : "5%",
+          marginRight: isRTL ? "5%" : "auto",
         }}
       >
-        {/* Title */}
-        <motion.h2
-          className="hero-main-title"
+        {/* Title as H1 */}
+        <motion.h1
+          className="hero-title"
           style={{
-            color: "#ffffff",
-            fontSize: "clamp(1.3rem, 2.5vw, 1.5rem)",
-            fontWeight: 600,
-            lineHeight: 1.4,
-            marginBottom: "1rem",
-            fontFamily: "'Somar', sans-serif",
-            textWrap: "balance",
-                letterSpacing: "4.1px", // Tighter letter spacing
-
-            maxWidth: "600px", // Add this line for equal width
+            color: "white",
+            fontSize: "clamp(2rem, 5vw, 3.5rem)",
+            fontWeight: "bold",
+            lineHeight: 1.2,
+            marginBottom: "1.5rem",
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
           {heroTitle}
-        </motion.h2>
+        </motion.h1>
 
-        {/* Description */}
+        {/* Description as P */}
         <motion.p
-          className="hero-main-description"
+          className="hero-description"
           style={{
-            color: "rgba(255, 255, 255, 0.9)",
-            fontSize: "clamp(1rem, 2.5vw, 1.5rem)",
-            lineHeight: 1.8,
+            color: "white",
+            fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
+            lineHeight: 1.7,
             marginBottom: "2.5rem",
-            maxWidth: "600px",
-            fontFamily: "'Somar', sans-serif",
-            fontWeight: 400,
-            textWrap: "pretty", // Alternative: "pretty" for better wrapping
+            maxWidth: "90%",
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
         >
           {heroDescription}
         </motion.p>
@@ -127,40 +102,42 @@ export default function HeroSection({
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
         >
           <Link href={`/${lang}/contact-us`}>
             <button
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
-              className="hero-cta-button"
+              className="btn fw-semibold shadow rounded-pill d-inline-flex align-items-center gap-2 hero-button"
               style={{
-                fontSize: "1.1rem",
-                padding: "0.75rem 2rem",
+                fontSize: "clamp(16px, 2.5vw, 22px)",
+                transition: "transform 0.15s ease, padding 0.15s ease",
+                transform: hover ? "scale(1.05)" : "scale(1)",
+                padding: "clamp(0.75rem, 2.5vw, 1rem) clamp(1.5rem, 3vw, 2.5rem)",
+                cursor: "pointer",
                 backgroundColor: "#3B82F6",
                 color: "white",
                 border: "none",
-                borderRadius: "50px",
-                fontWeight: 600,
-                cursor: "pointer",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                transition: "all 0.3s ease",
-                transform: hover ? "scale(1.05)" : "scale(1)",
-                boxShadow: hover
-                  ? "0 10px 25px rgba(37, 99, 235, 0.3)"
-                  : "none",
+                position: "relative",
+                overflow: "hidden",
               }}
             >
               <span>{buttonText[lang]}</span>
               <span
+                className="arrow"
                 style={{
                   display: "inline-block",
-                  transition: "transform 0.3s ease",
+                  marginLeft: isRTL ? "0" : "8px",
+                  marginRight: isRTL ? "8px" : "0",
+                  opacity: hover ? 1 : 0.7,
                   transform: hover
-                    ? `translateX(${isRTL ? "-5px" : "5px"})`
-                    : "translateX(0)",
+                    ? "translateX(0)"
+                    : isRTL
+                    ? "translateX(5px)"
+                    : "translateX(-5px)",
+                  transition: "all 0.3s ease",
+                  color: "white",
+                  fontWeight: "bold",
                 }}
               >
                 {isRTL ? "←" : "→"}
@@ -170,73 +147,73 @@ export default function HeroSection({
         </motion.div>
       </div>
 
-      {/* Add responsive styles */}
+      {/* Add CSS styles to override global CSS */}
       <style jsx>{`
-        .hero-section-wrapper {
+        /* Override global .hero-overlay with stronger selector */
+        .hero-section .hero-overlay-custom {
+          background-color: rgba(0, 0, 0, 0.62) !important;
+          opacity: 1 !important;
+        }
+        
+        /* Also target any div with position-absolute inside hero-section */
+        .hero-section > div.position-absolute:not(.hero-video):not(.hero-content) {
+          background-color: rgba(0, 0, 0, 0.85) !important;
+          opacity: 1 !important;
+        }
+        
+        .hero-section {
           position: relative;
           min-height: 100vh;
           width: 100%;
           overflow: hidden;
         }
-
-        .hero-background-wrapper {
+        
+        .hero-video {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
           height: 100%;
         }
-
-        .hero-content-wrapper {
-          position: relative;
-          z-index: 3;
+        
+        .hero-overlay-custom {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
         }
-
-        /* Override any Bootstrap or global styles */
-        .hero-main-title {
-          font-size: clamp(2.5rem, 5vw, 4rem) !important;
-          font-weight: 700 !important;
-          color: white !important;
-          font-family: "Somar", sans-serif !important;
-        }
-
-        .hero-main-description {
-          font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
-          color: rgba(255, 255, 255, 0.9) !important;
-          font-family: "Somar", sans-serif !important;
-          font-weight: 400 !important;
-        }
-
-        .hero-cta-button:hover {
-          background-color: #2563eb !important;
-        }
-
+        
+        /* Adjust for different screen sizes */
         @media (max-width: 768px) {
-          .hero-content-wrapper {
-            padding-top: 100px !important;
-            padding-left: 20px !important;
-            padding-right: 20px !important;
+          .hero-content {
+            margin-top: 100px;
           }
-
-          .hero-main-title {
-            font-size: clamp(2rem, 4vw, 3rem) !important;
+          
+          .hero-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
           }
-
-          .hero-main-description {
-            font-size: clamp(0.9rem, 2vw, 1.2rem) !important;
-            max-width: 100% !important;
+          
+          .hero-description {
+            font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
           }
         }
-
+        
         @media (max-width: 480px) {
-          .hero-content-wrapper {
-            padding-top: 80px !important;
+          .hero-content {
+            margin-top: 90px;
           }
-
-          .hero-cta-button {
+          
+          .hero-button {
             width: 100%;
             justify-content: center;
           }
+        }
+        
+        /* Button hover effects */
+        .hero-button:hover {
+          background-color: #2563eb !important;
+          box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3) !important;
         }
       `}</style>
     </section>

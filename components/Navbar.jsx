@@ -343,66 +343,20 @@ export default function Navbar({ lang }) {
 
   return (
     <>
-<nav
-  className="navbar navbar-expand-lg fixed-top"
-  style={
-    mounted
-      ? {
-          // Top half: semi-transparent dark
-          background: `linear-gradient(
-            to bottom,
-            rgba(44, 44, 44, 0.7) 0%,
-            rgba(44, 44, 44, 0.7) 50%,
-            rgba(0, 0, 0, 0.95) 50%,
-            rgba(0, 0, 0, 0.95) 100%
-          )`,
-          backdropFilter: "blur(10px)",
-          height: "80px", // Fixed height
-          width: "100%",
-          position: "fixed",
-          top: "0",
-          left: "0",
-          zIndex: "1030",
+      <nav
+        className="navbar navbar-expand-lg fixed-top"
+        style={
+          mounted
+            ? {
+                backgroundColor: scrolled
+                  ? "rgba(38, 38, 38, 0.96)" // Dark blue when scrolled
+                  : "rgba(38, 38, 38, 0.96)", // Light transparent blue when at top
+                backdropFilter: scrolled ? "blur(12px)" : "blur(4px)", // Less blur when transparent
+              }
+            : {}
         }
-      : {
-          height: "80px", // Same height when not mounted
-          width: "100%",
-          position: "fixed",
-          top: "0",
-          left: "0",
-          zIndex: "1030",
-        }
-  }
->
-      
-        {/* Top half overlay */}
-        <div
-          className="navbar-top-overlay"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "50%",
-            backgroundColor: "rgba(44, 44, 44, 0.7)",
-            zIndex: -1,
-          }}
-        />
-
-        {/* Bottom half overlay */}
-        <div
-          className="navbar-bottom-overlay"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "50%",
-            backgroundColor: "rgba(0, 0, 0, 0.95)",
-            zIndex: -1,
-          }}
-        />
-
+        dir={lang === "ar" ? "rtl" : "ltr"}
+      >
         <div className="container">
           {/* Logo */}
           <Link
@@ -415,8 +369,8 @@ export default function Navbar({ lang }) {
               alt="Logo"
               style={{
                 width: "160px",
-                // filter: "brightness(0) invert(1)",
-                // transition: "filter 0.3s ease",
+                filter: scrolled ? "brightness(0) invert(1)" : "none",
+                transition: "filter 0.3s ease",
               }}
             />
           </Link>
@@ -428,8 +382,8 @@ export default function Navbar({ lang }) {
               href={`tel:${callNumber}`}
               className="btn btn-sm d-flex align-items-center gap-1"
               style={{
-                backgroundColor: "#379DD7",
-                borderColor: "#379DD7",
+                backgroundColor: scrolled ? "#000000ff" : "#379DD7",
+                borderColor: scrolled ? "#000000ff" : "#379DD7",
                 color: "#fff",
               }}
             >
@@ -480,10 +434,8 @@ export default function Navbar({ lang }) {
                           isActive(item.href) ? "active" : ""
                         } d-flex align-items-center gap-1`}
                         style={{
-                          color: "#fff",
+                          color: scrolled ? "#fff" : "#ffffffff",
                           fontWeight: 500,
-                          position: "relative",
-                          zIndex: 1,
                         }}
                       >
                         {item.label}
@@ -508,9 +460,9 @@ export default function Navbar({ lang }) {
                                   key={catIndex}
                                   className="col-lg-3 col-md-6 mb-3"
                                 >
-                                  <h2 className="fw-bold mb-3 category-title">
+                                  <h6 className="fw-bold mb-3 category-title">
                                     {category.title[lang]}
-                                  </h2>
+                                  </h6>
                                   <ul className="list-unstyled">
                                     {category.services.map(
                                       (service, serviceIndex) => (
@@ -541,10 +493,8 @@ export default function Navbar({ lang }) {
                           isActive(item.href) ? "active" : ""
                         } d-flex align-items-center gap-1`}
                         style={{
-                          color: "#fff",
+                          color: scrolled ? "#fff" : "#ffffffff",
                           fontWeight: 500,
-                          position: "relative",
-                          zIndex: 1,
                         }}
                       >
                         {item.label}
@@ -571,9 +521,9 @@ export default function Navbar({ lang }) {
                                   onClick={handleLinkClick}
                                 >
                                   <div className="erp-item-content">
-                                    <h2 className="erp-item-title mb-1">
+                                    <h6 className="erp-item-title mb-1">
                                       {solution[lang]}
-                                    </h2>
+                                    </h6>
                                     <p className="erp-item-description mb-0">
                                       {solution.description[lang]}
                                     </p>
@@ -592,10 +542,8 @@ export default function Navbar({ lang }) {
                         isActive(item.href) ? "active" : ""
                       }`}
                       style={{
-                        color: "#fff",
+                        color: scrolled ? "#fff" : "#ffffffff",
                         fontWeight: 500,
-                        position: "relative",
-                        zIndex: 1,
                       }}
                       onClick={handleLinkClick}
                     >
@@ -607,14 +555,14 @@ export default function Navbar({ lang }) {
             </ul>
 
             {/* Desktop Language & Call Button */}
-            <div className="d-flex align-items-center ms-4 gap-3" style={{ position: "relative", zIndex: 1 }}>
+            <div className="d-flex align-items-center ms-4 gap-3">
               <LanguageSwitcher lang={lang} showFlag={true} showText={false} />
               <a
                 href={`tel:${callNumber}`}
                 className="btn d-flex align-items-center gap-2"
                 style={{
-                  backgroundColor: "#379DD7",
-                  borderColor: "#379DD7",
+                  backgroundColor: scrolled ? "#000000ff" : "#379DD7",
+                  borderColor: scrolled ? "#000000ff" : "#379DD7",
                   color: "#fff",
                   fontWeight: 500,
                 }}
@@ -631,9 +579,7 @@ export default function Navbar({ lang }) {
             onClick={handleMobileMenuToggle}
             aria-label="Toggle navigation"
             style={{
-              color: "#fff",
-              position: "relative",
-              zIndex: 1,
+              color: scrolled ? "#fff" : "#f0f0f0ff",
             }}
           >
             {isMobileMenuOpen ? (
@@ -699,9 +645,9 @@ export default function Navbar({ lang }) {
                   >
                     {Object.values(servicesData).map((category, catIndex) => (
                       <div key={catIndex} className="mobile-submenu-section">
-                        <h2 className="mobile-category-title">
+                        <h6 className="mobile-category-title">
                           {category.title[lang]}
-                        </h2>
+                        </h6>
                         <ul>
                           {category.services.map((service, serviceIndex) => (
                             <li key={serviceIndex}>
@@ -794,41 +740,19 @@ export default function Navbar({ lang }) {
         .navbar {
           padding: 0.5rem 0;
           z-index: 1030;
-          height: 80px; /* Fixed height for better control */
-          position: relative;
-          overflow: hidden;
-        }
-
-        .navbar::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: linear-gradient(
-            to bottom,
-            rgba(44, 44, 44, 0.7) 0%,
-            rgba(44, 44, 44, 0.7) 50%,
-            rgba(0, 0, 0, 0.95) 50%,
-            rgba(0, 0, 0, 0.95) 100%
-          );
-          z-index: -1;
         }
 
         .navbar-nav .nav-link {
           transition: color 0.3s ease;
           padding: 0.5rem 1rem;
-          position: relative;
-          z-index: 1;
         }
 
         .navbar-nav .nav-link:hover,
         .navbar-nav .nav-link.active {
-          color: #379dd7 !important;
+          color: ${scrolled ? "#FF9800" : "#379dd7"} !important;
         }
 
-        /* Mega Menu Styles */
+        /* Mega Menu Styles - UPDATED BACKGROUND */
         .mega-menu {
           position: static;
         }
@@ -840,14 +764,14 @@ export default function Navbar({ lang }) {
           transform: translateX(-50%) translateY(10px);
           width: 90%;
           max-width: 1200px;
-          background: rgba(0, 0, 0, 0.98) !important;
+          background: rgba(0, 0, 0, 0.95) !important; /* 95% opacity black */
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
           z-index: 1000;
           border-radius: 12px;
-          border: 2px solid #379DD7 !important;
+          border: 2px solid #379DD7 !important; /* Light blue border */
         }
 
         .mega-menu-dropdown.show {
@@ -856,7 +780,7 @@ export default function Navbar({ lang }) {
           transform: translateX(-50%) translateY(0);
         }
 
-        /* ERP Dropdown Menu Styles */
+        /* ERP Dropdown Menu Styles - UPDATED BACKGROUND */
         .erp-menu {
           position: relative;
         }
@@ -867,14 +791,14 @@ export default function Navbar({ lang }) {
           left: 50%;
           transform: translateX(-50%) translateY(10px);
           width: 350px;
-          background: rgba(0, 0, 0, 0.98) !important;
+          background: rgba(0, 0, 0, 0.95) !important; /* 95% opacity black */
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
           opacity: 0;
           visibility: hidden;
           transition: all 0.3s ease;
           z-index: 1000;
           border-radius: 12px;
-          border: 2px solid #379DD7 !important;
+          border: 2px solid #379DD7 !important; /* Light blue border */
         }
 
         .erp-dropdown-menu.show {
@@ -903,11 +827,11 @@ export default function Navbar({ lang }) {
           width: 100%;
         }
 
-        /* Category titles in blue */
+        /* UPDATED: Category titles in blue */
         .mega-menu-content .category-title {
-          color: #379DD7 !important;
+          color: #379DD7 !important; /* Blue color */
           font-size: 0.9rem;
-          border-bottom: 2px solid #379DD7;
+          border-bottom: 2px solid #379DD7; /* Blue border */
           padding-bottom: 0.5rem;
           font-weight: 700;
         }
@@ -923,8 +847,8 @@ export default function Navbar({ lang }) {
         }
 
         .mega-menu-content .dropdown-item:hover {
-          color: #379DD7;
-          background: rgba(55, 157, 215, 0.1);
+          color: #379DD7; /* Blue color on hover */
+          background: rgba(55, 157, 215, 0.1); /* Light blue background on hover */
           padding-left: 0.5rem;
           border-radius: 4px;
         }
@@ -941,14 +865,14 @@ export default function Navbar({ lang }) {
         }
 
         .erp-dropdown-item:hover {
-          background: rgba(55, 157, 215, 0.1);
-          border-color: #379DD7;
+          background: rgba(55, 157, 215, 0.1); /* Light blue background */
+          border-color: #379DD7; /* Blue border */
           text-decoration: none;
-          color: #379DD7;
+          color: #379DD7; /* Blue text */
         }
 
         .erp-item-title {
-          color: #379DD7 !important;
+          color: #379DD7 !important; /* Blue color */
           font-weight: 600;
           font-size: 0.9rem;
           margin-bottom: 0.25rem;
@@ -965,7 +889,7 @@ export default function Navbar({ lang }) {
           padding-right: 0.5rem;
         }
 
-        /* Mobile Menu Styles */
+        /* Mobile Menu Styles - UPDATED BACKGROUND */
         .mobile-menu-overlay {
           position: fixed;
           top: 0;
@@ -982,20 +906,20 @@ export default function Navbar({ lang }) {
           right: -100%;
           width: 320px;
           height: 100vh;
-          background: rgba(0, 0, 0, 0.98) !important;
+          background: rgba(0, 0, 0, 0.95) !important; /* 95% opacity black */
           box-shadow: -2px 0 20px rgba(0, 0, 0, 0.3);
           transition: right 0.3s ease;
           z-index: 1050;
           overflow-y: auto;
           color: #fff;
-          border-left: 2px solid #379DD7 !important;
+          border-left: 2px solid #379DD7 !important; /* Light blue border */
         }
 
         [dir="rtl"] .mobile-sidebar {
           right: auto;
           left: -100%;
           border-left: none !important;
-          border-right: 2px solid #379DD7 !important;
+          border-right: 2px solid #379DD7 !important; /* Light blue border for RTL */
         }
 
         .mobile-sidebar.show {
@@ -1013,7 +937,6 @@ export default function Navbar({ lang }) {
           align-items: center;
           padding: 1rem;
           border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-          background: rgba(0, 0, 0, 0.9);
         }
 
         .close-btn {
@@ -1054,7 +977,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-menu-link:hover {
-          color: #379DD7 !important;
+          color: #379DD7 !important; /* Blue color on hover */
         }
 
         .mobile-submenu {
@@ -1075,13 +998,13 @@ export default function Navbar({ lang }) {
           padding: 0.5rem 1rem 0.5rem 0;
         }
 
-        /* Mobile category titles in blue */
+        /* UPDATED: Mobile category titles in blue */
         .mobile-category-title {
-          color: #379DD7 !important;
+          color: #379DD7 !important; /* Blue color */
           font-weight: 700;
           margin-bottom: 0.5rem;
           font-size: 0.9rem;
-          border-bottom: 1px solid #379DD7;
+          border-bottom: 1px solid #379DD7; /* Blue border */
           padding-bottom: 0.3rem;
         }
 
@@ -1114,7 +1037,7 @@ export default function Navbar({ lang }) {
         }
 
         .mobile-submenu-section a:hover {
-          color: #379DD7 !important;
+          color: #379DD7 !important; /* Blue color on hover */
         }
 
         .mobile-buttons {
@@ -1159,7 +1082,6 @@ export default function Navbar({ lang }) {
 
           .navbar {
             padding: 0.3rem 0;
-            height: 0px;
           }
         }
 

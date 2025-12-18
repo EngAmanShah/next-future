@@ -290,9 +290,9 @@ export default function Page({ params }) {
                       {service.icon}
                     </motion.div>
                     
-                    <h2 className="fw-bold mb-3" style={{ minHeight: "3rem" }}>
+                    <h5 className="fw-bold mb-3" style={{ minHeight: "3rem" }}>
                       {service.title}
-                    </h2>
+                    </h5>
                     
                     <p className="mb-4" style={{ minHeight: "4rem", lineHeight: "1.6" }}>
                       {service.description}

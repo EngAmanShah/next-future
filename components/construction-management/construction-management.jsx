@@ -333,9 +333,9 @@ export default function ERPConstructionManagement({ resolvedParams }) {
             <div className={styles.badge}>
               {lang === 'ar' ? 'حلول متكاملة' : 'Integrated Solutions'}
             </div>
-            <h2 className={styles.heroTitle}>
+            <h1 className={styles.heroTitle}>
               {t.hero.title}
-            </h2>
+            </h1>
             <p className={styles.heroSubtitle}>
               {t.hero.subtitle}
             </p>
@@ -452,10 +452,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
           <div className={styles.contentGrid}>
             <div className={styles.problemsSection}>
               <div className={styles.sectionHeader}>
-                <h2 className={`${styles.problemsTitle} ${styles.fadeIn}`}>
+                <h3 className={`${styles.problemsTitle} ${styles.fadeIn}`}>
                   <span className={styles.titleIcon}>⚠️</span>
                   {t.construction.problems.title}
-                </h2>
+                </h3>
                 <p className={styles.sectionSubtitle}>
                   {lang === 'ar' ? 'التحديات التي نواجهها معًا' : 'Challenges we solve together'}
                 </p>
@@ -479,10 +479,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
 
             <div className={styles.solutionsSection}>
               <div className={styles.sectionHeader}>
-                <h2 className={`${styles.solutionsTitle} ${styles.fadeIn}`}>
+                <h3 className={`${styles.solutionsTitle} ${styles.fadeIn}`}>
                   <span className={styles.titleIcon}>🚀</span>
                   {t.construction.solutions.title}
-                </h2>
+                </h3>
                 <p className={styles.sectionSubtitle}>
                   {lang === 'ar' ? 'الحلول المتكاملة لدعم عملك' : 'Integrated solutions for your business'}
                 </p>
@@ -507,7 +507,7 @@ export default function ERPConstructionManagement({ resolvedParams }) {
 
           <div className={styles.sectorCTA}>
             <div className={styles.ctaCard}>
-              <h2>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h2>
+              <h3>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h3>
               <p>{lang === 'ar' ? 'ابدأ رحلتك نحو التميز التشغيلي' : 'Start your journey to operational excellence'}</p>
               <button className={`${styles.ctaButton} ${styles.pulseAnimation}`}>
                 {t.hero.book}
@@ -535,10 +535,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
           <div className={styles.contentGrid}>
             <div className={styles.problemsSection}>
               <div className={styles.sectionHeader}>
-                <h2 className={`${styles.problemsTitle} ${styles.fadeIn}`}>
+                <h3 className={`${styles.problemsTitle} ${styles.fadeIn}`}>
                   <span className={styles.titleIcon}>⚠️</span>
                   {t.realEstate.problems.title}
-                </h2>
+                </h3>
                 <p className={styles.sectionSubtitle}>
                   {lang === 'ar' ? 'التحديات التي نواجهها معًا' : 'Challenges we solve together'}
                 </p>
@@ -562,10 +562,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
 
             <div className={styles.solutionsSection}>
               <div className={styles.sectionHeader}>
-                <h2 className={`${styles.solutionsTitle} ${styles.fadeIn}`}>
+                <h3 className={`${styles.solutionsTitle} ${styles.fadeIn}`}>
                   <span className={styles.titleIcon}>🚀</span>
                   {t.realEstate.solutions.title}
-                </h2>
+                </h3>
                 <p className={styles.sectionSubtitle}>
                   {lang === 'ar' ? 'الحلول المتكاملة لدعم عملك' : 'Integrated solutions for your business'}
                 </p>
@@ -590,7 +590,7 @@ export default function ERPConstructionManagement({ resolvedParams }) {
 
           <div className={styles.sectorCTA}>
             <div className={styles.ctaCard}>
-              <h2>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h2>
+              <h3>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h3>
               <p>{lang === 'ar' ? 'ابدأ رحلتك نحو التميز التشغيلي' : 'Start your journey to operational excellence'}</p>
               <button className={`${styles.ctaButton} ${styles.pulseAnimation}`}>
                 {t.hero.book}
@@ -618,10 +618,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
           <div className={styles.contentGrid}>
             <div className={styles.problemsSection}>
               <div className={styles.sectionHeader}>
-                <h2 className={`${styles.problemsTitle} ${styles.fadeIn}`}>
+                <h3 className={`${styles.problemsTitle} ${styles.fadeIn}`}>
                   <span className={styles.titleIcon}>⚠️</span>
                   {t.logistics.problems.title}
-                </h2>
+                </h3>
                 <p className={styles.sectionSubtitle}>
                   {lang === 'ar' ? 'التحديات التي نواجهها معًا' : 'Challenges we solve together'}
                 </p>
@@ -645,10 +645,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
 
             <div className={styles.solutionsSection}>
               <div className={styles.sectionHeader}>
-                <h2 className={`${styles.solutionsTitle} ${styles.fadeIn}`}>
+                <h3 className={`${styles.solutionsTitle} ${styles.fadeIn}`}>
                   <span className={styles.titleIcon}>🚀</span>
                   {t.logistics.solutions.title}
-                </h2>
+                </h3>
                 <p className={styles.sectionSubtitle}>
                   {lang === 'ar' ? 'الحلول المتكاملة لدعم عملك' : 'Integrated solutions for your business'}
                 </p>
@@ -673,7 +673,7 @@ export default function ERPConstructionManagement({ resolvedParams }) {
 
           <div className={styles.sectorCTA}>
             <div className={styles.ctaCard}>
-              <h2>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h2>
+              <h3>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h3>
               <p>{lang === 'ar' ? 'ابدأ رحلتك نحو التميز التشغيلي' : 'Start your journey to operational excellence'}</p>
               <button className={`${styles.ctaButton} ${styles.pulseAnimation}`}>
                 {t.hero.book}
