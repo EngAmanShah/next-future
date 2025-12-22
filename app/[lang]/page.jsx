@@ -129,8 +129,7 @@ export default async function Home({ params }) {
       {/* Start Project */}
       <StartProject lang={lang} />
       
-      {/* TeamSection */}
-      <TeamSection lang={lang} />
+     
     </>
   );
 }

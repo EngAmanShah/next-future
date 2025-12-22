@@ -124,7 +124,7 @@ export default function WebDevelopmentPage({ params }) {
             <button className="btn btn-primary btn-lg" onClick={() => document.getElementById("services-section")?.scrollIntoView({ behavior: "smooth" })}>
               {t.readMore}
             </button>
-            <Link href="/contact-us" className="btn btn-outline border text-light p-2">{t.getStarted}</Link>
+            <Link href={`/${params.lang}/contact-us`} className="btn btn-outline border text-light p-2">{t.getStarted}</Link>
           </motion.div>
         </div>
       </div>
@@ -142,7 +142,7 @@ export default function WebDevelopmentPage({ params }) {
                     <h4 className="mb-3">{service.title}</h4>
                     <p>{service.description}</p>
                   </div>
-                  <Link href="/contact-us" className="btn btn-light mt-3">{t.getStarted}</Link>
+                  <Link href={`/${params.lang}/contact-us`} className="btn btn-light mt-3">{t.getStarted}</Link>
                 </div>
               </div>
             ))}

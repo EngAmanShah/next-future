@@ -331,6 +331,15 @@ export default function Navbar({ lang }) {
       },
     },
     {
+      href: "/ERP/property-management",
+      en: "Property Management ERP",
+      ar: "نظام إدارة العقارات",
+      description: {
+        en: "Comprehensive property management solutions",
+        ar: "حلول شاملة لإدارة العقارات",
+      },
+    },
+    {
       href: "/ERP/custom",
       en: "Custom ERP Solutions",
       ar: "حلول ERP مخصصة",

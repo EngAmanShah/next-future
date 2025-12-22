@@ -67,7 +67,7 @@ export default function Footer({ lang }) {
         <div className="row pt-5">
           {/* Company Info */}
           <div className="col-md-6 mb-4 text-center text-md-start">
-            <Link href="/">
+            <Link href={`/${lang}`}>
               <img
                 src="/logo_black.png"
                 alt={`${t.companyName} logo`}
@@ -148,13 +148,13 @@ export default function Footer({ lang }) {
             </h4>
             <div className="d-flex flex-column">
               <h6 className="mb-3">
-                <Link href="/" className="text-decoration-none text-black">
+                <Link href={`/${lang}`} className="text-decoration-none text-black">
                   {t.links.home}
                 </Link>
               </h6>
               <h6 className="mb-3">
                 <Link
-                  href="/about-us"
+                  href={`/${lang}/about-us`}
                   className="text-decoration-none text-black"
                 >
                   {t.links.about}
@@ -162,14 +162,14 @@ export default function Footer({ lang }) {
               </h6>
               <h6 className="mb-3">
                 <Link
-                  href="/contact-us"
+                  href={`/${lang}/contact-us`}
                   className="text-decoration-none text-black"
                 >
                   {t.links.contact}
                 </Link>
               </h6>
               <h6>
-                <Link href="/blog" className="text-decoration-none text-black">
+                <Link href={`/${lang}/blog`} className="text-decoration-none text-black">
                   {t.links.blog}
                 </Link>
               </h6>
@@ -183,7 +183,7 @@ export default function Footer({ lang }) {
             </h4>
             <div className="d-flex flex-column">
               <h6 className="mb-3">
-                <Link href="/faq" className="text-decoration-none text-black">
+                <Link href={`/${lang}/faq`} className="text-decoration-none text-black">
                   {t.links.faq}
                 </Link>
               </h6>
