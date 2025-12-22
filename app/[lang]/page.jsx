@@ -4,12 +4,11 @@ import Hero from '../../components/Hero';
 import Features from '../../components/Feature';
 import Badge from '../../components/Badge/Badge';
 import Market from "@/components/MarketLeader/Market";
-import Team from "@/components/Team/Team";
 import Skills from "@/components/Skills/Skills";
 import StartProject from "@/components/StartProject/StartProject";
 import ValueSlider from "@/components/ValueSlider";
 import TeamSection from '@/components/workteam/team';
-import ServicesSection from '@/components/ServicesSection/ServicesSection'; // New import
+import ServicesSection from '@/components/ServicesSection/ServicesSection';
 
 export default async function Home({ params }) {
   const resolvedParams = await params;
@@ -94,14 +93,12 @@ export default async function Home({ params }) {
 
   return (
     <>
- <div className="my-hero-section">
-  <Hero 
-    lang={lang} 
-    text={heroButton}
-    heroTitle={heroTitle}
-    heroDescription={heroDescription}
-  />
-</div>
+      <Hero 
+        lang={lang} 
+        text={heroButton}
+        heroTitle={heroTitle}
+        heroDescription={heroDescription}
+      />
 
       {/* Feature Section */}
       <Features
@@ -122,9 +119,6 @@ export default async function Home({ params }) {
       
       {/* ValueSlider */}
       <ValueSlider lang={lang} />
-
-      {/* Team */}
-      {/* <Team lang={lang}/> */}
       
       {/* Products */}
       <Products lang={lang} />

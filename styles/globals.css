@@ -34,15 +34,12 @@ body {
 
 body {
   color: var(--foreground);
-  font-family: "Somar", sans-serif;
+  font-family: var(--font-poppins), "Somar", sans-serif;
   background: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.my-hero-section{
-  font-size: 10px !important;
-  color: red !important;
-}
+
 * {
   box-sizing: border-box;
   padding: 0;

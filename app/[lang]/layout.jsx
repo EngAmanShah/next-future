@@ -1,4 +1,5 @@
 import { Poppins, Domine } from "next/font/google";
+import Script from "next/script";
 import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
@@ -14,11 +15,15 @@ import WhatsAppButton from "@/components/WhatsAppButton"; // Add this import
 const primary = Poppins({
   weight: ["400", "700"],
   subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-poppins',
 });
 
 export const secondary = Domine({
   subsets: ["latin"],
   weight: ["400", "700"],
+  display: 'swap',
+  variable: '--font-domine',
 });
 
 export async function generateStaticParams() {
@@ -31,25 +36,40 @@ export async function generateMetadata({ params }) {
 
   const metas = {
     en: {
-      title: "Next Future Information Technology",
+      title: "Next Future IT - Web & App Development, Digital Marketing, ERP Solutions",
       description:
-        "Next Future Information Technology is a forward-thinking digital company. We deliver innovative web and mobile app solutions, digital marketing, graphic design, and IT services tailored to drive business growth, credibility, and measurable results.",
+        "Leading IT company in Saudi Arabia offering web development, mobile apps, digital marketing, ERP systems (Odoo, Property Management), and custom software solutions. Transform your business with Next Future Information Technology.",
+      keywords: "IT solutions Saudi Arabia, web development, mobile app development, digital marketing, ERP systems, Odoo implementation, property management software, construction management, custom software development",
     },
     ar: {
-      title: "نكست فيوتشر لتقنية المعلومات",
+      title: "نكست فيوتشر - تطوير المواقع والتطبيقات، التسويق الرقمي، أنظمة ERP",
       description:
-        "نكست فيوتشر لتقنية المعلومات هي شركة رقمية مبتكرة. نقدم حلول تطوير المواقع والتطبيقات، التسويق الرقمي، التصميم الجرافيكي، وخدمات تكنولوجيا المعلومات المصممة لتعزيز نمو الشركات والمصداقية وتحقيق نتائج ملموسة.",
+        "شركة تقنية معلومات رائدة في السعودية متخصصة في تطوير المواقع، تطبيقات الجوال، التسويق الرقمي، أنظمة ERP (Odoo، إدارة العقارات)، وحلول برمجية مخصصة. حوّل أعمالك مع نكست فيوتشر.",
+      keywords: "حلول تقنية المعلومات السعودية, تطوير المواقع, تطوير التطبيقات, التسويق الرقمي, أنظمة ERP, تطبيق Odoo, برنامج إدارة العقارات, إدارة المشاريع الإنشائية, تطوير برمجيات مخصصة",
     },
   };
 
-  const baseUrl = "";
+  const baseUrl = "https://www.nextfuture-it.com";
   const canonicalUrl = `${baseUrl}/${lang}`;
 
   const meta = metas[lang] || metas.en;
 
   return {
-    title: meta.title,
+    metadataBase: new URL(baseUrl),
+    title: {
+      default: meta.title,
+      template: `%s | Next Future IT`,
+    },
     description: meta.description,
+    keywords: meta.keywords,
+    authors: [{ name: "Next Future Information Technology" }],
+    creator: "Next Future IT",
+    publisher: "Next Future Information Technology",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     alternates: {
       canonical: canonicalUrl,
       languages: {
@@ -61,20 +81,28 @@ export async function generateMetadata({ params }) {
       title: meta.title,
       description: meta.description,
       type: "website",
+      locale: lang === "ar" ? "ar_SA" : "en_US",
       url: canonicalUrl,
-      //  images: [
-      //    {
-      //      url: image,
-      //      width: 1200,
-      //      height: 630,
-      //    },
-      //  ],
+      siteName: "Next Future Information Technology",
     },
     twitter: {
       card: "summary_large_image",
       title: meta.title,
       description: meta.description,
-      //  images: [image],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    verification: {
+      google: 'G-8R5DH60WGN',
     },
   };
 }
@@ -83,16 +111,69 @@ export default async function RootLayout({ children, params }) {
   const resolvedParams = await params;
   const { lang } = resolvedParams;
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Next Future Information Technology",
+    "url": "https://www.nextfuture-it.com",
+    "logo": "https://www.nextfuture-it.com/logo.png",
+    "description": lang === "ar" 
+      ? "شركة تقنية معلومات رائدة في السعودية متخصصة في تطوير المواقع والتطبيقات والتسويق الرقمي"
+      : "Leading IT company in Saudi Arabia offering web development, mobile apps, and digital marketing solutions",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "SA",
+    },
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Arabic"]
+    }
+  };
+
   return (
     <html
       lang={lang}
       dir={lang === "ar" ? "rtl" : "ltr"}
-      data-scroll-behavior="smooth"
+      className={`${primary.variable} ${secondary.variable}`}
     >
       <head>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
-      <body>
+      <body className={primary.className}>
+        {/* Structured Data */}
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-8R5DH60WGN"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-8R5DH60WGN', {
+                page_path: window.location.pathname,
+                anonymize_ip: true
+              });
+            `,
+          }}
+        />
+        
         <ContextProvider>
           <Navbar lang={lang} />
           <ToastContainer position="top-center" autoClose={3000} />
