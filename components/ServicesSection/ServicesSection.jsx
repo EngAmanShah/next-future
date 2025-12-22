@@ -271,7 +271,7 @@ export default function Page({ params }) {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link
-                        href={service.link}
+                        href={`/${currentLang}${service.link}`}
                         className="btn btn-primary mt-auto text-white fw-bold px-4"
                         style={{
                           background:

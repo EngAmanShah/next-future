@@ -26,6 +26,24 @@ export default function ERPConstructionManagement({ resolvedParams }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleContactUs = () => {
+    window.open(
+      lang === 'ar'
+        ? `https://wa.me/966539983393?text=مرحبا، أريد الاستفسار عن نظام إدارة شركات المقاولات`
+        : `https://wa.me/966539983393?text=Hello, I would like to inquire about Construction Management System`,
+      "_blank"
+    );
+  };
+
+  const handleBookAppointment = () => {
+    window.open(
+      lang === 'ar'
+        ? `https://wa.me/966539983393?text=مرحبا، أريد حجز موعد للاستشارة حول نظام إدارة المقاولات`
+        : `https://wa.me/966539983393?text=Hello, I would like to book an appointment for Construction Management System consultation`,
+      "_blank"
+    );
+  };
+
   const content = {
     en: {
       hero: {
@@ -354,11 +372,17 @@ export default function ERPConstructionManagement({ resolvedParams }) {
               </div>
             </div>
             <div className={styles.heroActions}>
-              <button className={`${styles.primaryButton} ${styles.pulseAnimation}`}>
+              <button 
+                className={`${styles.primaryButton} ${styles.pulseAnimation}`}
+                onClick={handleContactUs}
+              >
                 <span className={styles.buttonIcon}>📧</span>
                 {t.hero.cta}
               </button>
-              <button className={styles.secondaryButton}>
+              <button 
+                className={styles.secondaryButton}
+                onClick={handleBookAppointment}
+              >
                 <span className={styles.buttonIcon}>📅</span>
                 {t.hero.book}
               </button>
@@ -509,7 +533,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
             <div className={styles.ctaCard}>
               <h3>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h3>
               <p>{lang === 'ar' ? 'ابدأ رحلتك نحو التميز التشغيلي' : 'Start your journey to operational excellence'}</p>
-              <button className={`${styles.ctaButton} ${styles.pulseAnimation}`}>
+              <button 
+                className={`${styles.ctaButton} ${styles.pulseAnimation}`}
+                onClick={handleBookAppointment}
+              >
                 {t.hero.book}
               </button>
             </div>
@@ -592,7 +619,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
             <div className={styles.ctaCard}>
               <h3>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h3>
               <p>{lang === 'ar' ? 'ابدأ رحلتك نحو التميز التشغيلي' : 'Start your journey to operational excellence'}</p>
-              <button className={`${styles.ctaButton} ${styles.pulseAnimation}`}>
+              <button 
+                className={`${styles.ctaButton} ${styles.pulseAnimation}`}
+                onClick={handleBookAppointment}
+              >
                 {t.hero.book}
               </button>
             </div>
@@ -675,7 +705,10 @@ export default function ERPConstructionManagement({ resolvedParams }) {
             <div className={styles.ctaCard}>
               <h3>{lang === 'ar' ? 'جاهز للتحول الرقمي؟' : 'Ready to Transform?'}</h3>
               <p>{lang === 'ar' ? 'ابدأ رحلتك نحو التميز التشغيلي' : 'Start your journey to operational excellence'}</p>
-              <button className={`${styles.ctaButton} ${styles.pulseAnimation}`}>
+              <button 
+                className={`${styles.ctaButton} ${styles.pulseAnimation}`}
+                onClick={handleBookAppointment}
+              >
                 {t.hero.book}
               </button>
             </div>

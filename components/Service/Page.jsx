@@ -303,7 +303,7 @@ export default function Page({ params }) {
                       whileTap={{ scale: 0.95 }}
                     >
                       <Link 
-                        href={service.link} 
+                        href={`/${lang}${service.link}`} 
                         className="btn btn-light mt-auto text-dark fw-bold px-4"
                         style={{ 
                           background: "linear-gradient(135deg, #fff, #f8f9fa)",
