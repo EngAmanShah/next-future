@@ -24,6 +24,7 @@ export default function Page({ params }) {
 
   const translations = {
     en: {
+      introTitle: "What We Offer", // Add this line
       heroTitle: "Our Services",
       explore: "Explore Services",
       learnMore: "Learn More",
@@ -87,6 +88,7 @@ export default function Page({ params }) {
       ],
     },
     ar: {
+      introTitle: "ماذا نقدم", // Add this line
       heroTitle: "خدماتنا",
       explore: "استكشف الخدمات",
       learnMore: "المزيد من التفاصيل",
@@ -197,13 +199,7 @@ export default function Page({ params }) {
       {/* Clean White Background Section */}
       <div className="position-relative py-5 bg-white min-vh-100">
         <div className="container py-5" style={{ paddingTop: "6rem" }}>
-          <h5
-            className="mb-3 text-center"
-            style={{ color: "#0d1f4c", fontSize: "2.5rem" }}
-          >
-            {t.introTitle}
-          </h5>
-
+       
           <motion.h5
             className="text-center mb-3"
             style={{ color: "#0d1f4c", fontSize: "2.5rem" }}

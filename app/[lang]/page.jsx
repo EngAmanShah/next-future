@@ -1,18 +1,15 @@
-import Products from "@/components/Products/Products";
-import Testimonials from "@/components/Testimonials";
-import Hero from '../../components/Hero';
-import Features from '../../components/Feature';
-import Badge from '../../components/Badge/Badge';
+import Hero from "@/components/Hero";
+import Features from "@/components/Feature";
+import ServicesSection from "@/components/ServicesSection/ServicesSection";
+import Badge from "@/components/Badge/Badge";
 import Market from "@/components/MarketLeader/Market";
+import ValueSlider from "@/components/ValueSlider";
+import Products from "@/components/Products/Products";
 import Skills from "@/components/Skills/Skills";
 import StartProject from "@/components/StartProject/StartProject";
-import ValueSlider from "@/components/ValueSlider";
-import TeamSection from '@/components/workteam/team';
-import ServicesSection from '@/components/ServicesSection/ServicesSection';
 
 export default async function Home({ params }) {
-  const resolvedParams = await params;
-  const { lang } = resolvedParams;
+  const { lang } = params;
 
   const content = {
     en: {
@@ -46,11 +43,10 @@ export default async function Home({ params }) {
         },
       ],
     },
-
     ar: {
-      heroTitle: "نكست فيوتشر لتقنية ",
+      heroTitle: "نكست فيوتشر لتقنية",
       heroDescription:
-      "تمكين الأعمال من خلال الابتكار والتكنولوجيا والاستراتيجية",
+        "تمكين الأعمال من خلال الابتكار والتكنولوجيا والاستراتيجية",
       shopNow: "احصل على استشارتك المجانية",
       whyChooseTitle: "لماذا تختار نكست فيوتشر",
       whyChooseDescription:
@@ -87,49 +83,30 @@ export default async function Home({ params }) {
     whyChooseTitle,
     whyChooseDescription,
     features,
-    heroButton,
-    products,
   } = content[lang] || content.en;
 
   return (
     <>
-      <Hero 
-        lang={lang} 
-        text={heroButton}
+      <Hero
+        lang={lang}
         heroTitle={heroTitle}
         heroDescription={heroDescription}
       />
 
-      {/* Feature Section */}
       <Features
         title={whyChooseTitle}
         description={whyChooseDescription}
         features={features}
         lang={lang}
       />
-      
-      {/* Services Section */}
-      <ServicesSection lang={lang} />
-      
-      {/* Badge */}
-      <Badge lang={lang} />
 
-      {/* Market */}
+      <ServicesSection params={{ lang }} />
+      <Badge lang={lang} />
       <Market lang={lang} />
-      
-      {/* ValueSlider */}
       <ValueSlider lang={lang} />
-      
-      {/* Products */}
       <Products lang={lang} />
-      
-      {/* Skills */}
-      <Skills lang={lang}/>
-      
-      {/* Start Project */}
+      <Skills lang={lang} />
       <StartProject lang={lang} />
-      
-     
     </>
   );
 }
